@@ -1,10 +1,9 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Cubeman.Audio;
 using UnityEngine;
 
-namespace Cubeman.Manager
+namespace Cubeman.Audio
 {
     public enum StageSoundTrack { STAGE, ENCOUNTER, BOSS_FIGHT }
 

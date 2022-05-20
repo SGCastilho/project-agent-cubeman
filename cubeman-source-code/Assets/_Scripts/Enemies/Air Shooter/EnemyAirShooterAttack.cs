@@ -1,3 +1,4 @@
+using Cubeman.Audio;
 using UnityEngine;
 
 namespace Cubeman.Enemies
@@ -9,6 +10,9 @@ namespace Cubeman.Enemies
 
         [Header("Classes")]
         [SerializeField] private EnemyAirShooterBehaviour behaviour;
+        [SerializeField] private AudioSoundEffects soundEffects;
+
+        private const string SHOOT_AUDIO_KEY = "audio_shoot";
 
         [Header("Settings")]
         [SerializeField] private Transform[] shootingLeftPoints;
@@ -26,10 +30,17 @@ namespace Cubeman.Enemies
         [SerializeField] [Range(0.1f, 2f)] private float recoveryDelay = 1f;
         private float _currentRecoveryDelay;
 
+        private AudioClipList _shootSFX;
+
         private bool _canShoot;
         private string _projectileKey;
 
         private void Awake() => LoadData();
+
+        private void Start()
+        {
+            _shootSFX = soundEffects.GetSoundEffect(SHOOT_AUDIO_KEY);
+        }
 
         private void OnEnable() => SetupInitialPoints();
 
@@ -82,7 +93,11 @@ namespace Cubeman.Enemies
                 {
                     behaviour.Moviment.IsMoving = false;
 
-                    if (OnShoot != null) { OnShoot(_projectileKey, shootPoint.position); }
+                    if (OnShoot != null) 
+                    { 
+                        OnShoot(_projectileKey, shootPoint.position);
+                        behaviour.AudioManager.PlaySoundEffectInOrder(ref _shootSFX);
+                    }
 
                     _canShoot = false;
                     _distanceFromShootingPoint = 0;

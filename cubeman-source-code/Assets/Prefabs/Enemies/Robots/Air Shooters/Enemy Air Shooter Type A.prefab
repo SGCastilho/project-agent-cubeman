@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2411022624509342257}
   - component: {fileID: 2411022624509342260}
   - component: {fileID: 2411022624509342256}
+  - component: {fileID: 6959406461364793736}
   m_Layer: 0
   m_Name: behaviour-enemy-air-shooter-typeA
   m_TagString: Untagged
@@ -69,6 +70,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataLoader: {fileID: 2411022624509342263}
+  localAudio: {fileID: 0}
+  soundEffects: {fileID: 6959406461364793736}
   enemyHealth: 0
   disableGameObject: {fileID: 2411022624824033448}
 --- !u!114 &2411022624509342258
@@ -86,6 +89,7 @@ MonoBehaviour:
   dataLoader: {fileID: 2411022624509342263}
   movement: {fileID: 2411022624509342257}
   attack: {fileID: 2411022624509342259}
+  localAudioManager: {fileID: 0}
 --- !u!114 &2411022624509342259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviour: {fileID: 2411022624509342258}
+  soundEffects: {fileID: 0}
   shootingLeftPoints:
   - {fileID: 2411022626474090380}
   - {fileID: 2411022626344094570}
@@ -153,6 +158,28 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 124
   m_CollisionDetection: 0
+--- !u!114 &6959406461364793736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411022624509342219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241d3c6d250776342836cdd9071f7980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipList:
+  - _audioKey: audio_impact
+    _audioVolumeScale: 0.4
+    _audioClip: {fileID: 8300000, guid: ac92871352d0cbc4fb81b0efed069bab, type: 3}
+  - _audioKey: audio_explosion
+    _audioVolumeScale: 0.8
+    _audioClip: {fileID: 8300000, guid: 3e77622f4bd43284e9c4ebe44c803f59, type: 3}
+  - _audioKey: audio_shoot
+    _audioVolumeScale: 0.4
+    _audioClip: {fileID: 8300000, guid: 4fad4c44d02ec274f8967a257eb35812, type: 3}
 --- !u!1 &2411022624749129403
 GameObject:
   m_ObjectHideFlags: 0

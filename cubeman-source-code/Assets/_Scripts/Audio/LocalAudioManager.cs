@@ -1,20 +1,19 @@
-using Cubeman.Audio;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Cubeman.Manager
+namespace Cubeman.Audio
 {
-    internal struct SequenceSoundEffect
+    public struct SequenceSoundEffect
     {
-        internal SequenceSoundEffect(AudioClip clip, float volumeScale)
+        public SequenceSoundEffect(AudioClip clip, float volumeScale)
         {
             _audioClip = clip;
             _volumeScale = volumeScale;
         }
 
-        internal float VolumeScale { get => _volumeScale; }
-        internal AudioClip AudioClip { get => _audioClip; }
+        public float VolumeScale { get => _volumeScale; }
+        public AudioClip AudioClip { get => _audioClip; }
 
         private float _volumeScale;
         private AudioClip _audioClip;

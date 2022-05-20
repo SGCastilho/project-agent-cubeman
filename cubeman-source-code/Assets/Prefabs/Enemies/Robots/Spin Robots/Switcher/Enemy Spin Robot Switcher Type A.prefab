@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 6797217358978764095}
   - component: {fileID: 6797217358978764094}
   - component: {fileID: 6797217358978764089}
+  - component: {fileID: 4423404393844613859}
   m_Layer: 0
   m_Name: behaviour-enemy-spin-robot-typeA
   m_TagString: Enemy
@@ -241,6 +242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataLoader: {fileID: 6797217358978764088}
+  localAudio: {fileID: 0}
+  soundEffects: {fileID: 4423404393844613859}
   enemyHealth: 0
   disableGameObject: {fileID: 6797217359779248186}
 --- !u!114 &6797217358978764092
@@ -312,6 +315,25 @@ CharacterController:
   m_SkinWidth: 0.01
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4423404393844613859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6797217358978764037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241d3c6d250776342836cdd9071f7980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipList:
+  - _audioKey: audio_impact
+    _audioVolumeScale: 0.4
+    _audioClip: {fileID: 8300000, guid: ac92871352d0cbc4fb81b0efed069bab, type: 3}
+  - _audioKey: audio_explosion
+    _audioVolumeScale: 0.8
+    _audioClip: {fileID: 8300000, guid: 3e77622f4bd43284e9c4ebe44c803f59, type: 3}
 --- !u!1 &6797217359729061974
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using Cubeman.Audio;
 using Cubeman.Enemies;
 using Cubeman.Manager;
 using Cubeman.Projectile;
@@ -35,6 +36,8 @@ namespace Cubeman.AnimationEvents
         public void ShootEvent()
         {
             InstantiateProjectile(_projectileKey);
+
+            AudioManager.Instance.PlaySoundEffectInOrder(ref behaviour._shootSFX);
         }
 
         private void InstantiateProjectile(string projectileKey)

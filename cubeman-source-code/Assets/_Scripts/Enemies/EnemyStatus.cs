@@ -1,3 +1,4 @@
+using Cubeman.Audio;
 using Cubeman.Interfaces;
 using UnityEngine;
 
@@ -8,11 +9,19 @@ namespace Cubeman.Enemies
         public delegate void EnemyDeath();
         public event EnemyDeath OnEnemyDeath;
 
+        private const string IMPACT_AUDIO_KEY = "audio_impact";
+        private const string EXPLOSION_AUDIO_KEY = "audio_explosion";
+
         [Header("Classes")]
         [SerializeField] private EnemyDataLoader dataLoader;
+        [SerializeField] private LocalAudioManager localAudio;
+        [SerializeField] private AudioSoundEffects soundEffects;
 
         [Header("Settings")]
         [SerializeField] private int enemyHealth;
+
+        private AudioClipList ImpactSFX;
+        private AudioClipList ExplosionSFX;
 
         [Space(6)]
 
@@ -23,6 +32,14 @@ namespace Cubeman.Enemies
         private void LoadData()
         {
             enemyHealth = dataLoader.Data.Health;
+
+            LoadSoundEffects();
+        }
+
+        private void LoadSoundEffects()
+        {
+            ImpactSFX = soundEffects.GetSoundEffect(IMPACT_AUDIO_KEY);
+            ExplosionSFX = soundEffects.GetSoundEffect(EXPLOSION_AUDIO_KEY);
         }
 
         public void RecoveryHealth(int recoveryAmount)
@@ -40,8 +57,13 @@ namespace Cubeman.Enemies
             if(enemyHealth <= 0)
             {
                 if (OnEnemyDeath != null) { OnEnemyDeath(); }
+                localAudio.PlaySoundEffectInOrder(ref ExplosionSFX);
                 enemyHealth = 0;
                 disableGameObject.SetActive(false);
+            }
+            else 
+            { 
+                localAudio.PlaySoundEffectInOrder(ref ImpactSFX); 
             }
         }
     }

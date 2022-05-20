@@ -1,3 +1,4 @@
+using Cubeman.Audio;
 using UnityEngine;
 
 namespace Cubeman.Enemies
@@ -19,10 +20,21 @@ namespace Cubeman.Enemies
         [SerializeField] private EnemyBusterRobotState state;
         [SerializeField] private EnemyCharacterMoviment moviment;
         [SerializeField] private EnemyBusterRobotAnimator animator;
+        [SerializeField] private AudioSoundEffects soundEffects;
+
+        private const string SHOOT_AUDIO_KEY = "audio_shoot";
+
+        [HideInInspector]
+        public AudioClipList _shootSFX;
 
         private Transform _transform;
 
         private void Awake() => _transform = GetComponent<Transform>();
+
+        private void Start()
+        {
+            _shootSFX = soundEffects.GetSoundEffect(SHOOT_AUDIO_KEY);
+        }
 
         private void OnDisable() => ResetPosistion();
 
