@@ -1,0 +1,17 @@
+{
+    "name": "Cubeman.UI",
+    "rootNamespace": "Cubeman.UI",
+    "references": [
+        "GUID:dd3235e19e7cae1408922bf20f26fb65",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

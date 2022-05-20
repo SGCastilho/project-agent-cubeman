@@ -1,0 +1,21 @@
+{
+    "name": "Cubeman.Player",
+    "rootNamespace": "Cubeman.Player",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:f3b69f7c59c356845815e38e11be3d86",
+        "GUID:e8eb44efcdffa1b46882bb7bd759d6e5",
+        "GUID:bf03f03b5b94c09498b647cf0c8d4e77",
+        "GUID:18a9c2d66df729141bff6427196fbf38",
+        "GUID:3bb50df9c3facbd40a789bf8e289470b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

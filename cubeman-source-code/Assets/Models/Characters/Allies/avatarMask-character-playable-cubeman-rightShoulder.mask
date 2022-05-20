@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: avatarMask-character-playable-cubeman-rightShoulder
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: game_rig
+    m_Weight: 0
+  - m_Path: game_rig/neck
+    m_Weight: 0
+  - m_Path: game_rig/neck/head
+    m_Weight: 0
+  - m_Path: game_rig/root
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/hip.L
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/hip.L/knee.L
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/hip.L/knee.L/shin.L
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/hip.L/knee.L/shin.L/foot.L
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/hip.L/knee.L/shin.L/foot.L/toe.L
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/hip.R
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/hip.R/knee.R
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/hip.R/knee.R/shin.R
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/hip.R/knee.R/shin.R/foot.R
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/hip.R/knee.R/shin.R/foot.R/toe.R
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/spine2
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/spine2/bicep.L
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/spine2/bicep.L/elbow.L
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/spine2/bicep.L/elbow.L/forearm.L
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/spine2/bicep.L/elbow.L/forearm.L/hand.L
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/spine2/bicep.L/elbow.L/forearm.L/hand.L/weapon.L
+    m_Weight: 0
+  - m_Path: game_rig/root/spine1/spine2/bicep.R
+    m_Weight: 1
+  - m_Path: game_rig/root/spine1/spine2/bicep.R/elbow.R
+    m_Weight: 1
+  - m_Path: game_rig/root/spine1/spine2/bicep.R/elbow.R/forearm.R
+    m_Weight: 1
+  - m_Path: game_rig/root/spine1/spine2/bicep.R/elbow.R/forearm.R/hand.R
+    m_Weight: 1
+  - m_Path: game_rig/root/spine1/spine2/bicep.R/elbow.R/forearm.R/hand.R/weapon.R
+    m_Weight: 1
+  - m_Path: mesh
+    m_Weight: 0
+  - m_Path: weapon_mesh
+    m_Weight: 0
+  - m_Path: weapon_rig
+    m_Weight: 0
+  - m_Path: weapon_rig/weapon_handle
+    m_Weight: 0

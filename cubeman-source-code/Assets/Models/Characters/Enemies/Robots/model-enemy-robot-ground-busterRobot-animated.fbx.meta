@@ -1,0 +1,459 @@
+fileFormatVersion: 2
+guid: 3657a2adc9972ca499496f5d86fb52e9
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      74: -5780552787354782191
+    second: animation-character-enemy-robot-busterRobot-idle
+  - first:
+      74: -3756278713441516554
+    second: animation-character-enemy-robot-busterRobot-running
+  - first:
+      74: -5592887184358881610
+    second: animation-character-enemy-robot-busterRobot-shootingPoseIn
+  - first:
+      74: 7062543609503294251
+    second: animation-character-enemy-robot-busterRobot-shootingPose-idle
+  - first:
+      74: 5358877901654361872
+    second: animation-character-enemy-robot-busterRobot-shootingPose-shoot
+  - first:
+      74: -8408530140937878936
+    second: animation-character-enemy-robot-busterRobot-shootingPoseOut
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: animation-character-enemy-robot-busterRobot-idle
+      takeName: metarig|animation
+      internalID: 0
+      firstFrame: 5
+      lastFrame: 1201
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: animation-character-enemy-robot-busterRobot-running
+      takeName: metarig|animation
+      internalID: 0
+      firstFrame: 1210
+      lastFrame: 1310
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: animation-character-enemy-robot-busterRobot-shootingPoseIn
+      takeName: metarig|animation
+      internalID: 0
+      firstFrame: 1320
+      lastFrame: 1350
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: animation-character-enemy-robot-busterRobot-shootingPose-idle
+      takeName: metarig|animation
+      internalID: 0
+      firstFrame: 1360
+      lastFrame: 1460
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: animation-character-enemy-robot-busterRobot-shootingPose-shoot
+      takeName: metarig|animation
+      internalID: 0
+      firstFrame: 1350
+      lastFrame: 1360
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.192971
+        functionName: ShootEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: animation-character-enemy-robot-busterRobot-shootingPoseOut
+      takeName: metarig|animation
+      internalID: 0
+      firstFrame: 1460
+      lastFrame: 1490
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: model-enemy-robot-ground-busterRobot(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mesh
+      parentName: model-enemy-robot-ground-busterRobot(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: metarig
+      parentName: model-enemy-robot-ground-busterRobot(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: spine
+      parentName: metarig
+      position: {x: -0, y: 0.00014816504, z: 0.0113015175}
+      rotation: {x: 0.7904555, y: -0.00000007301806, z: -0.00000009422966, w: 0.61251944}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine.001
+      parentName: spine
+      position: {x: -8.881784e-18, y: 0.0017034456, z: 1.4901161e-10}
+      rotation: {x: -0.10419573, y: 0.00000011856044, z: 0.000000012421106, w: 0.99455684}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: spine.002
+      parentName: spine.001
+      position: {x: 4.2351646e-24, y: 0.001518903, z: -1.8626451e-11}
+      rotation: {x: -0.053510755, y: 1.7631991e-16, z: -2.5729962e-16, w: 0.9985673}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: spine.003
+      parentName: spine.002
+      position: {x: -0, y: 0.0019376682, z: 7.4505804e-11}
+      rotation: {x: -0.079378106, y: 1.7749491e-16, z: 2.229007e-15, w: 0.9968446}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: neck
+      parentName: spine.003
+      position: {x: -8.999725e-24, y: 0.0022086408, z: 1.4901161e-10}
+      rotation: {x: 0.22284195, y: 1.3507718e-15, z: -5.9091483e-15, w: 0.9748546}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: head
+      parentName: neck
+      position: {x: 1.0587912e-24, y: 0.0024151236, z: 2.9802322e-10}
+      rotation: {x: 0.6225829, y: 2.525843e-14, z: 4.4445094e-15, w: 0.78255385}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: shoulder.L
+      parentName: spine.003
+      position: {x: -0.00020479034, y: 0.0014012435, z: 0.0008760222}
+      rotation: {x: -0.54207104, y: 0.30976602, z: 0.38794014, w: 0.67801654}
+      scale: {x: 0.9999998, y: 0.99999994, z: 1}
+    - name: upper_arm.L
+      parentName: shoulder.L
+      position: {x: -0.00034649967, y: 0.0021969902, z: 0.000028294497}
+      rotation: {x: 0.17230488, y: -0.7312571, z: 0.14205386, w: 0.6445114}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1}
+    - name: elbow.L
+      parentName: upper_arm.L
+      position: {x: 0.0000000016088597, y: 0.0033280288, z: -2.6077032e-10}
+      rotation: {x: 0.03895269, y: -0.0011176557, z: -0.020975769, w: 0.9990203}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: forearm.L
+      parentName: elbow.L
+      position: {x: 3.8649886e-10, y: 0.0010774113, z: -8.381903e-11}
+      rotation: {x: 0.040229943, y: 0.10727919, z: 0.015330576, w: 0.9932964}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: hand.L
+      parentName: forearm.L
+      position: {x: 4.7148205e-11, y: 0.0035495334, z: -6.519258e-11}
+      rotation: {x: -0.0052698855, y: -0.010362107, z: 0.022026882, w: 0.9996898}
+      scale: {x: 1, y: 1, z: 1}
+    - name: shoulder.R
+      parentName: spine.003
+      position: {x: 0.00020479034, y: 0.0014012435, z: 0.0008760222}
+      rotation: {x: -0.54207104, y: -0.30976602, z: -0.38794014, w: 0.67801654}
+      scale: {x: 0.9999998, y: 0.99999994, z: 1}
+    - name: upper_arm.R
+      parentName: shoulder.R
+      position: {x: 0.00034649967, y: 0.0021969902, z: 0.000028294497}
+      rotation: {x: 0.17230494, y: 0.731257, z: -0.14205374, w: 0.64451146}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1}
+    - name: elbow.R
+      parentName: upper_arm.R
+      position: {x: -0.0000000016088597, y: 0.0033280288, z: -2.6077032e-10}
+      rotation: {x: 0.038761318, y: 0.010155403, z: 0.021327293, w: 0.99896926}
+      scale: {x: 1, y: 1, z: 1}
+    - name: forearm.R
+      parentName: elbow.R
+      position: {x: 1.3969838e-10, y: 0.0010774113, z: 1.5832484e-10}
+      rotation: {x: 0.04036697, y: -0.11626079, z: -0.014966, w: 0.99228525}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: hand.R
+      parentName: forearm.R
+      position: {x: 0.00000000115484, y: 0.003549534, z: 9.3132255e-12}
+      rotation: {x: -0.005269876, y: 0.010362086, z: -0.022026872, w: 0.9996898}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thigh.L
+      parentName: spine
+      position: {x: -0.0009028453, y: -0.0010200301, z: 0.0005588956}
+      rotation: {x: 0.97850734, y: -0.000000008779518, z: -0.00000023144415, w: 0.20621207}
+      scale: {x: 1, y: 0.99999994, z: 0.99999976}
+    - name: knee.L
+      parentName: thigh.L
+      position: {x: -1.6316618e-11, y: 0.0038075584, z: 1.4074927e-10}
+      rotation: {x: 0.07583011, y: -6.803749e-10, z: -0.000000027025843, w: 0.9971208}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: shin.L
+      parentName: knee.L
+      position: {x: -4.8648904e-11, y: 0.001428849, z: 4.2960406e-11}
+      rotation: {x: 0.0756295, y: 7.15527e-15, z: -0.000000018031475, w: 0.997136}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: foot.L
+      parentName: shin.L
+      position: {x: -1.6340724e-11, y: 0.0040749563, z: -3.1545398e-11}
+      rotation: {x: -0.587025, y: -1.9328125e-14, z: 0.00000013995763, w: 0.8095688}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: toe.L
+      parentName: foot.L
+      position: {x: -1.9522784e-12, y: 0.0017402311, z: -8.262315e-12}
+      rotation: {x: -0.12254595, y: 0.9663642, z: -0.22430703, w: -0.028444873}
+      scale: {x: 1, y: 0.9999998, z: 0.99999994}
+    - name: heel.02.L
+      parentName: foot.L
+      position: {x: 0.00059372943, y: 0.0003696373, z: 0.0009091402}
+      rotation: {x: -0.68879527, y: 0.68879527, z: -0.15987831, w: -0.15987848}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thigh.R
+      parentName: spine
+      position: {x: 0.00090284564, y: -0.0010200301, z: 0.0005588952}
+      rotation: {x: 0.97850734, y: 0.00000004038525, z: 0.0000000018501366, w: 0.20621207}
+      scale: {x: 1, y: 0.99999994, z: 0.99999976}
+    - name: knee.R
+      parentName: thigh.R
+      position: {x: 1.6988322e-11, y: 0.0038075584, z: 1.4074929e-10}
+      rotation: {x: 0.07583011, y: -6.803428e-10, z: 0.0000000091327435, w: 0.9971208}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: shin.R
+      parentName: knee.R
+      position: {x: 4.8648887e-11, y: 0.001428849, z: 4.296046e-11}
+      rotation: {x: 0.0756295, y: -1.0634386e-14, z: 0.000000018031473, w: 0.997136}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: foot.R
+      parentName: shin.R
+      position: {x: 1.6340729e-11, y: 0.0040749563, z: -3.1545343e-11}
+      rotation: {x: -0.587025, y: 3.9174915e-14, z: -0.00000013995763, w: 0.8095688}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: toe.R
+      parentName: foot.R
+      position: {x: 1.952336e-12, y: 0.0017402311, z: -8.262244e-12}
+      rotation: {x: 0.12254595, y: 0.9663642, z: -0.22430703, w: 0.028444873}
+      scale: {x: 1, y: 0.9999998, z: 0.99999994}
+    - name: heel.02.R
+      parentName: foot.R
+      position: {x: -0.00059372943, y: 0.0003696373, z: 0.0009091402}
+      rotation: {x: 0.68879527, y: 0.68879527, z: -0.15987831, w: 0.15987848}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: c6cd7a397fdddf841829a9a60f88fa4b, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

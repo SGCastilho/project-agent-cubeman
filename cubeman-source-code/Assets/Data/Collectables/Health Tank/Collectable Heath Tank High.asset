@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0734deccc9c85c4e91442115d985eb9, type: 3}
+  m_Name: Collectable Heath Tank High
+  m_EditorClassIdentifier: 
+  collectableKey: collectable_health_tank_high
+  collectablePreafab: {fileID: 1939069725081019423, guid: 5c87024e18aaacc4b82510ccddeff9f2, type: 3}
+  collectableInstances: 6
+  collectableSpawnChance: 14
+  devNotes: Default health tank high collectable.
+  recoveryPercentage: 0.6

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0734deccc9c85c4e91442115d985eb9, type: 3}
+  m_Name: Collectable Heath Tank Ultimate
+  m_EditorClassIdentifier: 
+  collectableKey: collectable_health_tank_ultimate
+  collectablePreafab: {fileID: 2303649994790063922, guid: 91af26017a15fc04ba520d40eea234c4, type: 3}
+  collectableInstances: 2
+  collectableSpawnChance: 10
+  devNotes: Default health tank ultimate collectable.
+  recoveryPercentage: 0.8

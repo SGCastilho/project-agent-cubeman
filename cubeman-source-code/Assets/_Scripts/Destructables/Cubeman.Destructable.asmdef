@@ -1,0 +1,19 @@
+{
+    "name": "Cubeman.Destructable",
+    "rootNamespace": "Cubeman.Destructable",
+    "references": [
+        "GUID:f3b69f7c59c356845815e38e11be3d86",
+        "GUID:06e2f423530c40041a00ba793b3d4072",
+        "GUID:18a9c2d66df729141bff6427196fbf38",
+        "GUID:c982dab2680a9294c9b42029fea39559"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

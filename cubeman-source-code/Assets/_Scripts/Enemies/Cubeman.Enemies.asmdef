@@ -1,0 +1,19 @@
+{
+    "name": "Cubeman.Enemies",
+    "rootNamespace": "Cubeman.Enemies",
+    "references": [
+        "GUID:383caa6a1d5d0ea46aa69f2ccb031447",
+        "GUID:bf03f03b5b94c09498b647cf0c8d4e77",
+        "GUID:18a9c2d66df729141bff6427196fbf38",
+        "GUID:3bb50df9c3facbd40a789bf8e289470b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

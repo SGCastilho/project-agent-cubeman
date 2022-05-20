@@ -1,0 +1,179 @@
+using DG.Tweening;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Cubeman.Audio;
+using UnityEngine;
+
+namespace Cubeman.Manager
+{
+    public enum StageSoundTrack { STAGE, ENCOUNTER, BOSS_FIGHT }
+
+    public sealed class AudioManager : MonoBehaviour
+    {
+        #region Singleton
+        public static AudioManager Instance;
+        #endregion
+
+        [Header("Classes")]
+        [SerializeField] private AudioStageSoundTrack stageSoundTrack;
+        [Space(12)]
+        [SerializeField] private AudioSource soundTrackAudioSource;
+        [SerializeField] private AudioSource soundEffectAudioSource;
+
+        [Header("Settings")]
+        [SerializeField] [Range(0.1f, 1f)] private float soundTrackVolume = 0.6f;
+        [SerializeField] [Range(0.1f, 1f)] private float soundEffectVolume = 1f;
+
+        [Space(12)]
+
+        [SerializeField] [Range(0.1f, 2f)] private float soundTrackFadeIn = 1f;
+        [SerializeField] [Range(0.1f, 2f)] private float soundTrackFadeOut = 1f;
+
+        [Space(12)]
+
+        [SerializeField] [Range(100, 400)] private int milisecondsBetweenSoundEffect = 200;
+        private bool _queuePlaying;
+
+        private Queue<SequenceSoundEffect> _soundEffectQueue = new Queue<SequenceSoundEffect>();
+        private AudioClip _currentAudioClip;
+        private float _currentVolumeScale;
+
+        private void Awake() => Instance = this;
+
+        private void OnEnable() => SetAudioSourcesVolume();
+
+        private void Start() => PlaySoundTrack(StageSoundTrack.STAGE);
+
+        private void SetAudioSourcesVolume()
+        {
+            soundTrackAudioSource.volume = soundTrackVolume;
+            soundEffectAudioSource.volume = soundEffectVolume;
+        }
+
+        public void PlaySoundTrack(StageSoundTrack selectedSoundTrack)
+        {
+            AudioClip soundTrackAudioClip = null;
+
+            switch (selectedSoundTrack)
+            {
+                case StageSoundTrack.STAGE:
+                    soundTrackAudioClip = stageSoundTrack.Stage;
+                    break;
+                case StageSoundTrack.ENCOUNTER:
+                    soundTrackAudioClip = stageSoundTrack.Encounter;
+                    break;
+                case StageSoundTrack.BOSS_FIGHT:
+                    soundTrackAudioClip = stageSoundTrack.BossFight;
+                    break;
+            }
+
+            soundTrackAudioSource.clip = soundTrackAudioClip;
+
+            if(soundTrackAudioSource.isPlaying) { soundTrackAudioSource.Stop(); }
+
+            soundTrackAudioSource.Play();
+        }
+
+        public async void PlaySmoothSoundTrack(StageSoundTrack selectedSoundTrack)
+        {
+            AudioClip soundTrackAudioClip = null;
+
+            switch(selectedSoundTrack)
+            {
+                case StageSoundTrack.STAGE:
+                    soundTrackAudioClip = stageSoundTrack.Stage;
+                    break;
+                case StageSoundTrack.ENCOUNTER:
+                    soundTrackAudioClip = stageSoundTrack.Encounter;
+                    break;
+                case StageSoundTrack.BOSS_FIGHT:
+                    soundTrackAudioClip = stageSoundTrack.BossFight;
+                    break;
+            }
+
+            await CheckIfSoundTrackIsPlaying();
+
+            soundTrackAudioSource.clip = soundTrackAudioClip;
+
+            await FadeIn(soundTrackAudioSource, soundTrackVolume);
+
+            soundTrackAudioSource.Play();
+        }
+
+        private async Task CheckIfSoundTrackIsPlaying()
+        {
+            if (soundTrackAudioSource.isPlaying)
+            {
+                await FadeOut(soundTrackAudioSource);
+            }
+
+            await Task.Yield();
+        }
+
+        private async Task FadeIn(AudioSource audioSource)
+        {
+            audioSource.DOKill();
+            audioSource.DOFade(1f, soundTrackFadeIn);
+
+            var taskDelay = (int)soundTrackFadeIn * 1000;
+
+            await Task.Delay(taskDelay);
+        }
+
+        private async Task FadeIn(AudioSource audioSource, float maxVolume)
+        {
+            audioSource.DOKill();
+            audioSource.DOFade(maxVolume, soundTrackFadeIn);
+
+            var taskDelay = (int)soundTrackFadeIn * 1000;
+
+            await Task.Delay(taskDelay);
+        }
+
+        private async Task FadeOut(AudioSource audioSource)
+        {
+            audioSource.DOKill();
+            audioSource.DOFade(0f, soundTrackFadeOut);
+
+            var taskDelay = (int)soundTrackFadeOut * 1000;
+
+            await Task.Delay(taskDelay);
+        }
+
+        public void PlaySoundEffect(ref AudioClip clip)
+        {
+            soundEffectAudioSource.PlayOneShot(clip);
+        }
+
+        public void PlaySoundEffect(ref AudioClip clip, float volumeScale)
+        {
+            soundEffectAudioSource.PlayOneShot(clip, volumeScale);
+        }
+
+        public void PlaySoundEffectInOrder(ref AudioClipList audioClipList)
+        {
+            var sequenceClip = new SequenceSoundEffect(audioClipList._audioClip, audioClipList._audioVolumeScale);
+            _soundEffectQueue.Enqueue(sequenceClip);
+
+            if (!_queuePlaying)
+            {
+                PlayerSoundEffectInQueue();
+                _queuePlaying = true;
+            }
+        }
+
+        private async void PlayerSoundEffectInQueue()
+        {
+            while (_soundEffectQueue.Count > 0)
+            {
+                var sequence = _soundEffectQueue.Dequeue();
+                _currentAudioClip = sequence.AudioClip;
+                _currentVolumeScale = sequence.VolumeScale;
+                PlaySoundEffect(ref _currentAudioClip, _currentVolumeScale);
+                await Task.Delay(milisecondsBetweenSoundEffect);
+            }
+
+            _queuePlaying = false;
+        }
+    }
+}
