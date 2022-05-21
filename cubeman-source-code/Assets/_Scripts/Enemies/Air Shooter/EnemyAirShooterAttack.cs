@@ -12,8 +12,6 @@ namespace Cubeman.Enemies
         [SerializeField] private EnemyAirShooterBehaviour behaviour;
         [SerializeField] private AudioSoundEffects soundEffects;
 
-        private const string SHOOT_AUDIO_KEY = "audio_shoot";
-
         [Header("Settings")]
         [SerializeField] private Transform[] shootingLeftPoints;
         [SerializeField] private Transform[] shootingRightPoints;
@@ -28,19 +26,14 @@ namespace Cubeman.Enemies
         [SerializeField] private Transform shootPoint;
         [Space(6)]
         [SerializeField] [Range(0.1f, 2f)] private float recoveryDelay = 1f;
-        private float _currentRecoveryDelay;
-
-        private AudioClipList _shootSFX;
-
         private bool _canShoot;
+        private float _currentRecoveryDelay;
         private string _projectileKey;
 
-        private void Awake() => LoadData();
+        private const string SHOOT_AUDIO_KEY = "audio_shoot";
+        private AudioClipList _shootSFX;
 
-        private void Start()
-        {
-            _shootSFX = soundEffects.GetSoundEffect(SHOOT_AUDIO_KEY);
-        }
+        private void Awake() => LoadData();
 
         private void OnEnable() => SetupInitialPoints();
 
@@ -49,6 +42,12 @@ namespace Cubeman.Enemies
         private void LoadData()
         {
             _projectileKey = behaviour.DataLoader.Data.Projectile.Key;
+            LoadSoundEffects();
+        }
+
+        private void LoadSoundEffects()
+        {
+            _shootSFX = soundEffects.GetSoundEffect(SHOOT_AUDIO_KEY);
         }
 
         private void ResetGameObject()

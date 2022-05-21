@@ -13,6 +13,7 @@ namespace Cubeman.Audio
 
     public sealed class AudioSoundEffects : MonoBehaviour
     {
+        [Header("Settings")]
         [SerializeField] private List<AudioClipList> audioClipList;
 
         public AudioClipList GetSoundEffect(string soundEffectKey)

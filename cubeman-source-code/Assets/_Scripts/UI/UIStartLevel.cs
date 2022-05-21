@@ -22,9 +22,13 @@ namespace Cubeman.UI
         IEnumerator MessageCoroutine()
         {
             FadeIn();
+
             yield return new WaitForSeconds(messageDuration);
+
             FadeOut();
+
             yield return new WaitForSeconds(fadeDuration);
+            
             if (OnMessageEnd != null) { OnMessageEnd(); }
         }
 

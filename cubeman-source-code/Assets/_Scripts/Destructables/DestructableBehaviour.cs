@@ -1,5 +1,4 @@
 using Cubeman.Audio;
-using Cubeman.Manager;
 using Cubeman.Damagable;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ namespace Cubeman.Destructable
         [Header("Classes")]
         [SerializeField] private DestructableObject destructableObject;
         [SerializeField] private DamagableCollectableSpawn collectableSpawn;
-        [SerializeField] private LocalAudioManager localAudioManager;
+        [SerializeField] private LocalAudioController localAudioManager;
         [SerializeField] private AudioSoundEffects soundEffects;
 
         private Vector3 _startPosistion;

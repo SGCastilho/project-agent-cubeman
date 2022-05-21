@@ -267,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataLoader: {fileID: 5411841700538391918}
   localAudio: {fileID: 0}
-  soundEffects: {fileID: 0}
+  soundEffects: {fileID: 5493025597228800747}
   enemyHealth: 0
   disableGameObject: {fileID: 5411841700311627162}
 --- !u!114 &5411841700538391916

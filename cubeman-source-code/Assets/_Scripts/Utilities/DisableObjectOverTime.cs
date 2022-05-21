@@ -19,6 +19,7 @@ namespace Cubeman.Utilities
         IEnumerator DisableTimeCoroutine()
         {
             yield return new WaitForSeconds(disableTime);
+            
             gameObject.SetActive(false);
         }
     }

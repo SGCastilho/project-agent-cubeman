@@ -5,7 +5,7 @@ namespace Cubeman.Enemies
 {
     public sealed class EnemySpinRobotMovementBetweenTwoPoints : EnemyMovementBetweenTwoPoints
     {
-        [Header("Spin Robot Classes")]
+        [Header("Exclusive Classes")]
         [SerializeField] private RotateObject rotate;
 
         protected override void OnEnable()

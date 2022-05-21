@@ -46,15 +46,9 @@ namespace Cubeman.Enemies
 #endif
         #endregion
 
-        private void Awake()
-        {
-            _startSide = moveRight;
-        }
+        private void Awake() => _startSide = moveRight;
 
-        private void OnEnable()
-        {
-            MoveRight = _startSide;
-        }
+        private void OnEnable() => MoveRight = _startSide;
 
         private void Update() => CalculateMoviment();
 

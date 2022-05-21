@@ -11,7 +11,6 @@ namespace Cubeman.Projectile
         #endregion
 
         protected int _damage;
-
         protected bool _disableOnDamage;
 
         public virtual void OnTriggerEnter(Collider other)

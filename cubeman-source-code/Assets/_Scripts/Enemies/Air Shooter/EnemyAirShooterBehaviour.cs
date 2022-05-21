@@ -8,7 +8,7 @@ namespace Cubeman.Enemies
         #region Encapsulation
         internal EnemyDataLoader DataLoader { get => dataLoader; }
         internal EnemyMovementBetweenTwoPoints Moviment { get => movement; }
-        internal LocalAudioManager AudioManager { get => localAudioManager; }
+        internal LocalAudioController AudioManager { get => localAudioManager; }
 
         public EnemyAirShooterAttack Attack { get => attack; }
         #endregion
@@ -17,6 +17,6 @@ namespace Cubeman.Enemies
         [SerializeField] private EnemyDataLoader dataLoader;
         [SerializeField] private EnemyMovementBetweenTwoPoints movement;
         [SerializeField] private EnemyAirShooterAttack attack;
-        [SerializeField] private LocalAudioManager localAudioManager;
+        [SerializeField] private LocalAudioController localAudioManager;
     }
 }

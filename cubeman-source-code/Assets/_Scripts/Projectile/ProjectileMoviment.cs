@@ -27,13 +27,15 @@ namespace Cubeman.Projectile
 
         private Transform _transform;
 
-        private void Awake() 
+        private void Awake() => SetupObject();
+
+        private void SetupObject()
         {
             _transform = GetComponent<Transform>();
             EnableMoviment();
         }
 
-        private void OnDisable() => ResetPosistion();
+        private void OnDisable() => ResetObject();
 
         private void OnDestroy() => DisableMoviment();
 
@@ -61,17 +63,14 @@ namespace Cubeman.Projectile
             }
         }
 
-        private void ResetPosistion()
+        private void ResetObject()
         {
             _transform.position = Vector3.zero;
         }
 
         private void Update() => Moviment();
 
-        private void Moviment()
-        {
-            MovimentSide();
-        }
+        private void Moviment() => MovimentSide();
 
         private void HorizontalMoviment()
         {

@@ -24,19 +24,21 @@ namespace Cubeman.GameCamera
         [SerializeField] [Range(-38f, -28f)] private float cameraDistance = -28f;
         [SerializeField] [Range(0.1f, 2f)] private float verticalCameraYOffset = 0.6f;
 
-        private Transform _transform;
-
         private Vector3 _correctCameraPos;
 
         private Vector3 _nextPos;
         private Vector3 _smoothPos;
 
+        private Transform _transform;
+
         private void Awake() => _transform = GetComponent<Transform>();
 
-        private void Start() 
+        private void Start() => SetupObject();
+
+        private void SetupObject()
         {
             _correctCameraPos = _transform.position;
-            CheckState(); 
+            CheckState();
         }
 
         private void LateUpdate() => CameraAction();

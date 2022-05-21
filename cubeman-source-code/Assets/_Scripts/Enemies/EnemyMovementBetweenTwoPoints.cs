@@ -40,19 +40,25 @@ namespace Cubeman.Enemies
         protected Vector3 _startPosistion;
         protected Transform _transform;
 
-        protected void Awake()
+        protected void Awake() => SetupObject();
+
+        private void SetupObject()
         {
             _transform = transform;
             _startPosistion = transform.localPosition;
         }
 
-        protected virtual void OnEnable()
+        protected virtual void OnEnable() => EnableObject();
+
+        private void EnableObject()
         {
             _moveRight = startMovingRight;
             _isMoving = true;
         }
 
-        protected void OnDisable()
+        protected void OnDisable() => ResetObject();
+
+        private void ResetObject()
         {
             _transform.localPosition = _startPosistion;
         }

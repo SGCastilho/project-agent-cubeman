@@ -152,7 +152,7 @@ namespace Cubeman.Player
                 {
                     ""name"": """",
                     ""id"": ""1e937e8e-1327-47e1-b93b-1ea6ac0bdfe8"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",

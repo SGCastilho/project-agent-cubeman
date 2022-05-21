@@ -1,21 +1,23 @@
 using DG.Tweening;
-using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Cubeman.Audio
 {
     public enum StageSoundTrack { STAGE, ENCOUNTER, BOSS_FIGHT }
 
-    public sealed class AudioManager : MonoBehaviour
+    public sealed class AudioController : MonoBehaviour
     {
         #region Singleton
-        public static AudioManager Instance;
+        public static AudioController Instance;
         #endregion
 
         [Header("Classes")]
         [SerializeField] private AudioStageSoundTrack stageSoundTrack;
+
         [Space(12)]
+
         [SerializeField] private AudioSource soundTrackAudioSource;
         [SerializeField] private AudioSource soundEffectAudioSource;
 
@@ -31,11 +33,11 @@ namespace Cubeman.Audio
         [Space(12)]
 
         [SerializeField] [Range(100, 400)] private int milisecondsBetweenSoundEffect = 200;
-        private bool _queuePlaying;
 
         private Queue<SequenceSoundEffect> _soundEffectQueue = new Queue<SequenceSoundEffect>();
-        private AudioClip _currentAudioClip;
+        private bool _queuePlaying;
         private float _currentVolumeScale;
+        private AudioClip _currentAudioClip;
 
         private void Awake() => Instance = this;
 

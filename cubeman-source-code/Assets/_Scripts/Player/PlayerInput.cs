@@ -12,6 +12,7 @@ namespace Cubeman.Player
         [SerializeField] private PlayerBehaviour behaviour;
 
         private GameplayInputActions _inputActions;
+
         private float _horizontalAxis;
 
         private void Awake() => _inputActions = new GameplayInputActions();

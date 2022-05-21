@@ -11,41 +11,40 @@ namespace Cubeman.AnimationEvents
         [Header("Classes")]
         [SerializeField] private PlayerBehaviour behaviour;
 
+        private AudioController _audioManager;
+        private ProjectileBehaviour _currentProjectile;
+        private ObjectPoolingManager _poolingManager;
+
         [Header("Settings")]
         [SerializeField] private Transform shootingPointTransform;
 
         private string _projectileKey;
-        private AudioClip _projectileAudioClip;
         private float _projectileAudioClipVolumeScale;
+        private AudioClip _projectileAudioClip;
 
         private string _ultimateProjectileKey;
-        private AudioClip _ultimateAudioClip;
         private float _ultimateAudioClipVolumeScale;
-
-        private ObjectPoolingManager _poolingManager;
-        private AudioManager _audioManager;
-
-        private ProjectileBehaviour _currentProjectile;
+        private AudioClip _ultimateAudioClip;
 
         private void Awake() => CacheComponets();
 
-        private void OnEnable() => GetProjectileData();
-
         private void CacheComponets()
         {
+            _audioManager = AudioController.Instance;
             _poolingManager = ObjectPoolingManager.Instance;
-            _audioManager = AudioManager.Instance;
         }
+
+        private void OnEnable() => GetProjectileData();
 
         private void GetProjectileData()
         {
             _projectileKey = behaviour.Shoot.ProjectileData.Key;
-            _projectileAudioClip = behaviour.Shoot.ProjectileData.ProjectileSFX;
             _projectileAudioClipVolumeScale = behaviour.Shoot.ProjectileData.VolumeScale;
+            _projectileAudioClip = behaviour.Shoot.ProjectileData.ProjectileSFX;
 
             _ultimateProjectileKey = behaviour.Shoot.UltimateData.Key;
-            _ultimateAudioClip = behaviour.Shoot.UltimateData.ProjectileSFX;
             _ultimateAudioClipVolumeScale = behaviour.Shoot.UltimateData.VolumeScale;
+            _ultimateAudioClip = behaviour.Shoot.UltimateData.ProjectileSFX;
         }
 
         public void ShootEvent()
@@ -57,14 +56,14 @@ namespace Cubeman.AnimationEvents
 
         public void ShootUltimateEvent()
         {
-            InstantiateProjectile(_ultimateProjectileKey);
-
-            _audioManager.PlaySoundEffect(ref _ultimateAudioClip, _ultimateAudioClipVolumeScale);
-
             behaviour.Input.GameplayInputs(true);
             behaviour.Moviment.Gravity.FreezeGravity = false;
             behaviour.Status.InvensibleMode = false;
             behaviour.Status.UltimateReady = false;
+
+            InstantiateProjectile(_ultimateProjectileKey);
+
+            _audioManager.PlaySoundEffect(ref _ultimateAudioClip, _ultimateAudioClipVolumeScale);
         }
 
         private void InstantiateProjectile(string projectileKey)

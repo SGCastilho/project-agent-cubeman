@@ -35,17 +35,22 @@ namespace Cubeman.Enemies
         private Vector2 _xVelocity;
         private Vector2 _finalVelocity;
 
-        private void Awake()
-        {
-            _startPosistion = transform.localPosition;
-        }
+        private Transform _transform;
 
-        private void OnEnable() => SetupObject();
+        private void Awake() => SetupObject();
 
         private void SetupObject()
         {
-            MoveRight = startMoveRight;
+            _transform = GetComponent<Transform>();
+            
+            _startPosistion = transform.localPosition;
+        }
 
+        private void OnEnable() => EnableObject();
+
+        private void EnableObject()
+        {
+            MoveRight = startMoveRight;
             characterGravity.FreezeGravity = false;
         }
 
@@ -58,7 +63,7 @@ namespace Cubeman.Enemies
             _finalVelocity = Vector2.zero;
             _xVelocity = Vector2.zero;
 
-            transform.localPosition = _startPosistion;
+            _transform.localPosition = _startPosistion;
         }
 
         private void Update() => Moviment();

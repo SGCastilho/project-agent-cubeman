@@ -7,15 +7,14 @@ namespace Cubeman.Trigger
 {
     public sealed class CollectableHeathTankTrigger : MonoBehaviour
     {
-        private const string COLLECT_SFX = "audio_collect";
-
         [Header("Data")]
         [SerializeField] private CollectableHeathTankData collectableData;
 
         [Header("Classes")]
         [SerializeField] private AudioSoundEffects soundEffects;
-
         private PlayerBehaviour _player;
+
+        private const string COLLECT_SFX = "audio_collect";
 
         private void Awake() => _player = FindObjectOfType<PlayerBehaviour>();
 
@@ -26,7 +25,7 @@ namespace Cubeman.Trigger
                 _player.Status.RecoveryHealth(collectableData.RecoveryPercentage);
 
                 var audioList = soundEffects.GetSoundEffect(COLLECT_SFX);
-                AudioManager.Instance.PlaySoundEffectInOrder(ref audioList);
+                AudioController.Instance.PlaySoundEffectInOrder(ref audioList);
 
                 gameObject.SetActive(false);
             }

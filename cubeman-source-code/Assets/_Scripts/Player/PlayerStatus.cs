@@ -7,11 +7,8 @@ namespace Cubeman.Player
 {
     public sealed class PlayerStatus : MonoBehaviour, IDamageble
     {
-        #region Encapsulation
-        internal PlayerData Data { get => data; }
-        
+        #region Encapsulation  
         public bool InvensibleMode { set => invensibleMode = value; }
-
         public bool UltimateReady 
         {
             get => _ultimateReady;
@@ -34,6 +31,8 @@ namespace Cubeman.Player
         }
 
         public string StaggerSFX { get => STAGGER_AUDIO_KEY; }
+
+        internal PlayerData Data { get => data; }
         #endregion
 
         public delegate void PlayerRecovery(float currentHealth, float maxHealth);
@@ -89,20 +88,7 @@ namespace Cubeman.Player
             _ultimateCharge = data.UltimateCharge;
         }
 
-        private void Update() 
-        {
-            UltimateCharge();
-
-            if(Input.GetKeyDown(KeyCode.F1))
-            {
-                ApplyDamage(8);
-            }
-
-            if (Input.GetKeyDown(KeyCode.F2))
-            {
-                RecoveryHealth(8);
-            }
-        }
+        private void Update() => UltimateCharge();
 
         private void UltimateCharge()
         {
@@ -158,13 +144,15 @@ namespace Cubeman.Player
 
         public void ApplyDamage(int damage)
         {
-            if(!_isDead && !_damageImmune && !invensibleMode)
+            if(_isDead) return;
+
+            if(!_damageImmune && !invensibleMode)
             {
                 currentHealth -= damage;
                 if (currentHealth <= 0)
                 {
-                    currentHealth = 0;
                     _isDead = true;
+                    currentHealth = 0;
                     StartCoroutine(DeathCoroutine());
                 }
                 else
@@ -177,6 +165,15 @@ namespace Cubeman.Player
             }
         }
 
+        public void InstaDeath()
+        {
+            currentHealth = 0;
+            if(OnPlayerTakeDamage != null) { OnPlayerTakeDamage(currentHealth, data.Health); }
+
+            _isDead = true;
+            StartCoroutine(DeathCoroutine());
+        }
+
         IEnumerator ImmunityCoroutine()
         {
             _damageImmune = true;
@@ -186,6 +183,8 @@ namespace Cubeman.Player
 
         IEnumerator DeathCoroutine()
         {
+            yield return new WaitForSeconds(0.2f);
+
             behaviour.Input.GameplayInputs(false);
             behaviour.Moviment.Gravity.FreezeGravity = true;
             behaviour.Animation.IsDeadAnimation = true;

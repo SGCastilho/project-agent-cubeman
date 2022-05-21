@@ -19,16 +19,16 @@ namespace Cubeman.Audio
         private AudioClip _audioClip;
     }
 
-    public sealed class LocalAudioManager : MonoBehaviour
+    public sealed class LocalAudioController : MonoBehaviour
     {
         [Header("Classes")]
         [SerializeField] private AudioSource audioSource;
 
         [Header("Settings")]
         [SerializeField] [Range(100, 400)] private int milisecondsBetweenSoundEffect = 200;
-        private bool _queuePlaying;
 
         private Queue<SequenceSoundEffect> soundEffectQueue = new Queue<SequenceSoundEffect>();
+        private bool _queuePlaying;
 
         public void PlaySoundTrack(ref AudioClip clip)
         {

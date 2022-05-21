@@ -23,5 +23,5 @@ MonoBehaviour:
   projectileLevel: 1
   projectileDamageScaling: 0.6
   projectileVelocity: 10
-  projectileRange: 4
+  projectileRange: 2
   devNotes: Default Ultimate projectile.

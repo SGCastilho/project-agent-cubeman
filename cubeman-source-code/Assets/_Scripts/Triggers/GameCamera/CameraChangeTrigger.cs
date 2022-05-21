@@ -106,7 +106,7 @@ namespace Cubeman.Trigger
                     {
                         if(camTrigger.CameraFixedPoint == null)
                         {
-                            Debug.LogWarning("Fixed Camera Point não foi encontrado, não é possivel usar o preview.");
+                            Debug.LogWarning("Fixed Camera Point nï¿½o foi encontrado, nï¿½o ï¿½ possivel usar o preview.");
                             return;
                         }
                         else

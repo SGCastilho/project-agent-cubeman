@@ -33,9 +33,15 @@ namespace Cubeman.Player
         [SerializeField] [Range(1f, 20f)] private float movementSpeed = 6f;
         [SerializeField] [Range(4f, 20f)] private float dashSpeed = 12f;
         [SerializeField] [Range(0.1f, 2f)] private float dashDuration = 0.26f;
+
         [Space(12)]
+        
         [SerializeField] [Range(0.1f, 1f)] private float staggerDuration = 0.2f;
         [SerializeField] [Range(1f, 12f)] private float staggerForce = 2.6f;
+
+        [Space(12)]
+
+        [SerializeField] private Transform graphicsTransform;
 
         private bool _moveRight;
         private bool _isDashing;
@@ -46,10 +52,6 @@ namespace Cubeman.Player
 
         private Vector2 _xVelocity;
         private Vector2 _finalVelocity;
-
-        [Space(12)]
-
-        [SerializeField] private Transform graphicsTransform;
 
         private void Start() => _moveRight = true;
 

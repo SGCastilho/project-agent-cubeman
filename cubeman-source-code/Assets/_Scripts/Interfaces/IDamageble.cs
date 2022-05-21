@@ -4,5 +4,6 @@ namespace Cubeman.Interfaces
     {
         public void RecoveryHealth(int recoveryAmount);
         public void ApplyDamage(int damageAmount);
+        public void InstaDeath();
     }
 }

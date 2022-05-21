@@ -55,7 +55,9 @@ namespace Cubeman.UI
 
         private void Start() => HUDFadeIn();
 
-        private void Update()
+        private void Update() => ResourcesTimer();
+
+        private void ResourcesTimer()
         {
             ResourcesInScreenTimer();
             AmountResourcesInScreenTimer();

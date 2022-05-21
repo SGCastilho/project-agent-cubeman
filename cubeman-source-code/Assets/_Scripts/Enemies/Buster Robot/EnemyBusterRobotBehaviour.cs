@@ -7,11 +7,10 @@ namespace Cubeman.Enemies
     {
         #region Encapsulation
         public EnemyDataLoader DataLoader { get => dataLoader; }
+        public EnemyCharacterMoviment Moviment { get => moviment; }
 
         internal EnemyBusterRobotState State { get => state; }
-        public EnemyCharacterMoviment Moviment { get => moviment; }
         internal EnemyBusterRobotAnimator Animator { get => animator; }
-
         internal Transform EnemyTransform { get => _transform; }
         #endregion
 
@@ -23,22 +22,23 @@ namespace Cubeman.Enemies
         [SerializeField] private AudioSoundEffects soundEffects;
 
         private const string SHOOT_AUDIO_KEY = "audio_shoot";
-
         [HideInInspector]
-        public AudioClipList _shootSFX;
+        public AudioClipList shootSFX;
 
         private Transform _transform;
 
         private void Awake() => _transform = GetComponent<Transform>();
 
-        private void Start()
+        private void Start() => LoadSoundEffects();
+
+        private void LoadSoundEffects()
         {
-            _shootSFX = soundEffects.GetSoundEffect(SHOOT_AUDIO_KEY);
+            shootSFX = soundEffects.GetSoundEffect(SHOOT_AUDIO_KEY);
         }
 
-        private void OnDisable() => ResetPosistion();
+        private void OnDisable() => ResetObject();
 
-        private void ResetPosistion()
+        private void ResetObject()
         {
             _transform.position = state.OriginPointTransform.position;
         }

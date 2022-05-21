@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8954801052095904827
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5520815368590245694, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8670151273213183110, guid: 448b78075ee84a34dacb730b4e5c93b6, type: 3}
+    - target: {fileID: 7398620035135264794, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264794, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264794, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264794, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264794, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264794, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264794, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264794, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264794, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264794, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264794, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264804, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_Name
+      value: collectables-health-tank-high
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264807, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_Size.y
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398620035135264807, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104767845464402464, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_Size.z
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104767845464402464, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104767845464402464, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: m_Center.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104767845464402467, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}
+      propertyPath: collectableData
+      value: 
+      objectReference: {fileID: 11400000, guid: 656d6bf87e8ce4f41aa9822345160d14, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 08b8f20c8ae53c64fa5b0141331ac2f1, type: 3}

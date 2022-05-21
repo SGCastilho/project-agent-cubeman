@@ -1,5 +1,6 @@
 using Cubeman.Audio;
 using Cubeman.Interfaces;
+using Cubeman.ScriptableObjects;
 using UnityEngine;
 
 namespace Cubeman.Destructable
@@ -15,6 +16,9 @@ namespace Cubeman.Destructable
         public delegate void DestructObjectFinish(ref AudioClipList audioClipList);
         public event DestructObjectFinish OnDestructObjectFinish;
 
+        [Header("Data")]
+        [SerializeField] private DestructableData data;
+
         [Header("Classes")]
         [SerializeField] private DestructableBehaviour behaviour;
 
@@ -22,7 +26,6 @@ namespace Cubeman.Destructable
         private const string EXPLOSION_SFX = "audio_explosion";
 
         [Header("Settings")]
-        [SerializeField] [Range(1, 200)] private int maxHealth = 20;
         private int _health;
 
         private AudioClip _impactSFX;
@@ -34,7 +37,7 @@ namespace Cubeman.Destructable
 
         private void ResetHealth()
         {
-            _health = maxHealth;
+            _health = data.Health;
         }
 
         private void Start() => LoadSoundEffects();
@@ -67,12 +70,23 @@ namespace Cubeman.Destructable
             }
         }
 
+        public void InstaDeath()
+        {
+            _health = 0;
+
+            if (OnDestructObject != null) { OnDestructObject(); }
+
+            gameObject.SetActive(false);
+
+            if(OnDestructObjectFinish != null) { OnDestructObjectFinish(ref _explosionAudioList); }
+        }
+
         public void RecoveryHealth(int recoveryAmount)
         {
             _health += recoveryAmount;
-            if(_health > maxHealth)
+            if(_health > data.Health)
             {
-                _health = maxHealth;
+                _health = data.Health;
             }
         }
     }

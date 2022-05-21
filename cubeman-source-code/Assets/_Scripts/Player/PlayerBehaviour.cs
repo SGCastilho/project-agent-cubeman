@@ -10,10 +10,10 @@ namespace Cubeman.Player
         public PlayerInput Input { get => input; }
         public PlayerMoviment Moviment { get => moviment; }
         public PlayerShoot Shoot { get => shoot; }
-        internal PlayerAnimation Animation { get => anim; }
         public AudioSoundEffects SoundEffect { get => soundEffects; }
-
         public Transform Transform { get => _transform; }
+        
+        internal PlayerAnimation Animation { get => anim; }
         #endregion
 
         [Header("Classes")]

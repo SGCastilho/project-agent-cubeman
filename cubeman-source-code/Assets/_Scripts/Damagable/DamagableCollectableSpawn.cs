@@ -7,11 +7,11 @@ namespace Cubeman.Damagable
 {
     public sealed class DamagableCollectableSpawn : MonoBehaviour
     {
+        private ObjectPoolingManager _poolingManager;
+
         [Header("Settings")]
         [SerializeField] private CollectableData[] collectableList;
         [SerializeField] private Transform collectableSpawnPoint;
-
-        private ObjectPoolingManager _poolingManager;
 
         [Space(12)]
 

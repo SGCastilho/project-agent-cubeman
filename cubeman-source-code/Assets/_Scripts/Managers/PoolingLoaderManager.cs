@@ -1,7 +1,7 @@
-using System.Threading.Tasks;
 using Cubeman.Player;
 using Cubeman.Enemies;
 using Cubeman.ScriptableObjects;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Cubeman.Manager

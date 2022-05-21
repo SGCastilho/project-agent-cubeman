@@ -7,9 +7,9 @@ namespace Cubeman.Projectile
     public sealed class ProjectileBehaviour : MonoBehaviour
     {
         #region Encapsulation
-        internal ProjectileData Data { get => data; }
-
         public ProjectileMoviment Moviment { get => moviment; }
+
+        internal ProjectileData Data { get => data; }
         internal ProjectileDamage Damage { get => damage; }
         #endregion
 

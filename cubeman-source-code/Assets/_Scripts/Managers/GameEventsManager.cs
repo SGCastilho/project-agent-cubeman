@@ -13,11 +13,13 @@ namespace Cubeman.Manager
         [SerializeField] private ResourcesData resourceData;
 
         [Header("Classes")]
-        [SerializeField] private AudioManager audioManager;
+        [SerializeField] private AudioController audioManager;
         [SerializeField] private GameStateManager gameStateManager;
         [SerializeField] private SceneLoaderManager sceneLoaderManager;
         [SerializeField] private ObjectPoolingManager poolingManager;
+
         [Space(12)]
+
         [SerializeField] private UIFade uiFade;
         [SerializeField] private UIStartLevel uiStartLevel;
         [SerializeField] private UIPlayerHUD uiPlayerHUD;
@@ -35,7 +37,6 @@ namespace Cubeman.Manager
         private void CacheComponets()
         {
             _player = FindObjectOfType<PlayerBehaviour>();
-
             _airShooters = FindObjectsOfType<EnemyAirShooterBehaviour>();
         }
 
@@ -61,17 +62,23 @@ namespace Cubeman.Manager
 
         private void EnableMultiplusEvents()
         {
-            for(int i = 0; i < _airShooters.Length; i++)
+            if(_airShooters != null && _airShooters.Length > 0)
             {
-                _airShooters[i].Attack.OnShoot += poolingManager.SpawnPrefabNoReturn;
+                for(int i = 0; i < _airShooters.Length; i++)
+                {
+                    _airShooters[i].Attack.OnShoot += poolingManager.SpawnPrefabNoReturn;
+                }
             }
         }
 
         private void DisableMultiplusEvents()
         {
-            for (int i = 0; i < _airShooters.Length; i++)
+            if(_airShooters != null && _airShooters.Length > 0)
             {
-                _airShooters[i].Attack.OnShoot -= poolingManager.SpawnPrefabNoReturn;
+                for(int i = 0; i < _airShooters.Length; i++)
+                {
+                    _airShooters[i].Attack.OnShoot -= poolingManager.SpawnPrefabNoReturn;
+                }
             }
         }
 
