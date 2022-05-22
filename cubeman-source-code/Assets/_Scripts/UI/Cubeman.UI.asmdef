@@ -3,6 +3,7 @@
     "rootNamespace": "Cubeman.UI",
     "references": [
         "GUID:dd3235e19e7cae1408922bf20f26fb65",
+        "GUID:3bb50df9c3facbd40a789bf8e289470b",
         "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [],

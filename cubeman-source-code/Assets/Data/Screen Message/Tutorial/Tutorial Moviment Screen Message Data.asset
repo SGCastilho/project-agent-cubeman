@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbb65315edc2b14796dcf5a64a2703b, type: 3}
   m_Name: Tutorial Moviment Screen Message Data
   m_EditorClassIdentifier: 
-  message: Pressione <sprite=0> ou <sprite=1> para se movimentar
+  message: Pressione <sprite=1> ou <sprite=0> para se movimentar
   hotkeysSpriteAsset: {fileID: 11400000, guid: e5445cb8a4f4f204eaff160454f366c7, type: 2}
   devNotes: Put your dev notes here.
