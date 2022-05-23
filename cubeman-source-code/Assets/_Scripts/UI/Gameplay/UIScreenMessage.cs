@@ -7,12 +7,11 @@ namespace Cubeman.UI
 {
     public sealed class UIScreenMessage : MonoBehaviour
     {
+        private ScreenMessageData messageData;
+
         [Header("Classes")]
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private TextMeshProUGUI messageTMP;
-
-        [Header("Message Data")]
-        [SerializeField] private ScreenMessageData messageData;
 
         [Header("Settings")]
         [SerializeField] [Range(0.1f, 1f)] private float fadeDuration = 0.2f;

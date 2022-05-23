@@ -14,6 +14,7 @@ namespace Cubeman.Manager
 
         [Header("Classes")]
         [SerializeField] private AudioController audioManager;
+        [SerializeField] private DialogueManager dialogueManager;
         [SerializeField] private GameStateManager gameStateManager;
         [SerializeField] private SceneLoaderManager sceneLoaderManager;
         [SerializeField] private ObjectPoolingManager poolingManager;
@@ -23,6 +24,7 @@ namespace Cubeman.Manager
         [SerializeField] private UIFade uiFade;
         [SerializeField] private UIStartLevel uiStartLevel;
         [SerializeField] private UIPlayerHUD uiPlayerHUD;
+        [SerializeField] private UIDialogue uiDialogue;
 
         private PlayerBehaviour _player;
 
@@ -56,6 +58,10 @@ namespace Cubeman.Manager
             _player.Status.OnPlayerDeathComplete += gameStateManager.GameLose;
 
             resourceData.OnAddResources += uiPlayerHUD.UpdateResources;
+
+            dialogueManager.OnDialogueReady += uiDialogue.FadeIn;
+            dialogueManager.OnDialogueLoad += uiDialogue.SetDialogue;
+            dialogueManager.OnDialogueEnd += uiDialogue.FadeOut;
 
             EnableMultiplusEvents();
         }
@@ -98,6 +104,10 @@ namespace Cubeman.Manager
             _player.Status.OnPlayerDeathComplete -= gameStateManager.GameLose;
 
             resourceData.OnAddResources -= uiPlayerHUD.UpdateResources;
+
+            dialogueManager.OnDialogueReady -= uiDialogue.FadeIn;
+            dialogueManager.OnDialogueLoad -= uiDialogue.SetDialogue;
+            dialogueManager.OnDialogueEnd -= uiDialogue.FadeOut;
 
             DisableMultiplusEvents();
         }

@@ -12,6 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814a5aa634774bb47b41d9d69f5ae867, type: 3}
   m_Name: Pause Dialogue Message Data
   m_EditorClassIdentifier: 
-  dialogueSequence: []
-  hotkeysSpriteAsset: {fileID: 0}
+  dialogueSequence:
+  - characterName: Oracle
+    characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
+    characterDialogue: "Pressionando <sprite=5> ou <sprite=6>, o jogo ser\xE1 pausado
+      e uma nova janela ir\xE1 se abrir. "
+  - characterName: Oracle
+    characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
+    characterDialogue: "Durante essa janela, 3 bot\xF5es estaram em destaque: Continuar,
+      Op\xE7\xF5es e Sair."
+  - characterName: Oracle
+    characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
+    characterDialogue: "Op\xE7\xF5es abrir\xE1 uma nova janela, onde ser\xE1 possivel
+      mexer nas configura\xE7\xF5es de v\xEDdeo, audio e controles. Ajuste cada configura\xE7\xE3o
+      do modo que mais lhe agrade."
+  - characterName: Oracle
+    characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
+    characterDialogue: "Sair abrir\xE1 uma pequena janela, onde duas op\xE7\xF5es
+      apareceram: Voltar ao QG e Voltar ao Menu Principal."
+  - characterName: Oracle
+    characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
+    characterDialogue: "Continuar ir\xE1 despausar o jogo, e te trazer de volta para
+      a\xE7\xE3o. Apertar novamente os bot\xF5es <sprite=5> ou <sprite=6> far\xE1
+      a mesma fun\xE7\xE3o."
+  hotkeysSpriteAsset: {fileID: 11400000, guid: e5445cb8a4f4f204eaff160454f366c7, type: 2}
   devNotes: Put your dev notes here.

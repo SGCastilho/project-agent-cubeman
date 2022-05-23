@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 namespace Cubeman.Player
@@ -14,9 +15,9 @@ namespace Cubeman.Player
 
         private GameplayInputActions _inputActions;
 
-        private Action _lastInteractAction;
-        private Action _lastSubmitAction;
-        private Action _lastCancelAction;
+        private Action OnInteract;
+        private Action OnSubmit;
+        private Action OnCancel;
 
         private float _horizontalAxis;
 
@@ -50,17 +51,6 @@ namespace Cubeman.Player
             _horizontalAxis = _inputActions.Gameplay.Horizontal.ReadValue<float>();
         }
 
-        public void SubscribeInteractInput(Action action)
-        {
-            _lastInteractAction = action;
-            _inputActions.Gameplay.Interact.started += ctx => action();
-        }
-
-        public void UnSubscribeInteractInput(Action action)
-        {
-            _inputActions.Gameplay.Interact.started -= ctx => action();
-        }
-
         public void GameplayInputs(bool enable)
         {
             if(enable)
@@ -71,6 +61,22 @@ namespace Cubeman.Player
             {
                 _inputActions.Gameplay.Disable();
             }
+        }
+
+        public void SubscribeInteractInput(Action interactAction)
+        {
+            OnInteract = interactAction;
+            _inputActions.Gameplay.Interact.started += Interact;
+        }
+
+        public void UnSubscribeInteractInput()
+        {
+            _inputActions.Gameplay.Interact.started -= Interact;
+        }
+
+        private void Interact(InputAction.CallbackContext ctx)
+        {
+            OnInteract();
         }
 
         private void EnableGameplayEvents()
@@ -98,13 +104,7 @@ namespace Cubeman.Player
 
             _inputActions.Gameplay.Ultimate.started -= ctx => behaviour.Shoot.UltimateShooting();
 
-            _inputActions.Gameplay.Interact.started -= ctx => _lastInteractAction();
-        }
-
-        private void DisableUIEvents()
-        {
-            _inputActions.UI.Submit.started -= ctx => _lastSubmitAction();
-            _inputActions.UI.Cancel.started -= ctx => _lastCancelAction();
+            _inputActions.Gameplay.Interact.started -= Interact;
         }
 
         public void UIInputs(bool enable)
@@ -121,24 +121,40 @@ namespace Cubeman.Player
 
         public void SubscribeSubmitInput(Action action)
         {
-            _lastSubmitAction = action;
-            _inputActions.UI.Submit.started += ctx => action();
+            OnSubmit = action;
+            _inputActions.UI.Submit.started += Submit;
         }
 
-        public void UnSubscribeSubmitInput(Action action)
+        public void UnSubscribeSubmitInput()
         {
-            _inputActions.UI.Submit.started -= ctx => action();
+            _inputActions.UI.Submit.started -= Submit;
+        }
+
+        private void Submit(InputAction.CallbackContext ctx)
+        {
+            OnSubmit();
         }
 
         public void SubscribeCancelInput(Action action)
         {
-            _lastCancelAction = action;
-            _inputActions.UI.Cancel.started += ctx => action();
+            OnCancel = action;
+            _inputActions.UI.Cancel.started += Cancel;
         }
 
         public void UnSubscribeCancelInput(Action action)
         {
-            _inputActions.UI.Cancel.started -= ctx => action();
+            _inputActions.UI.Cancel.started -= Cancel;
+        }
+
+        private void Cancel(InputAction.CallbackContext ctx)
+        {
+            OnCancel();
+        }
+
+        private void DisableUIEvents()
+        {
+            _inputActions.UI.Submit.started -= Submit;
+            _inputActions.UI.Cancel.started -= Cancel;
         }
     }
 }

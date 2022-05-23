@@ -13,14 +13,15 @@ namespace Cubeman.Trigger
 
         [Space(6)]
 
-        [SerializeField] private UnityEvent RangeToInteract;
-        [SerializeField] private UnityEvent OutOfRangeToInteract;
+        [SerializeField] private UnityEvent OnRangeToInteract;
+        [SerializeField] private UnityEvent OnInteract;
+        [SerializeField] private UnityEvent OnOutOfRangeToInteract;
 
         public void OnTriggerEnter(Collider other)
         {
             if(other.CompareTag("Player"))
             {
-                RangeToInteract.Invoke();
+                OnRangeToInteract.Invoke();
 
                 if(_player == null) 
                 {
@@ -31,20 +32,15 @@ namespace Cubeman.Trigger
             }
         }
 
-        public void Interact()
-        {
-            _player.Input.GameplayInputs(false);
-            _player.Input.UIInputs(true);
-            _player.Input.UnSubscribeInteractInput(Interact);
-        }
+        public void Interact() => OnInteract.Invoke();
 
         public void OnTriggerExit(Collider other)
         {
-            OutOfRangeToInteract.Invoke();
-
             if(other.CompareTag("Player"))
             {
-                _player.Input.UnSubscribeInteractInput(Interact);
+                _player.Input.UnSubscribeInteractInput();
+                
+                OnOutOfRangeToInteract.Invoke();
             }
         }
     }
