@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Cubeman.Player
@@ -13,6 +14,10 @@ namespace Cubeman.Player
 
         private GameplayInputActions _inputActions;
 
+        private Action _lastInteractAction;
+        private Action _lastSubmitAction;
+        private Action _lastCancelAction;
+
         private float _horizontalAxis;
 
         private void Awake() => _inputActions = new GameplayInputActions();
@@ -26,16 +31,34 @@ namespace Cubeman.Player
         private void OnDisable()
         {
             _inputActions.Disable();
+            DisableUIEvents();
             DisableGameplayEvents();
         }
 
-        private void Start() => GameplayInputs(false);
+        private void Start() => SetupInputs();
+
+        private void SetupInputs()
+        {
+            UIInputs(false);
+            GameplayInputs(false);
+        }
 
         private void Update() => ConstantInputs();
 
         private void ConstantInputs()
         {
             _horizontalAxis = _inputActions.Gameplay.Horizontal.ReadValue<float>();
+        }
+
+        public void SubscribeInteractInput(Action action)
+        {
+            _lastInteractAction = action;
+            _inputActions.Gameplay.Interact.started += ctx => action();
+        }
+
+        public void UnSubscribeInteractInput(Action action)
+        {
+            _inputActions.Gameplay.Interact.started -= ctx => action();
         }
 
         public void GameplayInputs(bool enable)
@@ -74,6 +97,48 @@ namespace Cubeman.Player
             _inputActions.Gameplay.Shoot.performed -= ctx => behaviour.Shoot.Shooting();
 
             _inputActions.Gameplay.Ultimate.started -= ctx => behaviour.Shoot.UltimateShooting();
+
+            _inputActions.Gameplay.Interact.started -= ctx => _lastInteractAction();
+        }
+
+        private void DisableUIEvents()
+        {
+            _inputActions.UI.Submit.started -= ctx => _lastSubmitAction();
+            _inputActions.UI.Cancel.started -= ctx => _lastCancelAction();
+        }
+
+        public void UIInputs(bool enable)
+        {
+            if(enable)
+            {
+                _inputActions.UI.Enable();
+            }
+            else
+            {
+                _inputActions.UI.Disable();
+            }
+        }
+
+        public void SubscribeSubmitInput(Action action)
+        {
+            _lastSubmitAction = action;
+            _inputActions.UI.Submit.started += ctx => action();
+        }
+
+        public void UnSubscribeSubmitInput(Action action)
+        {
+            _inputActions.UI.Submit.started -= ctx => action();
+        }
+
+        public void SubscribeCancelInput(Action action)
+        {
+            _lastCancelAction = action;
+            _inputActions.UI.Cancel.started += ctx => action();
+        }
+
+        public void UnSubscribeCancelInput(Action action)
+        {
+            _inputActions.UI.Cancel.started -= ctx => action();
         }
     }
 }

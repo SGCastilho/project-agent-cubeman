@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814a5aa634774bb47b41d9d69f5ae867, type: 3}
   m_Name: Pause Dialogue Message Data
   m_EditorClassIdentifier: 
-  message: Put your dialogue message here.
+  dialogueSequence: []
+  hotkeysSpriteAsset: {fileID: 0}
   devNotes: Put your dev notes here.
