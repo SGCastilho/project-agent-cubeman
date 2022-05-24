@@ -1,7 +1,9 @@
 {
     "name": "Cubeman.GameCamera",
     "rootNamespace": "Cubeman.GameCamera",
-    "references": [],
+    "references": [
+        "GUID:dd3235e19e7cae1408922bf20f26fb65"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
