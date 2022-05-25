@@ -40,7 +40,6 @@ namespace Cubeman.Manager
             while (!sceneLoading.isDone)
             {
                 var progress = Mathf.Clamp01(sceneLoading.progress / 0.9f);
-                Debug.Log("loading: " + progress);
                 yield return null;
             }
         }
@@ -54,7 +53,6 @@ namespace Cubeman.Manager
             while (!sceneLoading.isDone)
             {
                 var progress = Mathf.Clamp01(sceneLoading.progress / 0.9f);
-                Debug.Log("loading: " + progress);
                 yield return null;
             }
         }

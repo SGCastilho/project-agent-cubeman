@@ -313,18 +313,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1858163534}
+    m_SelectOnDown: {fileID: 1067490107}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.7471664, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 0.5660538, b: 0, a: 1}
+    m_SelectedColor: {r: 1, g: 0.7490196, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -343,7 +343,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 278869606}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1619155933}
+        m_TargetAssemblyTypeName: Cubeman.UI.UIButtonsMainMenu, Cubeman.UI
+        m_MethodName: OptionsButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &278869606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &541754123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -555,9 +567,9 @@ RectTransform:
   m_Father: {fileID: 1619155931}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250, y: -45}
   m_SizeDelta: {x: 460, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &541754124
@@ -573,18 +585,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 2042487520}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.7471664, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 0.5660538, b: 0, a: 1}
+    m_SelectedColor: {r: 1, g: 0.7490196, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -603,7 +615,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 541754125}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1619155933}
+        m_TargetAssemblyTypeName: Cubeman.UI.UIButtonsMainMenu, Cubeman.UI
+        m_MethodName: ContinueButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &541754125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,6 +801,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562156023}
   m_CullTransparentMesh: 1
+--- !u!1 &577345040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 577345041}
+  - component: {fileID: 577345042}
+  m_Layer: 0
+  m_Name: Main Menu Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &577345041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577345040}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 944394249}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &577345042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577345040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845a23907ac0ff1418b1e8d7c93fa066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneLoaderManager: {fileID: 1270571114}
+  uiFade: {fileID: 1283436898}
+  buttonsMainMenu: {fileID: 1619155933}
 --- !u!1 &651038933
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +1048,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 577345041}
   - {fileID: 1270571113}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1169,18 +1241,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 278869605}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.7471664, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 0.5660538, b: 0, a: 1}
+    m_SelectedColor: {r: 1, g: 0.7490196, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1199,7 +1271,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1067490108}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1619155933}
+        m_TargetAssemblyTypeName: Cubeman.UI.UIButtonsMainMenu, Cubeman.UI
+        m_MethodName: QuitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1067490108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1413,7 +1497,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8245455472356090622, guid: cc8d125c4b988824ba286e394f921da0, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8245455472356090622, guid: cc8d125c4b988824ba286e394f921da0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1466,6 +1550,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8245455472356090622, guid: cc8d125c4b988824ba286e394f921da0, type: 3}
   m_PrefabInstance: {fileID: 1270571112}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1270571114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8245455472356090621, guid: cc8d125c4b988824ba286e394f921da0, type: 3}
+  m_PrefabInstance: {fileID: 1270571112}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d896766a8ae0c5b46b3d488848c4861e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1283436896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1576,6 +1671,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4800084960576313658, guid: cd8c3c9c2e7ea8a4084114f746e903d9, type: 3}
   m_PrefabInstance: {fileID: 1283436896}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1283436898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4800084958676380632, guid: cd8c3c9c2e7ea8a4084114f746e903d9, type: 3}
+  m_PrefabInstance: {fileID: 1283436896}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da71241b00e3e604abb88b1f8b3d3101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1323076554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,6 +1982,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1619155931}
+  - component: {fileID: 1619155933}
   - component: {fileID: 1619155932}
   m_Layer: 0
   m_Name: Group Buttons
@@ -1935,6 +2042,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1619155933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619155930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262d1779d2c957448a61b9b9b0839d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newGameSceneToLoad: scene-level0-prologue
 --- !u!1 &1660050279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,7 +2343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1858163533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2240,9 +2360,9 @@ RectTransform:
   m_Father: {fileID: 1619155931}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250, y: -300.6}
   m_SizeDelta: {x: 460, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1858163534
@@ -2258,18 +2378,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 2042487520}
+    m_SelectOnDown: {fileID: 278869605}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.7471664, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 0.5660538, b: 0, a: 1}
+    m_SelectedColor: {r: 1, g: 0.7490196, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2288,7 +2408,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1858163535}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1619155933}
+        m_TargetAssemblyTypeName: Cubeman.UI.UIButtonsMainMenu, Cubeman.UI
+        m_MethodName: LoadGameButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1858163535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2380,18 +2512,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 541754124}
+    m_SelectOnDown: {fileID: 1858163534}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.7471664, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 0.5660538, b: 0, a: 1}
+    m_SelectedColor: {r: 1, g: 0.7490196, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2410,7 +2542,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2042487521}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1619155933}
+        m_TargetAssemblyTypeName: Cubeman.UI.UIButtonsMainMenu, Cubeman.UI
+        m_MethodName: NewGameButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2042487521
 MonoBehaviour:
   m_ObjectHideFlags: 0
