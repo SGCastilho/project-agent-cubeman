@@ -24,6 +24,14 @@ namespace Cubeman.Player
             }
         }
 
+        internal bool AutomaticMoveAnimation
+        {
+            set
+            {
+                animator.SetBool("inAutomaticMove", value);
+            }
+        }
+
         internal bool IsDeadAnimation
         {
             set

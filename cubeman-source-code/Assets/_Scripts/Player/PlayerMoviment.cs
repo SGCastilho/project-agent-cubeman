@@ -45,9 +45,15 @@ namespace Cubeman.Player
 
         private bool _moveRight;
         private bool _isDashing;
+        private bool _inAutomaticMove;
+        private bool _enableInputsOnAutomaticMoveComplete;
         private bool _horizontalImpulse;
 
         private float _currentDashDuration;
+
+        private float _automaticMoveDuration;
+        private float _currentAutomaticMoveDuration;
+
         private float _currentImpulseDuration;
 
         private Vector2 _xVelocity;
@@ -71,8 +77,10 @@ namespace Cubeman.Player
         {
             CorrectGraphicsSide();
 
+            if(_inAutomaticMove) { AutomaticMoveTimer(); }
+
             if(_isDashing) { DashTimer(); }
-            else if(!_horizontalImpulse) 
+            else if(!_horizontalImpulse && !_inAutomaticMove) 
             { _xVelocity = movementSpeed * behaviour.Input.HorizontalAxis * Vector2.right; }
         }
 
@@ -80,19 +88,31 @@ namespace Cubeman.Player
         {
             if(behaviour.Input.HorizontalAxis > 0)
             {
-                var newScale = new Vector3(1f, graphicsTransform.localScale.y, graphicsTransform.localScale.z);
-                if(graphicsTransform.localScale != newScale)
-                {
-                    _moveRight = true;
-                    graphicsTransform.localScale = newScale;
-                }
+                FlipGraphics(false);
             }
             else if(behaviour.Input.HorizontalAxis < 0)
+            {
+                FlipGraphics(true);
+            }
+        }
+
+        private void FlipGraphics(bool flip)
+        {
+            if(flip)
             {
                 var newScale = new Vector3(-1f, graphicsTransform.localScale.y, graphicsTransform.localScale.z);
                 if (graphicsTransform.localScale != newScale)
                 {
                     _moveRight = false;
+                    graphicsTransform.localScale = newScale;
+                }
+            }
+            else
+            {
+                var newScale = new Vector3(1f, graphicsTransform.localScale.y, graphicsTransform.localScale.z);
+                if (graphicsTransform.localScale != newScale)
+                {
+                    _moveRight = true;
                     graphicsTransform.localScale = newScale;
                 }
             }
@@ -122,6 +142,34 @@ namespace Cubeman.Player
             }
 
             HorizontalForce(dashSpeed);
+        }
+
+        public void StartAutomaticMove(bool moveSide, bool enableInputsOnComplete,float duration)
+        {
+            behaviour.Input.GameplayInputs(false);
+            _automaticMoveDuration = duration;
+            _enableInputsOnAutomaticMoveComplete = enableInputsOnComplete;
+
+            FlipGraphics(!moveSide);
+
+            behaviour.Animation.AutomaticMoveAnimation = true;
+            _inAutomaticMove = true;
+        }
+
+        private void AutomaticMoveTimer()
+        {
+            _currentAutomaticMoveDuration += Time.deltaTime;
+            if (_currentAutomaticMoveDuration >= _automaticMoveDuration)
+            {
+                _inAutomaticMove = false;
+
+                behaviour.Animation.AutomaticMoveAnimation = false;
+                behaviour.Input.GameplayInputs(_enableInputsOnAutomaticMoveComplete);
+
+                _currentAutomaticMoveDuration = 0;
+            }
+
+            HorizontalForce(movementSpeed);
         }
 
         private void HorizontalForce(float force)
