@@ -8,6 +8,7 @@ namespace Cubeman.Enemies
         internal BossSequencer Sequencer { get => sequencer; }
         internal EnemyCharacterMoviment Movement { get => movement; }
         internal EnemyCheckPlayerSide CheckPlayerSide { get => checkPlayerSide; }
+        internal CheckPlayerDistanceFromEnemy CheckPlayerDistance { get => checkPlayerDistance; }
         internal BossCheckWallInFront CheckWallInFront { get => checkWallInFront; }
         internal BossAnimator Animator { get => animator; }
         #endregion
@@ -16,6 +17,7 @@ namespace Cubeman.Enemies
         [SerializeField] protected BossSequencer sequencer;
         [SerializeField] protected EnemyCharacterMoviment movement;
         [SerializeField] protected EnemyCheckPlayerSide checkPlayerSide;
+        [SerializeField] protected CheckPlayerDistanceFromEnemy checkPlayerDistance;
         [SerializeField] protected BossCheckWallInFront checkWallInFront;
         [SerializeField] protected BossAnimator animator;
     }

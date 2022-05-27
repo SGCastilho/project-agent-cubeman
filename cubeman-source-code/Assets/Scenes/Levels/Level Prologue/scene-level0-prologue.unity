@@ -3019,6 +3019,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610684012}
   m_CullTransparentMesh: 1
+--- !u!1 &615956676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 615956677}
+  - component: {fileID: 615956678}
+  m_Layer: 0
+  m_Name: JumpBackRepositionState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &615956677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615956676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1180659330}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &615956678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615956676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd0da88878d3854c8c7c715b147b6bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviour: {fileID: 798806675}
+  nextState: {fileID: 723913609}
+  jumpForce: 20
+  groundCheckTick: 0.4
+  minDistanceFromPlayer: 4
+  _showMinDistanceGizmos: 1
 --- !u!1 &633097131
 GameObject:
   m_ObjectHideFlags: 0
@@ -4557,6 +4607,7 @@ GameObject:
   - component: {fileID: 798806675}
   - component: {fileID: 798806676}
   - component: {fileID: 798806674}
+  - component: {fileID: 798806678}
   - component: {fileID: 798806673}
   - component: {fileID: 798806677}
   - component: {fileID: 798806671}
@@ -4623,7 +4674,7 @@ MonoBehaviour:
   charController: {fileID: 798806672}
   gravity: {fileID: 798806670}
   graphicsTransform: {fileID: 391663653}
-  movimentSpeed: 6
+  movimentSpeed: 8
   moveRight: 0
 --- !u!143 &798806672
 CharacterController:
@@ -4668,6 +4719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7538469036605105532}
+  behaviour: {fileID: 798806675}
   shootingPoseStartAnim: {fileID: 283588328395322610, guid: 421d68a5ccd41574fb3bff6b6fdd9373, type: 3}
   shockWaveAnim: {fileID: 960429694880568945, guid: 421d68a5ccd41574fb3bff6b6fdd9373, type: 3}
   offensiveRunStartAnim: {fileID: 160695015242551620, guid: 421d68a5ccd41574fb3bff6b6fdd9373, type: 3}
@@ -4686,6 +4738,7 @@ MonoBehaviour:
   sequencer: {fileID: 798806676}
   movement: {fileID: 798806671}
   checkPlayerSide: {fileID: 798806673}
+  checkPlayerDistance: {fileID: 798806678}
   checkWallInFront: {fileID: 798806677}
   animator: {fileID: 798806674}
   exclusiveAnimator: {fileID: 798806674}
@@ -4705,6 +4758,7 @@ MonoBehaviour:
   - {fileID: 1000551024}
   - {fileID: 799192050}
   - {fileID: 1661571509}
+  - {fileID: 615956678}
   stateExecutionSequence: 
   currentState: {fileID: 0}
   currentExecutionID: 0
@@ -4726,6 +4780,18 @@ MonoBehaviour:
   rayLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &798806678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798806668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dad4e926687af040ae9be8b7a698d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &799192049
 GameObject:
   m_ObjectHideFlags: 0
@@ -7421,6 +7487,7 @@ Transform:
   - {fileID: 1000551025}
   - {fileID: 799192051}
   - {fileID: 1661571508}
+  - {fileID: 615956677}
   m_Father: {fileID: 862436387}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

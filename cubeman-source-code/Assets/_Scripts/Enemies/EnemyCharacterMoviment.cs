@@ -17,6 +17,13 @@ namespace Cubeman.Enemies
             } 
         }
 
+        public bool MoveRightNoFlipEnemy 
+        {
+            get => moveRight;
+            set => moveRight = value;
+        }
+
+        internal CharacterGravity Gravity { get => gravity; }
         internal bool IsMoving { set => _isMoving = value; }
         #endregion
 

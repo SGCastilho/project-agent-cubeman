@@ -20,6 +20,9 @@ namespace Cubeman.Enemies
             set => animator.SetBool("running", value);
         }
 
+        [Header("Exclusive Classes")]
+        [SerializeField] private BossGreaterBusterRobotBehaviour behaviour;
+
         [Header("Exclusive Settings")]
         [SerializeField] private AnimationClip shootingPoseStartAnim;
         [SerializeField] private AnimationClip shockWaveAnim;
@@ -36,6 +39,13 @@ namespace Cubeman.Enemies
             _shootingPoseStartDuration = shootingPoseStartAnim.length;
             _shockWaveDuration = shockWaveAnim.length;
             _offensiveRunStartDuration = offensiveRunStartAnim.length;
+        }
+
+        private void Update() => ConstantAnimation();
+
+        private void ConstantAnimation()
+        {
+            animator.SetBool("isGrounded", behaviour.Movement.Gravity.IsGrounded);
         }
     }
 }
