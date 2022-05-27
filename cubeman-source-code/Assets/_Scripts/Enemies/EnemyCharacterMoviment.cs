@@ -37,15 +37,6 @@ namespace Cubeman.Enemies
         private Vector2 _xVelocity;
         private Vector2 _finalVelocity;
 
-        #region Editor
-#if UNITY_EDITOR
-        private void OnValidate()
-        {
-            FlipEnemy();
-        }
-#endif
-        #endregion
-
         private void Awake() => _startSide = moveRight;
 
         private void OnEnable() => MoveRight = _startSide;

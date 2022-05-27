@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Cubeman.Trigger
 {
@@ -6,6 +7,12 @@ namespace Cubeman.Trigger
     {
         [Header("Settings")]
         [SerializeField] private GameObject[] behaviourToEnable;
+
+        [Header("Unity Events")]
+
+        [Space(12)]
+
+        [SerializeField] private UnityEvent OnEnableBehaviour;
 
         private void Awake() => SetupObject();
 
@@ -33,6 +40,8 @@ namespace Cubeman.Trigger
                 EnableBehaviours(true);
 
                 gameObject.SetActive(false);
+
+                OnEnableBehaviour?.Invoke();
             }
         }
     }

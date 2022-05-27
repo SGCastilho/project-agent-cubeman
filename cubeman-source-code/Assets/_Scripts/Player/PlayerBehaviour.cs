@@ -6,6 +6,8 @@ namespace Cubeman.Player
     public sealed class PlayerBehaviour : MonoBehaviour
     {
         #region Encapsulation
+        public static PlayerBehaviour Instance { get; private set; }
+
         public PlayerStatus Status { get => status; }
         public PlayerInput Input { get => input; }
         public PlayerMoviment Moviment { get => moviment; }
@@ -29,7 +31,14 @@ namespace Cubeman.Player
 
         private Transform _transform;
 
-        private void Awake() => _transform = transform;
+        private void Awake() => SetupBehaviour();
+        
+        private void SetupBehaviour()
+        {
+            Instance = this;
+
+            _transform = transform;
+        }
 
         private void Start() => CursorState(true);
 
