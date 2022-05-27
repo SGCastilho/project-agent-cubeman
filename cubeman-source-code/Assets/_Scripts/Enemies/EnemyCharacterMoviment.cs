@@ -90,7 +90,7 @@ namespace Cubeman.Enemies
             }
         }
 
-        private void FlipEnemy(bool right)
+        internal void FlipEnemy(bool right)
         {
             if(right)
             {

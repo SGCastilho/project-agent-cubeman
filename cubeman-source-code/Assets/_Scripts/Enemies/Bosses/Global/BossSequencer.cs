@@ -38,11 +38,13 @@ namespace Cubeman.Enemies
         {
             currentExecutionID++;
 
-            if(currentExecutionID > stateExecutionSequence.Length)
+            if(currentExecutionID >= stateExecutionSequence.Length)
             {
                 currentExecutionID = 0;
                 //Generate New Random Sequence
             }
+
+            currentState = bossStates[stateExecutionSequence[currentExecutionID]];
         }
     }
 }
