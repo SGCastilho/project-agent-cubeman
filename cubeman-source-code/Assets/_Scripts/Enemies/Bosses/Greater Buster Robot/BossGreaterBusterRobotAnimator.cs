@@ -8,6 +8,8 @@ namespace Cubeman.Enemies
         internal float ShootingPoseStartDuration { get => _shootingPoseStartDuration; }
         internal float ShockWaveDuration { get => _shockWaveDuration; }
         internal float OffensiveRunStartDuration { get => _offensiveRunStartDuration; }
+
+        internal float DeathLaserDuration { get => _deathLaserDuration; }
         #endregion
 
         internal bool ShootingPoseAnimation
@@ -28,9 +30,16 @@ namespace Cubeman.Enemies
         [SerializeField] private AnimationClip shockWaveAnim;
         [SerializeField] private AnimationClip offensiveRunStartAnim;
 
+        [Space(12)]
+
+        [SerializeField] private AnimationClip deathLaserInAnim;
+        [SerializeField] private AnimationClip deathLaserOutAnim;
+
         private float _shootingPoseStartDuration;
         private float _shockWaveDuration;
         private float _offensiveRunStartDuration;
+
+        private float _deathLaserDuration;
 
         private void Awake() => GetAnimationClipLength();
 
@@ -39,6 +48,8 @@ namespace Cubeman.Enemies
             _shootingPoseStartDuration = shootingPoseStartAnim.length;
             _shockWaveDuration = shockWaveAnim.length;
             _offensiveRunStartDuration = offensiveRunStartAnim.length;
+
+            _deathLaserDuration = deathLaserInAnim.length + deathLaserOutAnim.length;
         }
 
         private void Update() => ConstantAnimation();
