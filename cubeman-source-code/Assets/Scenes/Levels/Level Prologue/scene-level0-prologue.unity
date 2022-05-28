@@ -3707,7 +3707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviour: {fileID: 798806675}
-  waitDuration: 4
+  waitDuration: 2
 --- !u!1 &732467350
 GameObject:
   m_ObjectHideFlags: 0
@@ -4723,6 +4723,8 @@ MonoBehaviour:
   shootingPoseStartAnim: {fileID: 283588328395322610, guid: 421d68a5ccd41574fb3bff6b6fdd9373, type: 3}
   shockWaveAnim: {fileID: 960429694880568945, guid: 421d68a5ccd41574fb3bff6b6fdd9373, type: 3}
   offensiveRunStartAnim: {fileID: 160695015242551620, guid: 421d68a5ccd41574fb3bff6b6fdd9373, type: 3}
+  deathLaserInAnim: {fileID: 9067887742943633783, guid: 421d68a5ccd41574fb3bff6b6fdd9373, type: 3}
+  deathLaserOutAnim: {fileID: 7382710702737427942, guid: 421d68a5ccd41574fb3bff6b6fdd9373, type: 3}
 --- !u!114 &798806675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4759,6 +4761,7 @@ MonoBehaviour:
   - {fileID: 799192050}
   - {fileID: 1661571509}
   - {fileID: 615956678}
+  - {fileID: 2011808062}
   stateExecutionSequence: 
   currentState: {fileID: 0}
   currentExecutionID: 0
@@ -12496,6 +12499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2011808061}
+  - component: {fileID: 2011808062}
   m_Layer: 0
   m_Name: DeathLaserState
   m_TagString: Untagged
@@ -12518,6 +12522,20 @@ Transform:
   m_Father: {fileID: 2033224260}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2011808062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011808060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e9928e2888da64face05f5141bd890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviour: {fileID: 798806675}
+  nextState: {fileID: 723913609}
 --- !u!1 &2033224259
 GameObject:
   m_ObjectHideFlags: 0
