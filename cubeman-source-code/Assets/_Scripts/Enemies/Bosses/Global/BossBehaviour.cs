@@ -1,3 +1,4 @@
+using Cubeman.Audio;
 using UnityEngine;
 
 namespace Cubeman.Enemies
@@ -7,6 +8,7 @@ namespace Cubeman.Enemies
         #region Encapsulation
         public BossDataLoader DataLoader { get => dataLoader; }
         public EnemyCharacterMoviment Movement { get => movement; }
+        public AudioSoundEffects SoundEffects { get => soundEffects; }
 
         internal BossSequencer Sequencer { get => sequencer; }
         internal EnemyCheckPlayerSide CheckPlayerSide { get => checkPlayerSide; }
@@ -26,5 +28,6 @@ namespace Cubeman.Enemies
         [SerializeField] protected CheckPlayerDistanceFromEnemy checkPlayerDistance;
         [SerializeField] protected BossCheckWallInFront checkWallInFront;
         [SerializeField] protected BossAnimator animator;
+        [SerializeField] protected AudioSoundEffects soundEffects;
     }
 }

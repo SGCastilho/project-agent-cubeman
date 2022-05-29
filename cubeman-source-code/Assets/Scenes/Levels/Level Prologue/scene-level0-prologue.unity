@@ -3710,7 +3710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviour: {fileID: 798806675}
-  waitDuration: 4
+  waitDuration: 2
 --- !u!1 &732467350
 GameObject:
   m_ObjectHideFlags: 0
@@ -4648,6 +4648,7 @@ GameObject:
   - component: {fileID: 798806671}
   - component: {fileID: 798806670}
   - component: {fileID: 798806672}
+  - component: {fileID: 798806680}
   m_Layer: 0
   m_Name: Boss Greater Buster Robot Type A
   m_TagString: Untagged
@@ -4780,6 +4781,7 @@ MonoBehaviour:
   checkPlayerDistance: {fileID: 798806678}
   checkWallInFront: {fileID: 798806677}
   animator: {fileID: 798806674}
+  soundEffects: {fileID: 798806680}
   exclusiveAnimator: {fileID: 798806674}
 --- !u!114 &798806676
 MonoBehaviour:
@@ -4794,10 +4796,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossStates:
-  - {fileID: 615956678}
   - {fileID: 1000551024}
   - {fileID: 799192050}
   - {fileID: 1661571509}
+  - {fileID: 615956678}
   - {fileID: 2011808062}
   stateExecutionSequence: 
   currentState: {fileID: 0}
@@ -4845,6 +4847,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: bc078c2e86973d3479c8875a0d9e09ba, type: 2}
+--- !u!114 &798806680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798806668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241d3c6d250776342836cdd9071f7980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipList:
+  - _audioKey: audio_impact
+    _audioVolumeScale: 0.4
+    _audioClip: {fileID: 8300000, guid: ac92871352d0cbc4fb81b0efed069bab, type: 3}
+  - _audioKey: audio_explosion
+    _audioVolumeScale: 0.8
+    _audioClip: {fileID: 8300000, guid: 3e77622f4bd43284e9c4ebe44c803f59, type: 3}
+  - _audioKey: audio_jumpIn
+    _audioVolumeScale: 0.4
+    _audioClip: {fileID: 8300000, guid: 148a4bbb350f63e41b2fd5625fb91ec6, type: 3}
+  - _audioKey: audio_jumpOut
+    _audioVolumeScale: 0.4
+    _audioClip: {fileID: 8300000, guid: 9f071fcf59408f84d903f092b1033656, type: 3}
 --- !u!1 &799192049
 GameObject:
   m_ObjectHideFlags: 0

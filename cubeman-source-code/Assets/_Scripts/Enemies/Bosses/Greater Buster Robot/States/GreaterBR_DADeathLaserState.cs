@@ -43,7 +43,7 @@ namespace Cubeman.Enemies
         {
             if (!_deathLaserStarted)
             {
-                behaviour.Movement.FlipEnemy(behaviour.CheckPlayerSide.IsInRightSide());
+                behaviour.Movement.MoveRight = behaviour.CheckPlayerSide.IsInRightSide();
                 behaviour.ExclusiveAnimator.CallAnimationTrigger("deathLaser");
                 _deathLaserStarted = true;
             }

@@ -18,6 +18,9 @@ namespace Cubeman.AnimationEvents
         [SerializeField] private Transform shootingPointTransform;
         [SerializeField] private Transform shockWavePointTransform;
 
+        private const string AUDIO_JUMPIN_KEY = "audio_jumpIn";
+        private const string AUDIO_JUMPOUT_KEY = "audio_jumpOut";
+
         private string _laserProjectileKey;
         private AudioClip _laserAudioClip;
         private float _laserVolumeScale;
@@ -73,12 +76,14 @@ namespace Cubeman.AnimationEvents
 
         public void JumpInEvent()
         {
-
+            var jumpInSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_JUMPIN_KEY);
+            audioController.PlaySoundEffect(ref jumpInSFX._audioClip, jumpInSFX._audioVolumeScale);
         }
 
         public void JumpOutEvent()
         {
-
+            var jumpOutSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_JUMPOUT_KEY);
+            audioController.PlaySoundEffect(ref jumpOutSFX._audioClip, jumpOutSFX._audioVolumeScale);
         }
 
         public void DangerAttackWarningEvent()
