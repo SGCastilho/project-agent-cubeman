@@ -5,6 +5,7 @@ namespace Cubeman.Enemies
     public abstract class BossBehaviour : MonoBehaviour
     {
         #region Encapsulation
+        internal BossDataLoader DataLoader { get => dataLoader; }
         internal BossSequencer Sequencer { get => sequencer; }
         internal EnemyCharacterMoviment Movement { get => movement; }
         internal EnemyCheckPlayerSide CheckPlayerSide { get => checkPlayerSide; }
@@ -14,6 +15,10 @@ namespace Cubeman.Enemies
         #endregion
 
         [Header("Classes")]
+        [SerializeField] protected BossDataLoader dataLoader;
+
+        [Space(12)]
+
         [SerializeField] protected BossSequencer sequencer;
         [SerializeField] protected EnemyCharacterMoviment movement;
         [SerializeField] protected EnemyCheckPlayerSide checkPlayerSide;
