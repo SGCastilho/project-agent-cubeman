@@ -13,6 +13,7 @@ namespace Cubeman.Enemies
         [Space(12)]
 
         [SerializeField] [Range(10f, 40f)] private float jumpForce = 20f;
+        [SerializeField] [Range(0.1f, 1f)] private float jumpDelay = 0.4f;
         [SerializeField] [Range(0.1f, 1f)] private float groundCheckTick = 0.4f;
 
         [Space(6)]
@@ -20,6 +21,8 @@ namespace Cubeman.Enemies
         [SerializeField] [Range(0.1f, 6f)] private float minDistanceFromPlayer = 4f;
 
         private bool _isJumped;
+        private bool _jumpedTriggered;
+        private float _currentJumpDelay;
         private float _currentDistanceFromPlayer;
         private float _currentGroundCheckTick;
 
@@ -75,6 +78,7 @@ namespace Cubeman.Enemies
             behaviour.Movement.IsMoving = false;
             
             _isJumped = false;
+            _jumpedTriggered = false;
             _currentDistanceFromPlayer = 0;
             _currentGroundCheckTick = 0;
 
@@ -85,12 +89,23 @@ namespace Cubeman.Enemies
         {
             if (!_isJumped)
             {
-                behaviour.Movement.IsMoving = true;                
-                behaviour.Movement.MoveRightNoFlipEnemy = !behaviour.Movement.MoveRightNoFlipEnemy;
-                behaviour.Movement.Gravity.Jump(jumpForce);
-                behaviour.ExclusiveAnimator.CallAnimationTrigger("jump");
+                if (!_jumpedTriggered)
+                {
+                    behaviour.ExclusiveAnimator.CallAnimationTrigger("jump");
+                    _jumpedTriggered = true;
+                }
 
-                _isJumped = true;
+                _currentJumpDelay += Time.deltaTime;
+                if(_currentJumpDelay >= jumpDelay)
+                {
+                    _isJumped = true;
+
+                    behaviour.Movement.IsMoving = true;
+                    behaviour.Movement.MoveRightNoFlipEnemy = !behaviour.Movement.MoveRightNoFlipEnemy;
+                    behaviour.Movement.Gravity.Jump(jumpForce);
+
+                    _currentJumpDelay = 0;
+                }
             }
         }
 

@@ -3068,6 +3068,7 @@ MonoBehaviour:
   behaviour: {fileID: 798806675}
   nextState: {fileID: 723913609}
   jumpForce: 20
+  jumpDelay: 0.24
   groundCheckTick: 0.4
   minDistanceFromPlayer: 4
   _showMinDistanceGizmos: 1
@@ -3709,7 +3710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviour: {fileID: 798806675}
-  waitDuration: 2
+  waitDuration: 4
 --- !u!1 &732467350
 GameObject:
   m_ObjectHideFlags: 0
@@ -4793,10 +4794,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossStates:
+  - {fileID: 615956678}
   - {fileID: 1000551024}
   - {fileID: 799192050}
   - {fileID: 1661571509}
-  - {fileID: 615956678}
   - {fileID: 2011808062}
   stateExecutionSequence: 
   currentState: {fileID: 0}
