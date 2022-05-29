@@ -5,9 +5,10 @@ namespace Cubeman.Enemies
     public abstract class BossBehaviour : MonoBehaviour
     {
         #region Encapsulation
-        internal BossDataLoader DataLoader { get => dataLoader; }
+        public BossDataLoader DataLoader { get => dataLoader; }
+        public EnemyCharacterMoviment Movement { get => movement; }
+
         internal BossSequencer Sequencer { get => sequencer; }
-        internal EnemyCharacterMoviment Movement { get => movement; }
         internal EnemyCheckPlayerSide CheckPlayerSide { get => checkPlayerSide; }
         internal CheckPlayerDistanceFromEnemy CheckPlayerDistance { get => checkPlayerDistance; }
         internal BossCheckWallInFront CheckWallInFront { get => checkWallInFront; }

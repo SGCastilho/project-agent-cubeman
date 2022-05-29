@@ -65,7 +65,7 @@ namespace Cubeman.Enemies
 
         private void Shoot()
         {
-            behaviour.Movement.FlipEnemy(behaviour.CheckPlayerSide.IsInRightSide());
+            behaviour.Movement.MoveRight = behaviour.CheckPlayerSide.IsInRightSide();
             behaviour.ExclusiveAnimator.CallAnimationTrigger("shoot");
             _currentFireRate = 0;
             _currentShoot++;
