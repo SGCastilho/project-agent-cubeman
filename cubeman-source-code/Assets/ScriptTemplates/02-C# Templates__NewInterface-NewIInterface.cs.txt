@@ -1,0 +1,7 @@
+namespace Cubeman.Interfaces
+{
+    public interface #SCRIPTNAME#
+    {
+    #NOTRIM#
+    }
+}

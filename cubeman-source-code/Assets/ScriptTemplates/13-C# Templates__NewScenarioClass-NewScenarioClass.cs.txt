@@ -1,0 +1,9 @@
+using UnityEngine;
+
+namespace Cubeman.Scenario
+{
+    public sealed class #SCRIPTNAME# : MonoBehaviour
+    {
+    #NOTRIM#
+    }
+}

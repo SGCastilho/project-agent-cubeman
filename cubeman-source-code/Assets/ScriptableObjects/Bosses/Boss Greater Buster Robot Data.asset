@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2a874b8d3e06f344afbc07413bff697, type: 3}
+  m_Name: Boss Greater Buster Robot Data
+  m_EditorClassIdentifier: 
+  bossHealth: 160
+  bossProjectiles:
+  - {fileID: 11400000, guid: 6fd176aa896dfbb46b1c6cbc210a599b, type: 2}
+  - {fileID: 11400000, guid: 972b68e94be20d5419a96318cac0c656, type: 2}
+  devNotes: Default Boss Data

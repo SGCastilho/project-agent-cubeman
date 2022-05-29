@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6982e630d8276984daf9d6f7e6ca4140, type: 3}
+  m_Name: Projectile Boss Laser Data
+  m_EditorClassIdentifier: 
+  projectileKey: projectile_boss_greater_buster_robot_laser
+  projectilePrefab: {fileID: 7591201557188380725, guid: 2e8e39a425e22f245844202b8093b8d2, type: 3}
+  projectileInstances: 10
+  disableOnDamage: 1
+  projectileAudioClip: {fileID: 8300000, guid: 5870e75adec6c4545b412ddc8cc99d79, type: 3}
+  projectileClipVolumeScale: 0.8
+  projectileDamage: 6
+  initProjectileDamage: 6
+  projectileLevel: 1
+  projectileDamageScaling: 0.6
+  projectileVelocity: 12
+  projectileRange: 6
+  devNotes: Default Greater Buster Robot projectile.

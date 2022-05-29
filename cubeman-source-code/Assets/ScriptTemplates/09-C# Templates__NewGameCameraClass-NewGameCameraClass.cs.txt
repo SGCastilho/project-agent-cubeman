@@ -1,0 +1,9 @@
+using UnityEngine;
+
+namespace Cubeman.GameCamera
+{
+    public sealed class #SCRIPTNAME# : MonoBehaviour
+    {
+    #NOTRIM#
+    }
+}

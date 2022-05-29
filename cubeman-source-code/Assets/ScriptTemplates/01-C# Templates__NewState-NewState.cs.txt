@@ -1,0 +1,12 @@
+using UnityEngine;
+
+namespace Cubeman.Enemies 
+{
+    public class #SCRIPTNAME# : State
+    {
+        public override State RunCurrentState()
+        {
+            return this;
+        }
+    }
+}

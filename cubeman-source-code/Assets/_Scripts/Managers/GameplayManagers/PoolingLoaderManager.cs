@@ -37,6 +37,7 @@ namespace Cubeman.Manager
         {
             await SetPlayerProjectiles();
             await SetEnemiesProjectiles();
+            await SetBossProjectiles();
         }
 
         private async Task SetPlayerProjectiles()
@@ -65,6 +66,30 @@ namespace Cubeman.Manager
                     {
                         manager.AddPool(projectileEnemies[i].Data.Projectile.Key,
                             projectileEnemies[i].Data.Projectile.Instances, projectileEnemies[i].Data.Projectile.Prefab);
+                    }
+                }
+            }
+
+            await Task.Yield();
+        }
+
+        private async Task SetBossProjectiles()
+        {
+            var projectileBoss = FindObjectsOfType<BossDataLoader>();
+
+            if (projectileBoss != null)
+            {
+                for (int i = 0; i < projectileBoss.Length; i++)
+                {
+                    if(projectileBoss[i].Data.Projectiles.Length > 0)
+                    {
+                        for(int j = 0; j < projectileBoss[i].Data.Projectiles.Length; j++)
+                        {
+                            var currentProjectile = projectileBoss[i].Data.Projectiles[j];
+
+                            manager.AddPool(currentProjectile.Key, currentProjectile.Instances, 
+                                currentProjectile.Prefab);
+                        }
                     }
                 }
             }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Cubeman.ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "New Enemy Data", menuName = "Scriptable Object/Enemy Data", order = 1)]
+    [CreateAssetMenu(fileName = "New Enemy Data", menuName = "Scriptable Object/Enemy Data", order = 2)]
     public sealed class EnemyData : ScriptableObject
     {
         #region Encapsulation

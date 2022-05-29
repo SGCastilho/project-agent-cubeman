@@ -1,0 +1,9 @@
+using UnityEngine;
+
+namespace Cubeman.Player
+{
+    public sealed class #SCRIPTNAME# : MonoBehaviour
+    {
+    #NOTRIM#
+    }
+}
