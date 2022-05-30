@@ -21,10 +21,15 @@ namespace Cubeman.Manager
 
         [Space(12)]
 
+        [SerializeField] private BossStatus bossStatus;
+
+        [Space(12)]
+
         [SerializeField] private UIFade uiFade;
-        [SerializeField] private UIStartLevel uiStartLevel;
-        [SerializeField] private UIPlayerHUD uiPlayerHUD;
+        [SerializeField] private UIBossHUD uiBossHUD;
         [SerializeField] private UIDialogue uiDialogue;
+        [SerializeField] private UIPlayerHUD uiPlayerHUD;
+        [SerializeField] private UIStartLevel uiStartLevel;
 
         private PlayerBehaviour _player;
 
@@ -56,6 +61,12 @@ namespace Cubeman.Manager
             _player.Status.OnPlayerUltimateReset += uiPlayerHUD.UltimateBarReset;
             _player.Status.OnPlayerDeath += audioManager.PlaySoundEffect;
             _player.Status.OnPlayerDeathComplete += gameStateManager.GameLose;
+
+            if(bossStatus != null && uiBossHUD != null)
+            {
+                bossStatus.OnDamageHealth += uiBossHUD.DamageHealthBar;
+                bossStatus.OnRecoveryHealth += uiBossHUD.RecoveryHealthBar;
+            }
 
             resourceData.OnAddResources += uiPlayerHUD.UpdateResources;
 
@@ -102,6 +113,12 @@ namespace Cubeman.Manager
             _player.Status.OnPlayerUltimateReset -= uiPlayerHUD.UltimateBarReset;
             _player.Status.OnPlayerDeath -= audioManager.PlaySoundEffect;
             _player.Status.OnPlayerDeathComplete -= gameStateManager.GameLose;
+
+            if (bossStatus != null && uiBossHUD != null)
+            {
+                bossStatus.OnDamageHealth -= uiBossHUD.DamageHealthBar;
+                bossStatus.OnRecoveryHealth -= uiBossHUD.RecoveryHealthBar;
+            }
 
             resourceData.OnAddResources -= uiPlayerHUD.UpdateResources;
 

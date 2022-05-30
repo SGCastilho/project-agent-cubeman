@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2a874b8d3e06f344afbc07413bff697, type: 3}
   m_Name: Boss Greater Buster Robot Data
   m_EditorClassIdentifier: 
-  bossHealth: 160
+  bossHealth: 600
   bossProjectiles:
   - {fileID: 11400000, guid: 6fd176aa896dfbb46b1c6cbc210a599b, type: 2}
   - {fileID: 11400000, guid: 972b68e94be20d5419a96318cac0c656, type: 2}
