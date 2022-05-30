@@ -18,6 +18,10 @@ namespace Cubeman.AnimationEvents
         [SerializeField] private Transform shootingPointTransform;
         [SerializeField] private Transform shockWavePointTransform;
 
+        [Space(12)]
+
+        [SerializeField] private GameObject deathLaserGameObject;
+
         private const string AUDIO_JUMPIN_KEY = "audio_jumpIn";
         private const string AUDIO_JUMPOUT_KEY = "audio_jumpOut";
 
@@ -86,19 +90,14 @@ namespace Cubeman.AnimationEvents
             audioController.PlaySoundEffect(ref jumpOutSFX._audioClip, jumpOutSFX._audioVolumeScale);
         }
 
-        public void DangerAttackWarningEvent()
-        {
-
-        }
-
         public void DeathLaserStartEvent()
         {
-
+            deathLaserGameObject.SetActive(true);
         }
 
         public void DeathLaserEndEvent()
         {
-
+            deathLaserGameObject.SetActive(false);
         }
     }
 }
