@@ -75,6 +75,11 @@ namespace Cubeman.Audio
             soundTrackAudioSource.Play();
         }
 
+        public void StopSoundTrack()
+        {
+            soundEffectAudioSource.Stop();
+        }
+
         public async void PlaySmoothSoundTrack(StageSoundTrack selectedSoundTrack)
         {
             AudioClip soundTrackAudioClip = null;
@@ -99,6 +104,13 @@ namespace Cubeman.Audio
             await FadeIn(soundTrackAudioSource, soundTrackVolume);
 
             soundTrackAudioSource.Play();
+        }
+
+        public async void StopSmoothSoundTrack()
+        {
+            await FadeOut(soundTrackAudioSource);
+
+            soundTrackAudioSource.Stop();
         }
 
         private async Task CheckIfSoundTrackIsPlaying()

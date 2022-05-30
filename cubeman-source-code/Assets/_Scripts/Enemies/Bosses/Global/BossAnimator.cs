@@ -12,6 +12,11 @@ namespace Cubeman.Enemies
             set => animator.SetBool("encounter", value);
         }
 
+        internal bool IsDeadAnimation
+        {
+            set => animator.SetBool("isDead", value);
+        }
+
         internal void CallAnimationTrigger(string trigger)
         {
             animator.SetTrigger(trigger);

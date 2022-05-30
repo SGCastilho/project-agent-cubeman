@@ -5,8 +5,11 @@ namespace Cubeman.Enemies
     public sealed class BossSequencer : MonoBehaviour
     {
         #region Encapsulation
-        internal State CurrentState { get => currentState; }
+        internal State CurrentState { get => _currentState; }
         #endregion
+
+        [Header("Classes")]
+        [SerializeField] private StateMachine stateMachine;
 
         [Header("Settings")]
         [SerializeField] private State[] bossStates;
@@ -14,8 +17,10 @@ namespace Cubeman.Enemies
 
         [Space(12)]
 
-        [SerializeField] private State currentState;
-        [SerializeField] private int currentExecutionID;
+        [SerializeField] private DeathState deathState;
+
+        private State _currentState;
+        private int _currentExecutionID;
 
         private void Awake() => SetupSequencer();
 
@@ -31,20 +36,25 @@ namespace Cubeman.Enemies
                 }
             }
 
-            currentState = bossStates[0];
+            _currentState = bossStates[0];
         }
 
         internal void NextSequence()
         {
-            currentExecutionID++;
+            _currentExecutionID++;
 
-            if(currentExecutionID >= stateExecutionSequence.Length)
+            if(_currentExecutionID >= stateExecutionSequence.Length)
             {
-                currentExecutionID = 0;
+                _currentExecutionID = 0;
                 //Generate New Random Sequence
             }
 
-            currentState = bossStates[stateExecutionSequence[currentExecutionID]];
+            _currentState = bossStates[stateExecutionSequence[_currentExecutionID]];
+        }
+
+        internal void CallDeathState()
+        {
+            stateMachine.SwitchToNextState(deathState);
         }
     }
 }

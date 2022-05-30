@@ -1212,6 +1212,68 @@ MonoBehaviour:
   fadeDuration: 0.2
   messageDuration: 3
   messageDelay: 1
+--- !u!1 &210277573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210277574}
+  - component: {fileID: 210277575}
+  m_Layer: 0
+  m_Name: Death State
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &210277574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210277573}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1613375197}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210277575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210277573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10beb3cdf09f53f45ba780fc188ffdbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behaviour: {fileID: 798806675}
+  OnBossDeathEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1300994439}
+        m_TargetAssemblyTypeName: Cubeman.Manager.GameStateManager, Cubeman.Manager
+        m_MethodName: GameWin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  bossDeathDuration: 6
+  enablePlayerInputs: 0
 --- !u!1 &211835044
 GameObject:
   m_ObjectHideFlags: 0
@@ -5053,6 +5115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39152a8552153740905a391ac83e5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateMachine: {fileID: 862436388}
   bossStates:
   - {fileID: 1000551024}
   - {fileID: 799192050}
@@ -5060,8 +5123,7 @@ MonoBehaviour:
   - {fileID: 615956678}
   - {fileID: 2011808062}
   stateExecutionSequence: 
-  currentState: {fileID: 0}
-  currentExecutionID: 0
+  deathState: {fileID: 210277575}
 --- !u!114 &798806677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5139,6 +5201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6973b26fefc8e4c4a8686fa157225959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  behaviour: {fileID: 798806675}
   dataLoader: {fileID: 798806679}
   soundEffects: {fileID: 798806680}
   bossHealth: 0
@@ -10425,6 +10488,7 @@ Transform:
   m_Children:
   - {fileID: 787424393}
   - {fileID: 723913608}
+  - {fileID: 210277574}
   m_Father: {fileID: 862436387}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15209,6 +15273,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1371964942}
     m_Modifications:
+    - target: {fileID: 170889673083416640, guid: f6920db93fd23ba47b4689a87c30947c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4800084960576313653, guid: f6920db93fd23ba47b4689a87c30947c, type: 3}
       propertyPath: m_Name
       value: Canvas Fade

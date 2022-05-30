@@ -13,6 +13,10 @@ namespace Cubeman.Enemies
         public event DamageHealth OnDamageHealth;
 
         [Header("Classes")]
+        [SerializeField] private BossBehaviour behaviour;
+
+        [Space(12)]
+
         [SerializeField] private BossDataLoader dataLoader;
         [SerializeField] private AudioSoundEffects soundEffects;
 
@@ -43,8 +47,7 @@ namespace Cubeman.Enemies
             if(bossHealth <= 0)
             {
                 bossHealth = 0;
-                //Boss Death
-                gameObject.SetActive(false);
+                behaviour.Sequencer.CallDeathState();
             }
 
             OnDamageHealth?.Invoke(bossHealth, dataLoader.Data.Health);
@@ -54,9 +57,8 @@ namespace Cubeman.Enemies
 
         public void InstaDeath()
         {
-            //Boss Death
             bossHealth = 0;
-            gameObject.SetActive(false);
+            behaviour.Sequencer.CallDeathState();
 
             OnDamageHealth?.Invoke(bossHealth, dataLoader.Data.Health);
         }

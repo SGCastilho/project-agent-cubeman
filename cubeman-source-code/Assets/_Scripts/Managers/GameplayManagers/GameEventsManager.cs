@@ -49,7 +49,7 @@ namespace Cubeman.Manager
 
         private void EnableEvents()
         {
-            sceneLoaderManager.OnStartLoadScene += uiFade.FadeIn;
+            sceneLoaderManager.OnStartLoadScene += uiFade.LoadingFadeIn;
 
             gameStateManager.OnLose += sceneLoaderManager.LoadActiveScene;
 
@@ -101,7 +101,7 @@ namespace Cubeman.Manager
 
         private void DisableEvents()
         {
-            sceneLoaderManager.OnStartLoadScene -= uiFade.FadeIn;
+            sceneLoaderManager.OnStartLoadScene -= uiFade.LoadingFadeIn;
 
             gameStateManager.OnLose -= sceneLoaderManager.LoadActiveScene;
 

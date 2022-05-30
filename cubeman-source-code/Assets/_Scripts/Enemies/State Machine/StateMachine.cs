@@ -44,7 +44,7 @@ namespace Cubeman.Enemies
             }
         }
 
-        private void SwitchToNextState(State nextState)
+        internal void SwitchToNextState(State nextState)
         {
             currentState = nextState;
         }

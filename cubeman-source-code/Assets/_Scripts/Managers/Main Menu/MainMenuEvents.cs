@@ -22,14 +22,14 @@ namespace Cubeman.Manager
 
         public void EnableEvents()
         {
-            sceneLoaderManager.OnStartLoadScene += uiFade.FadeIn;
+            sceneLoaderManager.OnStartLoadScene += uiFade.LoadingFadeIn;
 
             buttonsMainMenu.OnStartGameplay += sceneLoaderManager.LoadScene;
         }
 
         public void DisableEvents()
         {
-            sceneLoaderManager.OnStartLoadScene -= uiFade.FadeIn;
+            sceneLoaderManager.OnStartLoadScene -= uiFade.LoadingFadeIn;
 
             buttonsMainMenu.OnStartGameplay -= sceneLoaderManager.LoadScene;
         }
