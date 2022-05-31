@@ -17,7 +17,17 @@ namespace Cubeman.UI
         [SerializeField] [Range(1f, 12f)] private float messageDuration = 4f;
         [SerializeField] [Range(0.1f, 2f)] private float messageDelay = 1f;
 
-        private void Start() => StartCoroutine(MessageCoroutine());
+        [SerializeField] private bool showMessageOnStart;
+
+        private void Start() => StartObject();
+
+        private void StartObject()
+        {
+            if (showMessageOnStart)
+            {
+                StartCoroutine(MessageCoroutine());
+            }
+        }
 
         IEnumerator MessageCoroutine()
         {

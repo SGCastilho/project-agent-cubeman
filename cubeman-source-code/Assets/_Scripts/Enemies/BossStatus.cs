@@ -1,4 +1,5 @@
 using Cubeman.Audio;
+using Cubeman.Player;
 using Cubeman.Interfaces;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ namespace Cubeman.Enemies
 
         [Header("Classes")]
         [SerializeField] private BossBehaviour behaviour;
+
+        private PlayerBehaviour player;
 
         [Space(12)]
 
@@ -35,6 +38,8 @@ namespace Cubeman.Enemies
         {
             audioController = AudioController.Instance;
 
+            player = FindObjectOfType<PlayerBehaviour>();
+
             bossHealth = dataLoader.Data.Health;
 
             var impactSFX = soundEffects.GetSoundEffect(IMPACT_AUDIO_KEY);
@@ -44,7 +49,7 @@ namespace Cubeman.Enemies
         public void ApplyDamage(int damageAmount)
         {
             bossHealth -= damageAmount;
-            if(bossHealth <= 0)
+            if(!player.Status.IsDead && bossHealth <= 0)
             {
                 bossHealth = 0;
                 behaviour.Sequencer.CallDeathState();

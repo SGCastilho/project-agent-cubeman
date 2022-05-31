@@ -30,6 +30,7 @@ namespace Cubeman.Manager
         [SerializeField] private UIDialogue uiDialogue;
         [SerializeField] private UIPlayerHUD uiPlayerHUD;
         [SerializeField] private UIStartLevel uiStartLevel;
+        [SerializeField] private UIStartLevel uiEndLevel;
 
         private PlayerBehaviour _player;
 
@@ -51,6 +52,8 @@ namespace Cubeman.Manager
         {
             sceneLoaderManager.OnStartLoadScene += uiFade.LoadingFadeIn;
 
+            gameStateManager.OnCompleteStageMessage += uiEndLevel.FadeIn;
+            gameStateManager.OnWin += sceneLoaderManager.LoadScene;
             gameStateManager.OnLose += sceneLoaderManager.LoadActiveScene;
 
             uiStartLevel.OnMessageEnd += gameStateManager.GameStart;
@@ -103,6 +106,8 @@ namespace Cubeman.Manager
         {
             sceneLoaderManager.OnStartLoadScene -= uiFade.LoadingFadeIn;
 
+            gameStateManager.OnCompleteStageMessage -= uiEndLevel.FadeIn;
+            gameStateManager.OnWin -= sceneLoaderManager.LoadScene;
             gameStateManager.OnLose -= sceneLoaderManager.LoadActiveScene;
 
             uiStartLevel.OnMessageEnd -= gameStateManager.GameStart;

@@ -21,6 +21,8 @@ namespace Cubeman.Enemies
         [SerializeField] [Range(6f, 12f)] private float bossDeathDuration = 8f;
         [SerializeField] [Tooltip("Enable inputs when boss death end.")] private bool enablePlayerInputs;
 
+        private const string AUDIO_EXPLOSION_KEY = "audio_explosion";
+
         private bool _bossDeathStart;
         private bool _bossFlashCalled;
         private float _currentBossDeathDuration;
@@ -70,6 +72,10 @@ namespace Cubeman.Enemies
         {
             if (!_bossDeathStart)
             {
+                var explosionSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_EXPLOSION_KEY);
+                AudioController.Instance.PlaySoundEffectAfterMiliseconds(explosionSFX._audioClip, 
+                    explosionSFX._audioVolumeScale, 2400);
+
                 AudioController.Instance.StopSmoothSoundTrack();
                 PlayerBehaviour.Instance.Input.GameplayInputs(false);
 

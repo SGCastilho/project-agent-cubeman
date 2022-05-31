@@ -8,6 +8,7 @@ namespace Cubeman.Player
     public sealed class PlayerStatus : MonoBehaviour, IDamageble
     {
         #region Encapsulation  
+        public bool IsDead { get => _isDead; }
         public bool InvensibleMode { set => invensibleMode = value; }
         public bool UltimateReady 
         {

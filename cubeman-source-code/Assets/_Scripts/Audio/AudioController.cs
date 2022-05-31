@@ -163,6 +163,18 @@ namespace Cubeman.Audio
             soundEffectAudioSource.PlayOneShot(clip, volumeScale);
         }
 
+        public async void PlaySoundEffectAfterMiliseconds(AudioClip clip, int miliseconds)
+        {
+            await Task.Delay(miliseconds);
+            soundEffectAudioSource.PlayOneShot(clip);
+        }
+
+        public async void PlaySoundEffectAfterMiliseconds(AudioClip clip, float volumeScale, int miliseconds)
+        {
+            await Task.Delay(miliseconds);
+            soundEffectAudioSource.PlayOneShot(clip, volumeScale);
+        }
+
         public void PlaySoundEffectInOrder(ref AudioClipList audioClipList)
         {
             var sequenceClip = new SequenceSoundEffect(audioClipList._audioClip, audioClipList._audioVolumeScale);

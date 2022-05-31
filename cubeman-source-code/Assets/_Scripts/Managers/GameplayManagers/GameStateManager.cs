@@ -1,4 +1,6 @@
+using Cubeman.Audio;
 using Cubeman.Player;
+using System.Collections;
 using UnityEngine;
 
 namespace Cubeman.Manager
@@ -7,18 +9,39 @@ namespace Cubeman.Manager
     {
         private enum GameState { START, GAMEPLAY, WIN, LOSE }
 
-        public delegate void Win();
+        public delegate void CompleteStageMessage();
+        public event CompleteStageMessage OnCompleteStageMessage; 
+
+        public delegate void Win(string sceneToLoad);
         public event Win OnWin;
 
         public delegate void Lose();
         public event Lose OnLose;
 
+        private PlayerBehaviour _player;
+
         [Header("Settings")]
         [SerializeField] private GameState currentState;
 
-        private PlayerBehaviour _player;
+        [Space(12)]
 
-        private void Awake() => _player = FindObjectOfType<PlayerBehaviour>();
+        [SerializeField] private string nextSceneToLoad;
+
+        [Space(12)]
+
+        [SerializeField] private AudioClip completeAudioClip;
+        [SerializeField] [Range(0.1f, 1f)] private float completeAudioClipVolumeScale = 0.8f;
+
+        private float _winStateDuration;
+
+        private void Awake() => SetupObject();
+
+        private void SetupObject()
+        {
+            _player = FindObjectOfType<PlayerBehaviour>();
+
+            _winStateDuration = completeAudioClip.length;
+        }
 
         private void ChangeGameState(GameState nextState)
         {
@@ -50,7 +73,17 @@ namespace Cubeman.Manager
 
         private void WinState()
         {
-            OnWin?.Invoke();
+            AudioController.Instance.PlaySoundEffect(ref completeAudioClip, completeAudioClipVolumeScale);
+
+            StartCoroutine(WinStateCoroutine());
+        }
+
+        IEnumerator WinStateCoroutine()
+        {
+            yield return new WaitForSeconds(_winStateDuration);
+            OnCompleteStageMessage?.Invoke();
+            yield return new WaitForSeconds(2.8f);
+            OnWin?.Invoke(nextSceneToLoad);
         }
 
         private void LoseState()
