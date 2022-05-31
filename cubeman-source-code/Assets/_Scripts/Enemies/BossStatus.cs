@@ -52,6 +52,7 @@ namespace Cubeman.Enemies
             if(!player.Status.IsDead && bossHealth <= 0)
             {
                 bossHealth = 0;
+                player.Status.InvensibleMode = true;
                 behaviour.Sequencer.CallDeathState();
             }
 

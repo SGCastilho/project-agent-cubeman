@@ -8873,7 +8873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  nextSceneToLoad: scene-menu-mainMenu
+  nextSceneToLoad: scene-menu-thanksForPlaying
   completeAudioClip: {fileID: 8300000, guid: c927815a37eba1e4b861757ca196ca7c, type: 3}
   completeAudioClipVolumeScale: 0.8
 --- !u!1001 &1304260375

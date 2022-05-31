@@ -20,6 +20,14 @@ namespace Cubeman.Manager
 
         private void OnDestroy() => DisableEvents();
 
+        private void Start() => UnlockCursor();
+
+        private static void UnlockCursor()
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+
         public void EnableEvents()
         {
             sceneLoaderManager.OnStartLoadScene += uiFade.LoadingFadeIn;
