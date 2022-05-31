@@ -38,7 +38,7 @@ namespace Cubeman.Character
         [SerializeField] [Range(0.1f, 4f)] private float variableJumpTimeToPeak = 0.3f;
         private float _currentVariableJumpDuration;
         private bool _inVariableJump;
-
+        
         [Space(12)]
 
         [SerializeField] private Transform groundCheckTransform;

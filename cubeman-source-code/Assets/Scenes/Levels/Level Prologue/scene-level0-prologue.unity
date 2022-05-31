@@ -640,7 +640,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89764982}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4343,7 +4343,7 @@ Transform:
   - {fileID: 1466434893}
   - {fileID: 1228910373}
   m_Father: {fileID: 1116819832}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &738760252
 GameObject:
@@ -5234,10 +5234,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charController: {fileID: 798806672}
+  contactDamageTrigger: {fileID: 89764985}
   gravity: {fileID: 798806670}
   graphicsTransform: {fileID: 391663653}
   movimentSpeed: 8
   moveRight: 0
+  characterCrounchHeight: 2
 --- !u!143 &798806672
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5300,6 +5302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataLoader: {fileID: 798806679}
+  status: {fileID: 798806681}
   sequencer: {fileID: 798806676}
   movement: {fileID: 798806671}
   checkPlayerSide: {fileID: 798806673}
@@ -7511,8 +7514,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 768325023}
-  - {fileID: 732732530}
   - {fileID: 1851542171}
+  - {fileID: 732732530}
   m_Father: {fileID: 1715607290}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12495,7 +12498,7 @@ Transform:
   - {fileID: 1025725407}
   - {fileID: 188944330}
   m_Father: {fileID: 1116819832}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1860632599
 GameObject:

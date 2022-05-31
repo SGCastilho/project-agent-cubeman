@@ -68,6 +68,11 @@ namespace Cubeman.AnimationEvents
             audioController.PlaySoundEffect(ref _laserAudioClip, _laserVolumeScale);
         }
 
+        public void ShockWaveStartEvent()
+        {
+            behaviour.Movement.CrounchEnemy = true;
+        }
+
         public void ShockWaveEvent()
         {
             var projectile = poolingManager.SpawnPrefab(_shockWaveProjectileKey, shockWavePointTransform.position)
@@ -76,6 +81,11 @@ namespace Cubeman.AnimationEvents
             projectile.Moviment.MoveRight = behaviour.Movement.MoveRight;
 
             audioController.PlaySoundEffect(ref _shockWaveAudioClip, _shockWaveVolumeScale);
+        }
+
+        public void ShockWaveEndEvent()
+        {
+            behaviour.Movement.CrounchEnemy = false;
         }
 
         public void JumpInEvent()

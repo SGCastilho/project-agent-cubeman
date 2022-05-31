@@ -10,6 +10,7 @@ namespace Cubeman.Enemies
         public EnemyCharacterMoviment Movement { get => movement; }
         public AudioSoundEffects SoundEffects { get => soundEffects; }
 
+        internal BossStatus Status { get => status; }
         internal BossSequencer Sequencer { get => sequencer; }
         internal EnemyCheckPlayerSide CheckPlayerSide { get => checkPlayerSide; }
         internal CheckPlayerDistanceFromEnemy CheckPlayerDistance { get => checkPlayerDistance; }
@@ -22,6 +23,7 @@ namespace Cubeman.Enemies
 
         [Space(12)]
 
+        [SerializeField] protected BossStatus status;
         [SerializeField] protected BossSequencer sequencer;
         [SerializeField] protected EnemyCharacterMoviment movement;
         [SerializeField] protected EnemyCheckPlayerSide checkPlayerSide;

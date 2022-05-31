@@ -17,10 +17,16 @@ namespace Cubeman.Enemies
             } 
         }
 
-        public bool MoveRightNoFlipEnemy 
+        public bool MoveRightNoFlipEnemy { get => moveRight; set => moveRight = value; }
+
+        public bool CrounchEnemy
         {
-            get => moveRight;
-            set => moveRight = value;
+            get => _isCrounching;
+            set 
+            {
+                _isCrounching = value;
+                ChangeToCrounch();
+            }
         }
 
         internal CharacterGravity Gravity { get => gravity; }
@@ -29,6 +35,7 @@ namespace Cubeman.Enemies
 
         [Header("Classes")]
         [SerializeField] private CharacterController charController;
+        [SerializeField] private BoxCollider contactDamageTrigger;
         [SerializeField] private CharacterGravity gravity;
 
         [Header("Settings")]
@@ -41,10 +48,24 @@ namespace Cubeman.Enemies
         private bool _startSide;
         private bool _isMoving;
 
+        [Space(12)]
+
+        [SerializeField] [Range(1f, 16f)]private float characterCrounchHeight = 2f;
+        private bool _isCrounching;
+        private float _characterDefaultHeight;
+        private float _conctactDamageTriggerDefaultHeight;
+
         private Vector2 _xVelocity;
         private Vector2 _finalVelocity;
 
-        private void Awake() => _startSide = moveRight;
+        private void Awake() => SetupObject();
+
+        private void SetupObject()
+        {
+            _characterDefaultHeight = charController.height;
+            _conctactDamageTriggerDefaultHeight = contactDamageTrigger.size.y;
+            _startSide = moveRight;
+        }
 
         private void OnEnable() => MoveRight = _startSide;
 
@@ -74,6 +95,27 @@ namespace Cubeman.Enemies
                 }
             }
             else { _xVelocity = Vector2.zero; }
+        }
+
+        private void ChangeToCrounch()
+        {
+            if(_isCrounching)
+            {
+                CalculateCollisionsHeight(ref characterCrounchHeight);
+            }
+            else
+            {
+                CalculateCollisionsHeight(ref _characterDefaultHeight);
+            }
+        }
+
+        private void CalculateCollisionsHeight(ref float newHeight)
+        {
+            charController.height = newHeight;
+            charController.center = newHeight / 2f * Vector3.up;
+
+            contactDamageTrigger.size = newHeight * Vector3.up;
+            contactDamageTrigger.center = newHeight / 2f * Vector3.up;
         }
 
         private void FlipEnemy()

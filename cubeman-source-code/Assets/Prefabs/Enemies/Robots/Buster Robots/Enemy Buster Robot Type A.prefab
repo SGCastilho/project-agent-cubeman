@@ -720,7 +720,7 @@ MonoBehaviour:
   moviment: {fileID: 4833303794755402715}
   animator: {fileID: 4833303794755402716}
   soundEffects: {fileID: 7373703886461475338}
-  _shootSFX:
+  shootSFX:
     _audioKey: 
     _audioVolumeScale: 0
     _audioClip: {fileID: 0}
@@ -781,10 +781,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charController: {fileID: 4833303794755402713}
+  contactDamageTrigger: {fileID: 4833303795246007678}
   gravity: {fileID: 4833303794755402712}
   graphicsTransform: {fileID: 4833303795981047530}
   movimentSpeed: 4.4
   moveRight: 0
+  characterCrounchHeight: 2
 --- !u!114 &4833303794755402712
 MonoBehaviour:
   m_ObjectHideFlags: 0

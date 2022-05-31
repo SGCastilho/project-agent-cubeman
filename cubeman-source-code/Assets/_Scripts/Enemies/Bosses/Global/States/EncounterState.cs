@@ -43,8 +43,10 @@ namespace Cubeman.Enemies
             return this;
         }
 
-        private static void StartBossFight()
+        private void StartBossFight()
         {
+            behaviour.Status.InvensibleMode = false;
+
             PlayerBehaviour.Instance.Input.GameplayInputs(true);
             AudioController.Instance.PlaySoundTrack(StageSoundTrack.BOSS_FIGHT);
         }

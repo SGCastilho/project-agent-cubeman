@@ -7,6 +7,10 @@ namespace Cubeman.Enemies
 {
     public sealed class BossStatus : MonoBehaviour, IDamageble
     {
+        #region Encapsulation
+        internal bool InvensibleMode { set => _invensibleMode = value; }
+        #endregion
+
         public delegate void HealthRecovery(float currentHealth, float maxHealth);
         public event HealthRecovery OnRecoveryHealth;
 
@@ -30,6 +34,7 @@ namespace Cubeman.Enemies
 
         private const string IMPACT_AUDIO_KEY = "audio_impact";
 
+        private bool _invensibleMode = true;
         private AudioClipList _impactAudioList;
 
         private void Awake() => SetupObject();
@@ -48,17 +53,20 @@ namespace Cubeman.Enemies
 
         public void ApplyDamage(int damageAmount)
         {
-            bossHealth -= damageAmount;
-            if(!player.Status.IsDead && bossHealth <= 0)
+            if(!_invensibleMode)
             {
-                bossHealth = 0;
-                player.Status.InvensibleMode = true;
-                behaviour.Sequencer.CallDeathState();
+                bossHealth -= damageAmount;
+                if(!player.Status.IsDead && bossHealth <= 0)
+                {
+                    bossHealth = 0;
+                    player.Status.InvensibleMode = true;
+                    behaviour.Sequencer.CallDeathState();
+                }
+
+                OnDamageHealth?.Invoke(bossHealth, dataLoader.Data.Health);
+
+                audioController.PlaySoundEffectInOrder(ref _impactAudioList);
             }
-
-            OnDamageHealth?.Invoke(bossHealth, dataLoader.Data.Health);
-
-            audioController.PlaySoundEffectInOrder(ref _impactAudioList);
         }
 
         public void InstaDeath()
