@@ -3,6 +3,7 @@ using Cubeman.Enemies;
 using Cubeman.ScriptableObjects;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Cubeman.Manager
 {
@@ -13,6 +14,12 @@ namespace Cubeman.Manager
 
         [Header("Settings")]
         [SerializeField] private CollectableData[] collectableToSpawn;
+
+        [Header("Unity Events")]
+
+        [Space(12)]
+
+        [SerializeField] private UnityEvent OnPoolingLoaderEnd;
 
         private PlayerBehaviour _player;
 
@@ -31,6 +38,8 @@ namespace Cubeman.Manager
             await SetCollectables();
 
             manager.InitializePooling();
+
+            OnPoolingLoaderEnd?.Invoke();
         }
 
         private async Task SetProjectiles()
