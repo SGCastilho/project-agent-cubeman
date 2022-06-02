@@ -7627,12 +7627,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneGroups:
-  - {fileID: 1233315520}
   - {fileID: 1855224866}
   - {fileID: 6673282}
   - {fileID: 1676288075}
   - {fileID: 1304286083}
   - {fileID: 386708827}
+  - {fileID: 1233315520}
 --- !u!1 &907030585
 GameObject:
   m_ObjectHideFlags: 0
@@ -8226,7 +8226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 373.795, y: 2.1, z: 0}
+  m_LocalPosition: {x: 0, y: 5.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8278,7 +8278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080877313e001394992f903cbf8e05a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
+  currentState: 3
   trackTransform: {fileID: 789338845}
   fixedCameraTransform: {fileID: 198725248}
   trackSmooth: 6
@@ -16856,7 +16856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132602272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 363.795, y: -3, z: 0}
+  m_LocalPosition: {x: -10, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

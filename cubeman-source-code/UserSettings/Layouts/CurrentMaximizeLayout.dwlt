@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 77
+  controlID: 8443
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 78
+  controlID: 8444
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 35
+  controlID: 8445
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,8 +188,8 @@ MonoBehaviour:
     y: 0
     width: 344
     height: 561
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -228,21 +228,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 263bffff32fbffff
+      m_ExpandedIDs: 4488feff428afeff4294feff1896feff30fbffff80730000ac7300001c740000ce74000054410100a8520100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: projectile-boss-laser-greater-buster-robot
-        m_OriginalName: projectile-boss-laser-greater-buster-robot
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 63348
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -271,8 +271,8 @@ MonoBehaviour:
     y: 0
     width: 1033
     height: 561
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 8}
@@ -504,9 +504,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 390.80328, y: 0.5610536, z: -7.152276}
+    m_Target: {x: -9.096934, y: 6.584089, z: -29.656385}
     speed: 2
-    m_Value: {x: 390.80328, y: 0.5610536, z: -7.152276}
+    m_Value: {x: -9.096934, y: 6.584089, z: -29.656385}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -553,13 +553,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.10332557, y: -0.103402846, z: 0.010996068, w: 0.98920625}
+    m_Target: {x: 0.11524808, y: -0.01338828, z: 0.0016640037, w: 0.9933901}
     speed: 2
-    m_Value: {x: 0.10332463, y: -0.10340191, z: 0.010995968, w: 0.9891973}
+    m_Value: {x: 0.115231484, y: -0.013386352, z: 0.0016637641, w: 0.99324703}
   m_Size:
-    m_Target: 2.1213202
+    m_Target: 0.86168444
     speed: 2
-    m_Value: 2.1213202
+    m_Value: 0.86168444
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -577,7 +577,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.04566687, y: -0.0066704885, z: 0.0004967356, w: 0.9989486}
+  m_LastSceneViewRotation: {x: 0.17016189, y: 0.015450396, z: -0.0022250982, w: 0.98530763}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -612,7 +612,7 @@ MonoBehaviour:
   - {fileID: 12}
   - {fileID: 13}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 3
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -654,33 +654,33 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scenes/Levels/Level Prologue
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scenes/Levels/Level Prologue
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProjects\project-agent-cubeman\cubeman-source-code
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 707f0000
-    m_LastClickedID: 32624
-    m_ExpandedIDs: 000000006e7f0000707f0000727f0000747f0000787f000000ca9a3b
+    scrollPos: {x: 0, y: 59}
+    m_SelectedIDs: c23f0100
+    m_LastClickedID: 81858
+    m_ExpandedIDs: 000000000481000006810000088100000a81000036810000bc3f010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Collectables
-      m_OriginalName: Collectables
+      m_Name: Resources
+      m_OriginalName: Resources
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 53638
+      m_UserData: 33076
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -697,7 +697,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006e7f0000707f0000727f0000747f0000767f0000787f0000
+    m_ExpandedIDs: 000000000481000006810000088100000a81000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -724,7 +724,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -811,7 +811,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 29106
+  m_LastSelectedObjectID: -66990
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -843,6 +843,7 @@ MonoBehaviour:
   m_ViewTransforms:
     m_KeySerializationHelper:
     - {fileID: -4723829990401776112, guid: 3420af9443b526049953d326223387fb, type: 2}
+    - {fileID: 2324254065906552780, guid: db0a7978d5f9e164fa889cb0c93b42d0, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.3092061
       e01: 0
@@ -860,10 +861,26 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 1.2630539
+      e01: 0
+      e02: 0
+      e03: -227.34967
+      e10: 0
+      e11: 1.2630539
+      e12: 0
+      e13: 214.71916
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 3420af9443b526049953d326223387fb, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: db0a7978d5f9e164fa889cb0c93b42d0, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -4723829990401776112, guid: 3420af9443b526049953d326223387fb, type: 2}
+  - m_Target: {fileID: 2324254065906552780, guid: db0a7978d5f9e164fa889cb0c93b42d0, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}

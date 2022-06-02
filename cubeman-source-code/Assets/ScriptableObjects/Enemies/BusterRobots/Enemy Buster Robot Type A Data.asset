@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a422aaf9d2249419b2cde179e9ac60, type: 3}
   m_Name: Enemy Buster Robot Type A Data
   m_EditorClassIdentifier: 
-  enemyHealth: 40
+  enemyHealth: 20
   enemyProjectile: {fileID: 11400000, guid: f98d94291bc8f6d4c8300c2d193d6f1a, type: 2}
   devNotes: Default Buster Robot Type A data.
