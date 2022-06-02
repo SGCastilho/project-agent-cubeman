@@ -799,6 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f49598fef0bc624f8b952a4dd5fd73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charController: {fileID: 4833303794755402713}
   maxHeight: 1
   timeToPeak: 0.2
   variableJumpDuration: 0.3

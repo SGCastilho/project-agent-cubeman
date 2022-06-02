@@ -120,7 +120,7 @@ namespace Cubeman.Player
 
         internal void DashInput()
         {
-            if(gravity.IsGrounded && !gravity.IsJumped && !_isDashing)
+            if(controller.isGrounded && !gravity.IsJumped && !_isDashing)
             {
                 gravity.FreezeGravity = true;
                 _isDashing = true;
@@ -199,7 +199,6 @@ namespace Cubeman.Player
         public IEnumerator TakeDamageImpulseCoroutine()
         {
             behaviour.Input.GameplayInputs(false);
-            gravity.FreezeGravity = true;
             _horizontalImpulse = true;
 
             while(_currentImpulseDuration < staggerDuration)
@@ -212,7 +211,6 @@ namespace Cubeman.Player
             yield return new WaitForSeconds(0.1f);
             _currentImpulseDuration = 0;
             _horizontalImpulse = false;
-            gravity.FreezeGravity = false;
             behaviour.Animation.TakeDamageAnimation = false;
             behaviour.Input.GameplayInputs(true);
         }

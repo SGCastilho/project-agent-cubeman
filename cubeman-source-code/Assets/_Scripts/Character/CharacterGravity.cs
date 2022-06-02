@@ -23,6 +23,9 @@ namespace Cubeman.Character
         public Vector2 YVelocity { get => _yVelocity; }
         #endregion
 
+        [Header("Classes")]
+        [SerializeField] private CharacterController charController;
+
         [Header("Settings")]
         [SerializeField] [Range(0.1f, 12f)] private float maxHeight = 1f;
         [SerializeField] [Range(0.1f, 4f)] private float timeToPeak = 0.2f;
@@ -64,13 +67,13 @@ namespace Cubeman.Character
         {
             if (!_freezeGravity)
             {
-                if (IsGrounded && _yVelocity.y < -1f)
+                if (charController.isGrounded && _yVelocity.y < -1f)
                 {
                     EndVariableJump();
                     _isJumped = false;
                     _yVelocity = Vector3.down;
                 }
-                else if(!IsGrounded)
+                else if(!charController.isGrounded)
                 {
                     _yVelocity += _gravity * Time.deltaTime * Vector2.down;
                 }
@@ -94,7 +97,7 @@ namespace Cubeman.Character
 
         public void Jump()
         {
-            if (!_freezeGravity && GroundCheck())
+            if (!_freezeGravity && charController.isGrounded)
             {
                 _yVelocity = _jumpSpeed * Vector2.up;
                 _isJumped = true;
@@ -103,7 +106,7 @@ namespace Cubeman.Character
 
         public void Jump(float force)
         {
-            if (!_freezeGravity && GroundCheck())
+            if (!_freezeGravity && charController.isGrounded)
             {
                 _yVelocity = force * Vector2.up;
                 _isJumped = true;
