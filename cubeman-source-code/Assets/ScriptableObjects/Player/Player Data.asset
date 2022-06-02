@@ -15,6 +15,6 @@ MonoBehaviour:
   playerHealth: 20
   initPlayerHealth: 20
   playerHealthLevel: 1
-  playerHealthScaling: 0.6
-  playerUltimateCharge: 6
+  playerFixedUpgrade: 20
+  playerUltimateCharge: 12
   devNotes: Default Player Data.

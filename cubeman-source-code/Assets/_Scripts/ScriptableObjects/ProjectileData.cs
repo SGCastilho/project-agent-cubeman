@@ -17,7 +17,7 @@ namespace Cubeman.ScriptableObjects
 
         public int Damage { get => projectileDamage; }
         public int Level { get => projectileLevel; }
-        public float DamageScaling { get => projectileDamageScaling; }
+        public int DamageScaling { get => projectileFixedUpgrade; }
 
         public float Velocity { get => projectileVelocity; }
         public float Range { get => projectileRange; }
@@ -43,8 +43,7 @@ namespace Cubeman.ScriptableObjects
         [SerializeField] private int projectileDamage = 2;
         [SerializeField] private int initProjectileDamage = 2;
         [SerializeField] [Range(1, 5)] private int projectileLevel = 1;
-        [Tooltip("Determines the scaling when upgrade weapon.")]
-        [SerializeField] [Range(0.1f, 1f)] private float projectileDamageScaling = 0.6f;
+        [SerializeField] private int projectileFixedUpgrade;
 
         [Space(12)]
 
@@ -67,11 +66,10 @@ namespace Cubeman.ScriptableObjects
         {
             if(projectileLevel <= 4) 
             {
-                float currentDamage = projectileDamage;
-                float incrementDamage = currentDamage * projectileDamageScaling;
-                float newDamage = currentDamage + incrementDamage;
+                int currentDamage = projectileDamage;
+                int newDamage = currentDamage + projectileFixedUpgrade;
 
-                projectileDamage = (int)newDamage;
+                projectileDamage = newDamage;
                 projectileLevel++;
             }
         }

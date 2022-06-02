@@ -15,6 +15,7 @@ namespace Cubeman.Player
         public string JumpOutSFX { get => JUMP_OUT_AUDIO_KEY; }
         public bool MoveRight { get => _moveRight; }
 
+        internal bool BlockMoviment { set => _blockMoviment = value; }
         internal Vector2 XVelocity { get => _xVelocity; }
         internal Transform GraphicsTransform { get => graphicsTransform; }
         #endregion
@@ -43,9 +44,11 @@ namespace Cubeman.Player
 
         [SerializeField] private Transform graphicsTransform;
 
+        private bool _blockMoviment;
+        private bool _inAutomaticMove;
+
         private bool _moveRight;
         private bool _isDashing;
-        private bool _inAutomaticMove;
         private bool _enableInputsOnAutomaticMoveComplete;
         private bool _horizontalImpulse;
 
@@ -75,6 +78,8 @@ namespace Cubeman.Player
 
         private void HorizontalMoviment()
         {
+            if (_blockMoviment) return;
+
             CorrectGraphicsSide();
 
             if(_inAutomaticMove) { AutomaticMoveTimer(); }
@@ -198,7 +203,7 @@ namespace Cubeman.Player
 
         public IEnumerator TakeDamageImpulseCoroutine()
         {
-            behaviour.Input.GameplayInputs(false);
+            behaviour.BlockAction(true);
             _horizontalImpulse = true;
 
             while(_currentImpulseDuration < staggerDuration)
@@ -209,10 +214,11 @@ namespace Cubeman.Player
             }
 
             yield return new WaitForSeconds(0.1f);
+
             _currentImpulseDuration = 0;
             _horizontalImpulse = false;
             behaviour.Animation.TakeDamageAnimation = false;
-            behaviour.Input.GameplayInputs(true);
+            behaviour.BlockAction(false);
         }
     }
 }

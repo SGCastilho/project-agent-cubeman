@@ -9,6 +9,8 @@ namespace Cubeman.Player
         #region Encapsulation
         public ProjectileData ProjectileData { get => projectile; }
         public ProjectileData UltimateData { get => ultimateProjectile; }
+
+        internal bool BlockShooting { set => _blockShooting = value; }
         #endregion
 
         [Header("Data")]
@@ -22,9 +24,12 @@ namespace Cubeman.Player
         [SerializeField] [Range(0.1f, 1f)] private float fireRate = 0.2f;
 
         private bool _isShooting;
+        private bool _blockShooting;
 
         internal void Shooting()
         {
+            if (_blockShooting) return;
+
             if(!_isShooting)
             {
                 behaviour.Animation.CallAnimatorTrigger("shoot");
@@ -34,7 +39,9 @@ namespace Cubeman.Player
 
         internal void UltimateShooting()
         {
-            if(behaviour.Status.UltimateReady)
+            if (_blockShooting) return;
+
+            if (behaviour.Status.UltimateReady)
             {
                 behaviour.Status.InvensibleMode = true;
                 behaviour.Input.GameplayInputs(false);

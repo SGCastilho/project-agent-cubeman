@@ -55,5 +55,13 @@ namespace Cubeman.Player
                 Cursor.lockState = CursorLockMode.Confined;
             }
         }
+
+        public void BlockAction(bool enable)
+        {
+            moviment.BlockMoviment = enable;
+            moviment.Gravity.BlockJump = enable;
+
+            shoot.BlockShooting = enable;
+        }
     }
 }

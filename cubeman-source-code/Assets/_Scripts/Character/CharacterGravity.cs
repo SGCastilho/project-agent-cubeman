@@ -6,6 +6,8 @@ namespace Cubeman.Character
     public sealed class CharacterGravity : MonoBehaviour
     {
         #region Encapsulation
+        public bool BlockJump { set => _blockJump = value; }
+
         public bool FreezeGravity
         {
             set
@@ -29,7 +31,10 @@ namespace Cubeman.Character
         [Header("Settings")]
         [SerializeField] [Range(0.1f, 12f)] private float maxHeight = 1f;
         [SerializeField] [Range(0.1f, 4f)] private float timeToPeak = 0.2f;
+
+        private bool _blockJump;
         private bool _freezeGravity;
+
         private bool _isJumped;
         private float _gravity;
         private float _jumpSpeed;
@@ -97,6 +102,8 @@ namespace Cubeman.Character
 
         public void Jump()
         {
+            if (_blockJump) return;
+
             if (!_freezeGravity && charController.isGrounded)
             {
                 _yVelocity = _jumpSpeed * Vector2.up;
@@ -106,6 +113,8 @@ namespace Cubeman.Character
 
         public void Jump(float force)
         {
+            if (_blockJump) return;
+
             if (!_freezeGravity && charController.isGrounded)
             {
                 _yVelocity = force * Vector2.up;
@@ -115,6 +124,8 @@ namespace Cubeman.Character
 
         public void VariableJumpInput()
         {
+            if (_blockJump) return;
+
             if (!_freezeGravity && !_isJumped && !_inVariableJump)
             {
                 CalculateGravity(variableJumpTimeToPeak);
@@ -125,6 +136,8 @@ namespace Cubeman.Character
 
         private void VariableJump()
         {
+            if (_blockJump) return;
+
             if (!_freezeGravity && _inVariableJump)
             {
                 _currentVariableJumpDuration += Time.deltaTime;

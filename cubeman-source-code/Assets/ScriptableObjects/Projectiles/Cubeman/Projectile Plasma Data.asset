@@ -21,7 +21,7 @@ MonoBehaviour:
   projectileDamage: 2
   initProjectileDamage: 2
   projectileLevel: 1
-  projectileDamageScaling: 0.6
+  projectileFixedUpgrade: 2
   projectileVelocity: 20
   projectileRange: 2
   devNotes: Default projectile.

@@ -8,7 +8,7 @@ namespace Cubeman.ScriptableObjects
         #region Encapsulation
         public int Health { get => playerHealth; }
         public int HealthLevel { get => playerHealthLevel; }
-        public float HealthScaling { get => playerHealthScaling; }
+        public int HealthScaling { get => playerFixedUpgrade; }
 
         public int UltimateCharge { get => playerUltimateCharge; }
         #endregion
@@ -17,7 +17,7 @@ namespace Cubeman.ScriptableObjects
         [SerializeField] private int playerHealth = 20;
         [SerializeField] private int initPlayerHealth = 20;
         [SerializeField] [Range(1, 5)] private int playerHealthLevel = 1;
-        [SerializeField] [Range(0.1f, 1f)] private float playerHealthScaling = 0.6f;
+        [SerializeField] private int playerFixedUpgrade;
 
         [Space(12)]
 
@@ -37,11 +37,10 @@ namespace Cubeman.ScriptableObjects
         {
             if(playerHealthLevel <= 4)
             {
-                float currentHealth = playerHealth;
-                float incrementHealth = currentHealth * playerHealthScaling;
-                float newHealth = currentHealth + incrementHealth;
+                int currentHealth = playerHealth;
+                int newHealth = currentHealth + playerFixedUpgrade;
 
-                playerHealth = (int)newHealth;
+                playerHealth = newHealth;
                 playerHealthLevel++;
             }
         }
