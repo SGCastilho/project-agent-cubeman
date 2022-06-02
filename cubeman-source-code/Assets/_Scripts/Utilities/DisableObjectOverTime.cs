@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace Cubeman.Utilities
@@ -11,16 +10,23 @@ namespace Cubeman.Utilities
 
         [Header("Settings")]
         [SerializeField] [Range(1f, 20f)] private float disableTime = 6f;
+        private float _currentDisableTime;
 
-        private void OnEnable() => StartCoroutine(DisableTimeCoroutine());
+        private void OnDisable() => ResetTimer();
 
-        private void OnDisable() => StopCoroutine(DisableTimeCoroutine());
-
-        IEnumerator DisableTimeCoroutine()
+        public void ResetTimer()
         {
-            yield return new WaitForSeconds(disableTime);
-            
-            gameObject.SetActive(false);
+            _currentDisableTime = 0;
+        }
+
+        private void Update() 
+        {
+            _currentDisableTime += Time.deltaTime;
+            if(_currentDisableTime >= disableTime)
+            {
+                gameObject.SetActive(false);
+                _currentDisableTime = 0;
+            }
         }
     }
 }

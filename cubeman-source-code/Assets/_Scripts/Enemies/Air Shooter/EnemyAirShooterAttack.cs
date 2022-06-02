@@ -81,14 +81,22 @@ namespace Cubeman.Enemies
 
         private void Update() => TravelBetweenShootingPoints();
 
+        private void FixedUpdate() => DistanceCalculation();
+
+        private void DistanceCalculation()
+        {
+            if(_canShoot)
+            {
+                _distanceFromShootingPoint = CalculateDistanceAbs(behaviour.Moviment.EnemyTransform.position.x,
+                    _nextShootingPointTransform.position.x);
+            }
+        }
+
         private void TravelBetweenShootingPoints()
         {
             if (_canShoot)
             {
-                _distanceFromShootingPoint = CalculateDistanceAbs(behaviour.Moviment.EnemyTransform.position.x,
-                    _nextShootingPointTransform.position.x);
-
-                if (_distanceFromShootingPoint < 0.1f)
+                if (_distanceFromShootingPoint < 0.2f)
                 {
                     behaviour.Moviment.IsMoving = false;
 

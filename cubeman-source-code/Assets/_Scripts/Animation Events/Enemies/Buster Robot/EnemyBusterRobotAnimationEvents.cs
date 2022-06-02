@@ -44,6 +44,7 @@ namespace Cubeman.AnimationEvents
         {
             _currentProjectile = _poolingManager.SpawnPrefab(projectileKey, shootingPointTransform.position).GetComponent<ProjectileBehaviour>();
             _currentProjectile.Moviment.MoveRight = behaviour.Moviment.MoveRight;
+            _currentProjectile.ResetTimer();
         }
     }
 }

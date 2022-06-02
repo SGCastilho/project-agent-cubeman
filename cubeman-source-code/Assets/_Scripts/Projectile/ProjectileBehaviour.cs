@@ -30,5 +30,7 @@ namespace Cubeman.Projectile
             damage.DisableOnDamage = data.DisableOnDamage;
             disableObj.DisableTime = data.Range;
         }
+
+        public void ResetTimer() => disableObj.ResetTimer();
     }
 }

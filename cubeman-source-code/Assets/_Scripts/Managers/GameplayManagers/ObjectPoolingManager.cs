@@ -42,7 +42,7 @@ namespace Cubeman.Manager
                 var pool = new Pool(key, size, prefab);
                 poolingList.Add(pool);
             }
-            else { Debug.LogWarning("Não foi possivel criar uma nova Pool."); }
+            else { Debug.LogWarning("Nï¿½o foi possivel criar uma nova Pool."); }
         }
 
         public void InitializePooling()
@@ -78,7 +78,7 @@ namespace Cubeman.Manager
                     }
                 }
             }
-            else { Debug.LogWarning("Não há Pools a serem instanciadas."); }
+            else { Debug.LogWarning("Nï¿½o hï¿½ Pools a serem instanciadas."); }
 
             poolingList.Clear();
         }
