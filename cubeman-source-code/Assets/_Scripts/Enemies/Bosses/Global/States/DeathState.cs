@@ -79,7 +79,10 @@ namespace Cubeman.Enemies
                 AudioController.Instance.StopSmoothSoundTrack();
                 PlayerBehaviour.Instance.Input.GameplayInputs(false);
 
+                behaviour.Movement.IsMoving = false;
+                behaviour.Movement.Gravity.FreezeGravity = true;
                 behaviour.Animator.IsDeadAnimation = true;
+                
                 _bossDeathStart = true;
             }
         }
