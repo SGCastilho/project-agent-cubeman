@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90193255ccf00f419fad251ac2c0735, type: 3}
   m_Name: Destructable Barrier Data
   m_EditorClassIdentifier: 
-  destructableHealth: 12
+  destructableHealth: 10
