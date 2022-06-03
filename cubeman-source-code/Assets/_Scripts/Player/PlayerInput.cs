@@ -15,9 +15,11 @@ namespace Cubeman.Player
 
         private GameplayInputActions _inputActions;
 
-        private Action OnInteract;
+        private Action OnPause;
         private Action OnSubmit;
         private Action OnCancel;
+        private Action OnUnPause;
+        private Action OnInteract;
 
         private float _horizontalAxis;
 
@@ -77,6 +79,30 @@ namespace Cubeman.Player
         private void Interact(InputAction.CallbackContext ctx)
         {
             OnInteract();
+        }
+
+        public void SubscribePauseInput(Action pauseAction)
+        {
+            OnPause = pauseAction;
+            _inputActions.Gameplay.Pause.started += Pause;
+        }
+
+        public void UnSubscribePauseInput()
+        {
+            _inputActions.Gameplay.Pause.started -= Pause;
+        }
+
+        private void Pause(InputAction.CallbackContext ctx)
+        {
+            OnPause();
+        }
+
+        public void PauseEnd()
+        {
+            GameplayInputs(false);
+            UIInputs(true);
+
+            behaviour.CursorState(false);
         }
 
         private void EnableGameplayEvents()
@@ -149,6 +175,30 @@ namespace Cubeman.Player
         private void Cancel(InputAction.CallbackContext ctx)
         {
             OnCancel();
+        }
+
+        public void SubscribeUnPauseInput(Action unPauseAction)
+        {
+            OnUnPause = unPauseAction;
+            _inputActions.UI.UnPause.started += UnPause;
+        }
+
+        public void UnSubscribeUnPauseInput()
+        {
+            _inputActions.UI.UnPause.started -= UnPause;
+        }
+
+        private void UnPause(InputAction.CallbackContext ctx)
+        {
+            OnUnPause();
+        }
+
+        public void UnPauseEnd()
+        {
+            GameplayInputs(true);
+            UIInputs(false);
+
+            behaviour.CursorState(true);
         }
 
         private void DisableUIEvents()

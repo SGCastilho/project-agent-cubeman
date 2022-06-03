@@ -69,10 +69,17 @@ namespace Cubeman.Manager
 
         public void GameLose() => ChangeGameState(GameState.LOSE);
 
-        private void GameplayState() => _player.Input.GameplayInputs(true);
+        private void GameplayState()
+        {
+            _player.Input.GameplayInputs(true);
+
+            GamePauseManager.Instance.BlockPause = false;
+        }
 
         private void WinState()
         {
+            GamePauseManager.Instance.BlockPause = true;
+
             AudioController.Instance.PlaySoundEffect(ref completeAudioClip, completeAudioClipVolumeScale);
 
             StartCoroutine(WinStateCoroutine());

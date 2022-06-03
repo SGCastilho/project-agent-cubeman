@@ -48,6 +48,9 @@ namespace Cubeman.Player
         public delegate void PlayerUltimateReset();
         public event PlayerUltimateReset OnPlayerUltimateReset;
 
+        public delegate void PlayerDeathStart();
+        public event PlayerDeathStart OnPlayerDeathStart;
+
         public delegate void PlayerDeath(ref AudioClip clip, float volumeScale);
         public event PlayerDeath OnPlayerDeath;
 
@@ -184,6 +187,8 @@ namespace Cubeman.Player
 
         IEnumerator DeathCoroutine()
         {
+            OnPlayerDeathStart?.Invoke();
+
             yield return new WaitForSeconds(0.2f);
 
             behaviour.Input.GameplayInputs(false);
@@ -201,7 +206,7 @@ namespace Cubeman.Player
 
             yield return new WaitForSeconds(deathTime);
 
-            if(OnPlayerDeathComplete != null) { OnPlayerDeathComplete(); }
+            OnPlayerDeathComplete?.Invoke();
         }
     }
 }

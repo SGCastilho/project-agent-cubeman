@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6691a2e54518f3145ae17d955ff13148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSceneDuration: 12
+  currentSceneDuration: 6
   OnCounterEnd:
     m_PersistentCalls:
       m_Calls:

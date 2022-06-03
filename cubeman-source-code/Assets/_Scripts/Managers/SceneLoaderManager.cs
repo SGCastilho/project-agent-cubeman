@@ -40,7 +40,7 @@ namespace Cubeman.Manager
 
         IEnumerator LoadingSceneCoroutine(int sceneIndex)
         {
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSecondsRealtime(0.6f);
 
             var sceneLoading = SceneManager.LoadSceneAsync(sceneIndex);
 
@@ -53,7 +53,7 @@ namespace Cubeman.Manager
 
         IEnumerator LoadingSceneCoroutine(string sceneName)
         {
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSecondsRealtime(0.6f);
 
             var sceneLoading = SceneManager.LoadSceneAsync(sceneName);
 
@@ -68,7 +68,7 @@ namespace Cubeman.Manager
         {
             var sceneToLoad = scene.buildIndex;
 
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSecondsRealtime(0.6f);
 
             var sceneLoading = SceneManager.LoadSceneAsync(sceneToLoad);
 

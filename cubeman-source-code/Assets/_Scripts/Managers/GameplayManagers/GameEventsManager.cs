@@ -15,6 +15,7 @@ namespace Cubeman.Manager
         [Header("Classes")]
         [SerializeField] private AudioController audioManager;
         [SerializeField] private DialogueManager dialogueManager;
+        [SerializeField] private GamePauseManager gamePauseManager;
         [SerializeField] private GameStateManager gameStateManager;
         [SerializeField] private SceneLoaderManager sceneLoaderManager;
         [SerializeField] private ObjectPoolingManager poolingManager;
@@ -28,9 +29,14 @@ namespace Cubeman.Manager
         [SerializeField] private UIFade uiFade;
         [SerializeField] private UIBossHUD uiBossHUD;
         [SerializeField] private UIDialogue uiDialogue;
+        [SerializeField] private UIPauseMenu uiPauseMenu;
         [SerializeField] private UIPlayerHUD uiPlayerHUD;
         [SerializeField] private UIStartLevel uiStartLevel;
         [SerializeField] private UIStartLevel uiEndLevel;
+
+        [Space(12)]
+
+        [SerializeField] private PauseMenuButtons pauseMenuButtons;
 
         private PlayerBehaviour _player;
 
@@ -60,10 +66,25 @@ namespace Cubeman.Manager
 
             _player.Status.OnPlayerRecovery += uiPlayerHUD.RecoveryHealthBar;
             _player.Status.OnPlayerTakeDamage += uiPlayerHUD.DamageHealthBar;
+
             _player.Status.OnPlayerUltimateProgress += uiPlayerHUD.UltimateBar;
             _player.Status.OnPlayerUltimateReset += uiPlayerHUD.UltimateBarReset;
+
+            _player.Status.OnPlayerDeathStart += gamePauseManager.BlockPauseEvent;
             _player.Status.OnPlayerDeath += audioManager.PlaySoundEffect;
             _player.Status.OnPlayerDeathComplete += gameStateManager.GameLose;
+
+            _player.Input.SubscribePauseInput(gamePauseManager.Pause);
+            _player.Input.SubscribeUnPauseInput(gamePauseManager.UnPause);
+
+            gamePauseManager.OnPauseGame += uiPauseMenu.FadeIn;
+            gamePauseManager.OnUnPauseGame += uiPauseMenu.FadeOut;
+
+            pauseMenuButtons.OnResume += gamePauseManager.UnPause;
+            pauseMenuButtons.OnQuit += sceneLoaderManager.LoadScene;
+            
+            uiPauseMenu.OnPauseEnd += _player.Input.PauseEnd;
+            uiPauseMenu.OnUnPauseEnd += _player.Input.UnPauseEnd;
 
             if(bossStatus != null && uiBossHUD != null)
             {
@@ -114,10 +135,25 @@ namespace Cubeman.Manager
 
             _player.Status.OnPlayerRecovery -= uiPlayerHUD.RecoveryHealthBar;
             _player.Status.OnPlayerTakeDamage -= uiPlayerHUD.DamageHealthBar;
+
             _player.Status.OnPlayerUltimateProgress -= uiPlayerHUD.UltimateBar;
             _player.Status.OnPlayerUltimateReset -= uiPlayerHUD.UltimateBarReset;
+
+            _player.Status.OnPlayerDeathStart -= gamePauseManager.BlockPauseEvent;
             _player.Status.OnPlayerDeath -= audioManager.PlaySoundEffect;
             _player.Status.OnPlayerDeathComplete -= gameStateManager.GameLose;
+
+            _player.Input.UnSubscribePauseInput();
+            _player.Input.UnSubscribeUnPauseInput();
+
+            gamePauseManager.OnPauseGame -= uiPauseMenu.FadeIn;
+            gamePauseManager.OnUnPauseGame -= uiPauseMenu.FadeOut;
+
+            pauseMenuButtons.OnResume -= gamePauseManager.UnPause;
+            pauseMenuButtons.OnQuit -= sceneLoaderManager.LoadScene;
+
+            uiPauseMenu.OnPauseEnd -= _player.Input.PauseEnd;
+            uiPauseMenu.OnUnPauseEnd -= _player.Input.UnPauseEnd;
 
             if (bossStatus != null && uiBossHUD != null)
             {
