@@ -35,6 +35,8 @@ namespace Cubeman.Manager
 
         public void StartDialogue(DialogueMessageData dialogue)
         {
+            GamePauseManager.Instance.BlockPause = true;
+
             _dialogueData = dialogue;
             _maxDialogueID = _dialogueData.DialogueSequence.Length;
 
@@ -70,6 +72,8 @@ namespace Cubeman.Manager
             }
             else
             {
+                GamePauseManager.Instance.BlockPause = false;
+
                 PrepareGameplayInput();
 
                 OnDialogueEnd?.Invoke();
