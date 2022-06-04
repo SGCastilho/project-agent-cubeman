@@ -23,7 +23,7 @@ namespace Cubeman.UI
 
         public void CancelVideoOptions()
         {
-            //Reset UI
+            uiVideoOptions.SetupClientOptions();
         }
     }
 }

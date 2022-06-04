@@ -68,7 +68,7 @@ namespace Cubeman.UI
             screenDropDown.AddOptions(supportedScreen);
         }
 
-        private void SetupClientOptions()
+        internal void SetupClientOptions()
         {
             _currentVideoOptions = OnGetClientOptions();
 
@@ -191,9 +191,7 @@ namespace Cubeman.UI
                 {
                     if (antiAliasingOptions[i] == antialiasingDropDown.options[antialiasingDropDown.value])
                     {
-                        Debug.Log(antiAliasingOptions[i].text);
                         antiAliasingValue = int.Parse(antiAliasingOptions[i].text);
-                        Debug.Log(antiAliasingValue);
                         break;
                     }
                 }
