@@ -1,52 +1,58 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Cubeman.Manager
 {
     public sealed class OptionsManager : MonoBehaviour
     {
-        private Resolution clientResolution;
-        private Resolution[] supportedResolutions;
+        [SerializeField] private VideoOptions _clientVideoOptions;
+        private Resolution[] _supportedResolutions;
 
-        private FullScreenMode clientFullScreenMode;
-
-        private float clientTargetFrameRate;
-
-        private int clientVsync;
-        private int clientTextureQuality;
-
-        private AnisotropicFiltering clientAnisotropic;
-
-        private ShadowResolution clientShadowResolution;
-
-        private int clientAntialiasing;
+        [Header("Pipeline Asset")]
+        [SerializeField] private UniversalRenderPipelineAsset pipelineAsset;
 
         private void Awake() => CacheCurrentSettings();
 
         private void CacheCurrentSettings()
         {
-            clientResolution = Screen.currentResolution;
-            clientFullScreenMode = Screen.fullScreenMode;
-            clientTargetFrameRate = Application.targetFrameRate;
+            _supportedResolutions = Screen.resolutions;
 
-            clientVsync = QualitySettings.vSyncCount;
+            _clientVideoOptions.clientResolution = Screen.currentResolution;
 
-            clientTextureQuality = QualitySettings.masterTextureLimit;
-            clientAnisotropic = QualitySettings.anisotropicFiltering;
+            CacheResolutionIndex();
 
-            clientShadowResolution = QualitySettings.shadowResolution;
+            _clientVideoOptions.clientFullScreenMode = Screen.fullScreenMode;
+            _clientVideoOptions.clientFullScreenModeIndex = ((int)Screen.fullScreenMode);
 
-            clientAntialiasing = QualitySettings.antiAliasing;
+            _clientVideoOptions.clientTargetFrameRate = Application.targetFrameRate;
 
-            supportedResolutions = Screen.resolutions;
+            _clientVideoOptions.clientVsync = QualitySettings.vSyncCount;
+
+            _clientVideoOptions.clientTextureQuality = QualitySettings.masterTextureLimit;
+            _clientVideoOptions.clientAnisotropic = QualitySettings.anisotropicFiltering;
+
+            _clientVideoOptions.clientAntialiasing = pipelineAsset.msaaSampleCount;
         }
 
-        public string[] GetResolutions()
+        private void CacheResolutionIndex()
         {
-            var resolutions = new string[supportedResolutions.Length];
-
-            for (int i = 0; i < supportedResolutions.Length; i++)
+            for (int i = 0; i < _supportedResolutions.Length; i++)
             {
-                resolutions[i] = $"{supportedResolutions[i].width} x {supportedResolutions[i].height}";
+                if (_supportedResolutions[i].height == _clientVideoOptions.clientResolution.height)
+                {
+                    _clientVideoOptions.clientResolutionIndex = i;
+                    break;
+                }
+            }
+        }
+
+        public string[] GetSupportedResolutions()
+        {
+            var resolutions = new string[_supportedResolutions.Length];
+
+            for (int i = 0; i < _supportedResolutions.Length; i++)
+            {
+                resolutions[i] = $"{_supportedResolutions[i].width} x {_supportedResolutions[i].height}";
             }
 
             return resolutions;
@@ -62,6 +68,36 @@ namespace Cubeman.Manager
             fullscreenMode[3] = FullScreenMode.Windowed.ToString();
 
             return fullscreenMode;
+        }
+
+        public VideoOptions GetClientOptions()
+        {
+            return _clientVideoOptions;
+        }
+
+        public void SetClientOptions(VideoOptions newOptions) 
+        {
+            _clientVideoOptions = newOptions;
+        }
+
+        public void ApplyClientOptions()
+        {
+            _clientVideoOptions.clientResolution = _supportedResolutions[_clientVideoOptions.clientResolutionIndex];
+            _clientVideoOptions.clientFullScreenMode = (FullScreenMode)_clientVideoOptions.clientFullScreenModeIndex;
+
+            var resolutionWidth = _clientVideoOptions.clientResolution.width;
+            var resolutionHeight = _clientVideoOptions.clientResolution.height;
+
+            Screen.SetResolution(resolutionWidth, resolutionHeight, _clientVideoOptions.clientFullScreenMode);
+
+            Application.targetFrameRate = _clientVideoOptions.clientTargetFrameRate;
+
+            QualitySettings.vSyncCount = _clientVideoOptions.clientVsync;
+
+            QualitySettings.masterTextureLimit = _clientVideoOptions.clientTextureQuality;
+            QualitySettings.anisotropicFiltering = _clientVideoOptions.clientAnisotropic;
+
+            pipelineAsset.msaaSampleCount = _clientVideoOptions.clientAntialiasing;
         }
     }
 }
