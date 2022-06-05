@@ -7,7 +7,7 @@ namespace Cubeman.Manager
     public sealed class ChangeSceneTimerManager : MonoBehaviour
     {
         [Header("Settings")]
-        [SerializeField] [Range(6f, 20f)] private float currentSceneDuration = 12f;
+        [SerializeField] [Range(1f, 20f)] private float currentSceneDuration = 12f;
 
         [Header("Unity Events")]
 
