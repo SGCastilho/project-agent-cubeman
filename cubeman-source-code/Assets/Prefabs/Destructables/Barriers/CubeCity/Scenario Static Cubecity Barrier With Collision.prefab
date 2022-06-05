@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClipList:
   - _audioKey: audio_impact
-    _audioVolumeScale: 0.4
+    _audioVolumeScale: 0.2
     _audioClip: {fileID: 8300000, guid: ac92871352d0cbc4fb81b0efed069bab, type: 3}
   - _audioKey: audio_explosion
     _audioVolumeScale: 0.4

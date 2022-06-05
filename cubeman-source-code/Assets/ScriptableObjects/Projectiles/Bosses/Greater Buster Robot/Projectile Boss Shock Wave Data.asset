@@ -17,11 +17,11 @@ MonoBehaviour:
   projectileInstances: 10
   disableOnDamage: 0
   projectileAudioClip: {fileID: 8300000, guid: abac4b03607676f428dbd7bee2c882e3, type: 3}
-  projectileClipVolumeScale: 0.6
+  projectileClipVolumeScale: 0.4
   projectileDamage: 8
   initProjectileDamage: 8
   projectileLevel: 1
-  projectileDamageScaling: 0.6
+  projectileFixedUpgrade: 0
   projectileVelocity: 12
   projectileRange: 6
   devNotes: Default Greater Buster Robot projectile.

@@ -17,7 +17,7 @@ MonoBehaviour:
   projectileInstances: 2
   disableOnDamage: 0
   projectileAudioClip: {fileID: 8300000, guid: 92ce0f726bdde364a95267202e0d80fc, type: 3}
-  projectileClipVolumeScale: 0.8
+  projectileClipVolumeScale: 0.4
   projectileDamage: 10
   initProjectileDamage: 10
   projectileLevel: 1
