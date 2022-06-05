@@ -21,7 +21,7 @@ namespace Cubeman.UI
         public event ClientOptions OnGetClientOptions;
 
         private VideoOptions _currentVideoOptions;
-        [SerializeField] private VideoOptions _newVideoOptions;
+        private VideoOptions _newVideoOptions;
 
         [Header("Classes")]
         [SerializeField] private TMP_Dropdown resolutionDropDown;

@@ -27,7 +27,7 @@ namespace Cubeman.UI
 
         public void OptionsButton()
         {
-            Debug.Log("Options Button");
+            
         }
 
         public void QuitButton()

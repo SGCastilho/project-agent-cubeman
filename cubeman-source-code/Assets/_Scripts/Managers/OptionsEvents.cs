@@ -6,12 +6,17 @@ namespace Cubeman.Manager
     public sealed class OptionsEvents : MonoBehaviour
     {
         [Header("Classes")]
-        [SerializeField] private OptionsManager optionsManager;
+        [SerializeField] private VideoOptionsManager videoOptionsManager;
+        [SerializeField] private AudioOptionsManager audioOptionsManager;
 
         [Space(12)]
 
         [SerializeField] private UIVideoOptions uiVideoOptions;
         [SerializeField] private UIButtonsVideoOptions uiButtonsVideoOptions;
+
+        [Space(6)]
+
+        [SerializeField] private UIAudioOptions uiAudioOptions;
 
         private void OnEnable() => EnableEvents();
 
@@ -19,24 +24,34 @@ namespace Cubeman.Manager
 
         private void EnableEvents()
         {
-            uiVideoOptions.OnGetClientOptions += optionsManager.GetClientOptions;
+            uiVideoOptions.OnGetClientOptions += videoOptionsManager.GetClientOptions;
 
-            uiVideoOptions.OnGetSupportedScreen += optionsManager.GetSupportedFullScreenMode;
-            uiVideoOptions.OnGetSupportedResolution += optionsManager.GetSupportedResolutions;
+            uiVideoOptions.OnGetSupportedScreen += videoOptionsManager.GetSupportedFullScreenMode;
+            uiVideoOptions.OnGetSupportedResolution += videoOptionsManager.GetSupportedResolutions;
 
-            uiButtonsVideoOptions.OnSetNewVideoOptions += optionsManager.SetClientOptions;
-            uiButtonsVideoOptions.OnApplyVideoOptions += optionsManager.ApplyClientOptions;
+            uiButtonsVideoOptions.OnSetNewVideoOptions += videoOptionsManager.SetClientOptions;
+            uiButtonsVideoOptions.OnApplyVideoOptions += videoOptionsManager.ApplyClientOptions;
+
+            uiAudioOptions.OnGetSoundTrackVolume += audioOptionsManager.GetSoundTrackVolume;
+            uiAudioOptions.OnGetSoundEffectVolume += audioOptionsManager.GetSoundEffectVolume;
+            uiAudioOptions.OnSetSoundTrackVolume += audioOptionsManager.SetSoundTrackVolume;
+            uiAudioOptions.OnSetSoundEffectVolume += audioOptionsManager.SetSoundEffectVolume;
         }
 
         private void DisableEvents()
         {
-            uiVideoOptions.OnGetClientOptions -= optionsManager.GetClientOptions;
+            uiVideoOptions.OnGetClientOptions -= videoOptionsManager.GetClientOptions;
 
-            uiVideoOptions.OnGetSupportedScreen -= optionsManager.GetSupportedFullScreenMode;
-            uiVideoOptions.OnGetSupportedResolution -= optionsManager.GetSupportedResolutions;
+            uiVideoOptions.OnGetSupportedScreen -= videoOptionsManager.GetSupportedFullScreenMode;
+            uiVideoOptions.OnGetSupportedResolution -= videoOptionsManager.GetSupportedResolutions;
 
-            uiButtonsVideoOptions.OnSetNewVideoOptions -= optionsManager.SetClientOptions;
-            uiButtonsVideoOptions.OnApplyVideoOptions -= optionsManager.ApplyClientOptions;
+            uiButtonsVideoOptions.OnSetNewVideoOptions -= videoOptionsManager.SetClientOptions;
+            uiButtonsVideoOptions.OnApplyVideoOptions -= videoOptionsManager.ApplyClientOptions;
+
+            uiAudioOptions.OnGetSoundTrackVolume -= audioOptionsManager.GetSoundTrackVolume;
+            uiAudioOptions.OnGetSoundEffectVolume -= audioOptionsManager.GetSoundEffectVolume;
+            uiAudioOptions.OnSetSoundTrackVolume -= audioOptionsManager.SetSoundTrackVolume;
+            uiAudioOptions.OnSetSoundEffectVolume -= audioOptionsManager.SetSoundEffectVolume;
         }
     }
 }
