@@ -927,10 +927,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas Fade
       objectReference: {fileID: 0}
-    - target: {fileID: 4800084960576313653, guid: cd8c3c9c2e7ea8a4084114f746e903d9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4800084960576313657, guid: cd8c3c9c2e7ea8a4084114f746e903d9, type: 3}
       propertyPath: m_Camera
       value: 
