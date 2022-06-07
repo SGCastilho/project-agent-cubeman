@@ -151,6 +151,17 @@ namespace Cubeman.Player
                 },
                 {
                     ""name"": """",
+                    ""id"": ""cdf5df41-43df-49a9-8e5c-0c056cd1f224"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""1e937e8e-1327-47e1-b93b-1ea6ac0bdfe8"",
                     ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
@@ -223,6 +234,17 @@ namespace Cubeman.Player
                     ""processors"": """",
                     ""groups"": ""PC"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57982af2-2f71-4871-9798-0a050d460507"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Ultimate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }

@@ -22,11 +22,10 @@ namespace Cubeman.Destructable
         [Header("Classes")]
         [SerializeField] private DestructableBehaviour behaviour;
 
+        private int _health;
+
         private const string IMPACT_SFX = "audio_impact";
         private const string EXPLOSION_SFX = "audio_explosion";
-
-        [Header("Settings")]
-        private int _health;
 
         private AudioClip _impactSFX;
         private float _impactVolumeScale;

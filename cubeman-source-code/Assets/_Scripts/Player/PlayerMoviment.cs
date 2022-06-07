@@ -20,10 +20,6 @@ namespace Cubeman.Player
         internal Transform GraphicsTransform { get => graphicsTransform; }
         #endregion
 
-        private const string DASH_AUDIO_KEY = "audio_dash";
-        private const string JUMP_IN_AUDIO_KEY = "audio_jumpIn";
-        private const string JUMP_OUT_AUDIO_KEY = "audio_jumpOut";
-
         [Header("Classes")]
         [SerializeField] private PlayerBehaviour behaviour;
         [SerializeField] private PlayerCharacterGravity gravity;
@@ -46,6 +42,10 @@ namespace Cubeman.Player
 
         [SerializeField] private Transform graphicsTransform;
 
+        private const string DASH_AUDIO_KEY = "audio_dash";
+        private const string JUMP_IN_AUDIO_KEY = "audio_jumpIn";
+        private const string JUMP_OUT_AUDIO_KEY = "audio_jumpOut";
+
         private bool _blockMoviment;
         private bool _inAutomaticMove;
 
@@ -64,7 +64,12 @@ namespace Cubeman.Player
         private Vector2 _xVelocity;
         private Vector2 _finalVelocity;
 
-        private void Start() => _moveRight = true;
+        private void Start() => SetupStartMovimentSide();
+
+        private void SetupStartMovimentSide()
+        {
+            _moveRight = true;
+        }
 
         private void Update() => CalculateMoviment();
 

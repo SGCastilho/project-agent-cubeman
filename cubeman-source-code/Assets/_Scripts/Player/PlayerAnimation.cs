@@ -6,6 +6,9 @@ namespace Cubeman.Player
     {
         [Header("Classes")]
         [SerializeField] private PlayerBehaviour behaviour;
+
+        [Space(12)]
+
         [SerializeField] private Animator animator;
 
         internal bool DashAnimation
@@ -44,9 +47,9 @@ namespace Cubeman.Player
 
         private void ConstantAnimation()
         {
-            animator.SetFloat("horizontalInput", Mathf.Abs(behaviour.Input.HorizontalAxis));
-            animator.SetBool("isGrounded", behaviour.Moviment.Gravity.IsGrounded);
             animator.SetBool("jumped", behaviour.Moviment.Gravity.IsJumped);
+            animator.SetBool("isGrounded", behaviour.Moviment.Gravity.IsGrounded);
+            animator.SetFloat("horizontalInput", Mathf.Abs(behaviour.Input.HorizontalAxis));
         }
 
         internal void CallAnimatorTrigger(string triggerKey)

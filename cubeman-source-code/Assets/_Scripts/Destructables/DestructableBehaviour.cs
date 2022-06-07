@@ -11,10 +11,10 @@ namespace Cubeman.Destructable
         #endregion
 
         [Header("Classes")]
-        [SerializeField] private DestructableObject destructableObject;
-        [SerializeField] private DamagableCollectableSpawn collectableSpawn;
-        [SerializeField] private LocalAudioController localAudioManager;
         [SerializeField] private AudioSoundEffects soundEffects;
+        [SerializeField] private DestructableObject destructableObject;
+        [SerializeField] private LocalAudioController localAudioManager;
+        [SerializeField] private DamagableCollectableSpawn collectableSpawn;
 
         private Vector3 _startPosistion;
 
@@ -24,7 +24,12 @@ namespace Cubeman.Destructable
 
         private void OnDestroy() => DisableEvents();
 
-        private void Start() => _startPosistion = transform.position;
+        private void Start() => CachePosistion();
+
+        private void CachePosistion()
+        {
+            _startPosistion = transform.position;
+        }
 
         private void EnableEvents()
         {

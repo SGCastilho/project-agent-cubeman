@@ -8,19 +8,23 @@ namespace Cubeman.GameCamera
     public sealed class GameplayCamera : MonoBehaviour
     {
         #region Encapsulation
-        public Transform FixedCameraPoint { set => fixedCameraTransform = value; }
         public Vector3 CorrectCameraPos { set => _correctCameraPos = value; }
+        public Transform FixedCameraPoint { set => fixedCameraTransform = value; }
         #endregion
 
         private Action CameraAction;
 
         [Header("Settings")]
         [SerializeField] private CameraState currentState;
+
         [Space(12)]
+
         [SerializeField] private Transform trackTransform;
         [SerializeField] private Transform fixedCameraTransform;
         [SerializeField] [Range(2f, 6f)] private float trackSmooth = 2.128f;
+
         [Space(6)]
+
         [SerializeField] [Range(-38f, -28f)] private float cameraDistance = -28f;
         [SerializeField] [Range(0.1f, 2f)] private float verticalCameraYOffset = 0.6f;
 
@@ -31,7 +35,12 @@ namespace Cubeman.GameCamera
 
         private Transform _transform;
 
-        private void Awake() => _transform = GetComponent<Transform>();
+        private void Awake() => CacheComponets();
+
+        private void CacheComponets()
+        {
+            _transform = GetComponent<Transform>();
+        }
 
         private void Start() => SetupObject();
 

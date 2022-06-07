@@ -10,20 +10,26 @@ namespace Cubeman.Damagable
         private ObjectPoolingManager _poolingManager;
 
         [Header("Settings")]
-        [SerializeField] private CollectableData[] collectableList;
         [SerializeField] private Transform collectableSpawnPoint;
+        [SerializeField] private CollectableData[] collectableList;
 
         [Space(12)]
 
         [SerializeField] [Range(1, 6)] private int minCollectableSpawn = 2;
         [SerializeField] [Range(1, 6)] private int maxCollectableSpawn = 4;
 
-        private int _collectablesToSpawn;
-        private int _randomCollectable;
         private int _spawnChange;
+        private int _randomCollectable;
+        private int _collectablesToSpawn;
+
         private Vector3 _lastSpawnSide;
 
-        private void Awake() => _poolingManager = ObjectPoolingManager.Instance;
+        private void Awake() => CacheComponets();
+
+        private void CacheComponets()
+        {
+            _poolingManager = ObjectPoolingManager.Instance;
+        }
 
         public void SpawnCollectable()
         {

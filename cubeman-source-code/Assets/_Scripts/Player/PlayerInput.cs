@@ -23,7 +23,12 @@ namespace Cubeman.Player
 
         private float _horizontalAxis;
 
-        private void Awake() => _inputActions = new GameplayInputActions();
+        private void Awake() => SetupInputAction();
+
+        private void SetupInputAction()
+        {
+            _inputActions = new GameplayInputActions();
+        }
 
         private void OnEnable()
         {
