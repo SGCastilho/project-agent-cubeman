@@ -28,6 +28,7 @@ namespace Cubeman.Audio
         [SerializeField] [Range(100, 400)] private int milisecondsBetweenSoundEffect = 200;
 
         private Queue<SequenceSoundEffect> soundEffectQueue = new Queue<SequenceSoundEffect>();
+
         private bool _queuePlaying;
 
         public void PlaySoundTrack(ref AudioClip clip)

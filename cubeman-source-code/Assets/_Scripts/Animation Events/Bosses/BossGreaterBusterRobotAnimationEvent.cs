@@ -41,6 +41,12 @@ namespace Cubeman.AnimationEvents
             CacheData();
         }
 
+        private void CacheComponets()
+        {
+            poolingManager = ObjectPoolingManager.Instance;
+            audioController = AudioController.Instance;
+        }
+
         private void CacheData()
         {
             _laserProjectileKey = behaviour.DataLoader.Data.Projectiles[0].Key;
@@ -50,12 +56,6 @@ namespace Cubeman.AnimationEvents
             _shockWaveProjectileKey = behaviour.DataLoader.Data.Projectiles[1].Key;
             _shockWaveAudioClip = behaviour.DataLoader.Data.Projectiles[1].ProjectileSFX;
             _shockWaveVolumeScale = behaviour.DataLoader.Data.Projectiles[1].VolumeScale;
-        }
-
-        private void CacheComponets()
-        {
-            poolingManager = ObjectPoolingManager.Instance;
-            audioController = AudioController.Instance;
         }
 
         public void ShootEvent()

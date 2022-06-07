@@ -12,19 +12,20 @@ namespace Cubeman.AnimationEvents
         [SerializeField] private PlayerBehaviour behaviour;
 
         private AudioController _audioManager;
-        private ProjectileBehaviour _currentProjectile;
         private ObjectPoolingManager _poolingManager;
+
+        private ProjectileBehaviour _currentProjectile;
 
         [Header("Settings")]
         [SerializeField] private Transform shootingPointTransform;
 
         private string _projectileKey;
-        private float _projectileAudioClipVolumeScale;
         private AudioClip _projectileAudioClip;
+        private float _projectileAudioClipVolumeScale;
 
         private string _ultimateProjectileKey;
-        private float _ultimateAudioClipVolumeScale;
         private AudioClip _ultimateAudioClip;
+        private float _ultimateAudioClipVolumeScale;
 
         private void Awake() => CacheComponets();
 
@@ -57,7 +58,9 @@ namespace Cubeman.AnimationEvents
         public void ShootUltimateEvent()
         {
             behaviour.Input.GameplayInputs(true);
+
             behaviour.Moviment.Gravity.FreezeGravity = false;
+
             behaviour.Status.InvensibleMode = false;
             behaviour.Status.UltimateReady = false;
 
@@ -68,7 +71,9 @@ namespace Cubeman.AnimationEvents
 
         private void InstantiateProjectile(string projectileKey)
         {
-            _currentProjectile = _poolingManager.SpawnPrefab(projectileKey, shootingPointTransform.position).GetComponent<ProjectileBehaviour>();
+            _currentProjectile = _poolingManager.SpawnPrefab(projectileKey, shootingPointTransform.position)
+                .GetComponent<ProjectileBehaviour>();
+
             _currentProjectile.Moviment.MoveRight = behaviour.Moviment.MoveRight;
             _currentProjectile.ResetTimer();
         }
@@ -76,6 +81,7 @@ namespace Cubeman.AnimationEvents
         public void StaggerEvent()
         {
             behaviour.Moviment.StartCoroutine(behaviour.Moviment.TakeDamageImpulseCoroutine());
+
             StaggerAudioEvent();
         }
 

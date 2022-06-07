@@ -9,7 +9,7 @@ namespace Cubeman.Audio
 
     public sealed class AudioController : MonoBehaviour
     {
-        #region Singleton
+        #region Instace
         public static AudioController Instance;
         #endregion
 
@@ -35,21 +35,28 @@ namespace Cubeman.Audio
         [SerializeField] [Range(100, 400)] private int milisecondsBetweenSoundEffect = 200;
 
         private Queue<SequenceSoundEffect> _soundEffectQueue = new Queue<SequenceSoundEffect>();
-        private bool _queuePlaying;
-        private float _currentVolumeScale;
-        private AudioClip _currentAudioClip;
 
-        private void Awake() => Instance = this;
+        private bool _queuePlaying;
+
+        private AudioClip _currentAudioClip;
+        private float _currentVolumeScale;
+
+        private void Awake() => SetupObject();
+
+        private void SetupObject()
+        {
+            Instance = this;
+        }
 
         private void OnEnable() => SetAudioSourcesVolume();
-
-        private void Start() => PlaySoundTrack(StageSoundTrack.STAGE);
 
         private void SetAudioSourcesVolume()
         {
             soundTrackAudioSource.volume = soundTrackVolume;
             soundEffectAudioSource.volume = soundEffectVolume;
         }
+
+        private void Start() => PlaySoundTrack(StageSoundTrack.STAGE);
 
         public void PlaySoundTrack(StageSoundTrack selectedSoundTrack)
         {

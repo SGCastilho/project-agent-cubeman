@@ -11,8 +11,10 @@ namespace Cubeman.AnimationEvents
         [Header("Classes")]
         [SerializeField] private EnemyBusterRobotBehaviour behaviour;
 
-        private ProjectileBehaviour _currentProjectile;
+        private AudioController _audioController;
         private ObjectPoolingManager _poolingManager;
+
+        private ProjectileBehaviour _currentProjectile;
 
         [Header("Settings")]
         [SerializeField] private Transform shootingPointTransform;
@@ -24,6 +26,7 @@ namespace Cubeman.AnimationEvents
         private void CacheComponets()
         {
             _poolingManager = ObjectPoolingManager.Instance;
+            _audioController = AudioController.Instance;
         }
 
         private void Start() => GetProjectileData();
@@ -37,12 +40,14 @@ namespace Cubeman.AnimationEvents
         {
             InstantiateProjectile(_projectileKey);
 
-            AudioController.Instance.PlaySoundEffectInOrder(ref behaviour.shootSFX);
+            _audioController.PlaySoundEffectInOrder(ref behaviour.shootSFX);
         }
 
         private void InstantiateProjectile(string projectileKey)
         {
-            _currentProjectile = _poolingManager.SpawnPrefab(projectileKey, shootingPointTransform.position).GetComponent<ProjectileBehaviour>();
+            _currentProjectile = _poolingManager.SpawnPrefab(projectileKey, shootingPointTransform.position)
+                .GetComponent<ProjectileBehaviour>();
+
             _currentProjectile.Moviment.MoveRight = behaviour.Moviment.MoveRight;
             _currentProjectile.ResetTimer();
         }
