@@ -57,9 +57,6 @@ namespace Cubeman.Player
         public delegate void PlayerDeathComplete();
         public event PlayerDeathComplete OnPlayerDeathComplete;
 
-        private const string STAGGER_AUDIO_KEY = "audio_stagger";
-        private const string DEATH_AUDIO_KEY = "audio_death";
-
         [Header("Data")]
         [SerializeField] private PlayerData data;
 
@@ -76,6 +73,9 @@ namespace Cubeman.Player
         [Space(12)]
         [SerializeField] private float currentUltimateCharge;
         [SerializeField] [Range(0.1f, 2f)] private float ultimateCouldownDuration = 1f;
+
+        private const string STAGGER_AUDIO_KEY = "audio_stagger";
+        private const string DEATH_AUDIO_KEY = "audio_death";
 
         private bool _damageImmune;
         private bool _isDead;

@@ -1,4 +1,3 @@
-using System.Collections;
 using Cubeman.ScriptableObjects;
 using UnityEngine;
 
@@ -26,6 +25,8 @@ namespace Cubeman.Player
         private bool _isShooting;
         private bool _blockShooting;
 
+        private float _currentFireRateDuration;
+
         internal void Shooting()
         {
             if (_blockShooting) return;
@@ -33,7 +34,21 @@ namespace Cubeman.Player
             if(!_isShooting)
             {
                 behaviour.Animation.CallAnimatorTrigger("shoot");
-                StartCoroutine(FireRateCourotine());
+                _isShooting = true;
+            }
+        }
+
+        private void Update() => FireRateTimer();
+
+        private void FireRateTimer()
+        {
+            if (!_isShooting) return;
+
+            _currentFireRateDuration += Time.deltaTime;
+            if (_currentFireRateDuration >= fireRate)
+            {
+                _isShooting = false;
+                _currentFireRateDuration = 0;
             }
         }
 
@@ -48,13 +63,6 @@ namespace Cubeman.Player
                 behaviour.Moviment.Gravity.FreezeGravity = true;
                 behaviour.Animation.CallAnimatorTrigger("ultimate");
             }
-        }
-
-        IEnumerator FireRateCourotine()
-        {
-            _isShooting = true;
-            yield return new WaitForSeconds(fireRate);
-            _isShooting = false;
         }
     }
 }
