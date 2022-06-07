@@ -28,22 +28,25 @@ namespace Cubeman.UI
         public void FadeOut()
         {
             loadingGameObject.SetActive(false);
-            canvasGroup.DOKill();
-            canvasGroup.DOFade(0f, transistionDuration).SetUpdate(true);
+            Fade(0f);
         }
 
         public void FadeIn()
         {
             loadingGameObject.SetActive(false);
-            canvasGroup.DOKill();
-            canvasGroup.DOFade(1f, transistionDuration).SetUpdate(true);;
+            Fade(1f);
         }
 
         public void LoadingFadeIn()
         {
             loadingGameObject.SetActive(true);
+            Fade(1f);
+        }
+
+        private void Fade(float endValue)
+        {
             canvasGroup.DOKill();
-            canvasGroup.DOFade(1f, transistionDuration).SetUpdate(true);
+            canvasGroup.DOFade(endValue, transistionDuration).SetUpdate(true);
         }
     }
 }

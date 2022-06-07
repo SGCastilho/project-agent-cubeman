@@ -15,8 +15,8 @@ namespace Cubeman.Scenario
         [SerializeField] [Range(0.1f, 1f)] private float checkDistanceDuration = 0.4f;
         [SerializeField] [Range(0.1f, 0.2f)] private float minDistanceStop = 0.1f;
 
-        private float _currentCheckDistanceDuration;
         private float _currentDistance;
+        private float _currentCheckDistanceDuration;
 
         #region  Editor Variables
     #if UNITY_EDITOR
@@ -47,7 +47,9 @@ namespace Cubeman.Scenario
 
         private void CalculateDistance()
         {
-            _currentDistance = CalculateDistancePoints(behaviour.Moviment.CivilianTransform.position.x, finalDestinationTransform.position.x);
+            _currentDistance = CalculateDistancePoints(behaviour.Moviment.CivilianTransform.position.x, 
+                finalDestinationTransform.position.x);
+            
             if (_currentDistance <= minDistanceStop)
             {
                 gameObject.SetActive(false);

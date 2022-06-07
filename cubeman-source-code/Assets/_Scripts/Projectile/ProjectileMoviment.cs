@@ -1,11 +1,11 @@
+using System;
 using UnityEngine;
 
 namespace Cubeman.Projectile
 {
     public sealed class ProjectileMoviment : MonoBehaviour
     {
-        private delegate void MoveSide();
-        private MoveSide MovimentSide;
+        private Action MovimentSide;
 
         #region Encapsulation
         public bool MoveRight { set => moveRight = value; }
@@ -20,8 +20,8 @@ namespace Cubeman.Projectile
 
         [Space(12)]
 
-        [SerializeField] private bool moveRight;
         [SerializeField] private bool moveUp;
+        [SerializeField] private bool moveRight;
 
         private float _velocity;
 

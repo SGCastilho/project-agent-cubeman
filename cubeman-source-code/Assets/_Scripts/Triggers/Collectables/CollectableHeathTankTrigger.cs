@@ -16,7 +16,12 @@ namespace Cubeman.Trigger
 
         private const string COLLECT_SFX = "audio_collect";
 
-        private void Awake() => _player = FindObjectOfType<PlayerBehaviour>();
+        private void Awake() => CacheComponets();
+
+        private void CacheComponets()
+        {
+            _player = PlayerBehaviour.Instance;
+        }
 
         private void OnTriggerEnter(Collider other)
         {

@@ -12,8 +12,7 @@ namespace Cubeman.Trigger
         {
             if(other.CompareTag("Player"))
             {
-                PlayerBehaviour player = other.GetComponent<PlayerBehaviour>();
-                player.Status.ApplyDamage(damage);
+                PlayerBehaviour.Instance.Status.ApplyDamage(damage);
             }
         }
 
@@ -21,8 +20,7 @@ namespace Cubeman.Trigger
         {
             if (other.CompareTag("Player"))
             {
-                PlayerBehaviour player = other.GetComponent<PlayerBehaviour>();
-                player.Status.ApplyDamage(damage);
+                PlayerBehaviour.Instance.Status.ApplyDamage(damage);
             }
         }
     }

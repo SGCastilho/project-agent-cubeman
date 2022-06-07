@@ -40,6 +40,7 @@ namespace Cubeman.Trigger
                     _camera.FixedCameraPoint = cameraFixedPoint;
                 }
                 else { _camera.CorrectCameraPos = correctCameraPos; }
+
                 _camera.ChangeCameraState(nextCameraState);
             }
         }

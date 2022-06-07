@@ -1,5 +1,4 @@
 using System.Collections;
-using Cubeman.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,7 +10,9 @@ namespace Cubeman.Trigger
         [SerializeField] [Range(0.1f, 6f)] private float messageDelay = 4f;
 
         [Header("Unity Events")]
+
         [Space(12)]
+
         [SerializeField] private UnityEvent loadMessageEvent;
         [SerializeField] private UnityEvent showMessageEvent;
         [SerializeField] private UnityEvent hideMessageEvent;
