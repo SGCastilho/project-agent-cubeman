@@ -8,7 +8,7 @@ namespace Cubeman.Player
     public sealed class PlayerMoviment : MonoBehaviour
     {
         #region Encapsulation
-        public CharacterGravity Gravity { get => gravity; }
+        public PlayerCharacterGravity Gravity { get => gravity; }
 
         public string DashSFX { get => DASH_AUDIO_KEY; }
         public string JumpInSFX { get => JUMP_IN_AUDIO_KEY; }
@@ -26,9 +26,11 @@ namespace Cubeman.Player
 
         [Header("Classes")]
         [SerializeField] private PlayerBehaviour behaviour;
+        [SerializeField] private PlayerCharacterGravity gravity;
+
         [Space(12)]
+
         [SerializeField] private CharacterController controller;
-        [SerializeField] private CharacterGravity gravity;
 
         [Header("Settings")]
         [SerializeField] [Range(1f, 20f)] private float movementSpeed = 6f;

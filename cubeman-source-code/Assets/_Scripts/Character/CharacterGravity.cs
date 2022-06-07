@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Cubeman.Character
 {
     [RequireComponent(typeof(CharacterController))]
-    public sealed class CharacterGravity : MonoBehaviour
+    public class CharacterGravity : MonoBehaviour
     {
         #region Encapsulation
         public bool BlockJump { set => _blockJump = value; }
@@ -26,55 +26,43 @@ namespace Cubeman.Character
         #endregion
 
         [Header("Classes")]
-        [SerializeField] private CharacterController charController;
+        [SerializeField] protected CharacterController charController;
 
         [Header("Settings")]
-        [SerializeField] [Range(0.1f, 12f)] private float maxHeight = 1f;
-        [SerializeField] [Range(0.1f, 4f)] private float timeToPeak = 0.2f;
+        [SerializeField] [Range(0.1f, 12f)] protected float maxHeight = 1f;
+        [SerializeField] [Range(0.1f, 4f)] protected float timeToPeak = 0.2f;
 
-        private bool _blockJump;
-        private bool _freezeGravity;
+        protected bool _blockJump;
+        protected bool _freezeGravity;
 
-        private bool _isJumped;
-        private float _gravity;
-        private float _jumpSpeed;
-        private Vector2 _yVelocity;
+        protected bool _isJumped;
+        protected float _gravity;
+        protected float _jumpSpeed;
 
-        [Space(12)]
-
-        [SerializeField] [Range(0.1f, 1f)] private float variableJumpDuration = 0.3f;
-        [SerializeField] [Range(0.1f, 4f)] private float variableJumpTimeToPeak = 0.3f;
-        private float _currentVariableJumpDuration;
-        private bool _inVariableJump;
+        protected Vector2 _yVelocity;
         
         [Space(12)]
 
-        [SerializeField] private Transform groundCheckTransform;
-        [SerializeField] [Range(0.1f, 2f)] private float groundCheckRange = 0.28f;
-        [SerializeField] private LayerMask groundLayerMask;
+        [SerializeField] protected Transform groundCheckTransform;
+        [SerializeField] [Range(0.1f, 2f)] protected float groundCheckRange = 0.28f;
+        [SerializeField] protected LayerMask groundLayerMask;
 
-        private void Start() => InitializeGravity();
+        protected void Start() => InitializeGravity();
 
-        private void InitializeGravity()
+        protected virtual void InitializeGravity()
         {
             CalculateGravity(maxHeight, timeToPeak);
             _jumpSpeed = _gravity * timeToPeak;
             _freezeGravity = false;
             _isJumped = false;
-
-            _currentVariableJumpDuration = 0;
-            _inVariableJump = false;
         }
 
-        private void Update() => VariableJump();
-
-        public void Gravity()
+        public virtual void Gravity()
         {
             if (!_freezeGravity)
             {
                 if (charController.isGrounded && _yVelocity.y < -1f)
                 {
-                    EndVariableJump();
                     _isJumped = false;
                     _yVelocity = Vector3.down;
                 }
@@ -95,7 +83,7 @@ namespace Cubeman.Character
             _gravity = (2 * maxHeight) / Mathf.Pow(timeToPeak, 2);
         }
 
-        private bool GroundCheck()
+        protected bool GroundCheck()
         {
             return Physics.CheckSphere(groundCheckTransform.position, groundCheckRange, groundLayerMask);
         }
@@ -120,41 +108,6 @@ namespace Cubeman.Character
                 _yVelocity = force * Vector2.up;
                 _isJumped = true;
             }
-        }
-
-        public void VariableJumpInput()
-        {
-            if (_blockJump) return;
-
-            if (!_freezeGravity && !_isJumped && !_inVariableJump)
-            {
-                CalculateGravity(variableJumpTimeToPeak);
-                _isJumped = true;
-                _inVariableJump = true;
-            }
-        }
-
-        private void VariableJump()
-        {
-            if (_blockJump) return;
-
-            if (!_freezeGravity && _inVariableJump)
-            {
-                _currentVariableJumpDuration += Time.deltaTime;
-                _yVelocity = _jumpSpeed * Vector2.up;
-                if (_currentVariableJumpDuration >= variableJumpDuration)
-                {
-                    _currentVariableJumpDuration = 0;
-                    _inVariableJump = false;
-                }
-            }
-        }
-
-        public void EndVariableJump()
-        {
-            CalculateGravity(timeToPeak);
-            _currentVariableJumpDuration = 0;
-            _inVariableJump = false;
         }
 
         #region Editor
