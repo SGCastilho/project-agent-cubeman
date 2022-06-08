@@ -25,6 +25,14 @@ namespace Cubeman.Enemies
         [Header("Classes")]
         [SerializeField] private Animator animator;
 
+        private void OnDisable() => ResetAnimations();
+
+        private void ResetAnimations()
+        {
+            RunningAnimation = false;
+            ShootingPoseAnimation = false;
+        }
+
         public void CallAnimationTrigger(string trigger)
         {
             animator.SetTrigger(trigger);

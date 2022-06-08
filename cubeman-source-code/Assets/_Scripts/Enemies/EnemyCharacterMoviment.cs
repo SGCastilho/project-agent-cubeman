@@ -67,7 +67,13 @@ namespace Cubeman.Enemies
             _startSide = moveRight;
         }
 
-        private void OnEnable() => MoveRight = _startSide;
+        private void OnEnable() => EnableObject();
+
+        private void EnableObject()
+        {
+            MoveRight = _startSide;
+            _isMoving = false;
+        }
 
         private void Update() => CalculateMoviment();
 

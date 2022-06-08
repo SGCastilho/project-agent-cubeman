@@ -5,10 +5,12 @@ namespace Cubeman.Enemies
     public sealed class StateMachine : MonoBehaviour
     {
         [Header("Settings")]
+        [SerializeField] private State currentState;
+
+        [Space(12)]
+
         [SerializeField] private State startState;
         [SerializeField] private bool startMachineOnAwake = true;
-
-        private State currentState;
 
         private void Awake() => SetupObject();
 
