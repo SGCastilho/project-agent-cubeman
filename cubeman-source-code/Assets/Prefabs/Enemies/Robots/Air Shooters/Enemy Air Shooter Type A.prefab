@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviour: {fileID: 2411022624509342258}
   soundEffects: {fileID: 6959406461364793736}
+  nextShootingPointTransform: {fileID: 0}
   shootingLeftPoints:
   - {fileID: 2411022626474090380}
   - {fileID: 2411022626344094570}

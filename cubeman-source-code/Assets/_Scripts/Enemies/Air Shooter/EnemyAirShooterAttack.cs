@@ -1,4 +1,5 @@
 using Cubeman.Audio;
+using System.Collections;
 using UnityEngine;
 
 namespace Cubeman.Enemies
@@ -13,25 +14,37 @@ namespace Cubeman.Enemies
         [SerializeField] private AudioSoundEffects soundEffects;
 
         [Header("Settings")]
+        [SerializeField] private Transform nextShootingPointTransform;
+
+        [Space(6)]
+
         [SerializeField] private Transform[] shootingLeftPoints;
         [SerializeField] private Transform[] shootingRightPoints;
-        private Transform _nextShootingPointTransform;
-        private int _currentShootingPoint;
-        private bool _usingRightPoints;
-        private bool _backingCurrentFromPoints;
-        private float _distanceFromShootingPoint;
 
         [Space(12)]
 
         [SerializeField] private Transform shootPoint;
+
         [Space(6)]
+
         [SerializeField] [Range(0.1f, 2f)] private float recoveryDelay = 1f;
-        private bool _canShoot;
-        private float _currentRecoveryDelay;
-        private string _projectileKey;
 
         private const string SHOOT_AUDIO_KEY = "audio_shoot";
+
         private AudioClipList _shootSFX;
+
+        private int _currentShootingPoint;
+
+        private bool _canShoot;
+        private bool _pointReached;
+        private bool _sidePointsCompleted;
+        private bool _usingRightPoints;
+        private bool _backingCurrentFromPoints;
+
+        private float _currentRecoveryDelay;
+        private float _distanceFromShootingPoint;
+
+        private string _projectileKey;
 
         private void Awake() => LoadData();
 
@@ -64,11 +77,11 @@ namespace Cubeman.Enemies
 
             if (_usingRightPoints)
             {
-                _nextShootingPointTransform = shootingRightPoints[_currentShootingPoint];
+                nextShootingPointTransform = shootingRightPoints[_currentShootingPoint];
             }
             else
             {
-                _nextShootingPointTransform = shootingLeftPoints[_currentShootingPoint];
+                nextShootingPointTransform = shootingLeftPoints[_currentShootingPoint];
             }
 
             _canShoot = true;
@@ -79,101 +92,132 @@ namespace Cubeman.Enemies
             return Mathf.Abs(pointA - pointB);
         }
 
-        private void Update() => TravelBetweenShootingPoints();
+        private void Update() => DistanceBetweenPoints();
 
-        private void FixedUpdate() => DistanceCalculation();
-
-        private void DistanceCalculation()
+        private void DistanceBetweenPoints()
         {
+            if (_pointReached) return;
+
+            _distanceFromShootingPoint = CalculateDistanceAbs(behaviour.BehaviourTransform.position.x, 
+                nextShootingPointTransform.position.x);
+
+            if(_distanceFromShootingPoint <= 0.1f)
+            {
+                behaviour.Moviment.IsMoving = false;
+
+                _distanceFromShootingPoint = 1f;
+                _pointReached = true;
+
+                Shooting();
+            }
+        }
+
+        private void Shooting()
+        {
+            if (!_pointReached) return;
+
             if(_canShoot)
             {
-                _distanceFromShootingPoint = CalculateDistanceAbs(behaviour.Moviment.EnemyTransform.position.x,
-                    _nextShootingPointTransform.position.x);
+                OnShoot(_projectileKey, shootPoint.position);
+                behaviour.AudioManager.PlaySoundEffectInOrder(ref _shootSFX);
+
+                _canShoot = false;
+
+                StartCoroutine(ShootingRecoveryCoroutine());
             }
         }
 
-        private void TravelBetweenShootingPoints()
+        IEnumerator ShootingRecoveryCoroutine()
         {
-            if (_canShoot)
-            {
-                if (_distanceFromShootingPoint < 0.2f)
-                {
-                    behaviour.Moviment.IsMoving = false;
+            yield return new WaitForSeconds(recoveryDelay);
 
-                    if (OnShoot != null) 
-                    { 
-                        OnShoot(_projectileKey, shootPoint.position);
-                        behaviour.AudioManager.PlaySoundEffectInOrder(ref _shootSFX);
-                    }
+            GoToNextShootingPoint();
 
-                    _canShoot = false;
-                    _distanceFromShootingPoint = 0;
-                }
-            }
-            else
-            {
-                _currentRecoveryDelay += Time.deltaTime;
-                if (_currentRecoveryDelay >= recoveryDelay)
-                {
-                    behaviour.Moviment.IsMoving = true;
-                    _currentRecoveryDelay = 0;
-                    NextShootingPoint();
-                }
-            }
-        }
-
-        private void NextShootingPoint()
-        {
-            if(_backingCurrentFromPoints)
-            {
-                if (_usingRightPoints)
-                {
-                    _currentShootingPoint--;
-                    if (_currentShootingPoint < 0)
-                    {
-                        _backingCurrentFromPoints = false;
-                        _usingRightPoints = false;
-                        return;
-                    }
-                    _nextShootingPointTransform = shootingRightPoints[_currentShootingPoint];
-                }
-                else
-                {
-                    _currentShootingPoint--;
-                    if (_currentShootingPoint < 0)
-                    {
-                        _backingCurrentFromPoints = false;
-                        _usingRightPoints = true;
-                        return;
-                    }
-                    _nextShootingPointTransform = shootingLeftPoints[_currentShootingPoint];
-                }
-            }
-            else
-            {
-                if (_usingRightPoints)
-                {
-                    _currentShootingPoint++;
-                    if (_currentShootingPoint == shootingRightPoints.Length)
-                    {
-                        _backingCurrentFromPoints = true;
-                        return;
-                    }
-                    _nextShootingPointTransform = shootingRightPoints[_currentShootingPoint];
-                }
-                else
-                {
-                    _currentShootingPoint++;
-                    if(_currentShootingPoint == shootingLeftPoints.Length)
-                    {
-                        _backingCurrentFromPoints = true;
-                        return;
-                    }
-                    _nextShootingPointTransform = shootingLeftPoints[_currentShootingPoint];
-                }
-            }
+            yield return new WaitForSeconds(0.1f);
 
             _canShoot = true;
+            _pointReached = false;
+        }
+
+        private void ChangeShootingPointDirection()
+        {
+            if (_usingRightPoints)
+            {
+                if (_currentShootingPoint >= shootingRightPoints.Length)
+                {
+                    _currentShootingPoint--;
+                    _backingCurrentFromPoints = true;
+                }
+            }
+            else
+            {
+                if (_currentShootingPoint >= shootingLeftPoints.Length)
+                {
+                    _currentShootingPoint--;
+                    _backingCurrentFromPoints = true;
+                }
+            }
+
+            if (_sidePointsCompleted) { InverseShotingPoint(); }
+        }
+
+        private void InverseShotingPoint()
+        {
+            _currentShootingPoint = 0;
+            _usingRightPoints = !_usingRightPoints;
+            _backingCurrentFromPoints = false;
+
+            if(_usingRightPoints)
+            {
+                nextShootingPointTransform = shootingRightPoints[_currentShootingPoint];
+            }
+            else
+            {
+                nextShootingPointTransform = shootingLeftPoints[_currentShootingPoint];
+            }
+        }
+
+        private void GoToNextShootingPoint()
+        {
+            if(_usingRightPoints)
+            {
+                CheckIfIsBackingFromPoints();
+
+                nextShootingPointTransform = shootingRightPoints[_currentShootingPoint];
+            }
+            else
+            {
+                CheckIfIsBackingFromPoints();
+
+                nextShootingPointTransform = shootingLeftPoints[_currentShootingPoint];
+            }
+
+            behaviour.Moviment.IsMoving = true;
+        }
+
+        private void CheckIfIsBackingFromPoints()
+        {
+            if (_backingCurrentFromPoints)
+            {
+                _currentShootingPoint--;
+                if(_currentRecoveryDelay <= 0)
+                {
+                    _sidePointsCompleted = true;
+                }
+            }
+            else
+            {
+                if(_sidePointsCompleted)
+                {
+                    _sidePointsCompleted = false;
+                }
+                else
+                {
+                    _currentShootingPoint++;
+                }
+            }
+
+            ChangeShootingPointDirection();
         }
 
         #region Editor Gizmos

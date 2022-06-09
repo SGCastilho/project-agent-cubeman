@@ -1591,6 +1591,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Buster Robot Type A (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: attackingRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: maxOriginDistance
+      value: 20.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: showShootingGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: showOriginPointGizmos
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
 --- !u!4 &188944330 stripped
@@ -5641,6 +5657,18 @@ PrefabInstance:
     - target: {fileID: 4833303795568173999, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
       propertyPath: m_Name
       value: Enemy Buster Robot Type A (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: attackingRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: showShootingGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: showOriginPointGizmos
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7232139498763406476, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
       propertyPath: startState
@@ -9715,6 +9743,22 @@ PrefabInstance:
     - target: {fileID: 4833303795568173999, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
       propertyPath: m_Name
       value: Enemy Buster Robot Type A (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: attackingRange
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: maxOriginDistance
+      value: 20.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: showShootingGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: showOriginPointGizmos
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
@@ -14370,6 +14414,14 @@ PrefabInstance:
     - target: {fileID: 4833303795568173999, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
       propertyPath: m_Name
       value: Enemy Buster Robot Type A
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: attackingRange
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232139498314162876, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
+      propertyPath: showShootingGizmos
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7232139498763406476, guid: 29f51eacc5755174a83523c52b861a21, type: 3}
       propertyPath: startState

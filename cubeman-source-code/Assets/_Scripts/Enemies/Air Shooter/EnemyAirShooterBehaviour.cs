@@ -10,6 +10,8 @@ namespace Cubeman.Enemies
         internal EnemyMovementBetweenTwoPoints Moviment { get => movement; }
         internal LocalAudioController AudioManager { get => localAudioManager; }
 
+        internal Transform BehaviourTransform { get => _transform; }
+
         public EnemyAirShooterAttack Attack { get => attack; }
         #endregion
 
@@ -18,5 +20,14 @@ namespace Cubeman.Enemies
         [SerializeField] private EnemyMovementBetweenTwoPoints movement;
         [SerializeField] private EnemyAirShooterAttack attack;
         [SerializeField] private LocalAudioController localAudioManager;
+
+        private Transform _transform;
+
+        private void Awake() => CacheComponets();
+
+        private void CacheComponets()
+        {
+            _transform = GetComponent<Transform>();
+        }
     }
 }
