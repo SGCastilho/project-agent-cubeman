@@ -5,7 +5,7 @@ namespace Cubeman.Manager
 {
     public sealed class GamePauseManager : MonoBehaviour
     {
-        #region Singleton
+        #region Instance
         public static GamePauseManager Instance;
         #endregion
         

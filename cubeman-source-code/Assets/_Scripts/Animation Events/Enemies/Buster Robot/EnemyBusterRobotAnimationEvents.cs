@@ -21,6 +21,8 @@ namespace Cubeman.AnimationEvents
 
         private string _projectileKey;
 
+        private AudioClipList _projectileSFX;
+
         private void Awake() => CacheComponets();
 
         private void CacheComponets()
@@ -34,13 +36,16 @@ namespace Cubeman.AnimationEvents
         private void GetProjectileData()
         {
             _projectileKey = behaviour.DataLoader.Data.Projectile.Key;
+
+            _projectileSFX = new AudioClipList("audio_shoot", behaviour.DataLoader.Data.Projectile.ProjectileSFX,
+                behaviour.DataLoader.Data.Projectile.VolumeScale);
         }
 
         public void ShootEvent()
         {
             InstantiateProjectile(_projectileKey);
 
-            _audioController.PlaySoundEffectInOrder(ref behaviour.shootSFX);
+            _audioController.PlaySoundEffectInOrder(ref _projectileSFX);
         }
 
         private void InstantiateProjectile(string projectileKey)

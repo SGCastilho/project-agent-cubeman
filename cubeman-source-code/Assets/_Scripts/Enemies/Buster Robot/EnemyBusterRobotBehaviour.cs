@@ -34,10 +34,6 @@ namespace Cubeman.Enemies
         [SerializeField] private EnemyBusterRobotAnimator animator;
         [SerializeField] private AudioSoundEffects soundEffects;
 
-        private const string SHOOT_AUDIO_KEY = "audio_shoot";
-        [HideInInspector]
-        public AudioClipList shootSFX;
-
         private Vector3 _startPosistion;
 
         private Transform _transform;
@@ -48,13 +44,6 @@ namespace Cubeman.Enemies
         {
             _transform = GetComponent<Transform>();
             _startPosistion = _transform.position;
-        }
-
-        private void Start() => LoadSoundEffects();
-
-        private void LoadSoundEffects()
-        {
-            shootSFX = soundEffects.GetSoundEffect(SHOOT_AUDIO_KEY);
         }
 
         private void OnDisable() => ResetObject();

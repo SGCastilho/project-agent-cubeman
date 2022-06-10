@@ -19,6 +19,9 @@ namespace Cubeman.Enemies
         [SerializeField] private EnemyDataLoader dataLoader;
         [SerializeField] private EnemyMovementBetweenTwoPoints movement;
         [SerializeField] private EnemyAirShooterAttack attack;
+
+        [Space(6)]
+
         [SerializeField] private LocalAudioController localAudioManager;
 
         private Transform _transform;

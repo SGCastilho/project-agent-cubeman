@@ -10,10 +10,12 @@ namespace Cubeman.Manager
     {
         public delegate void DialogueLoad(ref Sprite face, ref string name, ref string dialogue);
         public event DialogueLoad OnDialogueLoad;
+
         public Action OnDialogueReady;
         public Action OnDialogueEnd;
     
         private DialogueMessageData _dialogueData;
+
         private PlayerBehaviour _player;
 
         [Header("Settings")]

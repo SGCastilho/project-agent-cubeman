@@ -38,6 +38,7 @@ namespace Cubeman.Enemies
         protected bool _isMoving;
 
         protected Vector3 _startPosistion;
+
         protected Transform _transform;
 
         protected void Awake() => SetupObject();

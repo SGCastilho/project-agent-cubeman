@@ -31,6 +31,7 @@ namespace Cubeman.Enemies
                 if(_currentEncounterDuration >= encounterDuration)
                 {
                     behaviour.Animator.EncounterAnimation = false;
+
                     _currentEncounterDuration = 0;
                     _encounterDelayFinish = false;
 

@@ -56,14 +56,51 @@ namespace Cubeman.Manager
 
         private void EnableEvents()
         {
-            sceneLoaderManager.OnStartLoadScene += uiFade.LoadingFadeIn;
+            EnableSceneLoaderEvents();
 
-            gameStateManager.OnCompleteStageMessage += uiEndLevel.FadeIn;
-            gameStateManager.OnWin += sceneLoaderManager.LoadScene;
-            gameStateManager.OnLose += sceneLoaderManager.LoadActiveScene;
+            EnableGameStateEvents();
 
-            uiStartLevel.OnMessageEnd += gameStateManager.GameStart;
+            EnablePlayerEvents();
 
+            EnablePauseMenuEvents();
+
+            EnableBossUIEvents();
+
+            EnableDialogueEvents();
+
+            EnableMultiplusEvents();
+        }
+
+        private void EnableDialogueEvents()
+        {
+            dialogueManager.OnDialogueReady += uiDialogue.FadeIn;
+            dialogueManager.OnDialogueLoad += uiDialogue.SetDialogue;
+            dialogueManager.OnDialogueEnd += uiDialogue.FadeOut;
+        }
+
+        private void EnableBossUIEvents()
+        {
+            if (bossStatus != null && uiBossHUD != null)
+            {
+                bossStatus.OnDamageHealth += uiBossHUD.DamageHealthBar;
+                bossStatus.OnRecoveryHealth += uiBossHUD.RecoveryHealthBar;
+            }
+        }
+
+        private void EnablePauseMenuEvents()
+        {
+            gamePauseManager.OnPauseGame += uiPauseMenu.FadeIn;
+            gamePauseManager.OnUnPauseGame += uiPauseMenu.FadeOut;
+
+            pauseMenuButtons.OnResume += gamePauseManager.UnPause;
+            pauseMenuButtons.OnQuit += sceneLoaderManager.LoadScene;
+
+            uiPauseMenu.OnPauseEnd += _player.Input.PauseEnd;
+            uiPauseMenu.OnUnPauseEnd += _player.Input.UnPauseEnd;
+        }
+
+        private void EnablePlayerEvents()
+        {
             _player.Status.OnPlayerRecovery += uiPlayerHUD.RecoveryHealthBar;
             _player.Status.OnPlayerTakeDamage += uiPlayerHUD.DamageHealthBar;
 
@@ -77,28 +114,21 @@ namespace Cubeman.Manager
             _player.Input.SubscribePauseInput(gamePauseManager.Pause);
             _player.Input.SubscribeUnPauseInput(gamePauseManager.UnPause);
 
-            gamePauseManager.OnPauseGame += uiPauseMenu.FadeIn;
-            gamePauseManager.OnUnPauseGame += uiPauseMenu.FadeOut;
-
-            pauseMenuButtons.OnResume += gamePauseManager.UnPause;
-            pauseMenuButtons.OnQuit += sceneLoaderManager.LoadScene;
-            
-            uiPauseMenu.OnPauseEnd += _player.Input.PauseEnd;
-            uiPauseMenu.OnUnPauseEnd += _player.Input.UnPauseEnd;
-
-            if(bossStatus != null && uiBossHUD != null)
-            {
-                bossStatus.OnDamageHealth += uiBossHUD.DamageHealthBar;
-                bossStatus.OnRecoveryHealth += uiBossHUD.RecoveryHealthBar;
-            }
-
             resourceData.OnAddResources += uiPlayerHUD.UpdateResources;
+        }
 
-            dialogueManager.OnDialogueReady += uiDialogue.FadeIn;
-            dialogueManager.OnDialogueLoad += uiDialogue.SetDialogue;
-            dialogueManager.OnDialogueEnd += uiDialogue.FadeOut;
+        private void EnableGameStateEvents()
+        {
+            gameStateManager.OnCompleteStageMessage += uiEndLevel.FadeIn;
+            gameStateManager.OnWin += sceneLoaderManager.LoadScene;
+            gameStateManager.OnLose += sceneLoaderManager.LoadActiveScene;
 
-            EnableMultiplusEvents();
+            uiStartLevel.OnMessageEnd += gameStateManager.GameStart;
+        }
+
+        private void EnableSceneLoaderEvents()
+        {
+            sceneLoaderManager.OnStartLoadScene += uiFade.LoadingFadeIn;
         }
 
         private void EnableMultiplusEvents()
@@ -112,27 +142,53 @@ namespace Cubeman.Manager
             }
         }
 
-        private void DisableMultiplusEvents()
+        private void DisableEvents()
         {
-            if(_airShooters != null && _airShooters.Length > 0)
+            DisableSceneLoaderEvents();
+
+            DisableGameStateEvents();
+
+            DisablePlayerEvents();
+
+            DisablePauseManagerEvents();
+
+            DisableBossUIEvents();
+
+            DisableDialogueEvents();
+
+            DisableMultiplusEvents();
+        }
+
+        private void DisableDialogueEvents()
+        {
+            dialogueManager.OnDialogueReady -= uiDialogue.FadeIn;
+            dialogueManager.OnDialogueLoad -= uiDialogue.SetDialogue;
+            dialogueManager.OnDialogueEnd -= uiDialogue.FadeOut;
+        }
+
+        private void DisableBossUIEvents()
+        {
+            if (bossStatus != null && uiBossHUD != null)
             {
-                for(int i = 0; i < _airShooters.Length; i++)
-                {
-                    _airShooters[i].Attack.OnShoot -= poolingManager.SpawnPrefabNoReturn;
-                }
+                bossStatus.OnDamageHealth -= uiBossHUD.DamageHealthBar;
+                bossStatus.OnRecoveryHealth -= uiBossHUD.RecoveryHealthBar;
             }
         }
 
-        private void DisableEvents()
+        private void DisablePauseManagerEvents()
         {
-            sceneLoaderManager.OnStartLoadScene -= uiFade.LoadingFadeIn;
+            gamePauseManager.OnPauseGame -= uiPauseMenu.FadeIn;
+            gamePauseManager.OnUnPauseGame -= uiPauseMenu.FadeOut;
 
-            gameStateManager.OnCompleteStageMessage -= uiEndLevel.FadeIn;
-            gameStateManager.OnWin -= sceneLoaderManager.LoadScene;
-            gameStateManager.OnLose -= sceneLoaderManager.LoadActiveScene;
+            pauseMenuButtons.OnResume -= gamePauseManager.UnPause;
+            pauseMenuButtons.OnQuit -= sceneLoaderManager.LoadScene;
 
-            uiStartLevel.OnMessageEnd -= gameStateManager.GameStart;
+            uiPauseMenu.OnPauseEnd -= _player.Input.PauseEnd;
+            uiPauseMenu.OnUnPauseEnd -= _player.Input.UnPauseEnd;
+        }
 
+        private void DisablePlayerEvents()
+        {
             _player.Status.OnPlayerRecovery -= uiPlayerHUD.RecoveryHealthBar;
             _player.Status.OnPlayerTakeDamage -= uiPlayerHUD.DamageHealthBar;
 
@@ -143,31 +199,35 @@ namespace Cubeman.Manager
             _player.Status.OnPlayerDeath -= audioManager.PlaySoundEffect;
             _player.Status.OnPlayerDeathComplete -= gameStateManager.GameLose;
 
-            _player.Input.UnSubscribePauseInput();
-            _player.Input.UnSubscribeUnPauseInput();
-
-            gamePauseManager.OnPauseGame -= uiPauseMenu.FadeIn;
-            gamePauseManager.OnUnPauseGame -= uiPauseMenu.FadeOut;
-
-            pauseMenuButtons.OnResume -= gamePauseManager.UnPause;
-            pauseMenuButtons.OnQuit -= sceneLoaderManager.LoadScene;
-
-            uiPauseMenu.OnPauseEnd -= _player.Input.PauseEnd;
-            uiPauseMenu.OnUnPauseEnd -= _player.Input.UnPauseEnd;
-
-            if (bossStatus != null && uiBossHUD != null)
-            {
-                bossStatus.OnDamageHealth -= uiBossHUD.DamageHealthBar;
-                bossStatus.OnRecoveryHealth -= uiBossHUD.RecoveryHealthBar;
-            }
-
             resourceData.OnAddResources -= uiPlayerHUD.UpdateResources;
 
-            dialogueManager.OnDialogueReady -= uiDialogue.FadeIn;
-            dialogueManager.OnDialogueLoad -= uiDialogue.SetDialogue;
-            dialogueManager.OnDialogueEnd -= uiDialogue.FadeOut;
+            _player.Input.UnSubscribePauseInput();
+            _player.Input.UnSubscribeUnPauseInput();
+        }
 
-            DisableMultiplusEvents();
+        private void DisableGameStateEvents()
+        {
+            gameStateManager.OnCompleteStageMessage -= uiEndLevel.FadeIn;
+            gameStateManager.OnWin -= sceneLoaderManager.LoadScene;
+            gameStateManager.OnLose -= sceneLoaderManager.LoadActiveScene;
+
+            uiStartLevel.OnMessageEnd -= gameStateManager.GameStart;
+        }
+
+        private void DisableSceneLoaderEvents()
+        {
+            sceneLoaderManager.OnStartLoadScene -= uiFade.LoadingFadeIn;
+        }
+
+        private void DisableMultiplusEvents()
+        {
+            if (_airShooters != null && _airShooters.Length > 0)
+            {
+                for (int i = 0; i < _airShooters.Length; i++)
+                {
+                    _airShooters[i].Attack.OnShoot -= poolingManager.SpawnPrefabNoReturn;
+                }
+            }
         }
     }
 }

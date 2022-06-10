@@ -31,10 +31,10 @@ namespace Cubeman.Enemies
 
         [Header("Settings")]
         [SerializeField] private int bossHealth;
+        private bool _invensibleMode = true;
 
         private const string IMPACT_AUDIO_KEY = "audio_impact";
 
-        private bool _invensibleMode = true;
         private AudioClipList _impactAudioList;
 
         private void Awake() => SetupObject();
@@ -43,7 +43,7 @@ namespace Cubeman.Enemies
         {
             audioController = AudioController.Instance;
 
-            player = FindObjectOfType<PlayerBehaviour>();
+            player = PlayerBehaviour.Instance;
 
             bossHealth = dataLoader.Data.Health;
 

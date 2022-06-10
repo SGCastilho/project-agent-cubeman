@@ -29,8 +29,6 @@ namespace Cubeman.Enemies
 
         [SerializeField] [Range(0.1f, 2f)] private float recoveryDelay = 1f;
 
-        private const string SHOOT_AUDIO_KEY = "audio_shoot";
-
         private AudioClipList _shootSFX;
 
         private int _currentShootingPoint;
@@ -60,7 +58,8 @@ namespace Cubeman.Enemies
 
         private void LoadSoundEffects()
         {
-            _shootSFX = soundEffects.GetSoundEffect(SHOOT_AUDIO_KEY);
+            _shootSFX = new AudioClipList("audio_shoot", behaviour.DataLoader.Data.Projectile.ProjectileSFX,
+                behaviour.DataLoader.Data.Projectile.VolumeScale);
         }
 
         private void ResetGameObject()

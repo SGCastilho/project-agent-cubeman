@@ -607,10 +607,6 @@ MonoBehaviour:
   checkPlayerDistance: {fileID: 760656624076677124}
   animator: {fileID: 4833303794755402716}
   soundEffects: {fileID: 7373703886461475338}
-  shootSFX:
-    _audioKey: 
-    _audioVolumeScale: 0
-    _audioClip: {fileID: 0}
 --- !u!114 &4833303794755402716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,9 +720,6 @@ MonoBehaviour:
   - _audioKey: audio_explosion
     _audioVolumeScale: 0.4
     _audioClip: {fileID: 8300000, guid: 3e77622f4bd43284e9c4ebe44c803f59, type: 3}
-  - _audioKey: audio_shoot
-    _audioVolumeScale: 0.3
-    _audioClip: {fileID: 8300000, guid: 4fad4c44d02ec274f8967a257eb35812, type: 3}
 --- !u!1 &4833303795246007676
 GameObject:
   m_ObjectHideFlags: 0

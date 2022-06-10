@@ -6,6 +6,13 @@ namespace Cubeman.Audio
     [System.Serializable]
     public struct AudioClipList
     {
+        public AudioClipList(string audioKey, AudioClip audioClip, float volumeScale)
+        {
+            _audioKey = audioKey;
+            _audioClip = audioClip;
+            _audioVolumeScale = volumeScale;
+        }
+
         public string _audioKey;
         [Range(0.1f, 1f)] public float _audioVolumeScale;
         public AudioClip _audioClip;
