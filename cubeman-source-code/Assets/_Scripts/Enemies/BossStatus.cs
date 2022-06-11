@@ -41,9 +41,9 @@ namespace Cubeman.Enemies
 
         private void SetupObject()
         {
-            audioController = AudioController.Instance;
+            player = FindObjectOfType<PlayerBehaviour>();
 
-            player = PlayerBehaviour.Instance;
+            audioController = AudioController.Instance;
 
             bossHealth = dataLoader.Data.Health;
 
