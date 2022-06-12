@@ -14144,9 +14144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed8d844c05205340a7c50c474811d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageAudioClip: {fileID: 8300000, guid: 63d7833b37db6344a84c743edde51869, type: 3}
+  stageAudioClip: {fileID: 8300000, guid: cf16a15d8ade6fd4584ec1b7611d7516, type: 3}
   encounterAudioClip: {fileID: 8300000, guid: bbfb00806ede142459e94ec7d6a10268, type: 3}
-  bossFightAudioClip: {fileID: 8300000, guid: 93e704d96f1c558459faad1323940879, type: 3}
+  bossFightAudioClip: {fileID: 8300000, guid: d555a57e84d344f43a8c299804ac1667, type: 3}
 --- !u!114 &1532769073
 MonoBehaviour:
   m_ObjectHideFlags: 0
