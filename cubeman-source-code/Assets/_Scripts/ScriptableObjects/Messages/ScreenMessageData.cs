@@ -19,7 +19,6 @@ namespace Cubeman.ScriptableObjects
         [Space(6)]
 
         [SerializeField] private string message = "Put your screen message here.";
-        private string _startMessage;
 
         [Space(12)]
 

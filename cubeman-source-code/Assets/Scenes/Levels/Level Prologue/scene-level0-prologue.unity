@@ -9944,9 +9944,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1032898119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ecb99753989538439a6850980e324b0, type: 3}
+  m_Script: {fileID: 11500000, guid: bcaa5bfb7ecaaeb4b82232744d1c6b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenMessageToLoad:
+  - {fileID: 11400000, guid: 58782cb5f8b909644ae0e953dd345711, type: 2}
+  - {fileID: 11400000, guid: d6fa3f02bee3ac746a35992ffb9ce7dc, type: 2}
+  - {fileID: 11400000, guid: 04d244ab755501942982f033832aacbd, type: 2}
+  - {fileID: 11400000, guid: 79c34121801ab214ebd9095efd00afbd, type: 2}
+  - {fileID: 11400000, guid: 2bfc587d693d8d54dadb1646cde8b792, type: 2}
+  dialogueMessageToLoad:
+  - {fileID: 11400000, guid: 18f501355403142498e22ed26db615ef, type: 2}
 --- !u!1 &1036361759
 GameObject:
   m_ObjectHideFlags: 0

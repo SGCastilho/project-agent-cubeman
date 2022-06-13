@@ -13,14 +13,20 @@ namespace Cubeman.Manager
         #endregion
 
         private CSVReader _screenMessageReader;
-        private TextAsset _screenMessageCSV;
+        private CSVReader _dialogueMessageReader;
 
+        private TextAsset _screenMessageCSV;
+        private TextAsset _dialogueMessageCSV;
+
+        private Dictionary<string, string[]> _dialogueTranslations;
         private Dictionary<string, string[]> _screenMessageTranslations;
-        private ScreenMessageData[] _screenMessageData;
 
         private const int COLUMS_IGNORE = 3;
 
         private int _clientLanguageIndex;
+
+        //DEBUG VARIABLE
+        [SerializeField] private string[] dataT;
 
         private void Start()
         {
@@ -45,7 +51,12 @@ namespace Cubeman.Manager
         private async Task LoadCSV()
         {
             _screenMessageCSV = Resources.Load<TextAsset>("CSV/Translation/csv_translation_screen_message");
+            _dialogueMessageCSV = Resources.Load<TextAsset>("CSV/Translation/csv_translation_dialogue");
+
             _screenMessageReader = new CSVReader(_screenMessageCSV);
+            _dialogueMessageReader = new CSVReader(_dialogueMessageCSV);
+
+            dataT = _dialogueMessageReader.Read();
 
             await Task.Yield();
         }
@@ -73,6 +84,7 @@ namespace Cubeman.Manager
         private async Task LoadCSVTranslations()
         {
             await LoadScreenMessageCSV();
+            await LoadDialogueMessageCSV();
 
             await Task.Yield();
         }
@@ -92,24 +104,88 @@ namespace Cubeman.Manager
                 textLanguage[1] = translationData[i + 2];
 
                 _screenMessageTranslations.Add(textKey, textLanguage);
-
-                if (i + COLUMS_IGNORE >= translationData.Length - 1)
-                    break;
             }
-
-            _screenMessageData = Resources.LoadAll<ScreenMessageData>("ScriptableObjects/Screen Message/Tutorial");
 
             await Task.Yield();
         }
 
-        public void LoadScreenMessageText()
+        private async Task LoadDialogueMessageCSV()
         {
-            for (int i = 0; i < _screenMessageData.Length; i++)
+            var translationData = _dialogueMessageReader.Read();
+
+            var dialoguesData = Resources.LoadAll<DialogueMessageData>("ScriptableObjects/Dialogues/Tutorial");
+
+            _dialogueTranslations = new Dictionary<string, string[]>();
+
+            for (int i = 0; i < dialoguesData.Length; i++)
             {
-                if (_screenMessageTranslations.ContainsKey(_screenMessageData[i].Key))
+                var dialogueKey = dialoguesData[i].Key;
+
+                int lastKeyIndex = 0;
+
+                for(int j = COLUMS_IGNORE; j < translationData.Length; j++)
                 {
-                    var textKey = _screenMessageData[i].Key;
-                    _screenMessageData[i].SetupText(_screenMessageTranslations[textKey][_clientLanguageIndex]);
+                    if(translationData[j] == dialogueKey)
+                    {
+                        lastKeyIndex = j;
+                        break;
+                    }
+                }
+
+                var dialogueTextLeagth = (dialoguesData[i].DialogueSequence.Length * 2) + (lastKeyIndex + 1);
+
+                string[] textLanguage = new string[dialoguesData[i].DialogueSequence.Length * 2];
+
+                for(int j = lastKeyIndex; j < dialogueTextLeagth; j++)
+                {
+                    if (translationData[j] != dialogueKey)
+                    {
+                        var adjustIndex = j - (lastKeyIndex + 1);
+                        textLanguage[adjustIndex] = translationData[j];
+                    }
+                }
+
+                _dialogueTranslations.Add(dialogueKey, textLanguage);
+            }
+
+            await Task.Yield();
+        }
+
+        public void LoadScreenMessageText(ScreenMessageData[] messageToLoad)
+        {
+            for (int i = 0; i < messageToLoad.Length; i++)
+            {
+                if (_screenMessageTranslations.ContainsKey(messageToLoad[i].Key))
+                {
+                    var textKey = messageToLoad[i].Key;
+                    messageToLoad[i].SetupText(_screenMessageTranslations[textKey][_clientLanguageIndex]);
+                }
+            }
+        }
+
+        public void LoadDialogueText(DialogueMessageData[] messageToLoad)
+        {
+            for (int i = 0; i < messageToLoad.Length; i++)
+            {
+                if (_dialogueTranslations.ContainsKey(messageToLoad[i].Key))
+                {
+                    var textKey = messageToLoad[i].Key;
+
+                    List<string> translatedDialogue = new List<string>();
+
+                    for (int j = _clientLanguageIndex; j < _dialogueTranslations[textKey].Length; j += 2)
+                    {
+                        translatedDialogue.Add(_dialogueTranslations[textKey][j]);
+                    }
+
+                    var dialogues = new string[messageToLoad[i].DialogueSequence.Length];
+
+                    for(int j = 0; j < translatedDialogue.Count; j++)
+                    {
+                        dialogues[j] = translatedDialogue[j];
+                    }
+
+                    messageToLoad[i].SetupDialoguesText(dialogues);
                 }
             }
         }
