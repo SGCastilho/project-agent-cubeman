@@ -7,19 +7,31 @@ namespace Cubeman.ScriptableObjects
     public sealed class ScreenMessageData : ScriptableObject
     {
         #region Encapsulation
+        public string Key { get => key; }
         public string Message { get => message; }
+
         public TMP_SpriteAsset SpriteAsset { get => hotkeysSpriteAsset; }
         #endregion
 
         [Header("Settings")]
+        [SerializeField] private string key = "Put the language key here.";
+
+        [Space(6)]
+
         [SerializeField] private string message = "Put your screen message here.";
+        private string _startMessage;
 
         [Space(12)]
 
         [SerializeField] private TMP_SpriteAsset hotkeysSpriteAsset;
-        
+
+        public void SetupText(string text)
+        {
+            message = text;
+        }
+
         #region Editor Variables
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
 
         [Space(12)]
 

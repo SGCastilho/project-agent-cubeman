@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbb65315edc2b14796dcf5a64a2703b, type: 3}
   m_Name: Tutorial Dash Screen Message Data
   m_EditorClassIdentifier: 
-  message: Pressione <sprite=7> para impulsionar
+  key: sm_tutorial_dash
+  message: "Pressione <sprite=7> para impulsionar\r"
   hotkeysSpriteAsset: {fileID: 11400000, guid: e5445cb8a4f4f204eaff160454f366c7, type: 2}
   devNotes: Put your dev notes here.
