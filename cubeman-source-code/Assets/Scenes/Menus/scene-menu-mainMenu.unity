@@ -19667,6 +19667,30 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 70d3826b05055c347b50106454b10e1f, type: 2}
   - {fileID: 11400000, guid: 06d340fb944effe48a5916ca496bb0e5, type: 2}
   - {fileID: 11400000, guid: 4da7eae3b09d14646b3a36e89ee9e1f7, type: 2}
+  uiOptionsMenuTextToLoad:
+  - {fileID: 11400000, guid: aeeb2d53f82306843af57179c97bb1fb, type: 2}
+  - {fileID: 11400000, guid: 4359bcd87071cdb47b11ce7a19b3bee4, type: 2}
+  - {fileID: 11400000, guid: d8584a0b329d1334ba608d35c922e94c, type: 2}
+  - {fileID: 11400000, guid: 6fb33bcfc1b115146b838bfbab1323da, type: 2}
+  - {fileID: 11400000, guid: b559beed8be41974c9cecbdb578bdd2a, type: 2}
+  - {fileID: 11400000, guid: d070a3e6e0dc56d4c9925a819006d183, type: 2}
+  - {fileID: 11400000, guid: a8a02045d7097fd498ffb4e8671621bf, type: 2}
+  - {fileID: 11400000, guid: be4e699718294764e83ce96553ca8a3b, type: 2}
+  - {fileID: 11400000, guid: 2d27af8a6ba94e8448c38bec6eeeab44, type: 2}
+  - {fileID: 11400000, guid: e68dd20207f63e74185f131f0f622b69, type: 2}
+  - {fileID: 11400000, guid: 0e16c9343da9cee408c4c864cfd775dc, type: 2}
+  - {fileID: 11400000, guid: d6827043b370085428a4857878432fd3, type: 2}
+  - {fileID: 11400000, guid: 4b60c239fbe22dd4a98aba9b29ee56df, type: 2}
+  - {fileID: 11400000, guid: 6cec9423f70174c469a3fffaf056566d, type: 2}
+  - {fileID: 11400000, guid: faef6782a2a78f34cadaba3ed405cfce, type: 2}
+  - {fileID: 11400000, guid: 37d150af94a28394092220e29becbc33, type: 2}
+  - {fileID: 11400000, guid: 0e80283bf0c03854e9bfe24408b47bfe, type: 2}
+  - {fileID: 11400000, guid: 740b2418ea38bc34a8f54c95e992c5ec, type: 2}
+  - {fileID: 11400000, guid: a621feed22b52944cb3aa616fed349d7, type: 2}
+  - {fileID: 11400000, guid: d307ca6001e585b48ba171ab4aebbd3a, type: 2}
+  - {fileID: 11400000, guid: a2c1f7a8b22d251429ac981181025600, type: 2}
+  - {fileID: 11400000, guid: 6ca2d59a720c0b04c8be3eae47b76be1, type: 2}
+  - {fileID: 11400000, guid: f8659b66a04c00c49830078960fdf473, type: 2}
 --- !u!1 &1893880957
 GameObject:
   m_ObjectHideFlags: 0

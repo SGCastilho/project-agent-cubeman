@@ -7,6 +7,7 @@ namespace Cubeman.Manager
     {
         [Header("Data")]
         [SerializeField] private UITextMessageData[] uiMainMenuTextToLoad;
+        [SerializeField] private UITextMessageData[] uiOptionsMenuTextToLoad;
 
         protected override void LoadTranslation()
         {
@@ -15,6 +16,7 @@ namespace Cubeman.Manager
             var languageLoader = LanguageLoaderManager.Instance;
 
             languageLoader.LoadUIMainMenuMessageText(uiMainMenuTextToLoad);
+            languageLoader.LoadUIOptionsMenuMessageText(uiOptionsMenuTextToLoad);
         }
     }
 }
