@@ -13,12 +13,15 @@ namespace Cubeman.Manager
         #endregion
 
         private CSVReader _screenMessageReader;
+        private CSVReader _uiMainMenuMessageReader;
         private CSVReader _dialogueMessageReader;
 
         private TextAsset _screenMessageCSV;
+        private TextAsset _uiMainMenuMessageCSV;
         private TextAsset _dialogueMessageCSV;
 
         private Dictionary<string, string[]> _dialogueTranslations;
+        private Dictionary<string, string[]> _uiMainMenuMessageTranslations;
         private Dictionary<string, string[]> _screenMessageTranslations;
 
         private const int COLUMS_IGNORE = 3;
@@ -50,13 +53,15 @@ namespace Cubeman.Manager
 
         private async Task LoadCSV()
         {
+            _uiMainMenuMessageCSV = Resources.Load<TextAsset>("CSV/Translation/UI/csv_translation_mainMenu");
             _screenMessageCSV = Resources.Load<TextAsset>("CSV/Translation/csv_translation_screen_message");
             _dialogueMessageCSV = Resources.Load<TextAsset>("CSV/Translation/csv_translation_dialogue");
 
+            _uiMainMenuMessageReader = new CSVReader(_uiMainMenuMessageCSV);
             _screenMessageReader = new CSVReader(_screenMessageCSV);
             _dialogueMessageReader = new CSVReader(_dialogueMessageCSV);
 
-            dataT = _dialogueMessageReader.Read();
+            dataT = _uiMainMenuMessageReader.Read();
 
             await Task.Yield();
         }
@@ -84,6 +89,7 @@ namespace Cubeman.Manager
         private async Task LoadCSVTranslations()
         {
             await LoadScreenMessageCSV();
+            await LoadUIMainMenuMessageCSV();
             await LoadDialogueMessageCSV();
 
             await Task.Yield();
@@ -104,6 +110,26 @@ namespace Cubeman.Manager
                 textLanguage[1] = translationData[i + 2];
 
                 _screenMessageTranslations.Add(textKey, textLanguage);
+            }
+
+            await Task.Yield();
+        }
+
+        private async Task LoadUIMainMenuMessageCSV()
+        {
+            var translationData = _uiMainMenuMessageReader.Read();
+
+            _uiMainMenuMessageTranslations = new Dictionary<string, string[]>();
+
+            for (int i = COLUMS_IGNORE; i < translationData.Length; i += COLUMS_IGNORE)
+            {
+                var textKey = translationData[i];
+
+                string[] textLanguage = new string[2];
+                textLanguage[0] = translationData[i + 1];
+                textLanguage[1] = translationData[i + 2];
+
+                _uiMainMenuMessageTranslations.Add(textKey, textLanguage);
             }
 
             await Task.Yield();
@@ -149,6 +175,18 @@ namespace Cubeman.Manager
             }
 
             await Task.Yield();
+        }
+
+        public void LoadUIMainMenuMessageText(UITextMessageData[] messageToLoad)
+        {
+            for (int i = 0; i < messageToLoad.Length; i++)
+            {
+                if (_uiMainMenuMessageTranslations.ContainsKey(messageToLoad[i].Key))
+                {
+                    var textKey = messageToLoad[i].Key;
+                    messageToLoad[i].SetMessage(_uiMainMenuMessageTranslations[textKey][_clientLanguageIndex]);
+                }
+            }
         }
 
         public void LoadScreenMessageText(ScreenMessageData[] messageToLoad)

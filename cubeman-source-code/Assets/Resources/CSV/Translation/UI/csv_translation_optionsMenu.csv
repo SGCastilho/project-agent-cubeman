@@ -1,0 +1,24 @@
+Key,en_us,pt_br
+ui_options_title,Options,Opções
+ui_options_video,Video,Video
+ui_options_audio,Audio,Audio
+ui_options_controls,Controls,Controles
+ui_options_back,Back,Voltar
+ui_options_resolution,Resolution,Resolução
+ui_options_screen,Screen,Tela
+ui_options_frameRate,Frame Rate,Taxa De Quadros
+ui_options_unlimited,Unlimited,Ilimitado
+ui_options_enable,Enable,Ativado
+ui_options_disable,Disable,Desativado
+ui_options_texture,Texture,Textura
+ui_options_save,Save Changes,Salvar Mudanças
+ui_options_cancel,Cancel Changes,Cancelar Mudanças
+ui_options_soundTrack,Soundtrack,Trilha Sonora
+ui_options_soundEffects,Sound Effects,Efeitos Sonoros
+ui_options_moviment,Moviment,Movimento
+ui_options_jump,Jump,Pulo
+ui_options_dash,Dash,Impulso
+ui_options_shoot,Shoot,Atirar
+ui_options_ultimate,Ultimate,Suprema
+ui_options_interact,Interact,Interagir
+ui_options_pause,Pause,Pausar
