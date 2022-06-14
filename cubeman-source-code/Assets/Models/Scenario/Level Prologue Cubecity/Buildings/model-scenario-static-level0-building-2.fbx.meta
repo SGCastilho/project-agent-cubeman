@@ -9,6 +9,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: material
     second: {fileID: 2100000, guid: 4d931eef334e4174d9a3a21186e1b61e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_brick
+    second: {fileID: 2100000, guid: 96f94b39dd5ef1e498c44ae23135a5c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_glass
+    second: {fileID: 2100000, guid: f3f5a093993d4b444a9f7b8ee40a6003, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_metal
+    second: {fileID: 2100000, guid: d8c22796f4e03d44cb896a31645791cd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -61,7 +76,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    optimizeBones: 1
+    optimizeBones: 0
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -81,7 +96,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -100,7 +115,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
