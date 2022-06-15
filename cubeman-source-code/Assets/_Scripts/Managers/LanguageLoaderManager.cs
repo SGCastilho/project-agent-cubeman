@@ -12,27 +12,30 @@ namespace Cubeman.Manager
         public static LanguageLoaderManager Instance;
         #endregion
 
-        private CSVReader _screenMessageReader;
         private CSVReader _uiMainMenuMessageReader;
         private CSVReader _uiOptionsMenuMessageReader;
-        private CSVReader _dialogueMessageReader;
 
-        private TextAsset _screenMessageCSV;
+        private CSVReader _uiGameplayMessageReader;
+        private CSVReader _uiScreenMessageReader;
+        private CSVReader _uiDialogueMessageReader;
+
         private TextAsset _uiMainMenuMessageCSV;
         private TextAsset _uiOptionsMenuMessageCSV;
-        private TextAsset _dialogueMessageCSV;
 
-        private Dictionary<string, string[]> _dialogueTranslations;
+        private TextAsset _uiGameplayMessageCSV;
+        private TextAsset _uiScreenMessageCSV;
+        private TextAsset _uiDialogueMessageCSV;
+
         private Dictionary<string, string[]> _uiMainMenuMessageTranslations;
         private Dictionary<string, string[]> _uiOptionsMenuMessageTranslations;
-        private Dictionary<string, string[]> _screenMessageTranslations;
+
+        private Dictionary<string, string[]> _uiGameplayMessageTranslations;
+        private Dictionary<string, string[]> _uiScreenMessageTranslations;
+        private Dictionary<string, string[]> _uiDialogueTranslations;
 
         private const int COLUMS_IGNORE = 3;
 
         private int _clientLanguageIndex;
-
-        //DEBUG VARIABLE
-        [SerializeField] private string[] dataT;
 
         private void Start()
         {
@@ -58,15 +61,17 @@ namespace Cubeman.Manager
         {
             _uiMainMenuMessageCSV = Resources.Load<TextAsset>("CSV/Translation/UI/csv_translation_mainMenu");
             _uiOptionsMenuMessageCSV = Resources.Load<TextAsset>("CSV/Translation/UI/csv_translation_optionsMenu");
-            _screenMessageCSV = Resources.Load<TextAsset>("CSV/Translation/csv_translation_screen_message");
-            _dialogueMessageCSV = Resources.Load<TextAsset>("CSV/Translation/csv_translation_dialogue");
+
+            _uiGameplayMessageCSV = Resources.Load<TextAsset>("CSV/Translation/UI/csv_translation_gameplay");
+            _uiScreenMessageCSV = Resources.Load<TextAsset>("CSV/Translation/UI/csv_translation_screen_message");
+            _uiDialogueMessageCSV = Resources.Load<TextAsset>("CSV/Translation/UI/csv_translation_dialogue");
 
             _uiMainMenuMessageReader = new CSVReader(_uiMainMenuMessageCSV);
             _uiOptionsMenuMessageReader = new CSVReader(_uiOptionsMenuMessageCSV);
-            _screenMessageReader = new CSVReader(_screenMessageCSV);
-            _dialogueMessageReader = new CSVReader(_dialogueMessageCSV);
 
-            dataT = _uiOptionsMenuMessageReader.Read();
+            _uiGameplayMessageReader = new CSVReader(_uiGameplayMessageCSV);
+            _uiScreenMessageReader = new CSVReader(_uiScreenMessageCSV);
+            _uiDialogueMessageReader = new CSVReader(_uiDialogueMessageCSV);
 
             await Task.Yield();
         }
@@ -93,9 +98,11 @@ namespace Cubeman.Manager
 
         private async Task LoadCSVTranslations()
         {
-            await LoadScreenMessageCSV();
             await LoadUIMainMenuMessageCSV();
             await LoadUIOptionsMenuMessageCSV();
+
+            await LoadGameplayMessageCSV();
+            await LoadScreenMessageCSV();
             await LoadDialogueMessageCSV();
 
             await Task.Yield();
@@ -103,9 +110,9 @@ namespace Cubeman.Manager
 
         private async Task LoadScreenMessageCSV()
         {
-            var translationData = _screenMessageReader.Read();
+            var translationData = _uiScreenMessageReader.Read();
 
-            _screenMessageTranslations = new Dictionary<string, string[]>();
+            _uiScreenMessageTranslations = new Dictionary<string, string[]>();
 
             for (int i = COLUMS_IGNORE; i < translationData.Length; i += COLUMS_IGNORE)
             {
@@ -115,7 +122,7 @@ namespace Cubeman.Manager
                 textLanguage[0] = translationData[i + 1];
                 textLanguage[1] = translationData[i + 2];
 
-                _screenMessageTranslations.Add(textKey, textLanguage);
+                _uiScreenMessageTranslations.Add(textKey, textLanguage);
             }
 
             await Task.Yield();
@@ -161,13 +168,33 @@ namespace Cubeman.Manager
             await Task.Yield();
         }
 
+        private async Task LoadGameplayMessageCSV()
+        {
+            var translationData = _uiGameplayMessageReader.Read();
+
+            _uiGameplayMessageTranslations = new Dictionary<string, string[]>();
+
+            for (int i = COLUMS_IGNORE; i < translationData.Length; i += COLUMS_IGNORE)
+            {
+                var textKey = translationData[i];
+
+                string[] textLanguage = new string[2];
+                textLanguage[0] = translationData[i + 1];
+                textLanguage[1] = translationData[i + 2];
+
+                _uiGameplayMessageTranslations.Add(textKey, textLanguage);
+            }
+
+            await Task.Yield();
+        }
+
         private async Task LoadDialogueMessageCSV()
         {
-            var translationData = _dialogueMessageReader.Read();
+            var translationData = _uiDialogueMessageReader.Read();
 
             var dialoguesData = Resources.LoadAll<DialogueMessageData>("ScriptableObjects/Dialogues/Tutorial");
 
-            _dialogueTranslations = new Dictionary<string, string[]>();
+            _uiDialogueTranslations = new Dictionary<string, string[]>();
 
             for (int i = 0; i < dialoguesData.Length; i++)
             {
@@ -197,7 +224,7 @@ namespace Cubeman.Manager
                     }
                 }
 
-                _dialogueTranslations.Add(dialogueKey, textLanguage);
+                _uiDialogueTranslations.Add(dialogueKey, textLanguage);
             }
 
             await Task.Yield();
@@ -231,10 +258,22 @@ namespace Cubeman.Manager
         {
             for (int i = 0; i < messageToLoad.Length; i++)
             {
-                if (_screenMessageTranslations.ContainsKey(messageToLoad[i].Key))
+                if (_uiScreenMessageTranslations.ContainsKey(messageToLoad[i].Key))
                 {
                     var textKey = messageToLoad[i].Key;
-                    messageToLoad[i].SetupText(_screenMessageTranslations[textKey][_clientLanguageIndex]);
+                    messageToLoad[i].SetupText(_uiScreenMessageTranslations[textKey][_clientLanguageIndex]);
+                }
+            }
+        }
+
+        public void LoadGameplayMessageText(UITextMessageData[] messageToLoad)
+        {
+            for (int i = 0; i < messageToLoad.Length; i++)
+            {
+                if (_uiGameplayMessageTranslations.ContainsKey(messageToLoad[i].Key))
+                {
+                    var textKey = messageToLoad[i].Key;
+                    messageToLoad[i].SetMessage(_uiGameplayMessageTranslations[textKey][_clientLanguageIndex]);
                 }
             }
         }
@@ -243,15 +282,15 @@ namespace Cubeman.Manager
         {
             for (int i = 0; i < messageToLoad.Length; i++)
             {
-                if (_dialogueTranslations.ContainsKey(messageToLoad[i].Key))
+                if (_uiDialogueTranslations.ContainsKey(messageToLoad[i].Key))
                 {
                     var textKey = messageToLoad[i].Key;
 
                     List<string> translatedDialogue = new List<string>();
 
-                    for (int j = _clientLanguageIndex; j < _dialogueTranslations[textKey].Length; j += 2)
+                    for (int j = _clientLanguageIndex; j < _uiDialogueTranslations[textKey].Length; j += 2)
                     {
-                        translatedDialogue.Add(_dialogueTranslations[textKey][j]);
+                        translatedDialogue.Add(_uiDialogueTranslations[textKey][j]);
                     }
 
                     var dialogues = new string[messageToLoad[i].DialogueSequence.Length];

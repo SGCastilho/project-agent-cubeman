@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Cubeman.Manager
 {
-    public sealed class PrologueLoadTranslatedTextManager : LoadTranslatedTextManager
+    public sealed class PrologueLoadTranslatedTextManager : GameplayLoadTranslatedTextManager
     {
         [Header("Exclusive Settings")]
         [SerializeField] private ScreenMessageData[] screenMessageToLoad;
@@ -11,6 +11,8 @@ namespace Cubeman.Manager
 
         protected override void LoadTranslation()
         {
+            base.LoadTranslation();
+
             if (LanguageLoaderManager.Instance == null) return;
 
             var languageLoader = LanguageLoaderManager.Instance;
