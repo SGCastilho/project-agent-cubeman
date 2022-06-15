@@ -9,6 +9,26 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: material
     second: {fileID: 2100000, guid: de2b9f8f5d51dc649b6929b270fef73a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_brick
+    second: {fileID: 2100000, guid: f4a0191b58e109f4dbc57c69ec81665e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_emissive_blue
+    second: {fileID: 2100000, guid: 770b17091b2e2e442a901895b77e37ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_glass
+    second: {fileID: 2100000, guid: a8a99b8bf487f6149aadfb0fbe7ae01b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_metal
+    second: {fileID: 2100000, guid: ee5d2c887fe30bc45af23fd91261c4ab, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
