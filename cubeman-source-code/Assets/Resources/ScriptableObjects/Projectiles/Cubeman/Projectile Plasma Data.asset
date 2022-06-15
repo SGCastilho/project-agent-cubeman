@@ -16,8 +16,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6978551705403210328, guid: 9f20a2608e387624899d844eed88dfb8, type: 3}
   projectileInstances: 30
   disableOnDamage: 1
-  projectileAudioClip: {fileID: 8300000, guid: 73e5603b618b69b44b5f1e101b8f7566, type: 3}
-  projectileClipVolumeScale: 0.6
+  projectileAudioClip: {fileID: 8300000, guid: d34c2fa72ab369b4c9393aec55360f4f, type: 3}
+  projectileClipVolumeScale: 0.3
   projectileDamage: 2
   initProjectileDamage: 2
   projectileLevel: 1
