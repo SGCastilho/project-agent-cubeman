@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 13383
+  controlID: 44551
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 13384
+  controlID: 44552
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 13385
+  controlID: 44553
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,8 +188,8 @@ MonoBehaviour:
     y: 0
     width: 366
     height: 566
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -228,7 +228,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: b6efffff98faffff6a87000078870000868700008a870000bc870000d08700000c8800003e88000048880000cc8800000e8900001c89000026890000388900007e89000098890000a28900001c8a0000208a0000c48a0000e68a0000f28a0000008b0000228b00004c8b0000608b0000768b00006a8c0000c88c0000cc8c0000fc8c0000548d0000688d00007c8d0000a48d0000b68d0000208e00004e8e0000
+      m_ExpandedIDs: b6efffff98faffff4a8700006a8700006e87000078870000aa870000bc870000fe8700000c88000048880000588800006c8800007a880000a0880000cc8800000e89000026890000388900007e89000098890000a28900001c8a00007e8a0000c48a0000e68a0000ea8a0000ee8a0000008b0000228b0000288b00004c8b0000608b0000768b0000f48b00006a8c00008a8c0000c88c0000cc8c0000fc8c0000168d0000548d0000688d0000a48d0000b68d0000ec8d0000048e0000208e00002c8e00003a8e00004e8e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -244,7 +244,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 5}
+        m_ClientGUIView: {fileID: 7}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -504,9 +504,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.43214065, y: 1.1878762, z: 17.401745}
+    m_Target: {x: 8.214954, y: -1.544882, z: 15.570165}
     speed: 2
-    m_Value: {x: 0.43214065, y: 1.1878762, z: 17.401745}
+    m_Value: {x: 8.214954, y: -1.544882, z: 15.570165}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -553,13 +553,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.04374355, y: 0.022991426, z: 0.008990612, w: 0.99969244}
+    m_Target: {x: 0.022508029, y: -0.0012160527, z: 0.010054587, w: 1.0006503}
     speed: 2
-    m_Value: {x: 0.04370188, y: 0.022969523, z: 0.008982047, w: 0.9987401}
+    m_Value: {x: -0.022508029, y: 0.0012160527, z: -0.010054587, w: -1.0006503}
   m_Size:
-    m_Target: 10.0815525
+    m_Target: 10.71488
     speed: 2
-    m_Value: 10.0815525
+    m_Value: 10.253473
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -652,21 +652,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Fonts
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Fonts
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProjects\project-agent-cubeman\cubeman-source-code
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 96}
-    m_SelectedIDs: 94860000
-    m_LastClickedID: 34452
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 58860000
+    m_LastClickedID: 34392
     m_ExpandedIDs: 0000000056860000588600005a8600005c8600005e86000060860000628600006486000066860000688600006a8600006c8600006e86000070860000728600007486000076860000788600007a8600007c8600007e8600008286000084860000748e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -798,8 +798,8 @@ MonoBehaviour:
     y: 0
     width: 543
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
