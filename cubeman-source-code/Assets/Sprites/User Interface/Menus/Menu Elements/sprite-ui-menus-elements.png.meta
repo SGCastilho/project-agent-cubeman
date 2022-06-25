@@ -271,6 +271,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: pauseMenu-large-button
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 384
+        width: 458
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 27, y: 0, z: 28, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fdb5eb5f2e206f459fcc5fbe69ac60d
+      internalID: -1087059641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -282,14 +303,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mainMenu-large-scrollview-button: 188823201
-      mainMenu-dropdown-icon: -433978187
-      mainMenu-large-scrollview: 1044516424
-      mainMenu-large-slider: -1829234569
-      mainMenu-large-dropdown: 144455328
-      mainMenu-small-button: -1679319696
-      mainMenu-slider-button: -1367681434
-      mainMenu-large-button: -1951538840
+      pauseMenu-large-button: -1087059641
+      mainMenu-large-scrollview-button: -1913853709
+      mainMenu-dropdown-icon: 86429436
+      mainMenu-large-scrollview: -2121348794
+      mainMenu-large-slider: -921266634
+      mainMenu-large-dropdown: -751235976
+      mainMenu-small-button: -381803274
+      mainMenu-slider-button: -1274707749
+      mainMenu-large-button: -45252841
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
