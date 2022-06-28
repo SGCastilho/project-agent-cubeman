@@ -15,6 +15,10 @@ namespace Cubeman.Projectile
         #endregion
 
         [Header("Settings")]
+        [SerializeField] private Transform graphicsTransform;
+
+        [Space(12)]
+
         [SerializeField] private bool horizontalProjectile = true;
         [SerializeField] private bool verticalProjectile;
 
@@ -76,11 +80,27 @@ namespace Cubeman.Projectile
         {
             if (moveRight)
             {
+                FlipHorizontalGraphics(true);
                 _transform.Translate(_velocity * Time.deltaTime * Vector3.right);
             }
             else
             {
+                FlipHorizontalGraphics(false);
                 _transform.Translate(_velocity * Time.deltaTime * Vector3.left);
+            }
+        }
+
+        private void FlipHorizontalGraphics(bool flip)
+        {
+            if (graphicsTransform == null) return;
+
+            if(flip)
+            {
+                graphicsTransform.localScale = new Vector3(1f, 1f, 1f);
+            }
+            else
+            {
+                graphicsTransform.localScale = new Vector3(-1f, 1f, 1f);
             }
         }
 
