@@ -16,6 +16,7 @@ namespace Cubeman.Projectile
 
         [Header("Settings")]
         [SerializeField] private Transform graphicsTransform;
+        [SerializeField] private Transform trailTransform;
 
         [Space(12)]
 
@@ -27,6 +28,7 @@ namespace Cubeman.Projectile
         [SerializeField] private bool moveUp;
         [SerializeField] private bool moveRight;
 
+        private bool _graphicsCorrected;
         private float _velocity;
 
         private Transform _transform;
@@ -70,6 +72,8 @@ namespace Cubeman.Projectile
         private void ResetObject()
         {
             _transform.position = Vector3.zero;
+
+            _graphicsCorrected = false;
         }
 
         private void Update() => Moviment();
@@ -92,15 +96,36 @@ namespace Cubeman.Projectile
 
         private void FlipHorizontalGraphics(bool flip)
         {
-            if (graphicsTransform == null) return;
+            if(!_graphicsCorrected)
+            {
+                if (graphicsTransform == null) return;
 
-            if(flip)
-            {
-                graphicsTransform.localScale = new Vector3(1f, 1f, 1f);
-            }
-            else
-            {
-                graphicsTransform.localScale = new Vector3(-1f, 1f, 1f);
+                if (flip)
+                {
+                    graphicsTransform.localEulerAngles
+                        = new Vector3(graphicsTransform.localEulerAngles.x, 180, graphicsTransform.localEulerAngles.z);
+                }
+                else
+                {
+                    graphicsTransform.localEulerAngles
+                        = new Vector3(graphicsTransform.localEulerAngles.x, 0, graphicsTransform.localEulerAngles.z);
+                }
+
+                if (trailTransform != null)
+                {
+                    if (flip)
+                    {
+                        trailTransform.localPosition = new Vector3(trailTransform.localPosition.x, trailTransform.localPosition.y,
+                            trailTransform.localPosition.z);
+                    }
+                    else
+                    {
+                        trailTransform.localPosition = new Vector3(-trailTransform.localPosition.x, trailTransform.localPosition.y,
+                            trailTransform.localPosition.z);
+                    }
+                }
+
+                _graphicsCorrected = true;
             }
         }
 
