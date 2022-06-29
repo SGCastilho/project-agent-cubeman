@@ -19319,67 +19319,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6751998935303200744, guid: 57cf101bc229ff34ba3b75122047c55e, type: 3}
   m_PrefabInstance: {fileID: 1353193070}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1369726086
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2667384277946380708, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_Parameters.widthMultiplier
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988911552114657902, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_Name
-      value: projectile-ultimate-super-plasma-default
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988911552114657903, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988911552114657903, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988911552114657903, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.175
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988911552114657903, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988911552114657903, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988911552114657903, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988911552114657903, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988911552114657903, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988911552114657903, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988911552114657903, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988911552114657903, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
 --- !u!1 &1371964941
 GameObject:
   m_ObjectHideFlags: 0
@@ -26860,6 +26799,7 @@ GameObject:
   - component: {fileID: 2132602283}
   - component: {fileID: 2132602274}
   - component: {fileID: 2132602280}
+  - component: {fileID: 2132602284}
   - component: {fileID: 2132602282}
   m_Layer: 0
   m_Name: Player
@@ -26942,6 +26882,7 @@ MonoBehaviour:
   moviment: {fileID: 2132602276}
   shoot: {fileID: 2132602280}
   anim: {fileID: 2132602279}
+  visualEffects: {fileID: 2132602284}
   soundEffects: {fileID: 2132602282}
 --- !u!114 &2132602278
 MonoBehaviour:
@@ -27056,6 +26997,21 @@ MonoBehaviour:
     m_Bits: 4160
   variableJumpDuration: 0.3
   variableJumpTimeToPeak: 0.3
+--- !u!114 &2132602284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132602272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dd15306babd284a9ec737dfa42a384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashHitMaterial: {fileID: 2100000, guid: bc70db837d1f8e947ae3f767deaed4c8, type: 2}
+  flashHitAmount: 0.6
+  flashHitDuration: 0.2
 --- !u!4 &7899694095360331
 Transform:
   m_ObjectHideFlags: 0
@@ -29782,6 +29738,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 841b4f19f90a4fa4d87e9c0fe5942124, type: 2}
+  - {fileID: 2100000, guid: bc70db837d1f8e947ae3f767deaed4c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

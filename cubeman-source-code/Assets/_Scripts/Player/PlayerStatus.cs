@@ -165,6 +165,8 @@ namespace Cubeman.Player
                     StartCoroutine(ImmunityCoroutine());
                 }
 
+                behaviour.VisualEffects.DoFlashHit();
+
                 if(OnPlayerTakeDamage != null) { OnPlayerTakeDamage(currentHealth, data.Health); }
             }
         }

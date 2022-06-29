@@ -12,6 +12,7 @@ namespace Cubeman.Player
         public PlayerInput Input { get => input; }
         public PlayerMoviment Moviment { get => moviment; }
         public PlayerShoot Shoot { get => shoot; }
+        public PlayerVisualEffects VisualEffects { get => visualEffects; }
         public AudioSoundEffects SoundEffect { get => soundEffects; }
         public Transform Transform { get => _transform; }
         
@@ -24,6 +25,7 @@ namespace Cubeman.Player
         [SerializeField] private PlayerMoviment moviment;
         [SerializeField] private PlayerShoot shoot;
         [SerializeField] private PlayerAnimation anim;
+        [SerializeField] private PlayerVisualEffects visualEffects;
 
         [Space(12)]
 
