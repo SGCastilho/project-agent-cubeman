@@ -1,5 +1,6 @@
 using Cubeman.Player;
 using Cubeman.Enemies;
+using Cubeman.Utilities;
 using Cubeman.ScriptableObjects;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace Cubeman.Manager
 
         [Header("Settings")]
         [SerializeField] private CollectableData[] collectableToSpawn;
+        [SerializeField] private VisualEffectsData[] visualEffectsToSpawn;
 
         [Header("Unity Events")]
 
@@ -35,6 +37,7 @@ namespace Cubeman.Manager
         private async void SpawnPoolings()
         {
             await SetProjectiles();
+            await SetVisualEffects();
             await SetCollectables();
 
             manager.InitializePooling();
@@ -99,6 +102,23 @@ namespace Cubeman.Manager
                             manager.AddPool(currentProjectile.Key, currentProjectile.Instances, 
                                 currentProjectile.Prefab);
                         }
+                    }
+                }
+            }
+
+            await Task.Yield();
+        }
+
+        private async Task SetVisualEffects()
+        {
+            if (visualEffectsToSpawn != null && visualEffectsToSpawn.Length > 0)
+            {
+                for (int i = 0; i < visualEffectsToSpawn.Length; i++)
+                {
+                    if (visualEffectsToSpawn[i].Key != null)
+                    {
+                        manager.AddPool(visualEffectsToSpawn[i].Key, visualEffectsToSpawn[i].Instances, 
+                            visualEffectsToSpawn[i].Prefab);
                     }
                 }
             }

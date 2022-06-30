@@ -40,7 +40,6 @@ Transform:
   - {fileID: 4254302428269531125}
   - {fileID: 2411022626456577172}
   - {fileID: 2411022626239356278}
-  - {fileID: 2411022625883771536}
   m_Father: {fileID: 2411022624824033449}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -73,6 +72,7 @@ MonoBehaviour:
   localAudio: {fileID: 0}
   soundEffects: {fileID: 6959406461364793736}
   enemyHealth: 0
+  explosionVFXSpawnPoint: {fileID: 2411022624509342261}
   disableGameObject: {fileID: 2411022624824033448}
 --- !u!114 &2411022624509342258
 MonoBehaviour:
@@ -375,37 +375,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2411022624758324351}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2411022625883771543
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2411022625883771536}
-  m_Layer: 0
-  m_Name: SpawnCollectableTransform
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2411022625883771536
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2411022625883771543}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2411022624509342261}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2411022625906557564
 GameObject:

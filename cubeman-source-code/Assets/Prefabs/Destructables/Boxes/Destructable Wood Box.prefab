@@ -119,6 +119,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4200208428871834001}
+  - {fileID: 3619031406281154225}
   - {fileID: 4449725975519711402}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -135,10 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57536a33c66ad72448eabbb9f0aa461b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructableObject: {fileID: 4449725974440083290}
-  collectableSpawn: {fileID: 4449725974440083288}
-  localAudioManager: {fileID: 0}
   soundEffects: {fileID: 3993125140587078376}
+  destructableObject: {fileID: 4449725974440083290}
+  localAudioManager: {fileID: 0}
+  collectableSpawn: {fileID: 4449725974440083288}
 --- !u!114 &4449725974440083290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: d7eb7fa3e31eecf49840dae4d9502bf5, type: 2}
   behaviour: {fileID: 4449725974440083287}
+  vfxSpawnPoint: {fileID: 3619031406281154225}
 --- !u!114 &4449725974440083288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,11 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd1a4cd457e24448ba67f4efdd26a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectableSpawnPoint: {fileID: 4449725975519711402}
   collectableList:
   - {fileID: 11400000, guid: ba0e15a58d648804aad3b1507bc650a1, type: 2}
   - {fileID: 11400000, guid: 6ce5326f52bab2f4f8a1b90b217bd879, type: 2}
   - {fileID: 11400000, guid: 390360292e6580348b9519408538026f, type: 2}
-  collectableSpawnPoint: {fileID: 4449725975519711402}
   minCollectableSpawn: 2
   maxCollectableSpawn: 4
 --- !u!65 &4449725974440083291
@@ -245,6 +247,37 @@ Transform:
   m_GameObject: {fileID: 4449725975519711403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4449725974440083292}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6051688341861181702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3619031406281154225}
+  m_Layer: 12
+  m_Name: VFXSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3619031406281154225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6051688341861181702}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

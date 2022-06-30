@@ -555,7 +555,7 @@ Transform:
   - {fileID: 4833303795246007679}
   - {fileID: 4833303795877291401}
   - {fileID: 4833303795985216932}
-  - {fileID: 4833303796566024315}
+  - {fileID: 3694550417709126254}
   m_Father: {fileID: 4833303795568173998}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -588,6 +588,7 @@ MonoBehaviour:
   localAudio: {fileID: 0}
   soundEffects: {fileID: 7373703886461475338}
   enemyHealth: 0
+  explosionVFXSpawnPoint: {fileID: 3694550417709126254}
   disableGameObject: {fileID: 4833303795568173999}
 --- !u!114 &4833303794755402714
 MonoBehaviour:
@@ -939,37 +940,6 @@ Transform:
   m_Father: {fileID: 4833303795981047530}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4833303796566024312
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4833303796566024315}
-  m_Layer: 0
-  m_Name: SpawnCollectableTransform
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4833303796566024315
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4833303796566024312}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.26, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4833303794755402710}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4833303796725762909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,6 +1104,37 @@ Transform:
   m_Father: {fileID: 1127747027694982102}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45.392166, y: -169.97664, z: -149.02061}
+--- !u!1 &5700791135296376735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3694550417709126254}
+  m_Layer: 0
+  m_Name: ExplosionVFXSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3694550417709126254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700791135296376735}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4833303794755402710}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5946662463811808080
 GameObject:
   m_ObjectHideFlags: 0

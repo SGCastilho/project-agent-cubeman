@@ -1,4 +1,5 @@
 using Cubeman.Audio;
+using Cubeman.Manager;
 using Cubeman.Interfaces;
 using Cubeman.ScriptableObjects;
 using UnityEngine;
@@ -22,10 +23,14 @@ namespace Cubeman.Destructable
         [Header("Classes")]
         [SerializeField] private DestructableBehaviour behaviour;
 
-        private int _health;
-
         private const string IMPACT_SFX = "audio_impact";
         private const string EXPLOSION_SFX = "audio_explosion";
+        private const string EXPLOSION_VFX = "vfx_small_explosion";
+
+        [Header("Settings")]
+        [SerializeField] private Transform vfxSpawnPoint;
+
+        private int _health;
 
         private AudioClip _impactSFX;
         private float _impactVolumeScale;
@@ -56,6 +61,8 @@ namespace Cubeman.Destructable
             _health -= damageAmount;
             if(_health <= 0)
             {
+                ObjectPoolingManager.Instance.SpawnPrefabNoReturn(EXPLOSION_VFX, vfxSpawnPoint.position);
+
                 if (OnDestructObject != null) { OnDestructObject(); }
 
                 _health = 0;

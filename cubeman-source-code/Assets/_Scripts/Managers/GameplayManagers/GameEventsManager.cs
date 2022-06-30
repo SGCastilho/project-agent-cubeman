@@ -40,6 +40,7 @@ namespace Cubeman.Manager
 
         private PlayerBehaviour _player;
 
+        private EnemyStatus[] _enemiesInScene;
         private EnemyAirShooterBehaviour[] _airShooters;
 
         private void Awake() => CacheComponets();
@@ -51,6 +52,8 @@ namespace Cubeman.Manager
         private void CacheComponets()
         {
             _player = FindObjectOfType<PlayerBehaviour>();
+
+            _enemiesInScene = FindObjectsOfType<EnemyStatus>();
             _airShooters = FindObjectsOfType<EnemyAirShooterBehaviour>();
         }
 
@@ -62,6 +65,8 @@ namespace Cubeman.Manager
 
             EnablePlayerEvents();
 
+            EnableEnemiesEvents();
+
             EnablePauseMenuEvents();
 
             EnableBossUIEvents();
@@ -69,6 +74,17 @@ namespace Cubeman.Manager
             EnableDialogueEvents();
 
             EnableMultiplusEvents();
+        }
+
+        private void EnableEnemiesEvents()
+        {
+            if (_enemiesInScene != null)
+            {
+                for (int i = 0; i < _enemiesInScene.Length; i++)
+                {
+                    _enemiesInScene[i].OnEnemyEndDeath += poolingManager.SpawnPrefabNoReturn;
+                }
+            }
         }
 
         private void EnableDialogueEvents()
@@ -150,6 +166,8 @@ namespace Cubeman.Manager
 
             DisablePlayerEvents();
 
+            DisableEnemiesEvents();
+
             DisablePauseManagerEvents();
 
             DisableBossUIEvents();
@@ -157,6 +175,17 @@ namespace Cubeman.Manager
             DisableDialogueEvents();
 
             DisableMultiplusEvents();
+        }
+
+        private void DisableEnemiesEvents()
+        {
+            if (_enemiesInScene != null)
+            {
+                for (int i = 0; i < _enemiesInScene.Length; i++)
+                {
+                    _enemiesInScene[i].OnEnemyEndDeath -= poolingManager.SpawnPrefabNoReturn;
+                }
+            }
         }
 
         private void DisableDialogueEvents()

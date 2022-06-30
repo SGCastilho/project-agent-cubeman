@@ -269,6 +269,7 @@ MonoBehaviour:
   localAudio: {fileID: 0}
   soundEffects: {fileID: 5493025597228800747}
   enemyHealth: 0
+  explosionVFXSpawnPoint: {fileID: 5411841700538391923}
   disableGameObject: {fileID: 5411841700311627162}
 --- !u!114 &5411841700538391916
 MonoBehaviour:
