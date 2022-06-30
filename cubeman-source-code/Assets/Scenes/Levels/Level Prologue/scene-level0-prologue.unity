@@ -1341,8 +1341,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 906418664}
         m_TargetAssemblyTypeName: Cubeman.Manager.SceneGroupsLoader, Cubeman.Manager
-        m_MethodName: UnLoadGroup
-        m_Mode: 3
+        m_MethodName: DestroyAllGroupsWithoutBossArena
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

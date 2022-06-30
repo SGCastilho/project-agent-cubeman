@@ -29,5 +29,13 @@ namespace Cubeman.Manager
         {
             sceneGroups[groupIndex].SetActive(false);
         }
+
+        public void DestroyAllGroupsWithoutBossArena()
+        {
+            for(int i = 0; i < sceneGroups.Length-1; i++)
+            {
+                Destroy(sceneGroups[i].gameObject, 0.2f);
+            }
+        }
     }
 }

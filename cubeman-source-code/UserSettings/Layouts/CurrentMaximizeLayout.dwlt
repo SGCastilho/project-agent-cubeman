@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 19382
+  controlID: 20300
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 19383
+  controlID: 20301
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 19384
+  controlID: 20302
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,10 +225,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 120}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: bcf2ffff94f4ffff32fbffff12730000a4730000a8730000c4750000e475000014760000187600008c760000107800007a780000dc780000e67800000e790000aa7a0000
+      m_ExpandedIDs: bcf2ffff94f4ffff32fbffff12730000a4730000a87300002a74000056740000c4750000e475000014760000187600008c7600007a780000dc780000e6780000aa7a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -504,9 +504,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 319.12033, y: 1.5508058, z: 5.8893065}
+    m_Target: {x: 385.9079, y: 1.0350012, z: 0.4016633}
     speed: 2
-    m_Value: {x: 319.12033, y: 1.5508066, z: 5.889299}
+    m_Value: {x: 385.9079, y: 1.0350012, z: 0.4016633}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -553,13 +553,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.05243438, y: -0.008281222, z: 0.010785399, w: 0.9995551}
+    m_Target: {x: 0.108380824, y: 0.08923712, z: 0.0006732047, w: 0.991128}
     speed: 2
-    m_Value: {x: 0.052298576, y: -0.015761476, z: 0.011166939, w: 0.9984446}
+    m_Value: {x: 0.10827171, y: 0.09211596, z: 0.0003477044, w: 0.9898443}
   m_Size:
-    m_Target: 18.662615
+    m_Target: 7.826238
     speed: 2
-    m_Value: 19.542006
+    m_Value: 7.8262386
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -652,22 +652,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/_Scripts/Managers/GameplayManagers
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/_Scripts/Managers/GameplayManagers
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProjects\project-agent-cubeman\cubeman-source-code
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 00860000
-    m_LastClickedID: 34304
-    m_ExpandedIDs: 00000000008600000286000004860000088600004a90000050900000649000004c92000090bc0000cabc0000eebc000000ca9a3b
+    m_SelectedIDs: a8900000
+    m_LastClickedID: 37032
+    m_ExpandedIDs: 00000000008600000286000004860000088600003e8600004a9000005090000064900000a49000004c92000090bc0000cabc0000eebc000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
