@@ -20,6 +20,11 @@ namespace Cubeman.AnimationEvents
 
         [Space(12)]
 
+        [SerializeField] private ParticleSystem shockWaveSparksParticles;
+        [SerializeField] private ParticleSystem deathLaserChargeParticles;
+
+        [Space(12)]
+
         [SerializeField] private GameObject deathLaserGameObject;
 
         private const string AUDIO_JUMPIN_KEY = "audio_jumpIn";
@@ -68,6 +73,11 @@ namespace Cubeman.AnimationEvents
             audioController.PlaySoundEffect(ref _laserAudioClip, _laserVolumeScale);
         }
 
+        public void ShockWaveSparksEvent()
+        {
+            shockWaveSparksParticles.Play();
+        }
+
         public void ShockWaveStartEvent()
         {
             behaviour.Movement.CrounchEnemy = true;
@@ -98,6 +108,16 @@ namespace Cubeman.AnimationEvents
         {
             var jumpOutSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_JUMPOUT_KEY);
             audioController.PlaySoundEffect(ref jumpOutSFX._audioClip, jumpOutSFX._audioVolumeScale);
+        }
+
+        public void DeathLaserStartChargeEvent()
+        {
+            deathLaserChargeParticles.Play();
+        }
+
+        public void DeathLaserEndChargeEvent()
+        {
+            deathLaserChargeParticles.Stop();
         }
 
         public void DeathLaserStartEvent()
