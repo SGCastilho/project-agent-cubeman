@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 108
+  controlID: 1971
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 109
+  controlID: 1972
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 110
+  controlID: 1973
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -228,7 +228,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 32fbffffec730000a67500002e760000
+      m_ExpandedIDs: 1cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -504,9 +504,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 394.97986, y: -3.2489011, z: 8.813311}
+    m_Target: {x: 87.99832, y: -2.519174, z: 112.996124}
     speed: 2
-    m_Value: {x: 394.97986, y: -3.2489011, z: 8.813311}
+    m_Value: {x: 87.99832, y: -2.519174, z: 112.996124}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -553,13 +553,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.096225075, y: 0.028223041, z: 0.008897413, w: 0.9959838}
+    m_Target: {x: 0.023871372, y: -0.012978726, z: 0.011387228, w: 1.0006263}
     speed: 2
-    m_Value: {x: 0.0961233, y: 0.02819319, z: 0.008888002, w: 0.9949303}
+    m_Value: {x: -0.02387137, y: 0.012978726, z: -0.011387228, w: -1.0006262}
   m_Size:
-    m_Target: 10.844094
+    m_Target: 68.847755
     speed: 2
-    m_Value: 10.844094
+    m_Value: 68.847755
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -653,36 +653,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Models/Bosses/Greater Buster Robot
+    - Assets/Resources/ScriptableObjects/Projectiles/Bosses/Greater Buster Robot
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Models/Bosses/Greater Buster Robot
+  - Assets/Resources/ScriptableObjects/Projectiles/Bosses/Greater Buster Robot
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProjects\project-agent-cubeman\cubeman-source-code
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 112}
-    m_SelectedIDs: aeaf0000
-    m_LastClickedID: 44974
-    m_ExpandedIDs: 00000000428600004486000046860000488600004a8600004c8600004e86000050860000528600005486000056860000588600006c860000a0af000000ca9a3b
+    m_SelectedIDs: e2ae0000
+    m_LastClickedID: 44770
+    m_ExpandedIDs: 000000006e86000070860000728600007486000076860000788600007c8600007e86000080860000828600008486000086860000f2860000dcae000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Scenes
-      m_OriginalName: Scenes
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 34422
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 9}
     m_SearchString: 
@@ -696,7 +696,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000428600004486000046860000488600004a8600004c8600004e8600005086000052860000548600005686000058860000
+    m_ExpandedIDs: 000000006e86000070860000728600007486000076860000788600007c8600007e86000080860000828600008486000086860000c0860000d2860000ee860000f2860000d4ae0000dcae000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -751,7 +751,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 245
+  m_DirectoriesAreaWidth: 248
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52

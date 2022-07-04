@@ -16,12 +16,12 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6895267565418316720, guid: d3e343e3ce0b93741bead4d5897b6f9f, type: 3}
   projectileInstances: 2
   disableOnDamage: 1
-  projectileAudioClip: {fileID: 8300000, guid: 5870e75adec6c4545b412ddc8cc99d79, type: 3}
+  projectileAudioClip: {fileID: 8300000, guid: 04db63ff9c6b2764bad569e61a2e4ff6, type: 3}
   projectileClipVolumeScale: 0.8
   projectileDamage: 4
   initProjectileDamage: 4
   projectileLevel: 1
-  projectileDamageScaling: 0.6
+  projectileFixedUpgrade: 0
   projectileVelocity: 8
   projectileRange: 6
   devNotes: Default Air Shooter projectile.

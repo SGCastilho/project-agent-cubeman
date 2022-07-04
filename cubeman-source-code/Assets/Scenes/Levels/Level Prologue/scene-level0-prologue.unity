@@ -36662,7 +36662,7 @@ MonoBehaviour:
   currentHealth: 0
   immunityTime: 0.8
   deathTime: 2
-  invensibleMode: 0
+  invensibleMode: 1
   currentUltimateCharge: 0
   ultimateCouldownDuration: 1.6
 --- !u!114 &2132602282
@@ -36682,11 +36682,11 @@ MonoBehaviour:
     _audioVolumeScale: 0.6
     _audioClip: {fileID: 8300000, guid: 052ce599e981f7d48a3f2713fb582015, type: 3}
   - _audioKey: audio_jumpIn
-    _audioVolumeScale: 0.6
-    _audioClip: {fileID: 8300000, guid: 1af4face2f8fcdc45a8ee618ba54f940, type: 3}
+    _audioVolumeScale: 0.4
+    _audioClip: {fileID: 8300000, guid: e31fdac7dfcb8754fa9a08792c8eaa8e, type: 3}
   - _audioKey: audio_jumpOut
-    _audioVolumeScale: 0.6
-    _audioClip: {fileID: 8300000, guid: c2a11f7a8ae909a4eaddd88c2fed2ae7, type: 3}
+    _audioVolumeScale: 0.8
+    _audioClip: {fileID: 8300000, guid: 5399d7f61d8b229479cfb0309a5036d2, type: 3}
   - _audioKey: audio_stagger
     _audioVolumeScale: 0.5
     _audioClip: {fileID: 8300000, guid: 56809d64ce027f64d8c6eceb8becc30d, type: 3}

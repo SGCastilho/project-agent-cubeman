@@ -16,12 +16,12 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2597986125746535717, guid: 035e79c959e98fd46899f41922cbf962, type: 3}
   projectileInstances: 2
   disableOnDamage: 1
-  projectileAudioClip: {fileID: 8300000, guid: 5870e75adec6c4545b412ddc8cc99d79, type: 3}
+  projectileAudioClip: {fileID: 8300000, guid: 7aa2ba60998997449afbd500c0714b98, type: 3}
   projectileClipVolumeScale: 0.8
   projectileDamage: 4
   initProjectileDamage: 4
   projectileLevel: 1
-  projectileDamageScaling: 0.6
+  projectileFixedUpgrade: 0
   projectileVelocity: 12
   projectileRange: 6
   devNotes: Default Buster Robot projectile.
