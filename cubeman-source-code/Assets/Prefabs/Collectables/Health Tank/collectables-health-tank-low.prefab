@@ -125,8 +125,8 @@ GameObject:
   - component: {fileID: 5520815368590245694}
   - component: {fileID: 7744246435369339892}
   - component: {fileID: 8104767845464402467}
-  - component: {fileID: 8104767845464402464}
   - component: {fileID: 6197872746644453342}
+  - component: {fileID: 8104767845464402464}
   m_Layer: 9
   m_Name: Graphics
   m_TagString: Untagged
@@ -216,19 +216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectableData: {fileID: 11400000, guid: 6d82f13cb51386643b303d20c0e3e982, type: 2}
   soundEffects: {fileID: 6197872746644453342}
---- !u!65 &8104767845464402464
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8104767845464402465}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6000882, y: 0.6279234, z: 0.6985752}
-  m_Center: {x: 0, y: 0.000000014901165, z: 0.29939255}
 --- !u!114 &6197872746644453342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,4 +231,17 @@ MonoBehaviour:
   audioClipList:
   - _audioKey: audio_collect
     _audioVolumeScale: 0.4
-    _audioClip: {fileID: 8300000, guid: 4a3f5b6f437eaee439d6507799a263e3, type: 3}
+    _audioClip: {fileID: 8300000, guid: f14f5162f40587e4d96525b5a12024fa, type: 3}
+--- !u!65 &8104767845464402464
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8104767845464402465}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6000882, y: 0.6279234, z: 0.6985752}
+  m_Center: {x: 0, y: 0.000000014901165, z: 0.29939255}

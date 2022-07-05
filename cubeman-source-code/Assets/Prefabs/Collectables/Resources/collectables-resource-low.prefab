@@ -243,5 +243,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClipList:
   - _audioKey: audio_collect
-    _audioVolumeScale: 0.4
-    _audioClip: {fileID: 8300000, guid: a579799ecda8c4549be60ab3b680d059, type: 3}
+    _audioVolumeScale: 0.2
+    _audioClip: {fileID: 8300000, guid: fd1dbcab1891c684fa4523aa9e8bcbd8, type: 3}

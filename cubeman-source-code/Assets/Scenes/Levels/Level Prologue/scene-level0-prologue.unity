@@ -13914,8 +13914,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClipList:
   - _audioKey: audio_impact
-    _audioVolumeScale: 0.16
-    _audioClip: {fileID: 8300000, guid: ac92871352d0cbc4fb81b0efed069bab, type: 3}
+    _audioVolumeScale: 1
+    _audioClip: {fileID: 8300000, guid: b6505429f79a8364f872e57991fad1f1, type: 3}
   - _audioKey: audio_explosion
     _audioVolumeScale: 0.4
     _audioClip: {fileID: 8300000, guid: 9bd0f27a5c700214ab8eaf2850e0afa5, type: 3}
@@ -36679,7 +36679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClipList:
   - _audioKey: audio_dash
-    _audioVolumeScale: 0.6
+    _audioVolumeScale: 0.4
     _audioClip: {fileID: 8300000, guid: 052ce599e981f7d48a3f2713fb582015, type: 3}
   - _audioKey: audio_jumpIn
     _audioVolumeScale: 0.4
@@ -36688,11 +36688,11 @@ MonoBehaviour:
     _audioVolumeScale: 0.8
     _audioClip: {fileID: 8300000, guid: 5399d7f61d8b229479cfb0309a5036d2, type: 3}
   - _audioKey: audio_stagger
-    _audioVolumeScale: 0.5
-    _audioClip: {fileID: 8300000, guid: 56809d64ce027f64d8c6eceb8becc30d, type: 3}
+    _audioVolumeScale: 1
+    _audioClip: {fileID: 8300000, guid: 9069159958072c843a1d71477822efb5, type: 3}
   - _audioKey: audio_death
-    _audioVolumeScale: 0.4
-    _audioClip: {fileID: 8300000, guid: b5f832a1a5b1b95429a4d03434b9dfae, type: 3}
+    _audioVolumeScale: 1
+    _audioClip: {fileID: 8300000, guid: e6d73f74f9c998f4993763933ae02202, type: 3}
 --- !u!114 &2132602283
 MonoBehaviour:
   m_ObjectHideFlags: 0
