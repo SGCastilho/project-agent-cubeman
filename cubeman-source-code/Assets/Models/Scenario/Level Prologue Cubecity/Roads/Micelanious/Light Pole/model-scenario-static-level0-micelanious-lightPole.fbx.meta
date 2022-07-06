@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: material_energy_emissive
+    second: {fileID: 2100000, guid: e011248806b9aa94ba08bdd5284d83fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: material_metal
     second: {fileID: 2100000, guid: 266594d24821a17449aad11ff36ae418, type: 2}
   materials:

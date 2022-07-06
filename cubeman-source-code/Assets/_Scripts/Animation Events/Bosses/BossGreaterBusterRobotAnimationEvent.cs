@@ -29,6 +29,8 @@ namespace Cubeman.AnimationEvents
 
         private const string AUDIO_JUMPIN_KEY = "audio_jumpIn";
         private const string AUDIO_JUMPOUT_KEY = "audio_jumpOut";
+        private const string AUDIO_DEATHLASER_OUT = "audio_deathLaser_out";
+        private const string AUDIO_DEATHLASER_CHARGE = "audio_deathLaser_charge";
 
         private string _laserProjectileKey;
         private AudioClip _laserAudioClip;
@@ -37,6 +39,12 @@ namespace Cubeman.AnimationEvents
         private string _shockWaveProjectileKey;
         private AudioClip _shockWaveAudioClip;
         private float _shockWaveVolumeScale;
+
+        private AudioClip _deathLaserOutAudioClip;
+        private float _deathLaserOutVolumeScale;
+
+        private AudioClip _deathLaserChargeAudioClip;
+        private float _deathLaserChargeVolumeScale;
 
         private void Awake() => SetupObject();
 
@@ -54,6 +62,12 @@ namespace Cubeman.AnimationEvents
 
         private void CacheData()
         {
+            CacheProjectilesSFX();
+            CacheDeathLaserSFX();
+        }
+
+        private void CacheProjectilesSFX()
+        {
             _laserProjectileKey = behaviour.DataLoader.Data.Projectiles[0].Key;
             _laserAudioClip = behaviour.DataLoader.Data.Projectiles[0].ProjectileSFX;
             _laserVolumeScale = behaviour.DataLoader.Data.Projectiles[0].VolumeScale;
@@ -61,6 +75,19 @@ namespace Cubeman.AnimationEvents
             _shockWaveProjectileKey = behaviour.DataLoader.Data.Projectiles[1].Key;
             _shockWaveAudioClip = behaviour.DataLoader.Data.Projectiles[1].ProjectileSFX;
             _shockWaveVolumeScale = behaviour.DataLoader.Data.Projectiles[1].VolumeScale;
+        }
+
+        private void CacheDeathLaserSFX()
+        {
+            var deathLaserOutSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_DEATHLASER_OUT);
+
+            _deathLaserOutAudioClip = deathLaserOutSFX._audioClip;
+            _deathLaserOutVolumeScale = deathLaserOutSFX._audioVolumeScale;
+
+            var deathLaserChargeSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_DEATHLASER_CHARGE);
+
+            _deathLaserChargeAudioClip = deathLaserChargeSFX._audioClip;
+            _deathLaserChargeVolumeScale = deathLaserChargeSFX._audioVolumeScale;
         }
 
         public void ShootEvent()
@@ -112,6 +139,7 @@ namespace Cubeman.AnimationEvents
 
         public void DeathLaserStartChargeEvent()
         {
+            audioController.PlaySoundEffect(ref _deathLaserChargeAudioClip, _deathLaserChargeVolumeScale);
             deathLaserChargeParticles.Play();
         }
 
@@ -122,6 +150,7 @@ namespace Cubeman.AnimationEvents
 
         public void DeathLaserStartEvent()
         {
+            audioController.PlaySoundEffect(ref _deathLaserOutAudioClip, _deathLaserOutVolumeScale);
             deathLaserGameObject.SetActive(true);
         }
 
