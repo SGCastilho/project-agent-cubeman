@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1859757825000375494}
   - component: {fileID: 1859757825000375488}
   - component: {fileID: 1859757825000375495}
+  - component: {fileID: 2768546885456739278}
   m_Layer: 11
   m_Name: vfx_particles_trail_laser
   m_TagString: Untagged
@@ -49,7 +50,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -4812,6 +4813,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2768546885456739278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859757825000375493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2feca13e26b28419acf3ef8f27ab57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 1859757825000375488}
 --- !u!1 &7591201556693605815
 GameObject:
   m_ObjectHideFlags: 0

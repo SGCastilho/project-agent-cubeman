@@ -2,6 +2,7 @@ using Cubeman.Audio;
 using Cubeman.Player;
 using Cubeman.Manager;
 using Cubeman.Projectile;
+using Cubeman.GameCamera;
 using UnityEngine;
 
 namespace Cubeman.AnimationEvents
@@ -11,6 +12,7 @@ namespace Cubeman.AnimationEvents
         [Header("Classes")]
         [SerializeField] private PlayerBehaviour behaviour;
 
+        private CameraShake _cameraShake;
         private AudioController _audioManager;
         private ObjectPoolingManager _poolingManager;
 
@@ -35,6 +37,7 @@ namespace Cubeman.AnimationEvents
 
         private void CacheComponets()
         {
+            _cameraShake = CameraShake.Instance;
             _audioManager = AudioController.Instance;
             _poolingManager = ObjectPoolingManager.Instance;
         }
@@ -82,12 +85,14 @@ namespace Cubeman.AnimationEvents
 
         public void ShootUltimateEvent()
         {
-            behaviour.Input.GameplayInputs(true);
+            behaviour.BlockAction(false);
 
             behaviour.Moviment.Gravity.FreezeGravity = false;
 
             behaviour.Status.InvensibleMode = false;
             behaviour.Status.UltimateReady = false;
+
+            _cameraShake.ShakeCamera();
 
             InstantiateProjectile(_ultimateProjectileKey);
 
@@ -103,8 +108,12 @@ namespace Cubeman.AnimationEvents
             _currentProjectile.ResetTimer();
         }
 
+        public void StaggerShake() => _cameraShake.LightShakeCamera();
+
         public void StaggerEvent()
         {
+            StaggerShake();
+
             behaviour.Moviment.StartCoroutine(behaviour.Moviment.TakeDamageImpulseCoroutine());
 
             StaggerAudioEvent();

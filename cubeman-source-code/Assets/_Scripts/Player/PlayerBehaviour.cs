@@ -60,7 +60,7 @@ namespace Cubeman.Player
 
         public void BlockAction(bool enable)
         {
-            moviment.BlockMoviment = enable;
+            moviment.BlockMoviment(enable);
             moviment.Gravity.BlockJump = enable;
 
             shoot.BlockShooting = enable;

@@ -5,6 +5,10 @@ namespace Cubeman.GameCamera
 {
     public sealed class CameraShake : MonoBehaviour
     {
+        #region Singleton
+        public static CameraShake Instance; 
+        #endregion
+
         [Header("Settings")]
         [SerializeField] [Range(0.1f, 1f)] private float lightShakeDuration = 0.2f;
         [SerializeField] [Range(0.1f, 1f)] private float lightShakeStregth = 0.2f;
@@ -32,6 +36,7 @@ namespace Cubeman.GameCamera
         private void SetupObject()
         {
             _transform = GetComponent<Transform>();
+            Instance = this;
         }
 
         //DEBUG

@@ -58,8 +58,8 @@ namespace Cubeman.Player
 
             if (behaviour.Status.UltimateReady)
             {
+                behaviour.BlockAction(true);
                 behaviour.Status.InvensibleMode = true;
-                behaviour.Input.GameplayInputs(false);
                 behaviour.Moviment.Gravity.FreezeGravity = true;
                 behaviour.Animation.CallAnimatorTrigger("ultimate");
             }

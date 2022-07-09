@@ -15,7 +15,6 @@ namespace Cubeman.Player
         public string JumpOutSFX { get => JUMP_OUT_AUDIO_KEY; }
         public bool MoveRight { get => _moveRight; }
 
-        internal bool BlockMoviment { set => _blockMoviment = value; }
         internal Vector2 XVelocity { get => _xVelocity; }
         internal Transform GraphicsTransform { get => graphicsTransform; }
         #endregion
@@ -94,6 +93,15 @@ namespace Cubeman.Player
             if(_isDashing) { DashTimer(); }
             else if(!_horizontalImpulse && !_inAutomaticMove) 
             { _xVelocity = movementSpeed * behaviour.Input.HorizontalAxis * Vector2.right; }
+        }
+
+        public void BlockMoviment(bool block) 
+        {
+            if(block)
+            {
+                _xVelocity = Vector2.zero;
+            }
+            _blockMoviment = block;
         }
 
         private void CorrectGraphicsSide()

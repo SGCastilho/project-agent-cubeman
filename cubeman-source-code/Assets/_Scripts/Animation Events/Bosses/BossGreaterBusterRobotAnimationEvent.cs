@@ -2,6 +2,7 @@ using Cubeman.Audio;
 using Cubeman.Enemies;
 using Cubeman.Manager;
 using Cubeman.Projectile;
+using Cubeman.GameCamera;
 using UnityEngine;
 
 namespace Cubeman.AnimationEvents
@@ -11,8 +12,9 @@ namespace Cubeman.AnimationEvents
         [Header("Classes")]
         [SerializeField] private BossGreaterBusterRobotBehaviour behaviour;
 
-        private AudioController audioController;
-        private ObjectPoolingManager poolingManager;
+        private CameraShake _cameraShake;
+        private AudioController _audioController;
+        private ObjectPoolingManager _poolingManager;
 
         [Header("Settings")]
         [SerializeField] private Transform shootingPointTransform;
@@ -56,8 +58,9 @@ namespace Cubeman.AnimationEvents
 
         private void CacheComponets()
         {
-            poolingManager = ObjectPoolingManager.Instance;
-            audioController = AudioController.Instance;
+            _cameraShake = CameraShake.Instance;
+            _poolingManager = ObjectPoolingManager.Instance;
+            _audioController = AudioController.Instance;
         }
 
         private void CacheData()
@@ -92,12 +95,12 @@ namespace Cubeman.AnimationEvents
 
         public void ShootEvent()
         {
-            var projectile = poolingManager.SpawnPrefab(_laserProjectileKey, shootingPointTransform.position)
+            var projectile = _poolingManager.SpawnPrefab(_laserProjectileKey, shootingPointTransform.position)
                 .GetComponent<ProjectileBehaviour>();
 
             projectile.Moviment.MoveRight = behaviour.Movement.MoveRight;
 
-            audioController.PlaySoundEffect(ref _laserAudioClip, _laserVolumeScale);
+            _audioController.PlaySoundEffect(ref _laserAudioClip, _laserVolumeScale);
         }
 
         public void ShockWaveSparksEvent()
@@ -112,12 +115,14 @@ namespace Cubeman.AnimationEvents
 
         public void ShockWaveEvent()
         {
-            var projectile = poolingManager.SpawnPrefab(_shockWaveProjectileKey, shockWavePointTransform.position)
+            _cameraShake.LightShakeCamera();
+
+            var projectile = _poolingManager.SpawnPrefab(_shockWaveProjectileKey, shockWavePointTransform.position)
                 .GetComponent<ProjectileBehaviour>();
 
             projectile.Moviment.MoveRight = behaviour.Movement.MoveRight;
 
-            audioController.PlaySoundEffect(ref _shockWaveAudioClip, _shockWaveVolumeScale);
+            _audioController.PlaySoundEffect(ref _shockWaveAudioClip, _shockWaveVolumeScale);
         }
 
         public void ShockWaveEndEvent()
@@ -128,18 +133,25 @@ namespace Cubeman.AnimationEvents
         public void JumpInEvent()
         {
             var jumpInSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_JUMPIN_KEY);
-            audioController.PlaySoundEffect(ref jumpInSFX._audioClip, jumpInSFX._audioVolumeScale);
+            _audioController.PlaySoundEffect(ref jumpInSFX._audioClip, jumpInSFX._audioVolumeScale);
         }
 
         public void JumpOutEvent()
         {
+            _cameraShake.LightShakeCamera();
+
             var jumpOutSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_JUMPOUT_KEY);
-            audioController.PlaySoundEffect(ref jumpOutSFX._audioClip, jumpOutSFX._audioVolumeScale);
+            _audioController.PlaySoundEffect(ref jumpOutSFX._audioClip, jumpOutSFX._audioVolumeScale);
+        }
+
+        public void OffensiveRunningStep()
+        {
+            _cameraShake.LightShakeCamera();
         }
 
         public void DeathLaserStartChargeEvent()
         {
-            audioController.PlaySoundEffect(ref _deathLaserChargeAudioClip, _deathLaserChargeVolumeScale);
+            _audioController.PlaySoundEffect(ref _deathLaserChargeAudioClip, _deathLaserChargeVolumeScale);
             deathLaserChargeParticles.Play();
         }
 
@@ -150,7 +162,7 @@ namespace Cubeman.AnimationEvents
 
         public void DeathLaserStartEvent()
         {
-            audioController.PlaySoundEffect(ref _deathLaserOutAudioClip, _deathLaserOutVolumeScale);
+            _audioController.PlaySoundEffect(ref _deathLaserOutAudioClip, _deathLaserOutVolumeScale);
             deathLaserGameObject.SetActive(true);
         }
 
