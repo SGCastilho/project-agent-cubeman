@@ -15359,6 +15359,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 590676015}
     m_Modifications:
+    - target: {fileID: 1962584452201793645, guid: c239566d17b88ab41b2ee285540fe1a5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c7b09203fa56104392dcf33b2ecc8a7, type: 2}
     - target: {fileID: 6102153624324531616, guid: c239566d17b88ab41b2ee285540fe1a5, type: 3}
       propertyPath: objectTransform
       value: 
@@ -51978,6 +51982,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 590676015}
     m_Modifications:
+    - target: {fileID: 1962584452201793645, guid: c239566d17b88ab41b2ee285540fe1a5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5492c9649b477544d914bb493fd26d07, type: 2}
     - target: {fileID: 6102153624324531616, guid: c239566d17b88ab41b2ee285540fe1a5, type: 3}
       propertyPath: objectTransform
       value: 
