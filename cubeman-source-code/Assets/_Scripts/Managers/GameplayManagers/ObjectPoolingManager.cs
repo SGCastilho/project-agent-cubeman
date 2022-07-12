@@ -30,10 +30,22 @@ namespace Cubeman.Manager
             [SerializeField] private GameObject poolPrefab;
         }
 
+        [Header("Settings")]
         [SerializeField] private List<Pool> poolingList;
+        [SerializeField] private bool initializePoolingOnAwake;
+
         private Dictionary<string, Queue<GameObject>> _poolDictionary;
 
-        private void Awake() => Instance = this;
+        private void Awake() => SetupObject();
+
+        private void SetupObject()
+        {
+            Instance = this;
+
+            if (!initializePoolingOnAwake) return;
+
+            InitializePooling();
+        }
 
         public void AddPool(string key, int size, GameObject prefab)
         {
@@ -42,7 +54,7 @@ namespace Cubeman.Manager
                 var pool = new Pool(key, size, prefab);
                 poolingList.Add(pool);
             }
-            else { Debug.LogWarning("N�o foi possivel criar uma nova Pool."); }
+            else { Debug.LogWarning("Nao foi possivel criar uma nova Pool."); }
         }
 
         public void InitializePooling()
@@ -78,7 +90,7 @@ namespace Cubeman.Manager
                     }
                 }
             }
-            else { Debug.LogWarning("N�o h� Pools a serem instanciadas."); }
+            else { Debug.LogWarning("Nao ha Pools a serem instanciadas."); }
 
             poolingList.Clear();
         }

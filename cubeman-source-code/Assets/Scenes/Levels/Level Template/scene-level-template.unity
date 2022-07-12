@@ -734,6 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolingList: []
+  initializePoolingOnAwake: 0
 --- !u!1 &208774281
 GameObject:
   m_ObjectHideFlags: 0
