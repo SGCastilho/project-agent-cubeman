@@ -13,8 +13,12 @@ namespace Cubeman.UI
         [SerializeField] private CanvasGroup canvasGroup;
 
         [Header("Settings")]
-        [SerializeField] [Range(0.1f, 2f)] private float transistionDuration = 0.4f;
         [SerializeField] private GameObject loadingGameObject;
+
+        [Space(6)]
+
+        [SerializeField] [Range(0.1f, 2f)] private float fadeInTransistionDuration = 0.4f;
+        [SerializeField] [Range(0.1f, 2f)] private float fadeOutTransistionDuration = 0.4f;
 
         private void Awake() => SetupObject();
 
@@ -28,25 +32,25 @@ namespace Cubeman.UI
         public void FadeOut()
         {
             loadingGameObject.SetActive(false);
-            Fade(0f);
+            Fade(0f, fadeOutTransistionDuration);
         }
 
         public void FadeIn()
         {
             loadingGameObject.SetActive(false);
-            Fade(1f);
+            Fade(1f, fadeInTransistionDuration);
         }
 
         public void LoadingFadeIn()
         {
             loadingGameObject.SetActive(true);
-            Fade(1f);
+            Fade(1f, fadeInTransistionDuration);
         }
 
-        private void Fade(float endValue)
+        private void Fade(float endValue, float duration)
         {
             canvasGroup.DOKill();
-            canvasGroup.DOFade(endValue, transistionDuration).SetUpdate(true);
+            canvasGroup.DOFade(endValue, duration).SetUpdate(true);
         }
     }
 }

@@ -12,7 +12,9 @@ namespace Cubeman.Manager
         public event DialogueLoad OnDialogueLoad;
 
         public Action OnDialogueReady;
-        public Action OnDialogueEnd;
+        public Action OnDialogueComplete;
+
+        public Action OnDialogueFinish;
     
         private DialogueMessageData _dialogueData;
 
@@ -37,7 +39,10 @@ namespace Cubeman.Manager
 
         public void StartDialogue(DialogueMessageData dialogue)
         {
-            GamePauseManager.Instance.BlockPause = true;
+            if(GamePauseManager.Instance != null)
+            {
+                GamePauseManager.Instance.BlockPause = true;
+            }
 
             _dialogueData = dialogue;
             _maxDialogueID = _dialogueData.DialogueSequence.Length;
@@ -74,11 +79,15 @@ namespace Cubeman.Manager
             }
             else
             {
-                GamePauseManager.Instance.BlockPause = false;
+                if (GamePauseManager.Instance != null)
+                {
+                    GamePauseManager.Instance.BlockPause = false;
+                }
 
                 PrepareGameplayInput();
 
-                OnDialogueEnd?.Invoke();
+                OnDialogueComplete?.Invoke();
+                OnDialogueFinish?.Invoke();
 
                 ClearDialogueData();
             }

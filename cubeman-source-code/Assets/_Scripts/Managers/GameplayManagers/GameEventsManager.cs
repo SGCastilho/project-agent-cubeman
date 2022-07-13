@@ -91,7 +91,7 @@ namespace Cubeman.Manager
         {
             dialogueManager.OnDialogueReady += uiDialogue.FadeIn;
             dialogueManager.OnDialogueLoad += uiDialogue.SetDialogue;
-            dialogueManager.OnDialogueEnd += uiDialogue.FadeOut;
+            dialogueManager.OnDialogueComplete += uiDialogue.FadeOut;
         }
 
         private void EnableBossUIEvents()
@@ -192,7 +192,7 @@ namespace Cubeman.Manager
         {
             dialogueManager.OnDialogueReady -= uiDialogue.FadeIn;
             dialogueManager.OnDialogueLoad -= uiDialogue.SetDialogue;
-            dialogueManager.OnDialogueEnd -= uiDialogue.FadeOut;
+            dialogueManager.OnDialogueComplete -= uiDialogue.FadeOut;
         }
 
         private void DisableBossUIEvents()

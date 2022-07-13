@@ -112,6 +112,8 @@ namespace Cubeman.Player
 
         private void EnableGameplayEvents()
         {
+            if (behaviour == null) return;
+
             _inputActions.Gameplay.Dash.started += ctx => behaviour.Moviment.DashInput();
 
             _inputActions.Gameplay.Jump.started += ctx => behaviour.Moviment.Gravity.VariableJumpInput();
@@ -125,6 +127,8 @@ namespace Cubeman.Player
 
         private void DisableGameplayEvents()
         {
+            if (behaviour == null) return;
+
             _inputActions.Gameplay.Dash.started -= ctx => behaviour.Moviment.DashInput();
 
             _inputActions.Gameplay.Jump.started -= ctx => behaviour.Moviment.Gravity.VariableJumpInput();
