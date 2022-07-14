@@ -3970,6 +3970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolingList: []
+  initializePoolingOnAwake: 0
 --- !u!1 &206790481
 GameObject:
   m_ObjectHideFlags: 0
@@ -24824,7 +24825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   nextSceneToLoad: scene-menu-thanksForPlaying
-  completeAudioClip: {fileID: 8300000, guid: c927815a37eba1e4b861757ca196ca7c, type: 3}
+  completeAudioClip: {fileID: 8300000, guid: aaa875b8e448e7d45a1a5cdcbb75a2d5, type: 3}
   completeAudioClipVolumeScale: 0.8
 --- !u!1001 &1304260375
 PrefabInstance:
