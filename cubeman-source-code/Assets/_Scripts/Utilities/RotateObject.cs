@@ -9,12 +9,30 @@ namespace Cubeman.Utilities
         #endregion
 
         [Header("Settings")]
+        [SerializeField] private Space rotationSpace = Space.World;
+
+        [Space(12)]
+
         [SerializeField] [Range(10f, 360f)] private float rotateVelocity = 60f;
-        private bool rotateRight;
+        [SerializeField] private bool startRotationSide;
 
         private Transform _transform;
 
-        private void Awake() => _transform = GetComponent<Transform>();
+        private bool rotateRight;
+
+        private void Awake() => SetupObject();
+
+        private void SetupObject()
+        {
+            CacheComponets();
+
+            rotateRight = startRotationSide;
+        }
+
+        private void CacheComponets()
+        {
+            _transform = GetComponent<Transform>();
+        }
 
         private void Update() => Rotate();
 
@@ -22,11 +40,11 @@ namespace Cubeman.Utilities
         {
             if (rotateRight)
             {
-                _transform.Rotate(Vector3.back * rotateVelocity * Time.deltaTime, Space.World);
+                _transform.Rotate(Vector3.back * rotateVelocity * Time.deltaTime, rotationSpace);
             }
             else
             {
-                _transform.Rotate(Vector3.forward * rotateVelocity * Time.deltaTime, Space.World);
+                _transform.Rotate(Vector3.forward * rotateVelocity * Time.deltaTime, rotationSpace);
             }
         }
     }
