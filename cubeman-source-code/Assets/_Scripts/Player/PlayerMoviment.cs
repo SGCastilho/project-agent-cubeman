@@ -1,5 +1,5 @@
-using System.Collections;
 using Cubeman.Character;
+using System.Collections;
 using UnityEngine;
 
 namespace Cubeman.Player
@@ -31,6 +31,7 @@ namespace Cubeman.Player
         [SerializeField] [Range(1f, 20f)] private float movementSpeed = 6f;
         [SerializeField] [Range(4f, 20f)] private float dashSpeed = 12f;
         [SerializeField] [Range(0.1f, 2f)] private float dashDuration = 0.26f;
+        [SerializeField] [Range(0.1f, 4f)] private float dashCouldown = 2f;
 
         [Space(12)]
         
@@ -50,8 +51,9 @@ namespace Cubeman.Player
 
         private bool _moveRight;
         private bool _isDashing;
-        private bool _enableInputsOnAutomaticMoveComplete;
+        private bool _dashReady;
         private bool _horizontalImpulse;
+        private bool _enableInputsOnAutomaticMoveComplete;
 
         private float _currentDashDuration;
 
@@ -67,6 +69,7 @@ namespace Cubeman.Player
 
         private void SetupStartMovimentSide()
         {
+            _dashReady = true;
             _moveRight = true;
         }
 
@@ -140,12 +143,15 @@ namespace Cubeman.Player
 
         internal void DashInput()
         {
-            if(controller.isGrounded && !gravity.IsJumped && !_isDashing)
+            if(_dashReady && controller.isGrounded && !gravity.IsJumped && !_isDashing)
             {
-                gravity.FreezeGravity = true;
                 _isDashing = true;
 
+                gravity.FreezeGravity = true;
+
                 behaviour.Animation.DashAnimation = _isDashing;
+
+                StartCoroutine(DashCouldownCoroutine());
             }
         }
 
@@ -162,6 +168,15 @@ namespace Cubeman.Player
             }
 
             HorizontalForce(dashSpeed);
+        }
+
+        IEnumerator DashCouldownCoroutine()
+        {
+            _dashReady = false;
+
+            yield return new WaitForSeconds(dashCouldown);
+
+            _dashReady = true;
         }
 
         public void StartAutomaticMove(bool moveSide, bool enableInputsOnComplete,float duration)

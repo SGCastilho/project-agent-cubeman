@@ -5779,6 +5779,7 @@ MonoBehaviour:
   movementSpeed: 6
   dashSpeed: 12
   dashDuration: 0.26
+  dashCouldown: 0.6
   staggerDuration: 0.2
   staggerForce: 2.6
   graphicsTransform: {fileID: 5014707558921355236}
