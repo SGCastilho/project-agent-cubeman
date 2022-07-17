@@ -26,7 +26,7 @@ namespace Cubeman.Character
         {
             if (!_freezeGravity)
             {
-                if (charController.isGrounded && _yVelocity.y < -1f)
+                if (charController.isGrounded && _yVelocity.y <= 0f)
                 {
                     EndVariableJump();
                     _isJumped = false;

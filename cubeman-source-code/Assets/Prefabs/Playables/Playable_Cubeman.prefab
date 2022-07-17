@@ -5731,7 +5731,7 @@ MonoBehaviour:
   currentHealth: 0
   immunityTime: 0.8
   deathTime: 2
-  invensibleMode: 1
+  invensibleMode: 0
   currentUltimateCharge: 0
   ultimateCouldownDuration: 1.6
 --- !u!114 &4764078922502578273

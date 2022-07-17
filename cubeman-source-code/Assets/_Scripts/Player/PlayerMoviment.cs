@@ -219,9 +219,10 @@ namespace Cubeman.Player
         public IEnumerator TakeDamageImpulseCoroutine()
         {
             behaviour.BlockAction(true);
+
             _horizontalImpulse = true;
 
-            while(_currentImpulseDuration < staggerDuration)
+            while (_currentImpulseDuration < staggerDuration)
             {
                 _currentImpulseDuration += Time.deltaTime;
                 HorizontalInverseForce(staggerForce);
@@ -232,6 +233,9 @@ namespace Cubeman.Player
 
             _currentImpulseDuration = 0;
             _horizontalImpulse = false;
+
+            gravity.FreezeGravity = false;
+
             behaviour.Animation.TakeDamageAnimation = false;
             behaviour.BlockAction(false);
         }

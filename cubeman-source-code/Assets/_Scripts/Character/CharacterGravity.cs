@@ -52,6 +52,7 @@ namespace Cubeman.Character
         protected virtual void InitializeGravity()
         {
             CalculateGravity(maxHeight, timeToPeak);
+
             _jumpSpeed = _gravity * timeToPeak;
             _freezeGravity = false;
             _isJumped = false;
@@ -61,7 +62,7 @@ namespace Cubeman.Character
         {
             if (!_freezeGravity)
             {
-                if (charController.isGrounded && _yVelocity.y < -1f)
+                if (charController.isGrounded && _yVelocity.y <= 0f)
                 {
                     _isJumped = false;
                     _yVelocity = Vector3.down;

@@ -153,6 +153,9 @@ namespace Cubeman.Player
             if(!_damageImmune && !invensibleMode)
             {
                 currentHealth -= damage;
+
+                behaviour.Moviment.Gravity.FreezeGravity = true;
+
                 if (currentHealth <= 0)
                 {
                     _isDead = true;
@@ -177,6 +180,7 @@ namespace Cubeman.Player
             if(OnPlayerTakeDamage != null) { OnPlayerTakeDamage(currentHealth, data.Health); }
 
             _isDead = true;
+
             StartCoroutine(DeathCoroutine());
         }
 
