@@ -12,8 +12,8 @@ namespace Cubeman.Utilities
 
         private TextAsset _csvToRead;
 
-        private char[] _charToReplace = { ':', '&' };
-        private char[] _replaceChar = { ',', ':' };
+        private char[] _charToReplace = { ':', '&', '|' };
+        private char[] _replaceChar = { ',', ':', '&' };
 
         public string[] Read()
         {
@@ -40,6 +40,13 @@ namespace Cubeman.Utilities
                     string newString = fixString[i];
 
                     fixString[i] = newString.Replace(_charToReplace[1], _replaceChar[1]);
+                }
+
+                if (fixString[i].Contains(_charToReplace[2]))
+                {
+                    string newString = fixString[i];
+
+                    fixString[i] = newString.Replace(_charToReplace[2], _replaceChar[2]);
                 }
             }
 

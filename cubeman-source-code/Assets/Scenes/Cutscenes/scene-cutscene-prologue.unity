@@ -1896,7 +1896,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguesMessagesToLoad:
-  - {fileID: 11400000, guid: 18f501355403142498e22ed26db615ef, type: 2}
+  - {fileID: 11400000, guid: 458abd630a3b8884da3cb0e604561c09, type: 2}
+  - {fileID: 11400000, guid: f48ccc45a67734743b9a742b04171f32, type: 2}
+  - {fileID: 11400000, guid: b9b18c16e07d6c8488afdf617925f0b3, type: 2}
+  - {fileID: 11400000, guid: c284ac2f8186cb9489e53397c0d55f31, type: 2}
+  - {fileID: 11400000, guid: f073725eac721b34786a3399a012a594, type: 2}
+  - {fileID: 11400000, guid: fa30d43d3a7f3224394f8afe2e40b23e, type: 2}
 --- !u!1 &1525324357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,8 +2212,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2040068017}
-  - component: {fileID: 2040068018}
   - component: {fileID: 2040068019}
+  - component: {fileID: 2040068018}
   m_Layer: 0
   m_Name: Prologue Cutscene Manager
   m_TagString: Untagged
@@ -2259,8 +2264,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 1323368702}
   dialogues:
-  - {fileID: 11400000, guid: 18f501355403142498e22ed26db615ef, type: 2}
-  - {fileID: 11400000, guid: 18f501355403142498e22ed26db615ef, type: 2}
+  - {fileID: 11400000, guid: 458abd630a3b8884da3cb0e604561c09, type: 2}
+  - {fileID: 11400000, guid: f48ccc45a67734743b9a742b04171f32, type: 2}
+  - {fileID: 11400000, guid: b9b18c16e07d6c8488afdf617925f0b3, type: 2}
+  - {fileID: 11400000, guid: c284ac2f8186cb9489e53397c0d55f31, type: 2}
+  - {fileID: 11400000, guid: f073725eac721b34786a3399a012a594, type: 2}
+  - {fileID: 11400000, guid: fa30d43d3a7f3224394f8afe2e40b23e, type: 2}
   firstDialogueDelay: 4
   delayBetweenDialogues: 2
   OnCutsceneEnd:
