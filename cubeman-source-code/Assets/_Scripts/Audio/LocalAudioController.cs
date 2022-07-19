@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,14 @@ namespace Cubeman.Audio
         private Queue<SequenceSoundEffect> soundEffectQueue = new Queue<SequenceSoundEffect>();
 
         private bool _queuePlaying;
+        private float _currentVolume;
+
+        private void OnEnable() => SetupObject();
+
+        private void SetupObject()
+        {
+            _currentVolume = audioSource.volume;
+        }
 
         public void PlaySoundTrack(ref AudioClip clip)
         {
@@ -50,6 +59,21 @@ namespace Cubeman.Audio
             if (audioSource.isPlaying) { audioSource.Stop(); }
 
             audioSource.Play();
+        }
+
+        public void StopSoundTrack()
+        {
+            audioSource.Stop();
+
+            audioSource.clip = null;
+            audioSource.volume = _currentVolume;
+        }
+
+        public void StopSoundTrack(float volumeFadeOutDuration)
+        {
+            _currentVolume = audioSource.volume;
+
+            audioSource.DOFade(0f, volumeFadeOutDuration).OnComplete(StopSoundTrack);
         }
 
         public void PlaySoundEffect(ref AudioClip clip)

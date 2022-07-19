@@ -37,8 +37,6 @@ namespace Cubeman.Manager
 
         private int _clientLanguageIndex;
 
-        [SerializeField] private string[] teste;
-
         private void Start()
         {
             if(Instance == null)
@@ -192,7 +190,6 @@ namespace Cubeman.Manager
 
         private async Task LoadDialogueMessageCSV()
         {
-            teste = _uiDialogueMessageReader.Read();
             var translationData = _uiDialogueMessageReader.Read();
 
             var dialoguesData = Resources.LoadAll<DialogueMessageData>("ScriptableObjects/Dialogues");

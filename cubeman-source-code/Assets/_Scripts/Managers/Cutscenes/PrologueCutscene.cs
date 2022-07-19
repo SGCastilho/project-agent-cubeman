@@ -7,11 +7,32 @@ namespace Cubeman.Manager
 {
     public sealed class PrologueCutscene : MonoBehaviour
     {
+        [System.Serializable]
+        private struct CutsceneEvents 
+        {
+            #region Editor Variable
+    #if UNITY_EDITOR
+            [SerializeField] private string eventName;
+    #endif
+            #endregion
+
+            [Tooltip("Put the index of dialogue")] 
+            public int dialogueToExecuteEvent;
+
+            [Space(16)]
+
+            public UnityEvent OnCutsceneEvent;
+        }
+
         [Header("Classes")]
         [SerializeField] private DialogueManager dialogueManager;
 
         [Header("Settings")]
         [SerializeField] private DialogueMessageData[] dialogues;
+
+        [Space(12)]
+
+        [SerializeField] private CutsceneEvents[] cutsceneEvents;
 
         [Space(12)]
 
@@ -30,9 +51,26 @@ namespace Cubeman.Manager
         {
             dialogueManager.OnDialogueFinish -= DialogueFinish;
 
+            CheckForCutsceneEvents();
+
             _currentDialogue++;
 
             StartCoroutine(DialogueDelayCoroutine(delayBetweenDialogues));
+        }
+
+        private void CheckForCutsceneEvents()
+        {
+            if (cutsceneEvents != null || cutsceneEvents.Length > 0)
+            {
+                for (int i = 0; i < cutsceneEvents.Length; i++)
+                {
+                    if (cutsceneEvents[i].dialogueToExecuteEvent == _currentDialogue)
+                    {
+                        cutsceneEvents[i].OnCutsceneEvent?.Invoke();
+                        break;
+                    }
+                }
+            }
         }
 
         private void CutsceneEnd()
