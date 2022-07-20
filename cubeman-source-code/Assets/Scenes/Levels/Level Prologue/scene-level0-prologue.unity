@@ -4533,7 +4533,7 @@ MonoBehaviour:
         m_MethodName: StartDialogue
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 18f501355403142498e22ed26db615ef, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 20ad72ef2d5a1b443ab7965a9b650799, type: 2}
           m_ObjectArgumentAssemblyTypeName: Cubeman.ScriptableObjects.DialogueMessageData,
             Cubeman.ScriptableObjects
           m_IntArgument: 0
@@ -19466,7 +19466,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 79c34121801ab214ebd9095efd00afbd, type: 2}
   - {fileID: 11400000, guid: 2bfc587d693d8d54dadb1646cde8b792, type: 2}
   dialogueMessageToLoad:
-  - {fileID: 11400000, guid: 18f501355403142498e22ed26db615ef, type: 2}
+  - {fileID: 11400000, guid: 20ad72ef2d5a1b443ab7965a9b650799, type: 2}
 --- !u!1 &1035717755
 GameObject:
   m_ObjectHideFlags: 0
@@ -24826,7 +24826,7 @@ MonoBehaviour:
   currentState: 0
   nextSceneToLoad: scene-menu-thanksForPlaying
   completeAudioClip: {fileID: 8300000, guid: aaa875b8e448e7d45a1a5cdcbb75a2d5, type: 3}
-  completeAudioClipVolumeScale: 0.8
+  completeAudioClipVolumeScale: 0.6
 --- !u!1001 &1304260375
 PrefabInstance:
   m_ObjectHideFlags: 0

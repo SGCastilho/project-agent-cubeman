@@ -4092,8 +4092,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   nextSceneToLoad: scene-menu-thanksForPlaying
-  completeAudioClip: {fileID: 8300000, guid: c927815a37eba1e4b861757ca196ca7c, type: 3}
-  completeAudioClipVolumeScale: 0.8
+  completeAudioClip: {fileID: 8300000, guid: aaa875b8e448e7d45a1a5cdcbb75a2d5, type: 3}
+  completeAudioClipVolumeScale: 0.6
 --- !u!1 &1306517190
 GameObject:
   m_ObjectHideFlags: 0
