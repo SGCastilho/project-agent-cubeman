@@ -37,6 +37,8 @@ namespace Cubeman.Manager
 
         private int _clientLanguageIndex;
 
+        [SerializeField] private string[] teste;
+
         private void Start()
         {
             if(Instance == null)
@@ -190,6 +192,7 @@ namespace Cubeman.Manager
 
         private async Task LoadDialogueMessageCSV()
         {
+            teste = _uiDialogueMessageReader.Read();
             var translationData = _uiDialogueMessageReader.Read();
 
             var dialoguesData = Resources.LoadAll<DialogueMessageData>("ScriptableObjects/Dialogues");
@@ -217,10 +220,17 @@ namespace Cubeman.Manager
 
                 for(int j = lastKeyIndex; j < dialogueTextLeagth; j++)
                 {
-                    if (translationData[j] != dialogueKey)
+                    try 
                     {
-                        var adjustIndex = j - (lastKeyIndex + 1);
-                        textLanguage[adjustIndex] = translationData[j];
+                        if (translationData[j] != dialogueKey)
+                        {
+                            var adjustIndex = j - (lastKeyIndex + 1);
+                            textLanguage[adjustIndex] = translationData[j];
+                        }
+                    }
+                    catch
+                    {
+                        Debug.LogWarning($"Não foi possivel achar a tradução, index{j}");
                     }
                 }
 

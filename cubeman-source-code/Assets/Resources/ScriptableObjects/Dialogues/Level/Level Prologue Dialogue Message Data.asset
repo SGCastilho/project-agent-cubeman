@@ -16,44 +16,44 @@ MonoBehaviour:
   dialogueSequence:
   - characterName: Dr.Scarlett
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
-    characterDialogue: Cubeman!
+    characterDialogue: "Cubeman!\r"
   - characterName: Cubeman
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
-    characterDialogue: Doutora Scarlett!
+    characterDialogue: "Scarlett!\r"
   - characterName: Cubeman
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
-    characterDialogue: "Como encontrou minha localiza\xE7\xE3o?"
+    characterDialogue: "Como encontrou minha localiza\xE7\xE3o?\r"
   - characterName: Dr.Scarlett
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
-    characterDialogue: Isso pouco importa agora!
+    characterDialogue: "Isso pouco importa agora!\r"
   - characterName: Dr.Scarlett
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
-    characterDialogue: "O exercito restirou boa parte dos civis no local, mas eles
-      est\xE3o sofrendo muito para combater os rob\xF4s com seus equipamentos atuais."
+    characterDialogue: "O ex\xE9rcito retirou boa parte dos civis do local, mas est\xE3o
+      sofrendo muito para combater os rob\xF4s com seus equipamentos atuais.\r"
   - characterName: Dr.Scarlett
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
     characterDialogue: "Com a Laser Gun, voc\xEA pode acabar com todos os rob\xF4s
-      ainda presentes na cidade."
+      ainda presentes na cidade.\r"
   - characterName: Dr.Scarlett
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
-    characterDialogue: "Voc\xEA consegue?"
+    characterDialogue: "Voc\xEA consegue?\r"
   - characterName: Cubeman
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
     characterDialogue: "Tenho muni\xE7\xE3o o suficiente, os rob\xF4s n\xE3o v\xE3o
-      ser problema."
+      ser problema.\r"
   - characterName: Dr.Scarlett
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
-    characterDialogue: "Isso \xE9 bom."
+    characterDialogue: "Isso \xE9 bom.\r"
   - characterName: Dr.Scarlett
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
-    characterDialogue: A sua direita, pegue esse comunicador.
+    characterDialogue: "A sua direita, pegue esse comunicador.\r"
   - characterName: Dr.Scarlett
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
-    characterDialogue: "Ele tem uma frequ\xEAncia exclusiva para nos comunicarmos."
+    characterDialogue: "Ele tem uma frequ\xEAncia exclusiva para nos comunicarmos.\r"
   - characterName: Dr.Scarlett
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
     characterDialogue: "Quando terminar, volte at\xE9 essa capsula, vou te teletransportar
-      para o Quartel General e explicar toda a situa\xE7\xE3o do ataque."
+      para o Quartel General e explicar toda a situa\xE7\xE3o do ataque.\r"
   - characterName: Dr.Scarlett
     characterFace: {fileID: 123639219, guid: 3e3507e773e11bf45b23b35b467bac3a, type: 3}
     characterDialogue: Boa sorte, Cubeman!
