@@ -29,6 +29,7 @@ namespace Cubeman.UI
         [SerializeField] private TMP_Dropdown frameRateDropDown;
         [SerializeField] private TMP_Dropdown vSyncDropDown;
         [SerializeField] private TMP_Dropdown textureDropDown;
+        [SerializeField] private TMP_Dropdown shadowDropDown;
         [SerializeField] private TMP_Dropdown anisotropicDropDown;
         [SerializeField] private TMP_Dropdown antialiasingDropDown;
 
@@ -81,6 +82,8 @@ namespace Cubeman.UI
             
             textureDropDown.value = _currentVideoOptions.clientTextureQuality;
             anisotropicDropDown.value = ((int)_currentVideoOptions.clientAnisotropic);
+
+            shadowDropDown.value = _currentVideoOptions.clientShadowQuality;
 
             antialiasingDropDown.value = GetAntialiasingValue();
         }
@@ -145,6 +148,8 @@ namespace Cubeman.UI
             _newVideoOptions.clientTextureQuality = textureDropDown.value;
             _newVideoOptions.clientAnisotropic = (AnisotropicFiltering)anisotropicDropDown.value;
 
+            _newVideoOptions.clientShadowQuality = shadowDropDown.value;
+
             _newVideoOptions.clientAntialiasing = GetAntiAliasingValue();
         }
 
@@ -180,7 +185,7 @@ namespace Cubeman.UI
 
             if (antialiasingDropDown.value == 0)
             {
-                antiAliasingValue = 0;
+                antiAliasingValue = 1;
             }
             else
             {

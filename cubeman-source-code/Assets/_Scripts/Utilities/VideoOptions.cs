@@ -11,7 +11,9 @@ public struct VideoOptions
 
     public int clientTargetFrameRate;
     public int clientVsync;
+
     public int clientTextureQuality;
+    public int clientShadowQuality;
 
     public AnisotropicFiltering clientAnisotropic;
 
