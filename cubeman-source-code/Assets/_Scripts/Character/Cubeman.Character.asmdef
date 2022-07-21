@@ -1,7 +1,9 @@
 {
     "name": "Cubeman.Character",
     "rootNamespace": "Cubeman.Character",
-    "references": [],
+    "references": [
+        "GUID:fe8645869d410c446ac3f6cc4aee3ff8"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -9,12 +9,19 @@ namespace Cubeman.Character
 
         [SerializeField] [Range(0.1f, 1f)] private float variableJumpDuration = 0.3f;
         [SerializeField] [Range(0.1f, 4f)] private float variableJumpTimeToPeak = 0.3f;
-        private float _currentVariableJumpDuration;
+
         private bool _inVariableJump;
+        private bool _groundVelocityAdjusted;
+        private float _currentVariableJumpDuration;
 
         protected override void InitializeGravity()
         {
-            base.InitializeGravity();
+            CalculateGravity(maxHeight, timeToPeak);
+
+            _jumpSpeed = _gravity * timeToPeak;
+            _yVelocity = Vector2.down;
+            _freezeGravity = false;
+            _isJumped = false;
 
             _currentVariableJumpDuration = 0;
             _inVariableJump = false;
@@ -26,15 +33,19 @@ namespace Cubeman.Character
         {
             if (!_freezeGravity)
             {
-                if (charController.isGrounded && _yVelocity.y <= 0f)
+                if (!_groundVelocityAdjusted && IsGrounded && _yVelocity.y <= 0f)
                 {
                     EndVariableJump();
                     _isJumped = false;
                     _yVelocity = Vector3.down;
+
+                    _groundVelocityAdjusted = true;
                 }
-                else if (!charController.isGrounded)
+                else if (!IsGrounded)
                 {
                     _yVelocity += _gravity * Time.deltaTime * Vector2.down;
+
+                    _groundVelocityAdjusted = false;
                 }
             }
         }
@@ -46,6 +57,7 @@ namespace Cubeman.Character
             if (!_freezeGravity && !_isJumped && !_inVariableJump)
             {
                 CalculateGravity(variableJumpTimeToPeak);
+
                 _isJumped = true;
                 _inVariableJump = true;
             }
@@ -59,6 +71,7 @@ namespace Cubeman.Character
             {
                 _currentVariableJumpDuration += Time.deltaTime;
                 _yVelocity = _jumpSpeed * Vector2.up;
+
                 if (_currentVariableJumpDuration >= variableJumpDuration)
                 {
                     _currentVariableJumpDuration = 0;
@@ -70,6 +83,7 @@ namespace Cubeman.Character
         public void EndVariableJump()
         {
             CalculateGravity(timeToPeak);
+
             _currentVariableJumpDuration = 0;
             _inVariableJump = false;
         }

@@ -62,12 +62,12 @@ namespace Cubeman.Character
         {
             if (!_freezeGravity)
             {
-                if (charController.isGrounded && _yVelocity.y <= 0f)
+                if (IsGrounded && _yVelocity.y <= 0f)
                 {
                     _isJumped = false;
                     _yVelocity = Vector3.down;
                 }
-                else if(!charController.isGrounded)
+                else if(!IsGrounded)
                 {
                     _yVelocity += _gravity * Time.deltaTime * Vector2.down;
                 }
@@ -93,7 +93,7 @@ namespace Cubeman.Character
         {
             if (_blockJump) return;
 
-            if (!_freezeGravity && charController.isGrounded)
+            if (!_freezeGravity && IsGrounded)
             {
                 _yVelocity = _jumpSpeed * Vector2.up;
                 _isJumped = true;
@@ -104,7 +104,7 @@ namespace Cubeman.Character
         {
             if (_blockJump) return;
 
-            if (!_freezeGravity && charController.isGrounded)
+            if (!_freezeGravity && IsGrounded)
             {
                 _yVelocity = force * Vector2.up;
                 _isJumped = true;
