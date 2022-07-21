@@ -5,6 +5,13 @@ namespace Cubeman.Manager
 {
     public sealed class AudioOptionsManager : MonoBehaviour
     {
+        #region Encapsulation
+        public AudioOptions ClientAudioOptions { get => clientAudioOptions; }
+        #endregion
+
+        public delegate void NewOptionsApply();
+        public event NewOptionsApply OnNewOptionsApply;
+
         [Header("Classes")]
         [SerializeField] private AudioMixer soundTrackMixer;
         [SerializeField] private AudioMixer soundEffectMixer;
@@ -29,6 +36,14 @@ namespace Cubeman.Manager
             return clientAudioOptions.clientSoundEffectVolume;
         }
 
+        public void SetAudioOptions(AudioOptions newAudioOptions)
+        {
+            clientAudioOptions = newAudioOptions;
+
+            soundTrackMixer.SetFloat("MasterVolume", newAudioOptions.clientSoundTrackVolume);
+            soundEffectMixer.SetFloat("MasterVolume", newAudioOptions.clientSoundEffectVolume);
+        }
+
         public void SetSoundTrackVolume(float volume)
         {
             var setupVolume = volume - 60;
@@ -43,6 +58,8 @@ namespace Cubeman.Manager
             soundEffectMixer.SetFloat("MasterVolume", setupVolume);
 
             clientAudioOptions.clientSoundEffectVolume = setupVolume;
+
+            OnNewOptionsApply?.Invoke();
         }
     }
 }

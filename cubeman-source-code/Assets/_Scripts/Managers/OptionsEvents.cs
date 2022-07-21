@@ -6,6 +6,7 @@ namespace Cubeman.Manager
     public sealed class OptionsEvents : MonoBehaviour
     {
         [Header("Classes")]
+        [SerializeField] private OptionsManager optionsManager;
         [SerializeField] private VideoOptionsManager videoOptionsManager;
         [SerializeField] private AudioOptionsManager audioOptionsManager;
 
@@ -24,6 +25,11 @@ namespace Cubeman.Manager
 
         private void EnableEvents()
         {
+            audioOptionsManager.OnNewOptionsApply += optionsManager.SaveOptionsJSON;
+
+            videoOptionsManager.OnRefreshOptionsUI += uiVideoOptions.CheckVideoOptions;
+            videoOptionsManager.OnNewOptionsApply += optionsManager.SaveOptionsJSON;
+
             uiVideoOptions.OnGetClientOptions += videoOptionsManager.GetClientOptions;
 
             uiVideoOptions.OnGetSupportedScreen += videoOptionsManager.GetSupportedFullScreenMode;
@@ -40,6 +46,11 @@ namespace Cubeman.Manager
 
         private void DisableEvents()
         {
+            audioOptionsManager.OnNewOptionsApply -= optionsManager.SaveOptionsJSON;
+
+            videoOptionsManager.OnRefreshOptionsUI -= uiVideoOptions.CheckVideoOptions;
+            videoOptionsManager.OnNewOptionsApply -= optionsManager.SaveOptionsJSON;
+
             uiVideoOptions.OnGetClientOptions -= videoOptionsManager.GetClientOptions;
 
             uiVideoOptions.OnGetSupportedScreen -= videoOptionsManager.GetSupportedFullScreenMode;

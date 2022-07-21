@@ -5,10 +5,20 @@ namespace Cubeman.Manager
 {
     public sealed class VideoOptionsManager : MonoBehaviour
     {
+        public delegate void NewOptionsApply();
+        public event NewOptionsApply OnNewOptionsApply;
+
+        public delegate void RefreshOptionsUI();
+        public event RefreshOptionsUI OnRefreshOptionsUI;
+
         private UniversalRenderPipelineAsset currentPipelineAsset;
 
         private Resolution[] _supportedResolutions;
         private VideoOptions _clientVideoOptions;
+
+        #region Encapsulation
+        public VideoOptions ClientVideoOptions { get => _clientVideoOptions; }
+        #endregion
 
         [Header("PipelineAssets")]
         [SerializeField] private UniversalRenderPipelineAsset[] pipelineAssets;
@@ -139,6 +149,9 @@ namespace Cubeman.Manager
             currentPipelineAsset = UniversalRenderPipeline.asset;
 
             currentPipelineAsset.msaaSampleCount = _clientVideoOptions.clientAntialiasing;
+
+            OnNewOptionsApply?.Invoke();
+            OnRefreshOptionsUI?.Invoke();
         }
     }
 }

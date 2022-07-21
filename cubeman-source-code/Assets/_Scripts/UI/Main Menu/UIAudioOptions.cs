@@ -31,7 +31,7 @@ namespace Cubeman.UI
         private void SetupSlider(Slider slider, float value)
         {
             var mixerVolume = value;
-            var setupVolume = mixerVolume + 80;
+            var setupVolume = mixerVolume + 60;
 
             slider.value = setupVolume;
         }

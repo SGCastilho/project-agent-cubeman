@@ -18255,6 +18255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1677990849}
+  - component: {fileID: 1677990852}
   - component: {fileID: 1677990850}
   - component: {fileID: 1677990851}
   m_Layer: 0
@@ -18312,6 +18313,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundTrackMixer: {fileID: 24100000, guid: 3708398d8b8d2e54d86c9ffc4d51ba9c, type: 2}
   soundEffectMixer: {fileID: 24100000, guid: 1809cf85154b36c44a925236c2bd9cf6, type: 2}
+--- !u!114 &1677990852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677990848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cf452dbfdff3a04f98d73d506f2f3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoOptions: {fileID: 1677990850}
+  audioOptions: {fileID: 1677990851}
+  loadOptionsWhenAwake: 1
 --- !u!1 &1679766425
 GameObject:
   m_ObjectHideFlags: 0
@@ -20677,6 +20693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54328c4419c81af47886bf12cb0c3266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionsManager: {fileID: 1677990852}
   videoOptionsManager: {fileID: 1677990850}
   audioOptionsManager: {fileID: 1677990851}
   uiVideoOptions: {fileID: 2057949117}

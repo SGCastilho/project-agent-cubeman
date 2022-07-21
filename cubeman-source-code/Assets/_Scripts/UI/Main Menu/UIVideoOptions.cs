@@ -136,7 +136,7 @@ namespace Cubeman.UI
             return frameRateIndex;
         }
 
-        internal void CheckVideoOptions()
+        public void CheckVideoOptions()
         {
             _newVideoOptions.clientResolutionIndex = resolutionDropDown.value;
             _newVideoOptions.clientFullScreenModeIndex = screenDropDown.value;
