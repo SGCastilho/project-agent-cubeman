@@ -31,7 +31,7 @@ namespace Cubeman.Manager
 
         public void SetSoundTrackVolume(float volume)
         {
-            var setupVolume = volume - 80;
+            var setupVolume = volume - 60;
             soundTrackMixer.SetFloat("MasterVolume", setupVolume);
 
             clientAudioOptions.clientSoundTrackVolume = setupVolume;
@@ -39,7 +39,7 @@ namespace Cubeman.Manager
 
         public void SetSoundEffectVolume(float volume)
         {
-            var setupVolume = volume - 80;
+            var setupVolume = volume - 60;
             soundEffectMixer.SetFloat("MasterVolume", setupVolume);
 
             clientAudioOptions.clientSoundEffectVolume = setupVolume;
