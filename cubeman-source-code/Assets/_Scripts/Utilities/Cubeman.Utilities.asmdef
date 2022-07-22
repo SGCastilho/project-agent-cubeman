@@ -2,6 +2,7 @@
     "name": "Cubeman.Utilities",
     "rootNamespace": "Cubeman.Utilities",
     "references": [
+        "GUID:dd3235e19e7cae1408922bf20f26fb65",
         "GUID:3bb50df9c3facbd40a789bf8e289470b"
     ],
     "includePlatforms": [],

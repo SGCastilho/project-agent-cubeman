@@ -8,6 +8,9 @@ namespace Cubeman.UI
         public delegate void WelcomeEndBegin();
         public event WelcomeEndBegin OnWelcomeEndBegin;
 
+        public delegate void WelcomeEndFinish();
+        public event WelcomeEndFinish OnWelcomeEndFinish;
+
         [Header("Classes")]
         [SerializeField] private CanvasGroup logoCanvasGroup;
         [SerializeField] private CanvasGroup pressAnyKeyCanvasGroup;
@@ -94,7 +97,12 @@ namespace Cubeman.UI
 
         private void GoToMainMenuTween()
         {
-            FadeOut(logoCanvasGroup, logoCanvasFadeOutDuration);
+            FadeOut(logoCanvasGroup, logoCanvasFadeOutDuration, MoveScenarioTween);
+        }
+
+        private void MoveScenarioTween()
+        {
+            OnWelcomeEndFinish?.Invoke();
         }
 
         private void FadeIn(CanvasGroup canvasGroup, float fadeDuration)

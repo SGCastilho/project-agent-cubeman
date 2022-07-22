@@ -1,4 +1,5 @@
 using Cubeman.UI;
+using Cubeman.Utilities;
 using UnityEngine;
 
 namespace Cubeman.Manager
@@ -8,6 +9,10 @@ namespace Cubeman.Manager
         [Header("Classes")]
         [SerializeField] private MainMenuInputs mainMenuInputs;
         [SerializeField] private SceneLoaderManager sceneLoaderManager;
+
+        [Space(12)]
+
+        [SerializeField] private MoveObjectTween scenarioMoveTween;
 
         [Space(12)]
 
@@ -39,6 +44,7 @@ namespace Cubeman.Manager
             mainMenuInputs.SubscribeAnyKeyInput(uiMenuGroupWelcome.WelcomeEndTween);
 
             uiMenuGroupWelcome.OnWelcomeEndBegin += mainMenuInputs.UnSubscribeAnyKeyInput;
+            uiMenuGroupWelcome.OnWelcomeEndFinish += scenarioMoveTween.StartTween;
         }
 
         public void DisableEvents()
@@ -48,6 +54,7 @@ namespace Cubeman.Manager
             buttonsMainMenu.OnStartGameplay -= sceneLoaderManager.LoadScene;
 
             uiMenuGroupWelcome.OnWelcomeEndBegin -= mainMenuInputs.UnSubscribeAnyKeyInput;
+            uiMenuGroupWelcome.OnWelcomeEndFinish -= scenarioMoveTween.StartTween;
         }
     }
 }
