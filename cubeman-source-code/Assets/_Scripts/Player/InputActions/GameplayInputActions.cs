@@ -334,6 +334,15 @@ namespace Cubeman.Player
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AnyKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""4bfb6094-f585-47ed-8969-cbe3be5d7e9c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -545,6 +554,17 @@ namespace Cubeman.Player
                     ""action"": ""UnPause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""332bb60f-75a9-45dc-88e4-5be2dfbe001e"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""AnyKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -588,6 +608,7 @@ namespace Cubeman.Player
             m_UI_MiddleClick = m_UI.FindAction("MiddleClick", throwIfNotFound: true);
             m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
             m_UI_UnPause = m_UI.FindAction("UnPause", throwIfNotFound: true);
+            m_UI_AnyKey = m_UI.FindAction("AnyKey", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -737,6 +758,7 @@ namespace Cubeman.Player
         private readonly InputAction m_UI_MiddleClick;
         private readonly InputAction m_UI_RightClick;
         private readonly InputAction m_UI_UnPause;
+        private readonly InputAction m_UI_AnyKey;
         public struct UIActions
         {
             private @GameplayInputActions m_Wrapper;
@@ -750,6 +772,7 @@ namespace Cubeman.Player
             public InputAction @MiddleClick => m_Wrapper.m_UI_MiddleClick;
             public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
             public InputAction @UnPause => m_Wrapper.m_UI_UnPause;
+            public InputAction @AnyKey => m_Wrapper.m_UI_AnyKey;
             public InputActionMap Get() { return m_Wrapper.m_UI; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -786,6 +809,9 @@ namespace Cubeman.Player
                     @UnPause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnUnPause;
                     @UnPause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnUnPause;
                     @UnPause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnUnPause;
+                    @AnyKey.started -= m_Wrapper.m_UIActionsCallbackInterface.OnAnyKey;
+                    @AnyKey.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnAnyKey;
+                    @AnyKey.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnAnyKey;
                 }
                 m_Wrapper.m_UIActionsCallbackInterface = instance;
                 if (instance != null)
@@ -817,6 +843,9 @@ namespace Cubeman.Player
                     @UnPause.started += instance.OnUnPause;
                     @UnPause.performed += instance.OnUnPause;
                     @UnPause.canceled += instance.OnUnPause;
+                    @AnyKey.started += instance.OnAnyKey;
+                    @AnyKey.performed += instance.OnAnyKey;
+                    @AnyKey.canceled += instance.OnAnyKey;
                 }
             }
         }
@@ -851,6 +880,7 @@ namespace Cubeman.Player
             void OnMiddleClick(InputAction.CallbackContext context);
             void OnRightClick(InputAction.CallbackContext context);
             void OnUnPause(InputAction.CallbackContext context);
+            void OnAnyKey(InputAction.CallbackContext context);
         }
     }
 }
