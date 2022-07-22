@@ -5114,15 +5114,15 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: e417a04faec49ec41a1fb8dc670b848a, type: 3}
-  m_PointAction: {fileID: -4216135956869702882, guid: e417a04faec49ec41a1fb8dc670b848a, type: 3}
-  m_MoveAction: {fileID: -3041731171077925340, guid: e417a04faec49ec41a1fb8dc670b848a, type: 3}
-  m_SubmitAction: {fileID: 5730986151373033905, guid: e417a04faec49ec41a1fb8dc670b848a, type: 3}
-  m_CancelAction: {fileID: 7381025694347387886, guid: e417a04faec49ec41a1fb8dc670b848a, type: 3}
-  m_LeftClickAction: {fileID: 4938662231731952419, guid: e417a04faec49ec41a1fb8dc670b848a, type: 3}
-  m_MiddleClickAction: {fileID: -121158698531645007, guid: e417a04faec49ec41a1fb8dc670b848a, type: 3}
-  m_RightClickAction: {fileID: 2709309700065122605, guid: e417a04faec49ec41a1fb8dc670b848a, type: 3}
-  m_ScrollWheelAction: {fileID: 8604851853887248757, guid: e417a04faec49ec41a1fb8dc670b848a, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: b594d8426fe8645438687eed205280d0, type: 3}
+  m_PointAction: {fileID: 5929714757965658256, guid: b594d8426fe8645438687eed205280d0, type: 3}
+  m_MoveAction: {fileID: 1679317569824074839, guid: b594d8426fe8645438687eed205280d0, type: 3}
+  m_SubmitAction: {fileID: 156699411661458121, guid: b594d8426fe8645438687eed205280d0, type: 3}
+  m_CancelAction: {fileID: -4942154006786238115, guid: b594d8426fe8645438687eed205280d0, type: 3}
+  m_LeftClickAction: {fileID: 7783964207543305230, guid: b594d8426fe8645438687eed205280d0, type: 3}
+  m_MiddleClickAction: {fileID: 3288637924810812070, guid: b594d8426fe8645438687eed205280d0, type: 3}
+  m_RightClickAction: {fileID: 4758661922059284967, guid: b594d8426fe8645438687eed205280d0, type: 3}
+  m_ScrollWheelAction: {fileID: 8756040300908550784, guid: b594d8426fe8645438687eed205280d0, type: 3}
   m_TrackedDevicePositionAction: {fileID: 0}
   m_TrackedDeviceOrientationAction: {fileID: 0}
   m_DeselectOnBackgroundClick: 1
@@ -7686,8 +7686,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845a23907ac0ff1418b1e8d7c93fa066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuInputs: {fileID: 1552034988}
   sceneLoaderManager: {fileID: 1270571114}
   uiFade: {fileID: 1283436898}
+  uiMenuGroupWelcome: {fileID: 662025819}
   buttonsMainMenu: {fileID: 1619155933}
 --- !u!1 &577508636
 GameObject:
@@ -17051,6 +17053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1552034987}
+  - component: {fileID: 1552034988}
   m_Layer: 0
   m_Name: Main Menu Inputs
   m_TagString: Untagged
@@ -17073,6 +17076,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1552034988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552034986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eaaab2c836ed2341b3f26c50ad5608d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1559461451
 GameObject:
   m_ObjectHideFlags: 0

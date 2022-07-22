@@ -6,11 +6,13 @@ namespace Cubeman.Manager
     public sealed class MainMenuEvents : MonoBehaviour
     {
         [Header("Classes")]
+        [SerializeField] private MainMenuInputs mainMenuInputs;
         [SerializeField] private SceneLoaderManager sceneLoaderManager;
 
         [Space(12)]
 
         [SerializeField] private UIFade uiFade;
+        [SerializeField] private UIMenuGroupWelcome uiMenuGroupWelcome;
 
         [Space(6)]
 
@@ -33,6 +35,10 @@ namespace Cubeman.Manager
             sceneLoaderManager.OnStartLoadScene += uiFade.LoadingFadeIn;
 
             buttonsMainMenu.OnStartGameplay += sceneLoaderManager.LoadScene;
+
+            mainMenuInputs.SubscribeAnyKeyInput(uiMenuGroupWelcome.WelcomeEndTween);
+
+            uiMenuGroupWelcome.OnWelcomeEndBegin += mainMenuInputs.UnSubscribeAnyKeyInput;
         }
 
         public void DisableEvents()
@@ -40,6 +46,8 @@ namespace Cubeman.Manager
             sceneLoaderManager.OnStartLoadScene -= uiFade.LoadingFadeIn;
 
             buttonsMainMenu.OnStartGameplay -= sceneLoaderManager.LoadScene;
+
+            uiMenuGroupWelcome.OnWelcomeEndBegin -= mainMenuInputs.UnSubscribeAnyKeyInput;
         }
     }
 }

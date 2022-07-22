@@ -5,6 +5,9 @@ namespace Cubeman.UI
 {
     public sealed class UIMenuGroupWelcome : MonoBehaviour
     {
+        public delegate void WelcomeEndBegin();
+        public event WelcomeEndBegin OnWelcomeEndBegin;
+
         [Header("Classes")]
         [SerializeField] private CanvasGroup logoCanvasGroup;
         [SerializeField] private CanvasGroup pressAnyKeyCanvasGroup;
@@ -40,6 +43,8 @@ namespace Cubeman.UI
         [SerializeField] [Range(0.1f, 0.4f)] private float welcomeEndScalePressAnyKeyInDuration = 0.4f;
         [SerializeField] [Range(1f, 4f)] private float welcomeEndScalePressAnyKeyOutDuration = 2f;
 
+        private bool _canPressMoveToMenu;
+
         private void Awake() => CacheComponents();
 
         private void CacheComponents()
@@ -57,14 +62,22 @@ namespace Cubeman.UI
             FadeIn(logoCanvasGroup, logoCanvasFadeInDuration, logoDelay);
             MoveY(_logoRectTransform, logoMovimentY, logoCanvasFadeInDuration, logoDelay);
 
-            FadeIn(pressAnyKeyCanvasGroup, pressAnyKeyFadeInDuration, pressAnyKeyDelay);
+            FadeIn(pressAnyKeyCanvasGroup, pressAnyKeyFadeInDuration, pressAnyKeyDelay, EnableTransistionToMainMenu);
             MoveY(_pressAnyKeyTransform, pressAnyKeyMovimentY, pressAnyKeyFadeInDuration, pressAnyKeyDelay, 
                 _uiPressAnyKeyLoop.StartPressAnyKeyLoop);
         }
 
-        //CHAMADO QUANDO APERTAR A TECLA
+        private void EnableTransistionToMainMenu()
+        {
+            _canPressMoveToMenu = true;
+        }
+
         public void WelcomeEndTween()
         {
+            if (!_canPressMoveToMenu) return;
+
+            OnWelcomeEndBegin?.Invoke();
+
             _uiPressAnyKeyLoop.PressedAnyKey();
 
             _pressAnyKeyTransform.DOScale(welcomeEndPressAnyKeyScale, welcomeEndScalePressAnyKeyInDuration).
@@ -100,6 +113,12 @@ namespace Cubeman.UI
         {
             canvasGroup.DOKill();
             canvasGroup.DOFade(1f, fadeDuration).SetDelay(delay);
+        }
+
+        private void FadeIn(CanvasGroup canvasGroup, float fadeDuration, float delay, TweenCallback action)
+        {
+            canvasGroup.DOKill();
+            canvasGroup.DOFade(1f, fadeDuration).SetDelay(delay).OnComplete(action);
         }
 
         private void FadeOut(CanvasGroup canvasGroup, float fadeDuration)
