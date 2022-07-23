@@ -44,6 +44,8 @@ namespace Cubeman.Manager
 
             var sceneLoading = SceneManager.LoadSceneAsync(sceneIndex);
 
+            sceneLoading.completed += CheckTimeScale;
+
             while (!sceneLoading.isDone)
             {
                 var progress = Mathf.Clamp01(sceneLoading.progress / 0.9f);
@@ -56,6 +58,8 @@ namespace Cubeman.Manager
             yield return new WaitForSecondsRealtime(0.6f);
 
             var sceneLoading = SceneManager.LoadSceneAsync(sceneName);
+
+            sceneLoading.completed += CheckTimeScale;
 
             while (!sceneLoading.isDone)
             {
@@ -72,10 +76,20 @@ namespace Cubeman.Manager
 
             var sceneLoading = SceneManager.LoadSceneAsync(sceneToLoad);
 
+            sceneLoading.completed += CheckTimeScale;
+
             while (!sceneLoading.isDone)
             {
                 var progress = Mathf.Clamp01(sceneLoading.progress / 0.9f);
                 yield return null;
+            }
+        }
+
+        private void CheckTimeScale(AsyncOperation obj)
+        {
+            if(Time.timeScale < 1)
+            {
+                Time.timeScale = 1;
             }
         }
     }

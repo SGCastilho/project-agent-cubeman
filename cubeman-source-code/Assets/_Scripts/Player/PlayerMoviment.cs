@@ -143,7 +143,7 @@ namespace Cubeman.Player
 
         internal void DashInput()
         {
-            if(_dashReady && controller.isGrounded && !gravity.IsJumped && !_isDashing)
+            if(_dashReady && gravity.IsGrounded && !gravity.IsJumped && !_isDashing)
             {
                 _isDashing = true;
 
