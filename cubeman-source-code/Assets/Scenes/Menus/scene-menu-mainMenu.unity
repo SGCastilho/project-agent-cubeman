@@ -13490,7 +13490,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 80}
+  m_SizeDelta: {x: 0, y: 120}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1034842751
 MonoBehaviour:
@@ -13515,7 +13515,7 @@ MonoBehaviour:
   m_text: PRESS ANY KEY TO START
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 30b90aa8fa679f34cb035492b9bc6b4e, type: 2}
-  m_sharedMaterial: {fileID: 3722822522965216172, guid: 30b90aa8fa679f34cb035492b9bc6b4e, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 6a7f381593984ef458121bb562410e34, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13539,7 +13539,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.9
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -19699,7 +19699,7 @@ MonoBehaviour:
   m_text: Pre-Alpha 1.0v
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f16770d4144fdd4690b55be8c16fba8, type: 2}
-  m_sharedMaterial: {fileID: -3813299912198066311, guid: 5f16770d4144fdd4690b55be8c16fba8, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 74ca7292325fd874eb5f32782a0d9fd2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -21659,13 +21659,13 @@ MonoBehaviour:
   m_text: Made by SGC Games
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f16770d4144fdd4690b55be8c16fba8, type: 2}
-  m_sharedMaterial: {fileID: -3813299912198066311, guid: 5f16770d4144fdd4690b55be8c16fba8, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 74ca7292325fd874eb5f32782a0d9fd2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2113929215
+    rgba: 3036676095
   m_fontColor: {r: 1, g: 1, b: 1, a: 0.7058824}
   m_enableVertexGradient: 0
   m_colorMode: 3
