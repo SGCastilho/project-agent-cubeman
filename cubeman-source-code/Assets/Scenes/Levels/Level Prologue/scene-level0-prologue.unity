@@ -4580,6 +4580,7 @@ GameObject:
   - component: {fileID: 219527826}
   - component: {fileID: 219527824}
   - component: {fileID: 219527827}
+  - component: {fileID: 219527828}
   m_Layer: 10
   m_Name: Eletronic Capsule Interactable Dialogue
   m_TagString: Untagged
@@ -4765,6 +4766,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 219527828}
+        m_TargetAssemblyTypeName: Cubeman.Audio.PlaySingleAudio, Cubeman.Audio
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &219527828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219527823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e987370f377fbe24eb37ad6e82190900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1175903755}
+  audioClip: {fileID: 8300000, guid: cba6a189f0f49ba4ab9267204c9ca451, type: 3}
+  audioClipVolumeScale: 0.6
 --- !u!1 &221188706
 GameObject:
   m_ObjectHideFlags: 0
@@ -16276,6 +16304,9 @@ MonoBehaviour:
   - _audioKey: audio_deathLaser_out
     _audioVolumeScale: 0.2
     _audioClip: {fileID: 8300000, guid: 664b2e20aff4d87409f812600c17024d, type: 3}
+  - _audioKey: audio_footstep
+    _audioVolumeScale: 0.4
+    _audioClip: {fileID: 8300000, guid: 410c710ce2e2ac246ad1b493757fa335, type: 3}
 --- !u!114 &798806681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52454,7 +52485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1630029554344086933, guid: 400a9ba9df7e60a4ba8635b22bb482b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 163
+      value: 162
       objectReference: {fileID: 0}
     - target: {fileID: 1630029554344086933, guid: 400a9ba9df7e60a4ba8635b22bb482b3, type: 3}
       propertyPath: m_LocalPosition.y

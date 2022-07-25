@@ -31,8 +31,9 @@ namespace Cubeman.AnimationEvents
 
         private const string AUDIO_JUMPIN_KEY = "audio_jumpIn";
         private const string AUDIO_JUMPOUT_KEY = "audio_jumpOut";
-        private const string AUDIO_DEATHLASER_OUT = "audio_deathLaser_out";
-        private const string AUDIO_DEATHLASER_CHARGE = "audio_deathLaser_charge";
+        private const string AUDIO_FOOTSTEP_KEY = "audio_footstep";
+        private const string AUDIO_DEATHLASER_OUT_KEY = "audio_deathLaser_out";
+        private const string AUDIO_DEATHLASER_CHARGE_KEY = "audio_deathLaser_charge";
 
         private string _laserProjectileKey;
         private AudioClip _laserAudioClip;
@@ -41,6 +42,9 @@ namespace Cubeman.AnimationEvents
         private string _shockWaveProjectileKey;
         private AudioClip _shockWaveAudioClip;
         private float _shockWaveVolumeScale;
+
+        private AudioClip _footstepAudioClip;
+        private float _footstepVolumeScale;
 
         private AudioClip _deathLaserOutAudioClip;
         private float _deathLaserOutVolumeScale;
@@ -82,12 +86,17 @@ namespace Cubeman.AnimationEvents
 
         private void CacheDeathLaserSFX()
         {
-            var deathLaserOutSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_DEATHLASER_OUT);
+            var footstepSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_FOOTSTEP_KEY);
+
+            _footstepAudioClip = footstepSFX._audioClip;
+            _footstepVolumeScale = footstepSFX._audioVolumeScale;
+
+            var deathLaserOutSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_DEATHLASER_OUT_KEY);
 
             _deathLaserOutAudioClip = deathLaserOutSFX._audioClip;
             _deathLaserOutVolumeScale = deathLaserOutSFX._audioVolumeScale;
 
-            var deathLaserChargeSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_DEATHLASER_CHARGE);
+            var deathLaserChargeSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_DEATHLASER_CHARGE_KEY);
 
             _deathLaserChargeAudioClip = deathLaserChargeSFX._audioClip;
             _deathLaserChargeVolumeScale = deathLaserChargeSFX._audioVolumeScale;
@@ -146,6 +155,7 @@ namespace Cubeman.AnimationEvents
 
         public void OffensiveRunningStep()
         {
+            _audioController.PlaySoundEffect(ref _footstepAudioClip, _footstepVolumeScale);
             _cameraShake.LightShakeCamera();
         }
 
