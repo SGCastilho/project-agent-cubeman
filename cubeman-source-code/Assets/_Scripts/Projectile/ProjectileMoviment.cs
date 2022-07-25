@@ -28,6 +28,8 @@ namespace Cubeman.Projectile
         [SerializeField] private bool moveUp;
         [SerializeField] private bool moveRight;
 
+        private TrailRenderer _trailRenderer;
+
         private bool _graphicsCorrected;
         private float _velocity;
 
@@ -37,8 +39,18 @@ namespace Cubeman.Projectile
 
         private void SetupObject()
         {
-            _transform = GetComponent<Transform>();
+            CacheComponets();
             EnableMoviment();
+        }
+
+        private void CacheComponets()
+        {
+            if (trailTransform != null)
+            {
+                _trailRenderer = trailTransform.GetComponent<TrailRenderer>();
+            }
+
+            _transform = GetComponent<Transform>();
         }
 
         private void OnDisable() => ResetObject();
@@ -139,6 +151,11 @@ namespace Cubeman.Projectile
             {
                 _transform.Translate(_velocity * Time.deltaTime * Vector3.down);
             }
+        }
+
+        internal void ResetTrail()
+        {
+            _trailRenderer.Clear();
         }
     }
 }

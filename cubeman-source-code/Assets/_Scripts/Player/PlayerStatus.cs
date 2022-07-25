@@ -198,7 +198,12 @@ namespace Cubeman.Player
             yield return new WaitForSeconds(0.2f);
 
             behaviour.Input.GameplayInputs(false);
+
             behaviour.Moviment.Gravity.FreezeGravity = true;
+
+            behaviour.Moviment.enabled = false;
+            behaviour.Moviment.CharacterController.enabled = false;
+
             behaviour.Animation.IsDeadAnimation = true;
 
             yield return new WaitForSeconds(1f);
@@ -208,6 +213,7 @@ namespace Cubeman.Player
                 var deathAudio = behaviour.SoundEffect.GetSoundEffect(DEATH_AUDIO_KEY);
                 OnPlayerDeath(ref deathAudio._audioClip, deathAudio._audioVolumeScale); 
             }
+
             behaviour.Moviment.GraphicsTransform.gameObject.SetActive(false);
 
             yield return new WaitForSeconds(deathTime);

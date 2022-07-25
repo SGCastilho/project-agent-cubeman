@@ -31,6 +31,10 @@ namespace Cubeman.Projectile
             disableObj.DisableTime = data.Range;
         }
 
-        public void ResetTimer() => disableObj.ResetTimer();
+        public void ResetObject() 
+        {
+            moviment.ResetTrail();
+            disableObj.ResetTimer();
+        }
     }
 }

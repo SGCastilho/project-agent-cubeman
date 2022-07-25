@@ -9,6 +9,7 @@ namespace Cubeman.Player
     {
         #region Encapsulation
         public PlayerCharacterGravity Gravity { get => gravity; }
+        public CharacterController CharacterController { get => controller; }
 
         public string DashSFX { get => DASH_AUDIO_KEY; }
         public string JumpInSFX { get => JUMP_IN_AUDIO_KEY; }
@@ -139,6 +140,16 @@ namespace Cubeman.Player
                     graphicsTransform.localScale = newScale;
                 }
             }
+        }
+
+        public bool GetCurrentGraphicsFlippedSide()
+        {
+            if (graphicsTransform.localScale.x <= -1f)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         internal void DashInput()

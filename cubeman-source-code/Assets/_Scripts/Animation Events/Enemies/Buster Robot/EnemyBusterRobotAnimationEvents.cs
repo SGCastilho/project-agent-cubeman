@@ -54,7 +54,7 @@ namespace Cubeman.AnimationEvents
                 .GetComponent<ProjectileBehaviour>();
 
             _currentProjectile.Moviment.MoveRight = behaviour.Moviment.MoveRight;
-            _currentProjectile.ResetTimer();
+            _currentProjectile.ResetObject();
         }
     }
 }
