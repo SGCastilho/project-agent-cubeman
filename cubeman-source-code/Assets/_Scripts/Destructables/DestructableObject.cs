@@ -8,14 +8,8 @@ namespace Cubeman.Destructable
 {
     public sealed class DestructableObject : MonoBehaviour, IDamageble
     {
-        public delegate void ImpactObject(AudioClip clip, float volumeScale);
-        public event ImpactObject OnImpactObject;
-
         public delegate void DestructObject();
         public event DestructObject OnDestructObject;
-
-        public delegate void DestructObjectFinish(ref AudioClipList audioClipList);
-        public event DestructObjectFinish OnDestructObjectFinish;
 
         [Header("Data")]
         [SerializeField] private DestructableData data;
@@ -66,14 +60,15 @@ namespace Cubeman.Destructable
                 if (OnDestructObject != null) { OnDestructObject(); }
 
                 _health = 0;
+
                 gameObject.SetActive(false);
 
-                if(OnDestructObjectFinish != null) { OnDestructObjectFinish(ref _explosionAudioList); }
+                behaviour.AudioManager.PlaySoundEffectInOrder(ref _explosionAudioList);
+
+                return;
             }
-            else 
-            {
-                if(OnImpactObject != null) { OnImpactObject(_impactSFX, _impactVolumeScale); }
-            }
+
+            behaviour.AudioManager.PlaySoundEffect(_impactSFX, _impactVolumeScale);
         }
 
         public void InstaDeath()
@@ -84,7 +79,7 @@ namespace Cubeman.Destructable
 
             gameObject.SetActive(false);
 
-            if(OnDestructObjectFinish != null) { OnDestructObjectFinish(ref _explosionAudioList); }
+            behaviour.AudioManager.PlaySoundEffectInOrder(ref _explosionAudioList);
         }
 
         public void RecoveryHealth(int recoveryAmount)

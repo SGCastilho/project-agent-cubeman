@@ -7,6 +7,7 @@ namespace Cubeman.Destructable
     public sealed class DestructableBehaviour : MonoBehaviour
     {
         #region Encapsulation
+        internal LocalAudioController AudioManager { get => localAudioManager; }
         internal AudioSoundEffects SoundEffects { get => soundEffects; }
         #endregion
 
@@ -33,10 +34,7 @@ namespace Cubeman.Destructable
 
         private void EnableEvents()
         {
-            destructableObject.OnImpactObject += localAudioManager.PlaySoundEffect;
-
             destructableObject.OnDestructObject += collectableSpawn.SpawnCollectable;
-            destructableObject.OnDestructObjectFinish += localAudioManager.PlaySoundEffectInOrder;
         }
 
         private void ResetPosistion()
@@ -46,10 +44,7 @@ namespace Cubeman.Destructable
 
         private void DisableEvents()
         {
-            destructableObject.OnImpactObject -= localAudioManager.PlaySoundEffect;
-
             destructableObject.OnDestructObject -= collectableSpawn.SpawnCollectable;
-            destructableObject.OnDestructObjectFinish -= localAudioManager.PlaySoundEffectInOrder;
         }
     }
 }
