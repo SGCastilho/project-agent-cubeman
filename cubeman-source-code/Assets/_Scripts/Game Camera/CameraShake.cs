@@ -39,26 +39,6 @@ namespace Cubeman.GameCamera
             Instance = this;
         }
 
-        //DEBUG
-        private void Update() 
-        {
-            if(Input.GetKeyDown(KeyCode.F1))
-            {
-                LightShakeCamera();
-            }
-
-            if(Input.GetKeyDown(KeyCode.F2))
-            {
-                ShakeCamera();
-            }
-
-            if(Input.GetKeyDown(KeyCode.F3))
-            {
-                HeavyShakeCamera();
-            }      
-        }
-        //DEBUG
-
         public void LightShakeCamera()
             => Shake(ref lightShakeDuration, ref lightShakeStregth, ref lightShakeVibration, 
                 ref lightShakeRandomness);
@@ -69,7 +49,7 @@ namespace Cubeman.GameCamera
 
         public void HeavyShakeCamera()
             => Shake(ref heavyShakeDuration, ref heavyShakeStregth, ref heavyShakeVibration, 
-                ref heavyShakeDuration);
+                ref heavyShakeRandomness);
 
         private void Shake(ref float duration, ref float stregth, ref int vibration, ref float randomness)
         {
