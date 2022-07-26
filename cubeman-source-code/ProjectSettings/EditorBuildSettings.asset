@@ -20,4 +20,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/scene-menu-thanksForPlaying.unity
     guid: 9f220af2d19419f4dafb7ddad66fb582
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: cd755e7d2230b204cb43afb9dcc43c7b, type: 2}

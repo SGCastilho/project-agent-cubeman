@@ -5838,7 +5838,7 @@ MonoBehaviour:
   projectile: {fileID: 11400000, guid: c5e2a16b55816cc498b1fd755c9636b0, type: 2}
   ultimateProjectile: {fileID: 11400000, guid: 783af4623cca3254d8f8142d11b88df5, type: 2}
   behaviour: {fileID: 4764078922502578274}
-  fireRate: 0.2
+  fireRate: 0.26
 --- !u!114 &4764078922502578283
 MonoBehaviour:
   m_ObjectHideFlags: 0

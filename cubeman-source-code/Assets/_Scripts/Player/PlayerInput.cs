@@ -119,8 +119,8 @@ namespace Cubeman.Player
             _inputActions.Gameplay.Jump.started += ctx => behaviour.Moviment.Gravity.VariableJumpInput();
             _inputActions.Gameplay.Jump.canceled += ctx => behaviour.Moviment.Gravity.EndVariableJump();
 
-            _inputActions.Gameplay.Shoot.started += ctx => behaviour.Shoot.Shooting();
-            _inputActions.Gameplay.Shoot.performed += ctx => behaviour.Shoot.Shooting();
+            _inputActions.Gameplay.Shoot.started += ctx => behaviour.Shoot.ShootingInput();
+            _inputActions.Gameplay.Shoot.canceled += ctx => behaviour.Shoot.EndShooting();
 
             _inputActions.Gameplay.Ultimate.started += ctx => behaviour.Shoot.UltimateShooting();
         }
@@ -134,8 +134,8 @@ namespace Cubeman.Player
             _inputActions.Gameplay.Jump.started -= ctx => behaviour.Moviment.Gravity.VariableJumpInput();
             _inputActions.Gameplay.Jump.canceled -= ctx => behaviour.Moviment.Gravity.EndVariableJump();
 
-            _inputActions.Gameplay.Shoot.started -= ctx => behaviour.Shoot.Shooting();
-            _inputActions.Gameplay.Shoot.performed -= ctx => behaviour.Shoot.Shooting();
+            _inputActions.Gameplay.Shoot.started -= ctx => behaviour.Shoot.ShootingInput();
+            _inputActions.Gameplay.Shoot.canceled -= ctx => behaviour.Shoot.EndShooting();
 
             _inputActions.Gameplay.Ultimate.started -= ctx => behaviour.Shoot.UltimateShooting();
 

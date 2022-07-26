@@ -22,34 +22,51 @@ namespace Cubeman.Player
         [Header("Settings")]
         [SerializeField] [Range(0.1f, 1f)] private float fireRate = 0.2f;
 
+        private bool _canShoot;
         private bool _isShooting;
         private bool _blockShooting;
 
         private float _currentFireRateDuration;
 
-        internal void Shooting()
+        internal void ShootingInput()
         {
             if (_blockShooting) return;
 
-            if(!_isShooting)
+            _isShooting = true;
+        }
+
+        internal void Shooting()
+        {
+            if (_blockShooting || !_isShooting) return;
+
+            if(!_canShoot)
             {
                 behaviour.Animation.CallAnimatorTrigger("shoot");
-                _isShooting = true;
+                _canShoot = true;
             }
         }
 
-        private void Update() => FireRateTimer();
+        private void Update() 
+        {
+            Shooting();
+            FireRateTimer();
+        }
 
         private void FireRateTimer()
         {
-            if (!_isShooting) return;
+            if (!_canShoot) return;
 
             _currentFireRateDuration += Time.deltaTime;
             if (_currentFireRateDuration >= fireRate)
             {
-                _isShooting = false;
+                _canShoot = false;
                 _currentFireRateDuration = 0;
             }
+        }
+
+        internal void EndShooting()
+        {
+            _isShooting = false;
         }
 
         internal void UltimateShooting()
