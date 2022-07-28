@@ -16,6 +16,8 @@ namespace Cubeman.AnimationEvents
         private AudioController _audioController;
         private ObjectPoolingManager _poolingManager;
 
+        private ProjectileBehaviour _currentProjectile;
+
         [Header("Settings")]
         [SerializeField] private Transform shootingPointTransform;
         [SerializeField] private Transform shockWavePointTransform;
@@ -69,8 +71,9 @@ namespace Cubeman.AnimationEvents
 
         private void CacheData()
         {
-            CacheProjectilesSFX();
+            CacheFootstepSFX();
             CacheDeathLaserSFX();
+            CacheProjectilesSFX();
         }
 
         private void CacheProjectilesSFX()
@@ -84,13 +87,16 @@ namespace Cubeman.AnimationEvents
             _shockWaveVolumeScale = behaviour.DataLoader.Data.Projectiles[1].VolumeScale;
         }
 
-        private void CacheDeathLaserSFX()
+        private void CacheFootstepSFX()
         {
             var footstepSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_FOOTSTEP_KEY);
 
             _footstepAudioClip = footstepSFX._audioClip;
             _footstepVolumeScale = footstepSFX._audioVolumeScale;
+        }
 
+        private void CacheDeathLaserSFX()
+        {
             var deathLaserOutSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_DEATHLASER_OUT_KEY);
 
             _deathLaserOutAudioClip = deathLaserOutSFX._audioClip;
@@ -104,10 +110,10 @@ namespace Cubeman.AnimationEvents
 
         public void ShootEvent()
         {
-            var projectile = _poolingManager.SpawnPrefab(_laserProjectileKey, shootingPointTransform.position)
+            _currentProjectile = _poolingManager.SpawnPrefab(_laserProjectileKey, shootingPointTransform.position)
                 .GetComponent<ProjectileBehaviour>();
 
-            projectile.Moviment.MoveRight = behaviour.Movement.MoveRight;
+            _currentProjectile.Moviment.MoveRight = behaviour.Moviment.MoveRight;
 
             _audioController.PlaySoundEffect(ref _laserAudioClip, _laserVolumeScale);
         }
@@ -119,24 +125,24 @@ namespace Cubeman.AnimationEvents
 
         public void ShockWaveStartEvent()
         {
-            behaviour.Movement.CrounchEnemy = true;
+            behaviour.Moviment.CrounchEnemy = true;
         }
 
         public void ShockWaveEvent()
         {
             _cameraShake.LightShakeCamera();
 
-            var projectile = _poolingManager.SpawnPrefab(_shockWaveProjectileKey, shockWavePointTransform.position)
+            _currentProjectile = _poolingManager.SpawnPrefab(_shockWaveProjectileKey, shockWavePointTransform.position)
                 .GetComponent<ProjectileBehaviour>();
 
-            projectile.Moviment.MoveRight = behaviour.Movement.MoveRight;
+            _currentProjectile.Moviment.MoveRight = behaviour.Moviment.MoveRight;
 
             _audioController.PlaySoundEffect(ref _shockWaveAudioClip, _shockWaveVolumeScale);
         }
 
         public void ShockWaveEndEvent()
         {
-            behaviour.Movement.CrounchEnemy = false;
+            behaviour.Moviment.CrounchEnemy = false;
         }
 
         public void JumpInEvent()
@@ -156,12 +162,14 @@ namespace Cubeman.AnimationEvents
         public void OffensiveRunningStep()
         {
             _audioController.PlaySoundEffect(ref _footstepAudioClip, _footstepVolumeScale);
+
             _cameraShake.LightShakeCamera();
         }
 
         public void DeathLaserStartChargeEvent()
         {
             _audioController.PlaySoundEffect(ref _deathLaserChargeAudioClip, _deathLaserChargeVolumeScale);
+
             deathLaserChargeParticles.Play();
         }
 
@@ -173,6 +181,7 @@ namespace Cubeman.AnimationEvents
         public void DeathLaserStartEvent()
         {
             _audioController.PlaySoundEffect(ref _deathLaserOutAudioClip, _deathLaserOutVolumeScale);
+
             deathLaserGameObject.SetActive(true);
         }
 

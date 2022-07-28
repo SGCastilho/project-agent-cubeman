@@ -14,7 +14,9 @@ namespace Cubeman.Audio
         }
 
         public string _audioKey;
-        [Range(0.1f, 1f)] public float _audioVolumeScale;
+
+        [Range(0.1f, 1f)]
+        public float _audioVolumeScale;
         public AudioClip _audioClip;
     }
 

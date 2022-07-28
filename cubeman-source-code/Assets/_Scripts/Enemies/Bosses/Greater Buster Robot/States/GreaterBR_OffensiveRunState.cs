@@ -19,9 +19,9 @@ namespace Cubeman.Enemies
 
             if(_offensiveRunPrepared)
             {
-                behaviour.Movement.IsMoving = true;
+                behaviour.Moviment.IsMoving = true;
 
-                if(behaviour.CheckWallInFront.HasWallInFront(behaviour.Movement.MoveRight))
+                if(behaviour.CheckWallInFront.HasWallInFront(behaviour.Moviment.MoveRight))
                 {
                     EndState();
 
@@ -34,7 +34,7 @@ namespace Cubeman.Enemies
 
         private void EndState()
         {
-            behaviour.Movement.IsMoving = false;
+            behaviour.Moviment.IsMoving = false;
             behaviour.ExclusiveAnimator.RunningAnimation = false;
 
             _offensiveRunPrepared = false;
@@ -51,7 +51,7 @@ namespace Cubeman.Enemies
                 _currentOffensiveRunStartDuration += Time.deltaTime;
                 if (_currentOffensiveRunStartDuration >= behaviour.ExclusiveAnimator.OffensiveRunStartDuration)
                 {
-                    behaviour.Movement.MoveRight = behaviour.CheckPlayerSide.IsInRightSide();
+                    behaviour.Moviment.MoveRight = behaviour.CheckPlayerSide.IsInRightSide();
 
                     _currentOffensiveRunStartDuration = 0;
                     _offensiveRunPrepared = true;

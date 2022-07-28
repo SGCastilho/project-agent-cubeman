@@ -40,7 +40,7 @@ namespace Cubeman.Enemies
         {
             if (!_shockWaveStarted)
             {
-                behaviour.Movement.MoveRight = behaviour.CheckPlayerSide.IsInRightSide();
+                behaviour.Moviment.MoveRight = behaviour.CheckPlayerSide.IsInRightSide();
                 behaviour.Animator.CallAnimationTrigger("shockWave");
                 _shockWaveStarted = true;
             }

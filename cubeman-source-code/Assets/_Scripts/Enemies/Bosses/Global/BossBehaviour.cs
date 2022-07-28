@@ -7,7 +7,7 @@ namespace Cubeman.Enemies
     {
         #region Encapsulation
         public BossDataLoader DataLoader { get => dataLoader; }
-        public EnemyCharacterMoviment Movement { get => movement; }
+        public EnemyCharacterMoviment Moviment { get => moviment; }
         public AudioSoundEffects SoundEffects { get => soundEffects; }
 
         internal BossStatus Status { get => status; }
@@ -25,7 +25,7 @@ namespace Cubeman.Enemies
 
         [SerializeField] protected BossStatus status;
         [SerializeField] protected BossSequencer sequencer;
-        [SerializeField] protected EnemyCharacterMoviment movement;
+        [SerializeField] protected EnemyCharacterMoviment moviment;
         [SerializeField] protected EnemyCheckPlayerSide checkPlayerSide;
         [SerializeField] protected CheckPlayerDistanceFromEnemy checkPlayerDistance;
         [SerializeField] protected BossCheckWallInFront checkWallInFront;

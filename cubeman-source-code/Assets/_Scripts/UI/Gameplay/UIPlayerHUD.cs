@@ -1,5 +1,6 @@
 using TMPro;
 using DG.Tweening;
+using System.Text;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -42,11 +43,15 @@ namespace Cubeman.UI
 
         [SerializeField] [Range(0.1f, 1f)] private float resourcesFadeDuration = 0.6f;
         [SerializeField] [Range(2f, 20f)] private float resourcesScreenTime = 16f;
+
         private float _currentResourcesScreenTime;
         private bool _resourcesInScreen;
 
         [SerializeField] [Range(0.1f, 1f)] private float amountResourcesFadeDuration = 0.4f;
         [SerializeField] [Range(2f, 20f)] private float amountResourcesScreenTime = 8f;
+
+        private StringBuilder _amountResourcesStringBuilder = new StringBuilder();
+
         private float _currentAmountResourcesScreenTime;
         private bool _amountResourcesInScreen;
         private int _currentAmountResources;
@@ -176,7 +181,12 @@ namespace Cubeman.UI
         {
             if(_amountResourcesInScreen) { _currentAmountResourcesScreenTime = 0; }
 
-            amountResourcesTMP.text = "+" + _currentAmountResources;
+            _amountResourcesStringBuilder.Length = 0;
+
+            _amountResourcesStringBuilder.Append("+");
+            _amountResourcesStringBuilder.Append(_currentAmountResources);
+
+            amountResourcesTMP.text = _amountResourcesStringBuilder.ToString();
 
             FadeCanvasGroup(amountResourcesCanvasGroup, 1f, amountResourcesFadeDuration);
 

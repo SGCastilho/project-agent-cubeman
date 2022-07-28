@@ -40,6 +40,7 @@ namespace Cubeman.Enemies
         private void LoadData()
         {
             enemyHealth = dataLoader.Data.Health;
+
             LoadSoundEffects();
         }
 
@@ -70,7 +71,8 @@ namespace Cubeman.Enemies
                 OnEnemyEndDeath?.Invoke(EXPLOSION_VFX_KEY, explosionVFXSpawnPoint.position);
 
                 enemyHealth = 0;
-                disableGameObject.SetActive(false);
+
+                Destroy(disableGameObject);
             }
             else 
             { 
@@ -85,7 +87,8 @@ namespace Cubeman.Enemies
             if (OnEnemyDeath != null) { OnEnemyDeath(); }
             
             localAudio.PlaySoundEffectInOrder(ref ExplosionSFX);
-            disableGameObject.SetActive(false);
+
+            Destroy(disableGameObject);
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Cubeman.Character
         [SerializeField] [Range(0.1f, 4f)] private float variableJumpTimeToPeak = 0.3f;
 
         private bool _inVariableJump;
-        private bool _groundVelocityAdjusted;
         private float _currentVariableJumpDuration;
 
         protected override void InitializeGravity()

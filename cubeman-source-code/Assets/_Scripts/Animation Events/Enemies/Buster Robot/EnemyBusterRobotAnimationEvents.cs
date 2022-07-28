@@ -20,7 +20,6 @@ namespace Cubeman.AnimationEvents
         [SerializeField] private Transform shootingPointTransform;
 
         private string _projectileKey;
-
         private AudioClipList _projectileSFX;
 
         private void Awake() => CacheComponets();

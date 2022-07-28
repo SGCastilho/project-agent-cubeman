@@ -25,6 +25,8 @@ namespace Cubeman.AnimationEvents
 
         [SerializeField] private ParticleSystem plasmaMuzzleParticle;
 
+        private Transform _muzzleParticleTransform;
+
         private string _projectileKey;
         private AudioClip _projectileAudioClip;
         private float _projectileAudioClipVolumeScale;
@@ -40,6 +42,8 @@ namespace Cubeman.AnimationEvents
             _cameraShake = CameraShake.Instance;
             _audioManager = AudioController.Instance;
             _poolingManager = ObjectPoolingManager.Instance;
+
+            _muzzleParticleTransform = plasmaMuzzleParticle.GetComponent<Transform>();
         }
 
         private void OnEnable() => GetProjectileData();
@@ -64,15 +68,13 @@ namespace Cubeman.AnimationEvents
 
         private void CorrectMuzzleRotation()
         {
-            var muzzleTransform = plasmaMuzzleParticle.GetComponent<Transform>();
-
             if (behaviour.Moviment.MoveRight)
             {
-                muzzleTransform.localEulerAngles = new Vector3(0f, 0f, 0f);
+                _muzzleParticleTransform.localEulerAngles = new Vector3(0f, 0f, 0f);
             }
             else
             {
-                muzzleTransform.localEulerAngles = new Vector3(0f, 180f, 0f);
+                _muzzleParticleTransform.localEulerAngles = new Vector3(0f, 180f, 0f);
             }
         }
 

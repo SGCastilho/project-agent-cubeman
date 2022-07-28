@@ -36,7 +36,7 @@ namespace Cubeman.Enemies
         {
             if(!_isJumped)
             {
-                if(behaviour.CheckWallInFront.HasWallInBackwords(behaviour.Movement.MoveRight))
+                if(behaviour.CheckWallInFront.HasWallInBackwords(behaviour.Moviment.MoveRight))
                 {
                     EndState();
 
@@ -59,7 +59,7 @@ namespace Cubeman.Enemies
                 _currentGroundCheckTick += Time.deltaTime;
                 if(_currentGroundCheckTick >= groundCheckTick)
                 {
-                    if (behaviour.Movement.Gravity.IsGrounded)
+                    if (behaviour.Moviment.Gravity.IsGrounded)
                     {
                         EndState();
 
@@ -75,7 +75,7 @@ namespace Cubeman.Enemies
 
         private void EndState()
         {
-            behaviour.Movement.IsMoving = false;
+            behaviour.Moviment.IsMoving = false;
             
             _isJumped = false;
             _jumpedTriggered = false;
@@ -100,9 +100,9 @@ namespace Cubeman.Enemies
                 {
                     _isJumped = true;
 
-                    behaviour.Movement.IsMoving = true;
-                    behaviour.Movement.MoveRightNoFlipEnemy = !behaviour.Movement.MoveRightNoFlipEnemy;
-                    behaviour.Movement.Gravity.Jump(jumpForce);
+                    behaviour.Moviment.IsMoving = true;
+                    behaviour.Moviment.MoveRightNoFlipEnemy = !behaviour.Moviment.MoveRightNoFlipEnemy;
+                    behaviour.Moviment.Gravity.Jump(jumpForce);
 
                     _currentJumpDelay = 0;
                 }

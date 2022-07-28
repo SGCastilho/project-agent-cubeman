@@ -16557,7 +16557,7 @@ MonoBehaviour:
   dataLoader: {fileID: 798806679}
   status: {fileID: 798806681}
   sequencer: {fileID: 798806676}
-  movement: {fileID: 798806671}
+  moviment: {fileID: 798806671}
   checkPlayerSide: {fileID: 798806673}
   checkPlayerDistance: {fileID: 798806678}
   checkWallInFront: {fileID: 798806677}
@@ -54015,7 +54015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1630029554344086933, guid: 400a9ba9df7e60a4ba8635b22bb482b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 162
+      value: 163
       objectReference: {fileID: 0}
     - target: {fileID: 1630029554344086933, guid: 400a9ba9df7e60a4ba8635b22bb482b3, type: 3}
       propertyPath: m_LocalPosition.y

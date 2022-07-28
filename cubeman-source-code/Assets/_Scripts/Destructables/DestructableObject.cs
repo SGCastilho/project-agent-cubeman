@@ -17,12 +17,12 @@ namespace Cubeman.Destructable
         [Header("Classes")]
         [SerializeField] private DestructableBehaviour behaviour;
 
+        [Header("Settings")]
+        [SerializeField] private Transform vfxSpawnPoint;
+
         private const string IMPACT_SFX = "audio_impact";
         private const string EXPLOSION_SFX = "audio_explosion";
         private const string EXPLOSION_VFX = "vfx_small_explosion";
-
-        [Header("Settings")]
-        [SerializeField] private Transform vfxSpawnPoint;
 
         private int _health;
 
@@ -61,7 +61,7 @@ namespace Cubeman.Destructable
 
                 _health = 0;
 
-                gameObject.SetActive(false);
+                Destroy(gameObject);
 
                 behaviour.AudioManager.PlaySoundEffectInOrder(ref _explosionAudioList);
 
@@ -77,7 +77,7 @@ namespace Cubeman.Destructable
 
             if (OnDestructObject != null) { OnDestructObject(); }
 
-            gameObject.SetActive(false);
+            Destroy(gameObject);
 
             behaviour.AudioManager.PlaySoundEffectInOrder(ref _explosionAudioList);
         }

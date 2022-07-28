@@ -1,5 +1,6 @@
 using TMPro;
 using DG.Tweening;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,8 @@ namespace Cubeman.UI
         [Header("Settings")]
         [SerializeField] [Range(0.1f, 1f)] private float fadeDuration = 0.2f;
 
+        private StringBuilder _dialogueStringBuilder = new StringBuilder();
+
         public void FadeIn()
         {
             canvasGroup.DOKill();
@@ -27,7 +30,14 @@ namespace Cubeman.UI
         public void SetDialogue(ref Sprite face, ref string name, ref string dialogue)
         {
             characterFace.sprite = face;
-            dialogueTMP.text = $"{name}: {dialogue}";
+
+            _dialogueStringBuilder.Length = 0;
+
+            _dialogueStringBuilder.Append(name);
+            _dialogueStringBuilder.Append(": ");
+            _dialogueStringBuilder.Append(dialogue);
+
+            dialogueTMP.text = _dialogueStringBuilder.ToString();
         }
 
         public void FadeOut()

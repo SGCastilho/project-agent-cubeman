@@ -29,8 +29,6 @@ namespace Cubeman.Enemies
 
         [SerializeField] [Range(0.1f, 2f)] private float recoveryDelay = 1f;
 
-        private AudioClipList _shootSFX;
-
         private int _currentShootingPoint;
 
         private bool _canShoot;
@@ -44,6 +42,8 @@ namespace Cubeman.Enemies
 
         private string _projectileKey;
 
+        private AudioClipList _shootSFX;
+
         private void Awake() => LoadData();
 
         private void OnEnable() => SetupInitialPoints();
@@ -53,6 +53,7 @@ namespace Cubeman.Enemies
         private void LoadData()
         {
             _projectileKey = behaviour.DataLoader.Data.Projectile.Key;
+
             LoadSoundEffects();
         }
 
@@ -64,9 +65,11 @@ namespace Cubeman.Enemies
 
         private void ResetGameObject()
         {
+            _pointReached = false;
             _currentShootingPoint = 0;
             _distanceFromShootingPoint = 0;
             _backingCurrentFromPoints = false;
+
             SetupInitialPoints();
         }
 
@@ -84,11 +87,6 @@ namespace Cubeman.Enemies
             }
 
             _canShoot = true;
-        }
-
-        private float CalculateDistanceAbs(float pointA, float pointB)
-        {
-            return Mathf.Abs(pointA - pointB);
         }
 
         private void Update() => DistanceBetweenPoints();
@@ -124,6 +122,11 @@ namespace Cubeman.Enemies
 
                 StartCoroutine(ShootingRecoveryCoroutine());
             }
+        }
+
+        private float CalculateDistanceAbs(float pointA, float pointB)
+        {
+            return Mathf.Abs(pointA - pointB);
         }
 
         IEnumerator ShootingRecoveryCoroutine()
@@ -163,6 +166,7 @@ namespace Cubeman.Enemies
         private void InverseShotingPoint()
         {
             _currentShootingPoint = 0;
+
             _usingRightPoints = !_usingRightPoints;
             _backingCurrentFromPoints = false;
 

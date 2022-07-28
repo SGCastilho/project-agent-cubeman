@@ -13,8 +13,10 @@ namespace Cubeman.Audio
             _volumeScale = volumeScale;
         }
 
+        #region Encapsulation
         public float VolumeScale { get => _volumeScale; }
         public AudioClip AudioClip { get => _audioClip; }
+        #endregion
 
         private float _volumeScale;
         private AudioClip _audioClip;
@@ -93,17 +95,18 @@ namespace Cubeman.Audio
             
             if(!_queuePlaying)
             {
-                PlayerSoundEffectInQueue();
+                PlaySoundEffectInQueue();
                 _queuePlaying = true;
             }
         }
 
-        private async void PlayerSoundEffectInQueue()
+        private async void PlaySoundEffectInQueue()
         {
             while(soundEffectQueue.Count > 0)
             {
                 var sequenceClip = soundEffectQueue.Dequeue();
                 PlaySoundEffect(sequenceClip.AudioClip, sequenceClip.VolumeScale);
+
                 await Task.Delay(milisecondsBetweenSoundEffect);
             }
 

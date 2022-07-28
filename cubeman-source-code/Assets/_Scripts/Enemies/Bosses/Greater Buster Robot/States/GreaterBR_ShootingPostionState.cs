@@ -65,7 +65,7 @@ namespace Cubeman.Enemies
 
         private void Shoot()
         {
-            behaviour.Movement.MoveRight = behaviour.CheckPlayerSide.IsInRightSide();
+            behaviour.Moviment.MoveRight = behaviour.CheckPlayerSide.IsInRightSide();
             behaviour.ExclusiveAnimator.CallAnimationTrigger("shoot");
             _currentFireRate = 0;
             _currentShoot++;
@@ -80,7 +80,7 @@ namespace Cubeman.Enemies
                 _currentShootingPoseStartDuration += Time.deltaTime;
                 if (_currentShootingPoseStartDuration >= behaviour.ExclusiveAnimator.ShootingPoseStartDuration)
                 {
-                    behaviour.Movement.FlipEnemy(behaviour.CheckPlayerSide.IsInRightSide());
+                    behaviour.Moviment.FlipEnemy(behaviour.CheckPlayerSide.IsInRightSide());
                     _currentShootingPoseStartDuration = 0;
                     _inShootingPose = true;
                 }

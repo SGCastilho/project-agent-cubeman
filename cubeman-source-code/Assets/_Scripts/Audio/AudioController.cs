@@ -9,7 +9,7 @@ namespace Cubeman.Audio
 
     public sealed class AudioController : MonoBehaviour
     {
-        #region Instace
+        #region Instance
         public static AudioController Instance;
         #endregion
 
@@ -189,19 +189,21 @@ namespace Cubeman.Audio
 
             if (!_queuePlaying)
             {
-                PlayerSoundEffectInQueue();
+                PlaySoundEffectInQueue();
                 _queuePlaying = true;
             }
         }
 
-        private async void PlayerSoundEffectInQueue()
+        private async void PlaySoundEffectInQueue()
         {
             while (_soundEffectQueue.Count > 0)
             {
                 var sequence = _soundEffectQueue.Dequeue();
+
                 _currentAudioClip = sequence.AudioClip;
                 _currentVolumeScale = sequence.VolumeScale;
                 PlaySoundEffect(ref _currentAudioClip, _currentVolumeScale);
+
                 await Task.Delay(milisecondsBetweenSoundEffect);
             }
 

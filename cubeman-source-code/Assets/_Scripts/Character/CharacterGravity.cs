@@ -31,21 +31,22 @@ namespace Cubeman.Character
         [Header("Settings")]
         [SerializeField] [Range(0.1f, 12f)] protected float maxHeight = 1f;
         [SerializeField] [Range(0.1f, 4f)] protected float timeToPeak = 0.2f;
-
-        protected bool _blockJump;
-        protected bool _freezeGravity;
-
-        protected bool _isJumped;
-        protected float _gravity;
-        protected float _jumpSpeed;
-
-        protected Vector2 _yVelocity;
         
         [Space(12)]
 
         [SerializeField] protected Transform groundCheckTransform;
         [SerializeField] [Range(0.1f, 2f)] protected float groundCheckRange = 0.28f;
         [SerializeField] protected LayerMask groundLayerMask;
+
+        protected bool _blockJump;
+        protected bool _freezeGravity;
+        protected bool _groundVelocityAdjusted;
+
+        protected bool _isJumped;
+        protected float _gravity;
+        protected float _jumpSpeed;
+
+        protected Vector2 _yVelocity;
 
         protected void Start() => InitializeGravity();
 
@@ -62,14 +63,18 @@ namespace Cubeman.Character
         {
             if (!_freezeGravity)
             {
-                if (IsGrounded && _yVelocity.y <= 0f)
+                if (!_groundVelocityAdjusted && IsGrounded && _yVelocity.y <= 0f)
                 {
                     _isJumped = false;
                     _yVelocity = Vector3.down;
+
+                    _groundVelocityAdjusted = true;
                 }
-                else if(!IsGrounded)
+                else if (!IsGrounded)
                 {
                     _yVelocity += _gravity * Time.deltaTime * Vector2.down;
+
+                    _groundVelocityAdjusted = false;
                 }
             }
         }

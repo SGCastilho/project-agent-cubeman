@@ -6,13 +6,13 @@ namespace Cubeman.Enemies
     public sealed class EnemyAirShooterBehaviour : MonoBehaviour
     {
         #region Encapsulation
+        public EnemyAirShooterAttack Attack { get => attack; }
+
         internal EnemyDataLoader DataLoader { get => dataLoader; }
         internal EnemyMovementBetweenTwoPoints Moviment { get => movement; }
         internal LocalAudioController AudioManager { get => localAudioManager; }
 
         internal Transform BehaviourTransform { get => _transform; }
-
-        public EnemyAirShooterAttack Attack { get => attack; }
         #endregion
 
         [Header("Classes")]

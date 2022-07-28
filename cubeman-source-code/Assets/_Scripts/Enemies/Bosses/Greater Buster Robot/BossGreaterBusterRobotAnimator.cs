@@ -56,7 +56,7 @@ namespace Cubeman.Enemies
 
         private void ConstantAnimation()
         {
-            animator.SetBool("isGrounded", behaviour.Movement.Gravity.IsGrounded);
+            animator.SetBool("isGrounded", behaviour.Moviment.Gravity.IsGrounded);
         }
     }
 }

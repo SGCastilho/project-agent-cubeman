@@ -28,15 +28,16 @@ namespace Cubeman.Enemies
         [Header("Settings")]
         [SerializeField] protected Transform directionPointA;
         [SerializeField] protected Transform directionPointB;
-        protected float _distanceFromPoint;
+
 
         [Space(12)]
 
         [SerializeField] [Range(2f, 12f)] protected float movimentSpeed = 6f;
         [SerializeField] protected bool startMovingRight;
+
         protected bool _moveRight;
         protected bool _isMoving;
-
+        protected float _distanceFromPoint;
         protected Vector3 _startPosistion;
 
         protected Transform _transform;
@@ -62,6 +63,7 @@ namespace Cubeman.Enemies
         private void ResetObject()
         {
             _transform.localPosition = _startPosistion;
+            _isMoving = false;
         }
 
         protected void Update() => InvertMoviment();

@@ -63,8 +63,10 @@ namespace Cubeman.Damagable
 
         private Vector3 CheckLastSpawnSide()
         {
-            if (_lastSpawnSide == Vector3.right) { return Vector3.left; }
-            else if (_lastSpawnSide == Vector3.left) { return Vector3.right; }
+            if (_lastSpawnSide == Vector3.right) 
+            { 
+                return Vector3.left;
+            }
 
             return Vector3.right;
         }
