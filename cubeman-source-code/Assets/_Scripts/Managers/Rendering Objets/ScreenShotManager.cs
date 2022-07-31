@@ -15,6 +15,11 @@ namespace Cubeman.Manager
             {
                 StartCoroutine(ScreenShotCoroutine());
             }
+
+            if (Input.GetKeyDown(KeyCode.F11))
+            {
+                ScreenCapture.CaptureScreenshot(Application.dataPath + "/Screenshots/foto.png", 4);
+            }
         }
 
         IEnumerator ScreenShotCoroutine()

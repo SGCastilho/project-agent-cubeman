@@ -1,0 +1,10 @@
+Alpha Fixes:
+
+Adjustment: 
+	-Portuguese translation fixes
+	-Envarioment's optimizations
+	-Buster Robot projectile's color has been changed, now it's become more easily to see the projectile.
+
+-Bug fixes:
+	-Air Shooter Robot not longer stop shooting, when player get distant.
+

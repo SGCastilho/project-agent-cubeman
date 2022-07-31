@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: UI Press Any Key Text Message
   m_EditorClassIdentifier: 
   key: ui_mainMenu_pressAnyKey
-  message: Pressione qualquer tecla
+  message: Press Any Key
   devNotes: Put your dev notes here.
