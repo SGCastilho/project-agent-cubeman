@@ -132,6 +132,7 @@ namespace Cubeman.Manager
 
         private async Task LoadUIMainMenuMessageCSV()
         {
+            teste = _uiMainMenuMessageReader.Read();
             var translationData = _uiMainMenuMessageReader.Read();
 
             _uiMainMenuMessageTranslations = new Dictionary<string, string[]>();
@@ -192,7 +193,6 @@ namespace Cubeman.Manager
 
         private async Task LoadDialogueMessageCSV()
         {
-            teste = _uiDialogueMessageReader.Read();
             var translationData = _uiDialogueMessageReader.Read();
 
             var dialoguesData = Resources.LoadAll<DialogueMessageData>("ScriptableObjects/Dialogues");

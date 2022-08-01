@@ -13,7 +13,7 @@ namespace Cubeman.Enemies
         [Space(12)]
 
         [SerializeField] [Range(4, 12)] private int maxShooting = 4;
-        [SerializeField] [Range(0.1f, 1f)] private float fireRate = 1f;
+        [SerializeField] [Range(0.1f, 4f)] private float fireRate = 1f;
 
         private bool _inShootingPose;
         private float _currentShootingPoseStartDuration;

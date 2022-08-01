@@ -15,9 +15,11 @@ namespace Cubeman.Enemies
 
         [Space(12)]
 
+        [SerializeField] private UnityEvent OnBossDeathStart;
         [SerializeField] private UnityEvent OnBossDeathEnd;
 
         [Header("Settings")]
+        [SerializeField] private int bossStartDeathDurationMilliseconds = 2400;
         [SerializeField] [Range(6f, 12f)] private float bossDeathDuration = 8f;
         [SerializeField] [Tooltip("Enable inputs when boss death end.")] private bool enablePlayerInputs;
 
@@ -25,6 +27,7 @@ namespace Cubeman.Enemies
 
         private bool _bossDeathStart;
         private bool _bossFlashCalled;
+
         private float _currentBossDeathDuration;
 
         public override State RunCurrentState()
@@ -64,6 +67,8 @@ namespace Cubeman.Enemies
             }
             else
             {
+                behaviour.VisualEffects.ExplosionParticle.StopParticle();
+
                 OnBossDeathEnd?.Invoke();
             }
         }
@@ -72,9 +77,15 @@ namespace Cubeman.Enemies
         {
             if (!_bossDeathStart)
             {
+                OnBossDeathStart?.Invoke();
+
                 var explosionSFX = behaviour.SoundEffects.GetSoundEffect(AUDIO_EXPLOSION_KEY);
                 AudioController.Instance.PlaySoundEffectAfterMiliseconds(explosionSFX._audioClip, 
-                    explosionSFX._audioVolumeScale, 2400);
+                    explosionSFX._audioVolumeScale, bossStartDeathDurationMilliseconds);
+
+                var startDeathDurationToFloat = (float)bossStartDeathDurationMilliseconds / 1000;
+
+                behaviour.VisualEffects.ExplosionParticle.PlayParticle(startDeathDurationToFloat);
 
                 AudioController.Instance.StopSmoothSoundTrack();
                 PlayerBehaviour.Instance.Input.GameplayInputs(false);

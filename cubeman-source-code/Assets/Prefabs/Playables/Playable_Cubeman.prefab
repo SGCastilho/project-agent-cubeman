@@ -5778,7 +5778,8 @@ MonoBehaviour:
   controller: {fileID: 4764078922502578277}
   movementSpeed: 6
   dashSpeed: 12
-  dashDuration: 0.26
+  groundDashDuration: 0.36
+  airDashDuration: 0.46
   dashCouldown: 0.6
   staggerDuration: 0.2
   staggerForce: 2.6

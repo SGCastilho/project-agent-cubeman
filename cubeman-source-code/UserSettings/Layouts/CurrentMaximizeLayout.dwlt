@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 16
+  controlID: 22453
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_RenderIMGUI: 1
   m_EnterPlayModeBehavior: 0
   m_UseMipMap: 0
-  m_VSyncEnabled: 0
+  m_VSyncEnabled: 1
   m_Gizmos: 0
   m_Stats: 0
   m_SelectedSizes: 03000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 17
+  controlID: 22454
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 18
+  controlID: 22455
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -228,7 +228,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 68f4ffff44f6ffff30fbffff807c0000
+      m_ExpandedIDs: 66dcfcff10e0fcff96eefcff28f3fcffeafafcffee01fdff620bfdffec0cfdff0458feff6062feff2499ffffa0aeffffb0b3ffff40e9ffffacf6ffff24fbffff2a850000ea850000f8860000708b00002e8c00002a8d00000e36030050b804009ab8040078ba040002bb040054d404009ed404007cd6040006d7040020d8040084160500fc1605005e1705007e1905001c1c0500c01c0500
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -504,9 +504,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 31.089848, y: -4.538122, z: 16.73963}
+    m_Target: {x: 397, y: -0.9988284, z: 0}
     speed: 2
-    m_Value: {x: 31.089848, y: -4.538122, z: 16.73963}
+    m_Value: {x: 397, y: -0.9988284, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -553,13 +553,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.067842804, y: 0.4591041, z: -0.035189133, w: 0.8850954}
+    m_Target: {x: 0.0015002111, y: 0.025498366, z: -0.000029216111, w: 0.999691}
     speed: 2
-    m_Value: {x: 0.06784242, y: 0.45910147, z: -0.035188932, w: 0.88509035}
+    m_Value: {x: 0.0015001851, y: 0.025497925, z: -0.000029215606, w: 0.9996737}
   m_Size:
-    m_Target: 21.184004
+    m_Target: 2.1213202
     speed: 2
-    m_Value: 21.184004
+    m_Value: 2.1213202
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -652,22 +652,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Screenshots
+    - Assets/_Scripts/Enemies/Bosses/Global
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Screenshots
+  - Assets/_Scripts/Enemies/Bosses/Global
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProjects\project-agent-cubeman\cubeman-source-code
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 171}
-    m_SelectedIDs: 8c760000
-    m_LastClickedID: 30348
-    m_ExpandedIDs: 000000009a7300009c7300009e730000a0730000a2730000a4730000a6730000a8730000aa730000ac730000ae730000b0730000b2730000b4730000b6730000b8730000ba730000bc730000be730000c0730000c2730000c4730000c6730000c8730000ca730000cc730000ce730000d0730000d2730000d4730000d6730000d8730000da730000dc730000de730000e0730000e2730000e4730000e6730000e8730000ea730000ec73000000ca9a3b
+    m_SelectedIDs: 50560100
+    m_LastClickedID: 87632
+    m_ExpandedIDs: 000000004a7f00004c7f00004e7f0000507f0000527f0000547f0000567f0000587f00005a7f00005c7f00005e7f0000607f0000627f0000647f0000667f0000687f00006a7f00006c7f00006e7f0000707f0000727f0000747f0000767f0000787f00007a7f00007c7f00007e7f0000807f0000827f0000847f0000867f0000887f00008a7f00008e7f0000927f0000947f0000967f00009a7f0000b07f0000ca7f0000e47f0000f27f000044800000e2f30000f6f30000125601002e560100505601005256010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -695,7 +695,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009a7300009c7300009e730000a0730000a2730000a4730000a6730000a8730000aa730000ac730000ae730000b0730000b2730000b4730000b6730000b8730000ba730000bc730000be730000c0730000c2730000c4730000c6730000c8730000ca730000cc730000ce730000d0730000d2730000d4730000d6730000d8730000da730000dc730000de730000e0730000e2730000e4730000e6730000e8730000ea730000ec730000ee730000
+    m_ExpandedIDs: 000000004a7f00004c7f00004e7f0000507f0000527f0000547f0000567f0000587f00005a7f00005c7f00005e7f0000607f0000627f0000647f0000667f0000687f00006a7f00006c7f00006e7f0000707f0000727f0000747f0000767f0000787f00007a7f00007c7f00007e7f0000807f0000827f0000847f0000867f0000887f00008a7f00008e7f0000927f0000947f0000967f00009a7f0000ca7f0000e47f0000f27f000044800000e2f30000f6f300002e5601005056010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

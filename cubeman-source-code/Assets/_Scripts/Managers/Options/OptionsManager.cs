@@ -51,10 +51,19 @@ namespace Cubeman.Manager
 
                 var optionsData = JsonUtility.FromJson<OptionsData>(json);
 
-                audioOptions.SetAudioOptions(optionsData.clientAudioOptions);
-                videoOptions.SetClientOptions(optionsData.clientVideoOptions);
+                try 
+                {
+                    audioOptions.SetAudioOptions(optionsData.clientAudioOptions);
+                    videoOptions.SetClientOptions(optionsData.clientVideoOptions);
 
-                videoOptions.ApplyClientOptions();
+                    videoOptions.ApplyClientOptions();
+                }
+                catch 
+                {
+                    Debug.LogWarning("Aconteceu um erro inesperado, recriando config.json");
+
+                    SaveOptionsJSON();
+                }
             }
             else
             {

@@ -16,6 +16,7 @@ namespace Cubeman.Enemies
         internal CheckPlayerDistanceFromEnemy CheckPlayerDistance { get => checkPlayerDistance; }
         internal BossCheckWallInFront CheckWallInFront { get => checkWallInFront; }
         internal BossAnimator Animator { get => animator; }
+        internal BossVisualEffects VisualEffects { get => visualEffects; }
         #endregion
 
         [Header("Classes")]
@@ -31,5 +32,6 @@ namespace Cubeman.Enemies
         [SerializeField] protected BossCheckWallInFront checkWallInFront;
         [SerializeField] protected BossAnimator animator;
         [SerializeField] protected AudioSoundEffects soundEffects;
+        [SerializeField] protected BossVisualEffects visualEffects;
     }
 }

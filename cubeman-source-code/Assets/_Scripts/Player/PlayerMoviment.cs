@@ -31,7 +31,8 @@ namespace Cubeman.Player
         [Header("Settings")]
         [SerializeField] [Range(1f, 20f)] private float movementSpeed = 6f;
         [SerializeField] [Range(4f, 20f)] private float dashSpeed = 12f;
-        [SerializeField] [Range(0.1f, 2f)] private float dashDuration = 0.26f;
+        [SerializeField] [Range(0.1f, 2f)] private float groundDashDuration = 0.26f;
+        [SerializeField] [Range(0.1f, 2f)] private float airDashDuration = 0.46f;
         [SerializeField] [Range(0.1f, 4f)] private float dashCouldown = 2f;
 
         [Space(12)]
@@ -56,6 +57,7 @@ namespace Cubeman.Player
         private bool _horizontalImpulse;
         private bool _enableInputsOnAutomaticMoveComplete;
 
+        private float _maxDashDuration;
         private float _currentDashDuration;
 
         private float _automaticMoveDuration;
@@ -154,8 +156,10 @@ namespace Cubeman.Player
 
         internal void DashInput()
         {
-            if(_dashReady && gravity.IsGrounded && !gravity.IsJumped && !_isDashing)
+            if(_dashReady && !_isDashing)
             {
+                SetupDashDistance();
+
                 _isDashing = true;
 
                 gravity.FreezeGravity = true;
@@ -166,12 +170,25 @@ namespace Cubeman.Player
             }
         }
 
+        private void SetupDashDistance()
+        {
+            if (gravity.IsGrounded)
+            {
+                _maxDashDuration = groundDashDuration;
+            }
+            else
+            {
+                _maxDashDuration = airDashDuration;
+            }
+        }
+
         private void DashTimer()
         {
             _currentDashDuration += Time.deltaTime;
-            if (_currentDashDuration >= dashDuration)
+            if (_currentDashDuration >= _maxDashDuration)
             {
                 gravity.FreezeGravity = false;
+
                 _isDashing = false;
                 _currentDashDuration = 0;
 
