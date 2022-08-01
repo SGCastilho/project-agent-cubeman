@@ -51,6 +51,7 @@ namespace Cubeman.Player
         private bool _blockMoviment;
         private bool _inAutomaticMove;
 
+        private bool _airDash;
         private bool _moveRight;
         private bool _isDashing;
         private bool _dashReady;
@@ -94,11 +95,39 @@ namespace Cubeman.Player
 
             CorrectGraphicsSide();
 
-            if(_inAutomaticMove) { AutomaticMoveTimer(); }
+            AutomaticMoviment();
 
-            if(_isDashing) { DashTimer(); }
-            else if(!_horizontalImpulse && !_inAutomaticMove) 
-            { _xVelocity = movementSpeed * behaviour.Input.HorizontalAxis * Vector2.right; }
+            DashMoviment();
+
+            CheckAirDash();
+        }
+
+        private void AutomaticMoviment()
+        {
+            if (_inAutomaticMove)
+            {
+                AutomaticMoveTimer();
+            }
+        }
+
+        private void CheckAirDash()
+        {
+            if (_airDash && gravity.IsGrounded)
+            {
+                _airDash = false;
+            }
+        }
+
+        private void DashMoviment()
+        {
+            if (_isDashing)
+            {
+                DashTimer();
+            }
+            else if (!_horizontalImpulse && !_inAutomaticMove)
+            {
+                _xVelocity = movementSpeed * behaviour.Input.HorizontalAxis * Vector2.right;
+            }
         }
 
         public void BlockMoviment(bool block) 
@@ -158,6 +187,8 @@ namespace Cubeman.Player
         {
             if(_dashReady && !_isDashing)
             {
+                if (_airDash) return;
+
                 SetupDashDistance();
 
                 _isDashing = true;
@@ -174,10 +205,12 @@ namespace Cubeman.Player
         {
             if (gravity.IsGrounded)
             {
+                _airDash = false;
                 _maxDashDuration = groundDashDuration;
             }
             else
             {
+                _airDash = true;
                 _maxDashDuration = airDashDuration;
             }
         }
