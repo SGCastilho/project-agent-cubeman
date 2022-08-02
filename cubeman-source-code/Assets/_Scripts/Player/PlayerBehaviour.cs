@@ -31,6 +31,9 @@ namespace Cubeman.Player
 
         [SerializeField] private AudioSoundEffects soundEffects;
 
+        [Header("Settings")]
+        [SerializeField] private bool safeZoneMode;
+
         private Transform _transform;
 
         private void Awake() => SetupBehaviour();
@@ -40,6 +43,12 @@ namespace Cubeman.Player
             Instance = this;
 
             _transform = transform;
+
+            if(safeZoneMode)
+            {
+                status.UltimateReady = true;
+                shoot.BlockShooting = true;
+            }
         }
 
         private void Start() => CursorState(true);

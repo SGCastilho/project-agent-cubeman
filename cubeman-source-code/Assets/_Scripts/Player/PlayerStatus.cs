@@ -36,6 +36,9 @@ namespace Cubeman.Player
         internal PlayerData Data { get => data; }
         #endregion
 
+        public delegate void HideUI();
+        public event HideUI OnHideUI;
+
         public delegate void PlayerRecovery(float currentHealth, float maxHealth);
         public event PlayerRecovery OnPlayerRecovery;
 
@@ -92,6 +95,11 @@ namespace Cubeman.Player
             _ultimateCharge = data.UltimateCharge;
         }
 
+        public void HidePlayerUI()
+        {
+            OnHideUI?.Invoke();
+        }
+
         private void Update() => UltimateCharge();
 
         private void UltimateCharge()
@@ -106,13 +114,16 @@ namespace Cubeman.Player
                 }
 
                 if(OnPlayerUltimateProgress != null) 
-                { OnPlayerUltimateProgress(ref currentUltimateCharge, data.UltimateCharge); }
+                { 
+                    OnPlayerUltimateProgress(ref currentUltimateCharge, data.UltimateCharge); 
+                }
             }
         }
 
         IEnumerator UltimateCouldownCoroutine()
         {
             yield return new WaitForSeconds(ultimateCouldownDuration);
+
             _ultimateInCouldown = false;
         }
 

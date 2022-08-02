@@ -117,6 +117,8 @@ namespace Cubeman.Manager
 
         private void EnablePlayerEvents()
         {
+            _player.Status.OnHideUI += uiPlayerHUD.HUDFadeOut;
+
             _player.Status.OnPlayerRecovery += uiPlayerHUD.RecoveryHealthBar;
             _player.Status.OnPlayerTakeDamage += uiPlayerHUD.DamageHealthBar;
 
