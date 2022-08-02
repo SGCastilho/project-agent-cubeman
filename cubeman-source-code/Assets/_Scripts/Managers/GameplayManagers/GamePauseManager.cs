@@ -23,6 +23,7 @@ namespace Cubeman.Manager
         [SerializeField] private GameTimeManager timeManager;
 
         [Header("Settings")]
+        [SerializeField] private bool blockPauseOnAwake;
         [SerializeField] [Range(0.6f, 2f)] private float couldownBetweenPauses = 2f;
 
         private bool _blockPause;
@@ -37,7 +38,7 @@ namespace Cubeman.Manager
         private void SetupObject()
         {
             _readyToPause = true;
-            _blockPause = true;
+            _blockPause = blockPauseOnAwake;
         }
 
         public void Pause()

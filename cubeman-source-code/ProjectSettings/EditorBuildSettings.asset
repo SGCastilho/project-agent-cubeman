@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level Prologue/scene-level0-prologue.unity
     guid: 4b0f036d636a0e046a5894ca636b82d8
   - enabled: 1
+    path: Assets/Scenes/Levels/Level Headquarters/scene-level-safeZone-headquarters.unity
+    guid: 84da7d1087a109f448d7298bb44554f0
+  - enabled: 1
     path: Assets/Scenes/Menus/scene-menu-thanksForPlaying.unity
     guid: 9f220af2d19419f4dafb7ddad66fb582
   m_configObjects:

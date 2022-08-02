@@ -13,6 +13,9 @@ namespace Cubeman.Player
         [Header("Classes")]
         [SerializeField] private PlayerBehaviour behaviour;
 
+        [Header("Settings")]
+        [SerializeField] private bool disableInputsOnAwake;
+
         private GameplayInputActions _inputActions;
 
         private Action OnPause;
@@ -47,8 +50,16 @@ namespace Cubeman.Player
 
         private void SetupInputs()
         {
-            UIInputs(false);
-            GameplayInputs(false);
+            if(disableInputsOnAwake)
+            {
+                UIInputs(false);
+                GameplayInputs(false);
+            }
+            else
+            {
+                UIInputs(false);
+                GameplayInputs(true);
+            }
         }
 
         private void Update() => ConstantInputs();

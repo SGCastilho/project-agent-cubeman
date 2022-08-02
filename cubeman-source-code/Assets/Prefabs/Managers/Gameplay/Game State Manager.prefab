@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  nextSceneToLoad: scene-menu-thanksForPlaying
+  nextSceneToLoad: scene-level-safeZone-headquarters
   completeAudioClip: {fileID: 8300000, guid: aaa875b8e448e7d45a1a5cdcbb75a2d5, type: 3}
   completeAudioClipVolumeScale: 0.6

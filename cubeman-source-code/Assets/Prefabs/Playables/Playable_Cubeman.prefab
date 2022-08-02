@@ -5714,6 +5714,7 @@ MonoBehaviour:
   anim: {fileID: 4764078922502578272}
   visualEffects: {fileID: 4764078922502578283}
   soundEffects: {fileID: 4764078922502578285}
+  safeZoneMode: 0
 --- !u!114 &4764078922502578286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5747,6 +5748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviour: {fileID: 4764078922502578274}
+  disableInputsOnAwake: 1
 --- !u!114 &4764078922502578272
 MonoBehaviour:
   m_ObjectHideFlags: 0
