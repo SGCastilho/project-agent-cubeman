@@ -446,7 +446,7 @@
                 {
                     "name": "",
                     "id": "46d2fd2a-4290-4b46-939c-522ad5b49e79",
-                    "path": "*/{Cancel}",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",

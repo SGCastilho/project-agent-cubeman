@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Cubeman.Trigger
 {
-    public sealed class InteractableDialogueTrigger : MonoBehaviour, IInteractable
+    public sealed class InteractableTrigger : MonoBehaviour, IInteractable
     {
         private PlayerBehaviour _player;
 
