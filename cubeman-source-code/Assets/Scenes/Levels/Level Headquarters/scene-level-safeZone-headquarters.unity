@@ -257,7 +257,7 @@ RectTransform:
   m_Children:
   - {fileID: 238789761}
   m_Father: {fileID: 1553214654}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -307,7 +307,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 52501579}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1140192133}
+        m_TargetAssemblyTypeName: Cubeman.UI.UILevelSelector, Cubeman.UI
+        m_MethodName: MoveSelectionRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &52501579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,7 +436,7 @@ RectTransform:
   m_Children:
   - {fileID: 254923218}
   m_Father: {fileID: 1553214654}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -474,7 +486,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 170002001}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1140192133}
+        m_TargetAssemblyTypeName: Cubeman.UI.UILevelSelector, Cubeman.UI
+        m_MethodName: MoveSelectionLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &170002001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2732,7 +2756,10 @@ MonoBehaviour:
   canvasGroup: {fileID: 1140192132}
   levelSelectPivot: {fileID: 2135653909}
   levelSelectPrefab: {fileID: 6025421111199745749, guid: 850977b8d8d4e4e4d96e2f6e3fbdb1e9, type: 3}
+  buttonMoveLeft: {fileID: 170002000}
+  buttonMoveRight: {fileID: 52501578}
   spacingBetweenLevelSelect: 800
+  movimentDurationBetweenLevelSelect: 0.4
   fadeDuration: 0.4
 --- !u!1001 &1185937241
 PrefabInstance:
@@ -3845,8 +3872,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 52501577}
   - {fileID: 170001999}
+  - {fileID: 52501577}
   m_Father: {fileID: 265577845}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
