@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f516f79e085b3fa4eafa97ba9152df97, type: 3}
+  m_Name: Prologue Stage Level Data
+  m_EditorClassIdentifier: 
+  stageLevelKey: scene-level0-prologue
+  stageName: Cubecity
+  stagePreview: {fileID: 21300000, guid: 7e6c7a0df32952b4bb86509cda9d794b, type: 3}

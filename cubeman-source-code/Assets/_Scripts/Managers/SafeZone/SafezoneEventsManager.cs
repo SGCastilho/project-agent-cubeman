@@ -16,18 +16,22 @@ namespace Cubeman.Manager
         [SerializeField] private DialogueManager dialogueManager;
         [SerializeField] private GamePauseManager gamePauseManager;
         [SerializeField] private SceneLoaderManager sceneLoaderManager;
+        [SerializeField] private LevelSelectorManager levelSelectorManager;
 
         [Space(12)]
 
         [SerializeField] private UIFade uiFade;
         [SerializeField] private UIDialogue uiDialogue;
         [SerializeField] private UIPauseMenu uiPauseMenu;
+        [SerializeField] private UILevelSelector uiLevelSelector;
 
         [Space(12)]
 
         [SerializeField] private PauseMenuButtons pauseMenuButtons;
 
         private PlayerBehaviour _player;
+
+        private UIButtonLevelSelect[] _buttonsLevelSelect;
 
         private void Awake() => CacheComponets();
 
@@ -49,6 +53,8 @@ namespace Cubeman.Manager
             EnablePauseMenuEvents();
 
             EnableDialogueEvents();
+
+            EnableLevelSelectorEvents();
         }
 
         private void DisableEvents()
@@ -60,6 +66,8 @@ namespace Cubeman.Manager
             DisablePauseMenuEvents();
 
             DisableDialogueEvents();
+
+            DisableLevelSelectorEvents();
         }
 
         private void EnableSceneLoaderEvents()
@@ -95,6 +103,16 @@ namespace Cubeman.Manager
             dialogueManager.OnDialogueComplete += uiDialogue.FadeOut;
         }
 
+        private void EnableLevelSelectorEvents()
+        {
+            levelSelectorManager.OnShowLevelSelector += uiLevelSelector.FadeIn;
+            levelSelectorManager.OnHideLevelSelector += uiLevelSelector.FadeOut;
+
+            levelSelectorManager.OnCreateStages += uiLevelSelector.CreateStages;
+
+            uiLevelSelector.OnSetupButtonsAction += EnableButtonLevelSelectEvents;
+        }
+
         private void DisableSceneLoaderEvents()
         {
             sceneLoaderManager.OnStartLoadScene -= uiFade.LoadingFadeIn;
@@ -126,6 +144,40 @@ namespace Cubeman.Manager
             dialogueManager.OnDialogueReady -= uiDialogue.FadeIn;
             dialogueManager.OnDialogueLoad -= uiDialogue.SetDialogue;
             dialogueManager.OnDialogueComplete -= uiDialogue.FadeOut;
+        }
+
+        private void DisableLevelSelectorEvents()
+        {
+            levelSelectorManager.OnShowLevelSelector -= uiLevelSelector.FadeIn;
+            levelSelectorManager.OnHideLevelSelector -= uiLevelSelector.FadeOut;
+
+            levelSelectorManager.OnCreateStages -= uiLevelSelector.CreateStages;
+
+            uiLevelSelector.OnSetupButtonsAction -= EnableButtonLevelSelectEvents;
+
+            DisableButtonLevelSelectEvents();
+        }
+
+        public void EnableButtonLevelSelectEvents(UIButtonLevelSelect[] buttons) 
+        {
+            if (buttons == null) return;
+
+            _buttonsLevelSelect = buttons;
+
+            for(int i = 0; i < _buttonsLevelSelect.Length; i++)
+            {
+                _buttonsLevelSelect[i].OnLoadSelectedStage += sceneLoaderManager.LoadScene;
+            }
+        }
+
+        private void DisableButtonLevelSelectEvents()
+        {
+            if (_buttonsLevelSelect == null || _buttonsLevelSelect.Length <= 0) return;
+
+            for (int i = 0; i < _buttonsLevelSelect.Length; i++)
+            {
+                _buttonsLevelSelect[i].OnLoadSelectedStage -= sceneLoaderManager.LoadScene;
+            }
         }
     }
 }

@@ -187,7 +187,7 @@ namespace Cubeman.Player
             _inputActions.UI.Cancel.started += Cancel;
         }
 
-        public void UnSubscribeCancelInput(Action action)
+        public void UnSubscribeCancelInput()
         {
             _inputActions.UI.Cancel.started -= Cancel;
         }

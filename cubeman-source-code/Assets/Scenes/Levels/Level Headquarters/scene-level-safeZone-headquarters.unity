@@ -1128,6 +1128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07eebd24abd8614b83355001b45123f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stagesToSelect:
+  - {fileID: 11400000, guid: 3bcbd195eb6e8ec4baed136898e04feb, type: 2}
+  - {fileID: 11400000, guid: cbd37dcbd8c3d1048b4fed323032ab49, type: 2}
 --- !u!1 &457053636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,9 +1251,11 @@ MonoBehaviour:
   dialogueManager: {fileID: 731755432}
   gamePauseManager: {fileID: 1860788352}
   sceneLoaderManager: {fileID: 2035261782}
+  levelSelectorManager: {fileID: 447013210}
   uiFade: {fileID: 199574169}
   uiDialogue: {fileID: 1030039428}
   uiPauseMenu: {fileID: 1185937244}
+  uiLevelSelector: {fileID: 1140192133}
   pauseMenuButtons: {fileID: 1185937243}
 --- !u!1 &705507993
 GameObject:
@@ -2670,6 +2675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1140192131}
+  - component: {fileID: 1140192133}
   - component: {fileID: 1140192132}
   m_Layer: 5
   m_Name: Group Level Selector
@@ -2711,6 +2717,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1140192133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140192130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beeeaf4fb5973284388f1a2068b71701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1140192132}
+  levelSelectPivot: {fileID: 2135653909}
+  levelSelectPrefab: {fileID: 6025421111199745749, guid: 850977b8d8d4e4e4d96e2f6e3fbdb1e9, type: 3}
+  spacingBetweenLevelSelect: 800
+  fadeDuration: 0.4
 --- !u!1001 &1185937241
 PrefabInstance:
   m_ObjectHideFlags: 0

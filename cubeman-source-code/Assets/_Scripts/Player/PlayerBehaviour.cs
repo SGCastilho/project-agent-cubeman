@@ -63,7 +63,7 @@ namespace Cubeman.Player
             else
             {
                 Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
 
