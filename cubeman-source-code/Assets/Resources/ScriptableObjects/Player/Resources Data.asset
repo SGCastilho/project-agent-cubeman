@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resources: 9000
   maxResources: 9999
-  capacitors: 20
+  capacitors: 90

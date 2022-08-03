@@ -15,6 +15,7 @@ namespace Cubeman.UI
         [Space(6)]
 
         [SerializeField] private Image upgradeImage;
+        [SerializeField] private Button upgradeButton;
 
         [Space(6)]
 
@@ -41,54 +42,74 @@ namespace Cubeman.UI
             _stringBuilder.Append(playerData.UpgradeName);
             _stringBuilder.Append(" ");
 
-            if(playerData.HealthLevel >= 5)
+            if(playerData.Level >= playerData.MaxLevel)
             {
                 _stringBuilder.Append("LV MAX");
+
+                upgradeButton.interactable = false;
             }
             else
             {
                 _stringBuilder.Append("LV ");
-                _stringBuilder.Append(playerData.HealthLevel);
+                _stringBuilder.Append(playerData.Level);
             }
 
             tmpUpgradeName.text = _stringBuilder.ToString();
 
             _stringBuilder.Length = 0;
 
-            _stringBuilder.Append("Armature Increase: ");
-            _stringBuilder.Append(playerData.Health);
-            _stringBuilder.Append(" to ");
-            _stringBuilder.Append(playerData.GetNextUpgrade());
+            if (playerData.Level < playerData.MaxLevel)
+            {
+                _stringBuilder.Append("Armature Increase: ");
+                _stringBuilder.Append(playerData.Health);
+                _stringBuilder.Append(" to ");
+                _stringBuilder.Append(playerData.GetNextUpgrade());
+            }
+            else
+            {
+                _stringBuilder.Append("Max armature resistence acquired: ");
+                _stringBuilder.Append(playerData.Health);
+            }
 
             tmpUpgradeDetails.text = _stringBuilder.ToString();
 
             _stringBuilder.Length = 0;
 
-            var convertLevelToArrayIndex = playerData.HealthLevel - 1;
-
-            _stringBuilder.Append("Resources needed: ");
-            _stringBuilder.Append(playerData.AmountToResourcesToUpgrade[convertLevelToArrayIndex]);
-            _stringBuilder.Append(" / ");
-            _stringBuilder.Append(resourcesData.Resources);
-
-            _stringBuilder.Append("\n");
-            _stringBuilder.Append("Capacitors needed: ");
-            _stringBuilder.Append(playerData.AmountCapacitorsToUpgrade[convertLevelToArrayIndex]);
-            _stringBuilder.Append(" / ");
-            _stringBuilder.Append(resourcesData.Capacitors);
-
-            tmpUpgradeCost.text = _stringBuilder.ToString();
-
-            _stringBuilder.Length = 0;
-
-            if (resourcesData.Resources < playerData.AmountToResourcesToUpgrade[convertLevelToArrayIndex]
-                || resourcesData.Capacitors < playerData.AmountCapacitorsToUpgrade[convertLevelToArrayIndex])
+            if(playerData.Level < playerData.MaxLevel)
             {
-                tmpUpgradeCost.color = outOfResourcesColor;
+                var convertLevelToArrayIndex = playerData.Level - 1;
+
+                _stringBuilder.Append("Resources needed: ");
+                _stringBuilder.Append(playerData.AmountToResourcesToUpgrade[convertLevelToArrayIndex]);
+                _stringBuilder.Append(" / ");
+                _stringBuilder.Append(resourcesData.Resources);
+
+                _stringBuilder.Append("\n");
+                _stringBuilder.Append("Capacitors needed: ");
+                _stringBuilder.Append(playerData.AmountCapacitorsToUpgrade[convertLevelToArrayIndex]);
+                _stringBuilder.Append(" / ");
+                _stringBuilder.Append(resourcesData.Capacitors);
+
+                tmpUpgradeCost.text = _stringBuilder.ToString();
+
+                _stringBuilder.Length = 0;
+
+                if (resourcesData.Resources < playerData.AmountToResourcesToUpgrade[convertLevelToArrayIndex]
+                    || resourcesData.Capacitors < playerData.AmountCapacitorsToUpgrade[convertLevelToArrayIndex])
+                {
+                    tmpUpgradeCost.color = outOfResourcesColor;
+                    upgradeButton.interactable = false;
+                }
+                else
+                {
+                    tmpUpgradeCost.color = withResourcesColor;
+                    upgradeButton.interactable = true;
+                }
             }
             else
             {
                 tmpUpgradeCost.color = withResourcesColor;
+                tmpUpgradeCost.text = "Max level has been acdquired";
             }
         }
 
@@ -101,9 +122,11 @@ namespace Cubeman.UI
             _stringBuilder.Append(projectileData.Name);
             _stringBuilder.Append(" ");
 
-            if (projectileData.Level >= 5)
+            if (projectileData.Level >= projectileData.LevelMax)
             {
                 _stringBuilder.Append("LV MAX");
+
+                upgradeButton.interactable = false;
             }
             else
             {
@@ -115,40 +138,58 @@ namespace Cubeman.UI
 
             _stringBuilder.Length = 0;
 
-            _stringBuilder.Append("Damage Increase: ");
-            _stringBuilder.Append(projectileData.Damage);
-            _stringBuilder.Append(" to ");
-            _stringBuilder.Append(projectileData.GetNextUpgrade());
+            if (projectileData.Level < projectileData.LevelMax)
+            {
+                _stringBuilder.Append("Damage Increase: ");
+                _stringBuilder.Append(projectileData.Damage);
+                _stringBuilder.Append(" to ");
+                _stringBuilder.Append(projectileData.GetNextUpgrade());
+            }
+            else
+            {
+                _stringBuilder.Append("Max damage acquired: ");
+                _stringBuilder.Append(projectileData.Damage);
+            }
 
             tmpUpgradeDetails.text = _stringBuilder.ToString();
 
             _stringBuilder.Length = 0;
 
-            var convertLevelToArrayIndex = projectileData.Level - 1;
-
-            _stringBuilder.Append("Resources needed: ");
-            _stringBuilder.Append(projectileData.AmountToResourcesToUpgrade[convertLevelToArrayIndex]);
-            _stringBuilder.Append(" / ");
-            _stringBuilder.Append(resourcesData.Resources);
-
-            _stringBuilder.Append("\n");
-            _stringBuilder.Append("Capacitors needed: ");
-            _stringBuilder.Append(projectileData.AmountCapacitorsToUpgrade[convertLevelToArrayIndex]);
-            _stringBuilder.Append(" / ");
-            _stringBuilder.Append(resourcesData.Capacitors);
-
-            tmpUpgradeCost.text = _stringBuilder.ToString();
-
-            _stringBuilder.Length = 0;
-
-            if (resourcesData.Resources < projectileData.AmountToResourcesToUpgrade[convertLevelToArrayIndex]
-                || resourcesData.Capacitors < projectileData.AmountCapacitorsToUpgrade[convertLevelToArrayIndex])
+            if (projectileData.Level < projectileData.LevelMax)
             {
-                tmpUpgradeCost.color = outOfResourcesColor;
+                var convertLevelToArrayIndex = projectileData.Level - 1;
+
+                _stringBuilder.Append("Resources needed: ");
+                _stringBuilder.Append(projectileData.AmountToResourcesToUpgrade[convertLevelToArrayIndex]);
+                _stringBuilder.Append(" / ");
+                _stringBuilder.Append(resourcesData.Resources);
+
+                _stringBuilder.Append("\n");
+                _stringBuilder.Append("Capacitors needed: ");
+                _stringBuilder.Append(projectileData.AmountCapacitorsToUpgrade[convertLevelToArrayIndex]);
+                _stringBuilder.Append(" / ");
+                _stringBuilder.Append(resourcesData.Capacitors);
+
+                tmpUpgradeCost.text = _stringBuilder.ToString();
+
+                _stringBuilder.Length = 0;
+
+                if (resourcesData.Resources < projectileData.AmountToResourcesToUpgrade[convertLevelToArrayIndex]
+                    || resourcesData.Capacitors < projectileData.AmountCapacitorsToUpgrade[convertLevelToArrayIndex])
+                {
+                    tmpUpgradeCost.color = outOfResourcesColor;
+                    upgradeButton.interactable = false;
+                }
+                else
+                {
+                    tmpUpgradeCost.color = withResourcesColor;
+                    upgradeButton.interactable = true;
+                }
             }
             else
             {
                 tmpUpgradeCost.color = withResourcesColor;
+                tmpUpgradeCost.text = "Max level has been acdquired";
             }
         }
 

@@ -36,6 +36,26 @@ namespace Cubeman.ScriptableObjects
             capacitors += amount;
         }
 
+        public void RemoveResources(int amount)
+        {
+            resources -= amount;
+
+            if (resources < 0)
+            {
+                resources = 0;
+            }
+        }
+
+        public void RemoveCapacitors(int amount)
+        {
+            capacitors -= amount;
+
+            if (capacitors < 0)
+            {
+                capacitors = 0;
+            }
+        }
+
         private void ResetResources() 
         {
             resources = 9000;

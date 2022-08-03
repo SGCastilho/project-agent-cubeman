@@ -790,6 +790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 195386365}
   upgradeImage: {fileID: 494517976}
+  upgradeButton: {fileID: 344547607}
   tmpUpgradeName: {fileID: 1633536403}
   tmpUpgradeCost: {fileID: 1423718279}
   tmpUpgradeDetails: {fileID: 379309863}
@@ -1339,7 +1340,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 344547608}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1938271065}
+        m_TargetAssemblyTypeName: Cubeman.Manager.UpgradeZoneManager, Cubeman.Manager
+        m_MethodName: DoUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &344547608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2381,7 +2394,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 763396356}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1938271065}
+        m_TargetAssemblyTypeName: Cubeman.Manager.UpgradeZoneManager, Cubeman.Manager
+        m_MethodName: NextUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &763396356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3731,7 +3756,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1096476234}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1938271065}
+        m_TargetAssemblyTypeName: Cubeman.Manager.UpgradeZoneManager, Cubeman.Manager
+        m_MethodName: PreviousUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1096476234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5865,8 +5902,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourcesData: {fileID: 11400000, guid: 292177883e7bcd74d8ba1c4b18a5935a, type: 2}
   defaultPlayerData: {fileID: 11400000, guid: 39b2da1cd8308854c9bd959783226d9b, type: 2}
-  defaultProjectile: {fileID: 11400000, guid: c5e2a16b55816cc498b1fd755c9636b0, type: 2}
-  defaultUltimateProjectile: {fileID: 11400000, guid: 783af4623cca3254d8f8142d11b88df5, type: 2}
+  defaultProjectileData: {fileID: 11400000, guid: c5e2a16b55816cc498b1fd755c9636b0, type: 2}
+  defaultUltimateProjectileData: {fileID: 11400000, guid: 783af4623cca3254d8f8142d11b88df5, type: 2}
+  maxUpgradeToSelect: 2
 --- !u!1 &1945412384
 GameObject:
   m_ObjectHideFlags: 0

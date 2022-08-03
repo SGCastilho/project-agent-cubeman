@@ -11,7 +11,8 @@ namespace Cubeman.ScriptableObjects
         public Sprite UpgradePreview { get => upgradePreview; }
 
         public int Health { get => playerHealth; }
-        public int HealthLevel { get => playerHealthLevel; }
+        public int Level { get => playerHealthLevel; }
+        public int MaxLevel { get => playerHealthMaxLevel; }
         public int HealthScaling { get => playerFixedUpgrade; }
 
         public int[] AmountToResourcesToUpgrade { get => amountToResourcesToUpgrade; }
@@ -35,6 +36,7 @@ namespace Cubeman.ScriptableObjects
         [Space(6)]
 
         [SerializeField] [Range(1, 5)] private int playerHealthLevel = 1;
+        [SerializeField] private int playerHealthMaxLevel = 5;
         [SerializeField] private int playerFixedUpgrade;
 
         [Space(6)]

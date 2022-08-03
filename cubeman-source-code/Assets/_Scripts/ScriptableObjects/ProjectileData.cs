@@ -20,6 +20,7 @@ namespace Cubeman.ScriptableObjects
 
         public int Damage { get => projectileDamage; }
         public int Level { get => projectileLevel; }
+        public int LevelMax { get => projectileMaxLevel; }
         public int DamageScaling { get => projectileFixedUpgrade; }
 
         public int[] AmountToResourcesToUpgrade { get => amountToResourcesToUpgrade; }
@@ -60,6 +61,7 @@ namespace Cubeman.ScriptableObjects
         [Space(6)]
 
         [SerializeField] [Range(1, 5)] private int projectileLevel = 1;
+        [SerializeField] private int projectileMaxLevel = 5;
         [SerializeField] private int projectileFixedUpgrade;
 
         [Space(6)]
