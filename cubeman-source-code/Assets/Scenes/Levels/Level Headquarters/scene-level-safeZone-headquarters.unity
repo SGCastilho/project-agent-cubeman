@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.29682547, g: 0.6337605, b: 0.9937206, a: 1}
+  m_IndirectSpecularColor: {r: 0.31997034, g: 0.657013, b: 0.99095315, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 869881e4a0d6f4f4fb3d2b4b7b2a1c9b, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 52de60c2da71e464faed69149bf7245f, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 6bd31ccd943deec45a61ccfe00515d8f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -816,6 +816,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 4800084960576313657, guid: cd8c3c9c2e7ea8a4084114f746e903d9, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4800084960576313658, guid: cd8c3c9c2e7ea8a4084114f746e903d9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2799,8 +2803,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 881724737}
-  - component: {fileID: 881724739}
-  - component: {fileID: 881724738}
   m_Layer: 10
   m_Name: Interactable Save Zone
   m_TagString: Untagged
@@ -2825,76 +2827,6 @@ Transform:
   m_Father: {fileID: 942900666}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &881724738
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881724736}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 8, y: 3.8, z: 6}
-  m_Center: {x: 0, y: 0, z: 2}
---- !u!114 &881724739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881724736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d3544d73da25ad43ba245d2367566da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnRangeToInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1204221933}
-        m_TargetAssemblyTypeName: Cubeman.UI.UIWorldInteract, Cubeman.UI
-        m_MethodName: FadeIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2034774551}
-        m_TargetAssemblyTypeName: Cubeman.Manager.SaveZoneManager, Cubeman.Manager
-        m_MethodName: OpenSaveZone
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnOutOfRangeToInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1204221933}
-        m_TargetAssemblyTypeName: Cubeman.UI.UIWorldInteract, Cubeman.UI
-        m_MethodName: FadeOut
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &898768321
 GameObject:
   m_ObjectHideFlags: 0
@@ -4104,17 +4036,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6128323018243610401, guid: eb60260a5b249dd4d9a54c8738fa7124, type: 3}
   m_PrefabInstance: {fileID: 1204221931}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1204221933 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6128323017800961512, guid: eb60260a5b249dd4d9a54c8738fa7124, type: 3}
-  m_PrefabInstance: {fileID: 1204221931}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160eb5a70c06cae4a8d0fd5759d46c8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1206551219
 GameObject:
   m_ObjectHideFlags: 0
