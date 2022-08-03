@@ -16,6 +16,7 @@ namespace Cubeman.Manager
         [SerializeField] private DialogueManager dialogueManager;
         [SerializeField] private GamePauseManager gamePauseManager;
         [SerializeField] private SceneLoaderManager sceneLoaderManager;
+        [SerializeField] private UpgradeZoneManager upgradeZoneManager;
         [SerializeField] private LevelSelectorManager levelSelectorManager;
 
         [Space(12)]
@@ -23,6 +24,7 @@ namespace Cubeman.Manager
         [SerializeField] private UIFade uiFade;
         [SerializeField] private UIDialogue uiDialogue;
         [SerializeField] private UIPauseMenu uiPauseMenu;
+        [SerializeField] private UIUpgradeZone uiUpgradeZone;
         [SerializeField] private UILevelSelector uiLevelSelector;
 
         [Space(12)]
@@ -55,6 +57,8 @@ namespace Cubeman.Manager
             EnableDialogueEvents();
 
             EnableLevelSelectorEvents();
+
+            EnableUpgradeZoneEvents();
         }
 
         private void DisableEvents()
@@ -68,6 +72,8 @@ namespace Cubeman.Manager
             DisableDialogueEvents();
 
             DisableLevelSelectorEvents();
+
+            DisableUpgradeZoneEvents();
         }
 
         private void EnableSceneLoaderEvents()
@@ -113,6 +119,15 @@ namespace Cubeman.Manager
             uiLevelSelector.OnSetupButtonsAction += EnableButtonLevelSelectEvents;
         }
 
+        private void EnableUpgradeZoneEvents()
+        {
+            upgradeZoneManager.OnShowUpgradeWindow += uiUpgradeZone.FadeIn;
+            upgradeZoneManager.OnHideUpgradeWindow += uiUpgradeZone.FadeOut;
+
+            upgradeZoneManager.OnSendPlayerDataInformation += uiUpgradeZone.RefreshUpgrade;
+            upgradeZoneManager.OnSendProjectileDataInformation += uiUpgradeZone.RefreshUpgrade;
+        }
+
         private void DisableSceneLoaderEvents()
         {
             sceneLoaderManager.OnStartLoadScene -= uiFade.LoadingFadeIn;
@@ -156,6 +171,15 @@ namespace Cubeman.Manager
             uiLevelSelector.OnSetupButtonsAction -= EnableButtonLevelSelectEvents;
 
             DisableButtonLevelSelectEvents();
+        }
+
+        private void DisableUpgradeZoneEvents()
+        {
+            upgradeZoneManager.OnShowUpgradeWindow -= uiUpgradeZone.FadeIn;
+            upgradeZoneManager.OnHideUpgradeWindow -= uiUpgradeZone.FadeOut;
+
+            upgradeZoneManager.OnSendPlayerDataInformation -= uiUpgradeZone.RefreshUpgrade;
+            upgradeZoneManager.OnSendProjectileDataInformation -= uiUpgradeZone.RefreshUpgrade;
         }
 
         public void EnableButtonLevelSelectEvents(UIButtonLevelSelect[] buttons) 

@@ -7,6 +7,7 @@ namespace Cubeman.ScriptableObjects
     {
         #region Encapsulation
         public int Resources { get => resources; set => AddResource(value); }
+        public int Capacitors { get => capacitors; set => AddCapacitors(value); }
         #endregion
 
         public delegate void AddResources(int amountResources, int currentResources);
@@ -15,6 +16,10 @@ namespace Cubeman.ScriptableObjects
         [Header("Settings")]
         [SerializeField] private int resources = 0;
         [SerializeField] private int maxResources = 9999;
+
+        [Space(6)]
+
+        [SerializeField] private int capacitors = 0;
 
         private void OnEnable() => ResetResources();
 
@@ -26,9 +31,15 @@ namespace Cubeman.ScriptableObjects
             if(OnAddResources != null) { OnAddResources(amount, resources); }
         }
 
+        private void AddCapacitors(int amount)
+        {
+            capacitors += amount;
+        }
+
         private void ResetResources() 
         {
-            resources = 0;
+            resources = 9000;
+            capacitors = 90;
         }
     }
 }

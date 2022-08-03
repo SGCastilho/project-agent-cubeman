@@ -6,9 +6,16 @@ namespace Cubeman.ScriptableObjects
     public sealed class PlayerData : ScriptableObject
     {
         #region Encapsulation
+        public string UpgradeName { get => upgradeName; }
+
+        public Sprite UpgradePreview { get => upgradePreview; }
+
         public int Health { get => playerHealth; }
         public int HealthLevel { get => playerHealthLevel; }
         public int HealthScaling { get => playerFixedUpgrade; }
+
+        public int[] AmountToResourcesToUpgrade { get => amountToResourcesToUpgrade; }
+        public int[] AmountCapacitorsToUpgrade { get => amountCapacitorsToUpgrade; }
 
         public int UltimateCharge { get => playerUltimateCharge; }
         #endregion
@@ -16,8 +23,24 @@ namespace Cubeman.ScriptableObjects
         [Header("Settings")]
         [SerializeField] private int playerHealth = 20;
         [SerializeField] private int initPlayerHealth = 20;
+
+        [Header("Upgrade Details")]
+
+        [SerializeField] private string upgradeName = "Cubeman Armature";
+
+        [Space(6)]
+
+        [SerializeField] private Sprite upgradePreview;
+
+        [Space(6)]
+
         [SerializeField] [Range(1, 5)] private int playerHealthLevel = 1;
         [SerializeField] private int playerFixedUpgrade;
+
+        [Space(6)]
+
+        [SerializeField] private int[] amountToResourcesToUpgrade;
+        [SerializeField] private int[] amountCapacitorsToUpgrade;
 
         [Space(12)]
 
@@ -44,7 +67,19 @@ namespace Cubeman.ScriptableObjects
                 playerHealthLevel++;
             }
         }
-        
+
+        public int GetNextUpgrade()
+        {
+            var nextUpgrade = 0;
+
+            int currentHealth = playerHealth;
+            int newHealth = currentHealth + playerFixedUpgrade;
+
+            nextUpgrade = newHealth;
+
+            return nextUpgrade;
+        }
+
         private void ResetData()
         {
             playerHealth = initPlayerHealth;

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Projectile Super Plasma Data
   m_EditorClassIdentifier: 
   projectileKey: projectile_ultimate_super_plasma
+  projectileName: Super Plasma Projectile
   projectilePrefab: {fileID: 5988911552114657902, guid: 2dae2f7d667dd954bb33ad04fe7f676a, type: 3}
   projectileInstances: 2
   disableOnDamage: 0
@@ -20,8 +21,11 @@ MonoBehaviour:
   projectileClipVolumeScale: 0.3
   projectileDamage: 10
   initProjectileDamage: 10
+  upgradePreview: {fileID: 21300000, guid: cd6bc6014b7a25346ac53672f7655e6f, type: 3}
   projectileLevel: 1
   projectileFixedUpgrade: 10
+  amountToResourcesToUpgrade: 9001000020030000b0040000d0070000
+  amountCapacitorsToUpgrade: 02000000040000000600000008000000
   projectileVelocity: 10
   projectileRange: 2
   devNotes: Default Ultimate projectile.

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Projectile Plasma Data
   m_EditorClassIdentifier: 
   projectileKey: projectile_plasma
+  projectileName: Plasma Projectile
   projectilePrefab: {fileID: 6978551705403210328, guid: 9f20a2608e387624899d844eed88dfb8, type: 3}
   projectileInstances: 30
   disableOnDamage: 1
@@ -20,8 +21,11 @@ MonoBehaviour:
   projectileClipVolumeScale: 0.3
   projectileDamage: 2
   initProjectileDamage: 2
+  upgradePreview: {fileID: 21300000, guid: cd6bc6014b7a25346ac53672f7655e6f, type: 3}
   projectileLevel: 1
   projectileFixedUpgrade: 2
+  amountToResourcesToUpgrade: c80000009001000058020000e8030000
+  amountCapacitorsToUpgrade: 02000000040000000600000008000000
   projectileVelocity: 20
   projectileRange: 2
   devNotes: Default projectile.
