@@ -10,6 +10,7 @@ namespace Cubeman.Manager
         #endregion
         
         #region Encapsulation
+        public bool GamePaused { get => _gamePaused; }
         public bool BlockPause { set => _blockPause = value; }
         #endregion
 
@@ -45,13 +46,13 @@ namespace Cubeman.Manager
         {
             if(_blockPause || _gamePaused || !_readyToPause) return;
 
+            _readyToPause = false;
+            _gamePaused = true;
+
             OnPauseGame?.Invoke();
             timeManager.StopTime();
 
             StartCoroutine(UnPauseCouldownCoroutine());
-
-            _readyToPause = false;
-            _gamePaused = true;
         }
 
         IEnumerator UnPauseCouldownCoroutine()

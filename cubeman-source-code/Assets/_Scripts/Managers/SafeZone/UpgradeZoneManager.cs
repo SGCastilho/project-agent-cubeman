@@ -68,6 +68,10 @@ namespace Cubeman.Manager
 
         public void OpenUpgradeZone()
         {
+            if (GamePauseManager.Instance.GamePaused) return;
+
+            GamePauseManager.Instance.BlockPause = true;
+
             _playerBehaviour.Input.SubscribeCancelInput(CloseUpgradeZone);
 
             _playerBehaviour.Input.UIInputs(true);
@@ -88,6 +92,9 @@ namespace Cubeman.Manager
             _playerBehaviour.Input.GameplayInputs(true);
 
             _playerBehaviour.CursorState(true);
+
+
+            GamePauseManager.Instance.BlockPause = false;
         }
 
         public void NextUpgrade()

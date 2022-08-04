@@ -41,6 +41,8 @@ namespace Cubeman.Manager
         {
             if(GamePauseManager.Instance != null)
             {
+                if (GamePauseManager.Instance.GamePaused) return;
+
                 GamePauseManager.Instance.BlockPause = true;
             }
 

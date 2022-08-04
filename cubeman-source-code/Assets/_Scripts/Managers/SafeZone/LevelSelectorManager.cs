@@ -40,6 +40,10 @@ namespace Cubeman.Manager
 
         public void OpenLevelSelector()
         {
+            if (GamePauseManager.Instance.GamePaused) return;
+
+            GamePauseManager.Instance.BlockPause = true;
+
             _playerBehaviour.Input.SubscribeCancelInput(CloseLevelSelector);
 
             _playerBehaviour.Input.UIInputs(true);
@@ -60,6 +64,8 @@ namespace Cubeman.Manager
             _playerBehaviour.Input.GameplayInputs(true);
 
             _playerBehaviour.CursorState(true);
+
+            GamePauseManager.Instance.BlockPause = false;
         }
     }
 }
