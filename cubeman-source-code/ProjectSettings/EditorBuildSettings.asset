@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level Headquarters/scene-level-safeZone-headquarters.unity
     guid: 84da7d1087a109f448d7298bb44554f0
   - enabled: 1
+    path: Assets/Scenes/Levels/Level Amazon Forest/scene-level1-amazonForest.unity
+    guid: 81c2eba6ab89c6e4f80aa1b483ab3280
+  - enabled: 1
     path: Assets/Scenes/Menus/scene-menu-thanksForPlaying.unity
     guid: 9f220af2d19419f4dafb7ddad66fb582
   m_configObjects:

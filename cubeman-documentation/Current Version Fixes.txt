@@ -1,11 +1,15 @@
 Alpha Fixes:
 
+New Areas:
+	-Headquarters
+	-Amazon Florest
+
 New Features:
 	-Air Dash: Cubeman now can use your dash in the air, air dash travel greater distances in comparation with ground dash.
 		Air Dash duration -> 0.46
 	-Added rewards after defeat a boss
 		-A great amount of resources.
-		-1 upgrade item, specific for each boss.
+		-Some upgrade itens
 Buffs:
 	-Ground Dash: Duration -> 0.26 to 0.36
 
