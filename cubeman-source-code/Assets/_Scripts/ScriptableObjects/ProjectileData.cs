@@ -60,6 +60,10 @@ namespace Cubeman.ScriptableObjects
 
         [Space(6)]
 
+        [SerializeField] private bool projectileIsUpgradable;
+
+        [Space(4)]
+
         [SerializeField] [Range(1, 5)] private int projectileLevel = 1;
         [SerializeField] private int projectileMaxLevel = 5;
         [SerializeField] private int projectileFixedUpgrade;
@@ -84,11 +88,13 @@ namespace Cubeman.ScriptableObjects
 #endif
         #endregion
 
-        private void OnEnable() => ResetData();
+        private void OnDisable() => ResetData();
 
         public void UpgradeDamage()
         {
-            if(projectileLevel <= 4) 
+            if (!projectileIsUpgradable) return;
+
+            if (projectileLevel <= 4) 
             {
                 int currentDamage = projectileDamage;
                 int newDamage = currentDamage + projectileFixedUpgrade;
@@ -110,8 +116,10 @@ namespace Cubeman.ScriptableObjects
             return nextUpgrade;
         }
 
-        private void ResetData() 
+        public void ResetData() 
         {
+            if (!projectileIsUpgradable) return;
+
             projectileDamage = initProjectileDamage;
             projectileLevel = 1;
         }

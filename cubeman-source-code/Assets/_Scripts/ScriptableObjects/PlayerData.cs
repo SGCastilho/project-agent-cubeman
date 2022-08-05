@@ -56,7 +56,7 @@ namespace Cubeman.ScriptableObjects
 #endif
         #endregion
 
-        private void OnEnable() => ResetData();
+        private void OnDisable() => ResetData();
 
         public void UpgradeHealth()
         {
@@ -82,7 +82,7 @@ namespace Cubeman.ScriptableObjects
             return nextUpgrade;
         }
 
-        private void ResetData()
+        public void ResetData()
         {
             playerHealth = initPlayerHealth;
             playerHealthLevel = 1;

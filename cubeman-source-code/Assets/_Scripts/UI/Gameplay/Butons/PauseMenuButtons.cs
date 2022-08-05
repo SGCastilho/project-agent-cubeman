@@ -9,6 +9,9 @@ namespace Cubeman.UI
         public delegate void Resume();
         public event Resume OnResume;
 
+        public delegate void StartQuit();
+        public event StartQuit OnStartQuit;
+
         public delegate void Quit(string sceneToLoad);
         public event Quit OnQuit;
 
@@ -25,6 +28,8 @@ namespace Cubeman.UI
         public void QuitButton() 
         {
             canvasGroup.blocksRaycasts = false;
+
+            OnStartQuit?.Invoke();
             OnQuit?.Invoke(MENU_SCENE_NAME);
         }
     }

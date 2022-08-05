@@ -74,5 +74,13 @@ namespace Cubeman.Player
 
             shoot.BlockShooting = enable;
         }
+
+        public void ResetData()
+        {
+            status.Data.ResetData();
+
+            shoot.ProjectileData.ResetData();
+            shoot.UltimateData.ResetData();
+        }
     }
 }

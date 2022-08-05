@@ -96,6 +96,7 @@ namespace Cubeman.Manager
             gamePauseManager.OnUnPauseGame += uiPauseMenu.FadeOut;
 
             pauseMenuButtons.OnResume += gamePauseManager.UnPause;
+            pauseMenuButtons.OnStartQuit += _player.ResetData;
             pauseMenuButtons.OnQuit += sceneLoaderManager.LoadScene;
 
             uiPauseMenu.OnPauseEnd += _player.Input.PauseEnd;
@@ -148,6 +149,7 @@ namespace Cubeman.Manager
             gamePauseManager.OnUnPauseGame -= uiPauseMenu.FadeOut;
 
             pauseMenuButtons.OnResume -= gamePauseManager.UnPause;
+            pauseMenuButtons.OnStartQuit += _player.ResetData;
             pauseMenuButtons.OnQuit -= sceneLoaderManager.LoadScene;
 
             uiPauseMenu.OnPauseEnd -= _player.Input.PauseEnd;
