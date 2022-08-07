@@ -18,6 +18,7 @@ namespace Cubeman.Manager
         [SerializeField] private SceneLoaderManager sceneLoaderManager;
         [SerializeField] private UpgradeZoneManager upgradeZoneManager;
         [SerializeField] private LevelSelectorManager levelSelectorManager;
+        [SerializeField] private SafezoneInteractionsManager safeZoneInteractionManager;
 
         [Space(12)]
 
@@ -26,6 +27,7 @@ namespace Cubeman.Manager
         [SerializeField] private UIPauseMenu uiPauseMenu;
         [SerializeField] private UIUpgradeZone uiUpgradeZone;
         [SerializeField] private UILevelSelector uiLevelSelector;
+        [SerializeField] private UISafezoneInteractions uiSafezoneInteractions;
 
         [Space(12)]
 
@@ -59,6 +61,8 @@ namespace Cubeman.Manager
             EnableLevelSelectorEvents();
 
             EnableUpgradeZoneEvents();
+
+            EnableSafezoneInteractions();
         }
 
         private void DisableEvents()
@@ -74,6 +78,8 @@ namespace Cubeman.Manager
             DisableLevelSelectorEvents();
 
             DisableUpgradeZoneEvents();
+
+            DisableSafezoneInteractions();
         }
 
         private void EnableSceneLoaderEvents()
@@ -129,6 +135,14 @@ namespace Cubeman.Manager
             upgradeZoneManager.OnSendProjectileDataInformation += uiUpgradeZone.RefreshUpgrade;
         }
 
+        private void EnableSafezoneInteractions()
+        {
+            safeZoneInteractionManager.OnShowInteractionsWindow += uiSafezoneInteractions.ShowInteractions;
+            safeZoneInteractionManager.OnHideInteractionWindow += uiSafezoneInteractions.HideInteractions;
+
+            uiSafezoneInteractions.OnSwitchingInputs += _player.SwitchInputs;
+        }
+
         private void DisableSceneLoaderEvents()
         {
             sceneLoaderManager.OnStartLoadScene -= uiFade.LoadingFadeIn;
@@ -182,6 +196,14 @@ namespace Cubeman.Manager
 
             upgradeZoneManager.OnSendPlayerDataInformation -= uiUpgradeZone.RefreshUpgrade;
             upgradeZoneManager.OnSendProjectileDataInformation -= uiUpgradeZone.RefreshUpgrade;
+        }
+
+        private void DisableSafezoneInteractions()
+        {
+            safeZoneInteractionManager.OnShowInteractionsWindow -= uiSafezoneInteractions.ShowInteractions;
+            safeZoneInteractionManager.OnHideInteractionWindow -= uiSafezoneInteractions.HideInteractions;
+
+            uiSafezoneInteractions.OnSwitchingInputs -= _player.SwitchInputs;
         }
 
         public void EnableButtonLevelSelectEvents(UIButtonLevelSelect[] buttons) 

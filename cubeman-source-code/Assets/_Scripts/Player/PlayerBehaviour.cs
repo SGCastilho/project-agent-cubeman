@@ -75,6 +75,24 @@ namespace Cubeman.Player
             shoot.BlockShooting = enable;
         }
 
+        public void SwitchInputs(bool swicthInputs)
+        {
+            if(swicthInputs)
+            {
+                input.UIInputs(true);
+                input.GameplayInputs(false);
+
+                CursorState(false);
+            }
+            else
+            {
+                input.UIInputs(false);
+                input.GameplayInputs(true);
+
+                CursorState(true);
+            }
+        }
+
         public void ResetData()
         {
             status.Data.ResetData();
