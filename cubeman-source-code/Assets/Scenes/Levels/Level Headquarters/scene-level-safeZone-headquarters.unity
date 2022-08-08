@@ -1300,7 +1300,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 260889485}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1917230937}
+        m_TargetAssemblyTypeName: Cubeman.Manager.SafezoneInteractionsManager, Cubeman.Manager
+        m_MethodName: StartGunsmithDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &260889485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,7 +1440,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 51de55e041e16ba4e965befa3916e8d6, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51de55e041e16ba4e965befa3916e8d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2651,6 +2663,7 @@ MonoBehaviour:
   upgradeZoneManager: {fileID: 1938271065}
   levelSelectorManager: {fileID: 447013210}
   safeZoneInteractionManager: {fileID: 1917230937}
+  safezoneScenarioTriggersManager: {fileID: 1388185523}
   uiFade: {fileID: 199574169}
   uiDialogue: {fileID: 1030039428}
   uiPauseMenu: {fileID: 1185937244}
@@ -2741,7 +2754,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 577880155}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1917230937}
+        m_TargetAssemblyTypeName: Cubeman.Manager.SafezoneInteractionsManager, Cubeman.Manager
+        m_MethodName: StartOracleDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &577880155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4869,6 +4894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1095694330}
+  scenarioEventSystem: {fileID: 863390919}
   upgradeZoneButtons: {fileID: 651944293}
   levelSelectorButtons: {fileID: 1126814267}
   fadeDuration: 0.4
@@ -4881,7 +4907,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 102be7f1a885467419446c4b5c1ab070, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 102be7f1a885467419446c4b5c1ab070, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5670,6 +5696,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1388185521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1388185522}
+  - component: {fileID: 1388185523}
+  m_Layer: 0
+  m_Name: Safezone Scenario Triggers Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1388185522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388185521}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1388185523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388185521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e198282b63558d843b65528b2c64c83f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1397896604
 GameObject:
   m_ObjectHideFlags: 0
@@ -6350,7 +6420,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9cf675613cae957418427de03f8f7d56, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cf675613cae957418427de03f8f7d56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7806,6 +7876,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6138b655becd5d541a840a1fde6768a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oracleDialogues:
+  - {fileID: 11400000, guid: 18f501355403142498e22ed26db615ef, type: 2}
+  gunsmithDialogues:
+  - {fileID: 11400000, guid: b9b18c16e07d6c8488afdf617925f0b3, type: 2}
+  scarlettDialogues:
+  - {fileID: 11400000, guid: 18f501355403142498e22ed26db615ef, type: 2}
+  dialogueManager: {fileID: 731755432}
 --- !u!1 &1936109647
 GameObject:
   m_ObjectHideFlags: 0

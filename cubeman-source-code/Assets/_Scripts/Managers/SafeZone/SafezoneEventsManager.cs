@@ -19,6 +19,7 @@ namespace Cubeman.Manager
         [SerializeField] private UpgradeZoneManager upgradeZoneManager;
         [SerializeField] private LevelSelectorManager levelSelectorManager;
         [SerializeField] private SafezoneInteractionsManager safeZoneInteractionManager;
+        [SerializeField] private SafezoneScenarioTriggersManager safezoneScenarioTriggersManager;
 
         [Space(12)]
 
@@ -103,6 +104,7 @@ namespace Cubeman.Manager
 
             pauseMenuButtons.OnResume += gamePauseManager.UnPause;
             pauseMenuButtons.OnStartQuit += _player.ResetData;
+            pauseMenuButtons.OnStartQuit += safezoneScenarioTriggersManager.DestroySafezoneState;
             pauseMenuButtons.OnQuit += sceneLoaderManager.LoadScene;
 
             uiPauseMenu.OnPauseEnd += _player.Input.PauseEnd;
@@ -163,7 +165,8 @@ namespace Cubeman.Manager
             gamePauseManager.OnUnPauseGame -= uiPauseMenu.FadeOut;
 
             pauseMenuButtons.OnResume -= gamePauseManager.UnPause;
-            pauseMenuButtons.OnStartQuit += _player.ResetData;
+            pauseMenuButtons.OnStartQuit -= _player.ResetData;
+            pauseMenuButtons.OnStartQuit -= safezoneScenarioTriggersManager.DestroySafezoneState;
             pauseMenuButtons.OnQuit -= sceneLoaderManager.LoadScene;
 
             uiPauseMenu.OnPauseEnd -= _player.Input.PauseEnd;

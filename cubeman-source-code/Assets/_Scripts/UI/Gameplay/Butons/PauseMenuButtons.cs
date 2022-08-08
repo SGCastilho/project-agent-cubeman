@@ -27,9 +27,10 @@ namespace Cubeman.UI
 
         public void QuitButton() 
         {
+            OnStartQuit?.Invoke();
+
             canvasGroup.blocksRaycasts = false;
 
-            OnStartQuit?.Invoke();
             OnQuit?.Invoke(MENU_SCENE_NAME);
         }
     }

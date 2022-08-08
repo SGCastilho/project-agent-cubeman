@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Cubeman.UI
 {
@@ -10,6 +11,7 @@ namespace Cubeman.UI
 
         [Header("Classes")]
         [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private EventSystem scenarioEventSystem;
 
         [Space(6)]
 
@@ -34,6 +36,8 @@ namespace Cubeman.UI
         {
             if (_inFadeTransistion) return;
 
+            scenarioEventSystem.SetSelectedGameObject(null);
+
             FadeOut();
 
             OnSwitchingInputs?.Invoke(false);
@@ -42,6 +46,8 @@ namespace Cubeman.UI
         public void HideInteractionsWithoutSwithInputs()
         {
             if (_inFadeTransistion) return;
+
+            scenarioEventSystem.SetSelectedGameObject(null);
 
             FadeOut();
         }

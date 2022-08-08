@@ -26,6 +26,7 @@ namespace Cubeman.Manager
 
         private int _maxDialogueID;
         private int _currentDialogueID;
+
         private Sprite _currentDialogueCharacterSprite;
         private string _currentDialogueCharacterName;
         private string _currentDialogueText;
