@@ -3,7 +3,22 @@ guid: 24ad3c261d5780942801ca147756a771
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_fence_metal
+    second: {fileID: 2100000, guid: de2b9f8f5d51dc649b6929b270fef73a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_pillars_metal
+    second: {fileID: 2100000, guid: de2b9f8f5d51dc649b6929b270fef73a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_plataform_metal
+    second: {fileID: 2100000, guid: de2b9f8f5d51dc649b6929b270fef73a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
