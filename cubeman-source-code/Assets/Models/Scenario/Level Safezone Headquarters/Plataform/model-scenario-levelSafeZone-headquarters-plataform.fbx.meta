@@ -8,17 +8,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: material_fence_metal
-    second: {fileID: 2100000, guid: de2b9f8f5d51dc649b6929b270fef73a, type: 2}
+    second: {fileID: 2100000, guid: 3c91ffa5056e9af4296c54c2c80a2d16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_pillars_emissive
+    second: {fileID: 2100000, guid: 5bba2d88e9187ab45a0512bef29153cc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: material_pillars_metal
-    second: {fileID: 2100000, guid: de2b9f8f5d51dc649b6929b270fef73a, type: 2}
+    second: {fileID: 2100000, guid: db2288be211eb124aa1a5de19f1f8d35, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: material_plataform_metal
-    second: {fileID: 2100000, guid: de2b9f8f5d51dc649b6929b270fef73a, type: 2}
+    second: {fileID: 2100000, guid: 5487b8510db2da04e81c371153518a94, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
