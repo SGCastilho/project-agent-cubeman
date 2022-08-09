@@ -51848,6 +51848,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Playable_Cubeman
       objectReference: {fileID: 0}
+    - target: {fileID: 7501616326662091692, guid: b4034b72bdbaa824b9f0b478364faae4, type: 3}
+      propertyPath: m_stencilPass
+      value: 
+      objectReference: {fileID: 2100000, guid: e967173267ec34715b98906ebcae0b8c, type: 2}
+    - target: {fileID: 7501616326662091692, guid: b4034b72bdbaa824b9f0b478364faae4, type: 3}
+      propertyPath: m_stencilTestOptions
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4034b72bdbaa824b9f0b478364faae4, type: 3}
 --- !u!1 &3708660533677862331
