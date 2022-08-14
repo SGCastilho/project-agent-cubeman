@@ -3,7 +3,12 @@ guid: f3b9b4577a72c6a42b270967475160e8
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_upgrade_showcase_flat
+    second: {fileID: 2100000, guid: 59c018d51e64b8d49a208e913759d637, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

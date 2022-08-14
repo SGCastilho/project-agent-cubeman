@@ -8,7 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: material_upgrade_table_emissive
-    second: {fileID: 2100000, guid: e011248806b9aa94ba08bdd5284d83fe, type: 2}
+    second: {fileID: 2100000, guid: b38b4a90ea011c54d86b5246f06a6e70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_upgrade_table_flat
+    second: {fileID: 2100000, guid: 09bb9c21fa86873449b548808e324174, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
